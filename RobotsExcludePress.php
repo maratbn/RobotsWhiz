@@ -323,7 +323,7 @@
 
                       _updateCheckboxes_all_none();
                   }
-                  _processCheckboxes();
+                  _updateCheckboxes_all_none();
                   $inputCheckbox_noindex.bind('change', _processCheckboxes);
                   $inputCheckbox_nofollow.bind('change', _processCheckboxes);
                   $inputCheckbox_noarchive.bind('change', _processCheckboxes);
