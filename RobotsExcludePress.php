@@ -115,7 +115,12 @@
             wp_die(__('You do not have sufficient permissions to access this page.',
                       'domain-plugin-RobotsExcludePress'));
         }
-    ?><div class="wrap"><?php
+    ?><style>
+        .robots-exclude-press--odd-row {
+            background-color:                           #dde;
+        }
+      </style>
+      <div class="wrap"><?php
       ?><p><?=sprintf(
         __('Check the checkbox(es) corresponding to the post(s) you want to exclude ' .
            'from robots, then submit the form by clicking \'%1$s\' at the top or bottom.',
@@ -163,7 +168,7 @@
                     $strPostName = $post->post_name;
                 ?><input type='hidden' name='post_<?=$idPost?>'><?php
                 ?><tr <?=$indexRow % 2 == 0
-                         ? 'style=\'background-color:#dde\''
+                         ? 'class=\'robots-exclude-press--odd-row\''
                          : ""?>>
                     <td><a href='<?=get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
                     <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
