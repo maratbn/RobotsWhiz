@@ -262,7 +262,7 @@
                       $inputCheckbox_noimageindex =  $inputCheckbox.filter('[name=noimageindex]');
 
 
-                  function _updateReadout() {
+                  function _processCheckboxes() {
                       var flagUncheckAll   = false,
                           flagUncheckNone  = false;
 
@@ -312,11 +312,11 @@
                                                              .replace("\"", "\\\"")
                                                                           + "\">");
                   }
-                  _updateReadout();
-                  $inputCheckbox_noindex.bind('change', _updateReadout);
-                  $inputCheckbox_nofollow.bind('change', _updateReadout);
-                  $inputCheckbox_noarchive.bind('change', _updateReadout);
-                  $inputCheckbox_noimageindex.bind('change', _updateReadout);
+                  _processCheckboxes();
+                  $inputCheckbox_noindex.bind('change', _processCheckboxes);
+                  $inputCheckbox_nofollow.bind('change', _processCheckboxes);
+                  $inputCheckbox_noarchive.bind('change', _processCheckboxes);
+                  $inputCheckbox_noimageindex.bind('change', _processCheckboxes);
 
                   $inputCheckbox_all.bind('change', function() {
                           if (!$inputCheckbox_all.is(':checked')) {
@@ -328,7 +328,7 @@
                           $inputCheckbox_nofollow.prop('checked', true);
                           $inputCheckbox_noarchive.prop('checked', true);
                           $inputCheckbox_noimageindex.prop('checked', true);
-                          _updateReadout();
+                          _processCheckboxes();
                       });
 
                   $inputCheckbox_none.bind('change', function() {
@@ -341,7 +341,7 @@
                           $inputCheckbox_nofollow.prop('checked', false);
                           $inputCheckbox_noarchive.prop('checked', false);
                           $inputCheckbox_noimageindex.prop('checked', false);
-                          _updateReadout();
+                          _processCheckboxes();
                       });
               }
 
