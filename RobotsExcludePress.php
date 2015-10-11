@@ -123,6 +123,10 @@
             padding-right:                              15px;
             text-align:                                 left;
         }
+        .robots-exclude-press--readout {
+            font-weight:                                bold;
+            text-align:                                 center;
+        }
         .robots-exclude-press--td--checkboxes {
             padding-bottom:                             10px;
             text-align:                                 center;
