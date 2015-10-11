@@ -116,6 +116,9 @@
                       'domain-plugin-RobotsExcludePress'));
         }
     ?><style>
+        .robots-exclude-press--table {
+            border-collapse:                            collapse;
+        }
         .robots-exclude-press--odd-row {
             background-color:                           #dde;
         }
@@ -158,7 +161,7 @@
           ?><input type='submit' value='<?=__('Update Settings',
                                               'domain-plugin-RobotsExcludePress')
                                           ?>' class='button-primary'/><hr><?php
-          ?><table style='border-collapse:collapse'><?php
+          ?><table class='robots-exclude-press--table'><?php
             ?><tr><?php
               ?><th class='robots-exclude-press--column-header'><?=
                 __('ID', 'domain-plugin-RobotsExcludePress')
