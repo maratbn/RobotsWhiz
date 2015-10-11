@@ -123,11 +123,11 @@
             padding-right:                              15px;
             text-align:                                 left;
         }
-        .robots-exclude-press--td--bottom {
+        .robots-exclude-press--td--checkboxes {
             padding-bottom:                             10px;
             text-align:                                 center;
         }
-        .robots-exclude-press--td--bottom label {
+        .robots-exclude-press--td--checkboxes label {
             margin-right:                               10px;
         }
       </style>
@@ -197,7 +197,7 @@
                   <tr <?=$indexRow % 2 == 0
                          ? 'class=\'robots-exclude-press--odd-row\''
                          : ""?>>
-                    <td colspan='5' class='robots-exclude-press--td--bottom'>
+                    <td colspan='5' class='robots-exclude-press--td--checkboxes'>
                       <input type='checkbox' name='noindex'><label>noindex</label></input>
                       <input type='checkbox' name='nofollow'><label>nofollow</label></input>
                       <input type='checkbox' name='noarchive'><label>noarchive</label></input>
