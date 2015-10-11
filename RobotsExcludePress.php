@@ -174,7 +174,9 @@
                 ?><tr <?=$indexRow % 2 == 0
                          ? 'class=\'robots-exclude-press--odd-row\''
                          : ""?>>
-                    <td colspan='5'></td>
+                    <td colspan='5'>
+                      <div class='robots-exclude-press--readout' type='text'></div>
+                    </td>
                   </tr>
                   <tr <?=$indexRow % 2 == 0
                          ? 'class=\'robots-exclude-press--odd-row\''
