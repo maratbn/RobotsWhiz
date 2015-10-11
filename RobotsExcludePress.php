@@ -253,6 +253,18 @@
                   var $divReadout =  $tbodyPost
                                            .find('div[data--robots-exclude-press--role=readout]');
 
+                  function _updateReadout() {
+                      if (arrTokens.length == 0) {
+                          $divReadout.html("&nbsp;");
+                          return;
+                      }
+
+                      $divReadout.text("<meta name=\"robots\" content=\"" +
+                                          arrTokens.join(" ").replace("\\", "\\\\")
+                                                             .replace("\"", "\\\"")
+                                                                          + "\">");
+                  }
+
                   var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
                   var $inputCheckbox_all =           $inputCheckbox.filter('[name=all]'),
@@ -303,15 +315,7 @@
                           $inputCheckbox_none.prop('checked', false);
                       }
 
-                      if (arrTokens.length == 0) {
-                          $divReadout.html("&nbsp;");
-                          return;
-                      }
-
-                      $divReadout.text("<meta name=\"robots\" content=\"" +
-                                          arrTokens.join(" ").replace("\\", "\\\\")
-                                                             .replace("\"", "\\\"")
-                                                                          + "\">");
+                      _updateReadout();
                   }
                   _processCheckboxes();
                   $inputCheckbox_noindex.bind('change', _processCheckboxes);
