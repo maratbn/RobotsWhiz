@@ -250,6 +250,24 @@
                       arrTokens.push(strToken);
                   }
 
+                  function _isIncluded(strToken) {
+                      return (arrTokens.indexOf(strToken) >= 0);
+                  }
+
+                  function _areAllExcluded() {
+                      return (!_isIncluded('noindex') &&
+                              !_isIncluded('nofollow') &&
+                              !_isIncluded('noarchive') &&
+                              !_isIncluded('noimageindex'));
+                  }
+
+                  function _areAllIncluded() {
+                      return (_isIncluded('noindex') &&
+                              _isIncluded('nofollow') &&
+                              _isIncluded('noarchive') &&
+                              _isIncluded('noimageindex'));
+                  }
+
                   var $divReadout =  $tbodyPost
                                            .find('div[data--robots-exclude-press--role=readout]');
 
@@ -274,46 +292,30 @@
                       $inputCheckbox_noarchive =     $inputCheckbox.filter('[name=noarchive]'),
                       $inputCheckbox_noimageindex =  $inputCheckbox.filter('[name=noimageindex]');
 
-
                   function _processCheckboxes() {
-                      var flagUncheckAll   = false,
-                          flagUncheckNone  = false;
-
                       if ($inputCheckbox_noindex.is(':checked')) {
                           _includeToken('noindex');
-                          flagUncheckNone = true;
                       } else {
                           _excludeToken('noindex');
-                          flagUncheckAll = true;
                       }
                       if ($inputCheckbox_nofollow.is(':checked')) {
                           _includeToken('nofollow');
-                          flagUncheckNone = true;
                       } else {
                           _excludeToken('nofollow');
-                          flagUncheckAll = true;
                       }
                       if ($inputCheckbox_noarchive.is(':checked')) {
                           _includeToken('noarchive');
-                          flagUncheckNone = true;
                       } else {
                           _excludeToken('noarchive');
-                          flagUncheckAll = true;
                       }
                       if ($inputCheckbox_noimageindex.is(':checked')) {
                           _includeToken('noimageindex');
-                          flagUncheckNone = true;
                       } else {
                           _excludeToken('noimageindex');
-                          flagUncheckAll = true;
                       }
 
-                      if (flagUncheckAll) {
-                          $inputCheckbox_all.prop('checked', false);
-                      }
-                      if (flagUncheckNone) {
-                          $inputCheckbox_none.prop('checked', false);
-                      }
+                      $inputCheckbox_all.prop('checked', _areAllIncluded());
+                      $inputCheckbox_none.prop('checked', _areAllExcluded());
 
                       _updateReadout();
                   }
