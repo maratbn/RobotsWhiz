@@ -245,9 +245,23 @@
                       if (indexToken >= 0) arrTokens.splice(indexToken, 1);
                   }
 
+                  function _excludeAll() {
+                      _excludeToken('noindex');
+                      _excludeToken('nofollow');
+                      _excludeToken('noarchive');
+                      _excludeToken('noimageindex');
+                  }
+
                   function _includeToken(strToken) {
                       if (arrTokens.indexOf(strToken) >= 0) return;
                       arrTokens.push(strToken);
+                  }
+
+                  function _includeAll() {
+                      _includeToken('noindex');
+                      _includeToken('nofollow');
+                      _includeToken('noarchive');
+                      _includeToken('noimageindex');
                   }
 
                   function _isIncluded(strToken) {
@@ -327,6 +341,15 @@
                       _updateCheckboxes_all_none();
                   }
 
+                  function _updateCheckboxes() {
+                      $inputCheckbox_noindex.prop('checked', _isIncluded('noindex'));
+                      $inputCheckbox_nofollow.prop('checked', _isIncluded('nofollow'));
+                      $inputCheckbox_noarchive.prop('checked', _isIncluded('noarchive'));
+                      $inputCheckbox_noimageindex.prop('checked', _isIncluded('noimageindex'));
+
+                      _updateCheckboxes_all_none();
+                  }
+
                   $inputCheckbox_noindex.bind('change', _processCheckboxes);
                   $inputCheckbox_nofollow.bind('change', _processCheckboxes);
                   $inputCheckbox_noarchive.bind('change', _processCheckboxes);
@@ -338,11 +361,8 @@
                               return;
                           }
 
-                          $inputCheckbox_noindex.prop('checked', true);
-                          $inputCheckbox_nofollow.prop('checked', true);
-                          $inputCheckbox_noarchive.prop('checked', true);
-                          $inputCheckbox_noimageindex.prop('checked', true);
-                          _processCheckboxes();
+                          _includeAll();
+                          _updateCheckboxes();
                       });
 
                   $inputCheckbox_none.bind('change', function() {
@@ -351,11 +371,8 @@
                               return;
                           }
 
-                          $inputCheckbox_noindex.prop('checked', false);
-                          $inputCheckbox_nofollow.prop('checked', false);
-                          $inputCheckbox_noarchive.prop('checked', false);
-                          $inputCheckbox_noimageindex.prop('checked', false);
-                          _processCheckboxes();
+                          _excludeAll();
+                          _updateCheckboxes();
                       });
 
                   var $aAddCustom = $tbodyPost
