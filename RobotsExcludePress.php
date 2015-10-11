@@ -238,6 +238,18 @@
           ?>
           <script type='text/javascript'>
               function _processPost($tbodyPost) {
+                  var arrTokens = [];
+
+                  function _excludeToken(strToken) {
+                      var indexToken = arrTokens.indexOf(strToken);
+                      if (indexToken >= 0) arrTokens.splice(indexToken, 1);
+                  }
+
+                  function _includeToken(strToken) {
+                      if (arrTokens.indexOf(strToken) >= 0) return;
+                      arrTokens.push(strToken);
+                  }
+
                   var $divReadout =     $tbodyPost
                                            .find('div[data--robots-exclude-press--role=readout]'),
                       $inputCheckbox =  $tbodyPost.find('input[type=checkbox]');
@@ -251,32 +263,35 @@
 
 
                   function _updateReadout() {
-                      var arrTokens        = [],
-                          flagUncheckAll   = false,
+                      var flagUncheckAll   = false,
                           flagUncheckNone  = false;
 
                       if ($inputCheckbox_noindex.is(':checked')) {
-                          arrTokens.push('noindex');
+                          _includeToken('noindex');
                           flagUncheckNone = true;
                       } else {
+                          _excludeToken('noindex');
                           flagUncheckAll = true;
                       }
                       if ($inputCheckbox_nofollow.is(':checked')) {
-                          arrTokens.push('nofollow');
+                          _includeToken('nofollow');
                           flagUncheckNone = true;
                       } else {
+                          _excludeToken('nofollow');
                           flagUncheckAll = true;
                       }
                       if ($inputCheckbox_noarchive.is(':checked')) {
-                          arrTokens.push('noarchive');
+                          _includeToken('noarchive');
                           flagUncheckNone = true;
                       } else {
+                          _excludeToken('noarchive');
                           flagUncheckAll = true;
                       }
                       if ($inputCheckbox_noimageindex.is(':checked')) {
-                          arrTokens.push('noimageindex');
+                          _includeToken('noimageindex');
                           flagUncheckNone = true;
                       } else {
+                          _excludeToken('noimageindex');
                           flagUncheckAll = true;
                       }
 
