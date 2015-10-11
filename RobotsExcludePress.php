@@ -392,7 +392,7 @@
 
                               _includeToken(strCustomToken);
                           }
-                          _updateReadout();
+                          _updateCheckboxes();
                       });
               }
 
