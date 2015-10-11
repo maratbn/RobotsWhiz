@@ -177,7 +177,7 @@
                     $w_p_query->the_post();
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
-                ?><span><?php
+                ?><span data--robots-exclude-press--role='post-config'><?php
                   ?><input type='hidden' name='post_<?=$idPost?>'><?php
                   ?><tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-exclude-press--odd-row\''
