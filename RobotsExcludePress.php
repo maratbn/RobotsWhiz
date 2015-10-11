@@ -118,6 +118,7 @@
     ?><style>
         .robots-exclude-press--table {
             border-collapse:                            collapse;
+            width:                                      100%;
         }
         .robots-exclude-press--odd-row {
             background-color:                           #dde;
