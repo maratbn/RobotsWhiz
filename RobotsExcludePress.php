@@ -208,19 +208,23 @@
                       <td colspan='5' class='robots-exclude-press--td--checkboxes'>
                         <div class='robots-exclude-press--readout'
                              data--robots-exclude-press--role='readout' type='text'></div>
-                        <label><input type='checkbox' name='all'><i>all</i></input></label>
-                        <label><input type='checkbox' name='none'><i>none</i></input></label>
-                        <label><input type='checkbox' name='noindex'>noindex</input></label>
-                        <label><input type='checkbox' name='nofollow'>nofollow</input></label>
-                        <label><input type='checkbox' name='noarchive'>noarchive</input></label>
-                        <label><input type='checkbox'
-                                      name='noimageindex'>noimageindex</input></label>
-                        <label><a class='robots-exclude-press--td--link'
-                                  data--robots-exclude-press--role='add-custom'
-                                  href='#'>add custom...</a></label>
-                        <label><a class='robots-exclude-press--td--link'
-                                  data--robots-exclude-press--role='clear-custom'
-                                  href='#'>clear custom</a></label>
+                        <div>
+                          <label><input type='checkbox' name='all'><i>all</i></input></label>
+                          <label><input type='checkbox' name='none'><i>none</i></input></label>
+                          <label><input type='checkbox' name='noindex'>noindex</input></label>
+                          <label><input type='checkbox' name='nofollow'>nofollow</input></label>
+                          <label><input type='checkbox' name='noarchive'>noarchive</input></label>
+                          <label><input type='checkbox'
+                                        name='noimageindex'>noimageindex</input></label>
+                        </div>
+                        <div>
+                          <label><a class='robots-exclude-press--td--link'
+                                    data--robots-exclude-press--role='add-custom'
+                                    href='#'>add custom...</a></label>
+                          <label><a class='robots-exclude-press--td--link'
+                                    data--robots-exclude-press--role='clear-custom'
+                                    href='#'>clear custom</a></label>
+                        </div>
                       </td>
                     </tr>
                   </tbody><?php
