@@ -285,12 +285,8 @@
 
                   var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
-                  var $inputCheckbox_all =           $inputCheckbox.filter('[name=all]'),
-                      $inputCheckbox_none =          $inputCheckbox.filter('[name=none]'),
-                      $inputCheckbox_noindex =       $inputCheckbox.filter('[name=noindex]'),
-                      $inputCheckbox_nofollow =      $inputCheckbox.filter('[name=nofollow]'),
-                      $inputCheckbox_noarchive =     $inputCheckbox.filter('[name=noarchive]'),
-                      $inputCheckbox_noimageindex =  $inputCheckbox.filter('[name=noimageindex]');
+                  var $inputCheckbox_all =   $inputCheckbox.filter('[name=all]'),
+                      $inputCheckbox_none =  $inputCheckbox.filter('[name=none]');
 
                   function _updateCheckboxes_all_none() {
                       $inputCheckbox_all.prop('checked', _areAllIncluded());
@@ -298,6 +294,11 @@
 
                       _updateReadout();
                   }
+
+                  var $inputCheckbox_noindex =       $inputCheckbox.filter('[name=noindex]'),
+                      $inputCheckbox_nofollow =      $inputCheckbox.filter('[name=nofollow]'),
+                      $inputCheckbox_noarchive =     $inputCheckbox.filter('[name=noarchive]'),
+                      $inputCheckbox_noimageindex =  $inputCheckbox.filter('[name=noimageindex]');
 
                   function _processCheckboxes() {
                       if ($inputCheckbox_noindex.is(':checked')) {
