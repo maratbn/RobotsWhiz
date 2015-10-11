@@ -215,6 +215,55 @@
           ?><hr><input type='submit' value='<?=__('Update Settings',
                                                   'domain-plugin-RobotsExcludePress')
                                               ?>' class='button-primary'/><?php
+          ?>
+          <script type='text/javascript'>
+              function _processPost($tbodyPost) {
+                  var $divReadout =     $tbodyPost
+                                           .find('div[data--robots-exclude-press--role=readout]'),
+                      $inputCheckbox =  $tbodyPost.find('input[type=checkbox]');
+
+                  var $inputCheckbox_noindex =       $inputCheckbox.filter('[name=noindex]'),
+                      $inputCheckbox_nofollow =      $inputCheckbox.filter('[name=nofollow]'),
+                      $inputCheckbox_noarchive =     $inputCheckbox.filter('[name=noarchive]'),
+                      $inputCheckbox_noimageindex =  $inputCheckbox.filter('[name=noimageindex]');
+
+
+                  function _updateReadout() {
+                      var arrTokens = [];
+
+                      if ($inputCheckbox_noindex.is(':checked')) {
+                          arrTokens.push('noindex');
+                      }
+                      if ($inputCheckbox_nofollow.is(':checked')) {
+                          arrTokens.push('nofollow');
+                      }
+                      if ($inputCheckbox_noarchive.is(':checked')) {
+                          arrTokens.push('noarchive');
+                      }
+                      if ($inputCheckbox_noimageindex.is(':checked')) {
+                          arrTokens.push('noimageindex');
+                      }
+
+                      $divReadout.text("<meta name=\"robots\" content=\"" +
+                                          arrTokens.join(" ").replace("\\", "\\\\")
+                                                             .replace("\"", "\\\"")
+                                                                          + "\">");
+                  }
+                  _updateReadout();
+                  $inputCheckbox_noindex.bind('change', _updateReadout);
+                  $inputCheckbox_nofollow.bind('change', _updateReadout);
+                  $inputCheckbox_noarchive.bind('change', _updateReadout);
+                  $inputCheckbox_noimageindex.bind('change', _updateReadout);
+              }
+
+              jQuery(document).ready(function($) {
+                      var arrPosts = $('tbody[data--robots-exclude-press--role=post-config]');
+
+                      for (var i = 0; i < arrPosts.length; i++) {
+                          _processPost($(arrPosts[i]));
+                      }
+                  });
+          </script><?php
           } else {
           ?><?=__('No posts', 'domain-plugin-RobotsExcludePress')?><?php
           }
