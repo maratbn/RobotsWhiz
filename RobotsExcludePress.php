@@ -250,9 +250,10 @@
                       arrTokens.push(strToken);
                   }
 
-                  var $divReadout =     $tbodyPost
-                                           .find('div[data--robots-exclude-press--role=readout]'),
-                      $inputCheckbox =  $tbodyPost.find('input[type=checkbox]');
+                  var $divReadout =  $tbodyPost
+                                           .find('div[data--robots-exclude-press--role=readout]');
+
+                  var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
                   var $inputCheckbox_all =           $inputCheckbox.filter('[name=all]'),
                       $inputCheckbox_none =          $inputCheckbox.filter('[name=none]'),
