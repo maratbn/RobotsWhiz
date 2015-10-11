@@ -209,6 +209,7 @@
                            : ""?>>
                       <td colspan='5' class='robots-exclude-press--td--checkboxes'>
                         <label><input type='checkbox' name='all'><i>all</i></input></label>
+                        <label><input type='checkbox' name='none'><i>none</i></input></label>
                         <label><input type='checkbox' name='noindex'>noindex</input></label>
                         <label><input type='checkbox' name='nofollow'>nofollow</input></label>
                         <label><input type='checkbox' name='noarchive'>noarchive</input></label>
@@ -232,6 +233,7 @@
                       $inputCheckbox =  $tbodyPost.find('input[type=checkbox]');
 
                   var $inputCheckbox_all =           $inputCheckbox.filter('[name=all]'),
+                      $inputCheckbox_none =          $inputCheckbox.filter('[name=none]'),
                       $inputCheckbox_noindex =       $inputCheckbox.filter('[name=noindex]'),
                       $inputCheckbox_nofollow =      $inputCheckbox.filter('[name=nofollow]'),
                       $inputCheckbox_noarchive =     $inputCheckbox.filter('[name=noarchive]'),
@@ -239,32 +241,40 @@
 
 
                   function _updateReadout() {
-                      var arrTokens       = [],
-                          flagUncheckAll  = false;
+                      var arrTokens        = [],
+                          flagUncheckAll   = false,
+                          flagUncheckNone  = false;
 
                       if ($inputCheckbox_noindex.is(':checked')) {
                           arrTokens.push('noindex');
+                          flagUncheckNone = true;
                       } else {
                           flagUncheckAll = true;
                       }
                       if ($inputCheckbox_nofollow.is(':checked')) {
                           arrTokens.push('nofollow');
+                          flagUncheckNone = true;
                       } else {
                           flagUncheckAll = true;
                       }
                       if ($inputCheckbox_noarchive.is(':checked')) {
                           arrTokens.push('noarchive');
+                          flagUncheckNone = true;
                       } else {
                           flagUncheckAll = true;
                       }
                       if ($inputCheckbox_noimageindex.is(':checked')) {
                           arrTokens.push('noimageindex');
+                          flagUncheckNone = true;
                       } else {
                           flagUncheckAll = true;
                       }
 
                       if (flagUncheckAll) {
                           $inputCheckbox_all.prop('checked', false);
+                      }
+                      if (flagUncheckNone) {
+                          $inputCheckbox_none.prop('checked', false);
                       }
 
                       $divReadout.text("<meta name=\"robots\" content=\"" +
@@ -288,6 +298,19 @@
                           $inputCheckbox_nofollow.prop('checked', true);
                           $inputCheckbox_noarchive.prop('checked', true);
                           $inputCheckbox_noimageindex.prop('checked', true);
+                          _updateReadout();
+                      });
+
+                  $inputCheckbox_none.bind('change', function() {
+                          if (!$inputCheckbox_none.is(':checked')) {
+                              $inputCheckbox_none.prop('checked', true);
+                              return;
+                          }
+
+                          $inputCheckbox_noindex.prop('checked', false);
+                          $inputCheckbox_nofollow.prop('checked', false);
+                          $inputCheckbox_noarchive.prop('checked', false);
+                          $inputCheckbox_noimageindex.prop('checked', false);
                           _updateReadout();
                       });
               }
