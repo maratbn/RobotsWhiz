@@ -208,11 +208,11 @@
                            ? 'class=\'robots-exclude-press--odd-row\''
                            : ""?>>
                       <td colspan='5' class='robots-exclude-press--td--checkboxes'>
-                        <input type='checkbox' name='noindex'><label>noindex</label></input>
-                        <input type='checkbox' name='nofollow'><label>nofollow</label></input>
-                        <input type='checkbox' name='noarchive'><label>noarchive</label></input>
-                        <input type='checkbox'
-                               name='noimageindex'><label>noimageindex</label></input>
+                        <label><input type='checkbox' name='noindex'>noindex</input></label>
+                        <label><input type='checkbox' name='nofollow'>nofollow</input></label>
+                        <label><input type='checkbox' name='noarchive'>noarchive</input></label>
+                        <label><input type='checkbox'
+                                      name='noimageindex'>noimageindex</input></label>
                       </td>
                     </tr>
                   </tbody><?php
