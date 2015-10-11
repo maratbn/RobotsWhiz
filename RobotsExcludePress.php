@@ -357,6 +357,26 @@
                           $inputCheckbox_noimageindex.prop('checked', false);
                           _processCheckboxes();
                       });
+
+                  var $aAddCustom = $tbodyPost
+                                          .find('a[data--robots-exclude-press--role=add-custom]');
+                  $aAddCustom.click(function(event) {
+                          event.preventDefault();
+
+                          var strTokens = window.prompt("Please specify your custom content:");
+                          if (!strTokens) return;
+
+                          var arrCustomTokens = strTokens.split(/\s+/);
+                          if (!arrCustomTokens) return;
+
+                          for (var i = 0; i < arrCustomTokens.length; i++) {
+                              var strCustomToken = arrCustomTokens[i];
+                              if (!strCustomToken) continue;
+
+                              _includeToken(strCustomToken);
+                          }
+                          _updateReadout();
+                      });
               }
 
               jQuery(document).ready(function($) {
