@@ -119,6 +119,10 @@
         .robots-exclude-press--odd-row {
             background-color:                           #dde;
         }
+        .robots-exclude-press--column-header {
+            padding-right:                              15px;
+            text-align:                                 left;
+        }
       </style>
       <div class="wrap"><?php
       ?><p><?=sprintf(
@@ -145,19 +149,19 @@
                                           ?>' class='button-primary'/><hr><?php
           ?><table style='border-collapse:collapse'><?php
             ?><tr><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
+              ?><th class='robots-exclude-press--column-header'><?=
                 __('ID', 'domain-plugin-RobotsExcludePress')
               ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
+              ?><th class='robots-exclude-press--column-header'><?=
                 __('Post Name', 'domain-plugin-RobotsExcludePress')
               ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
+              ?><th class='robots-exclude-press--column-header'><?=
                 __('Post Type', 'domain-plugin-RobotsExcludePress')
               ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
+              ?><th class='robots-exclude-press--column-header'><?=
                 __('Page Template', 'domain-plugin-RobotsExcludePress')
               ?></th><?php
-              ?><th style='padding-right:15px;text-align:left'><?=
+              ?><th class='robots-exclude-press--column-header'><?=
                 __('Post Status', 'domain-plugin-RobotsExcludePress')
               ?></th><?php
             ?></tr><?php
