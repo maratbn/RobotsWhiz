@@ -123,6 +123,13 @@
             padding-right:                              15px;
             text-align:                                 left;
         }
+        .robots-exclude-press--td--bottom {
+            padding-bottom:                             10px;
+            text-align:                                 center;
+        }
+        .robots-exclude-press--td--bottom label {
+            margin-right:                               10px;
+        }
       </style>
       <div class="wrap"><?php
       ?><p><?=sprintf(
@@ -190,7 +197,12 @@
                   <tr <?=$indexRow % 2 == 0
                          ? 'class=\'robots-exclude-press--odd-row\''
                          : ""?>>
-                    <td colspan='5'></td>
+                    <td colspan='5' class='robots-exclude-press--td--bottom'>
+                      <input type='checkbox' name='noindex'><label>noindex</label></input>
+                      <input type='checkbox' name='nofollow'><label>nofollow</label></input>
+                      <input type='checkbox' name='noarchive'><label>noarchive</label></input>
+                      <input type='checkbox' name='noimageindex'><label>noimageindex</label></input>
+                    </td>
                   </tr><?php
                     $indexRow++;
                 }
