@@ -138,6 +138,12 @@
         .robots-exclude-press--td--checkboxes label {
             margin-right:                               10px;
         }
+        a.robots-exclude-press--td--link {
+            text-decoration:                            none;
+        }
+        a.robots-exclude-press--td--link:hover {
+            text-decoration:                            underline;
+        }
       </style>
       <div class="wrap"><?php
       ?><p><?=sprintf(
@@ -209,6 +215,12 @@
                         <label><input type='checkbox' name='noarchive'>noarchive</input></label>
                         <label><input type='checkbox'
                                       name='noimageindex'>noimageindex</input></label>
+                        <label><a class='robots-exclude-press--td--link'
+                                  data--robots-exclude-press--role='add-custom'
+                                  href='#'>add custom...</a></label>
+                        <label><a class='robots-exclude-press--td--link'
+                                  data--robots-exclude-press--role='clear-custom'
+                                  href='#'>clear custom</a></label>
                       </td>
                     </tr>
                   </tbody><?php
