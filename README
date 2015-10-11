@@ -1,0 +1,33 @@
+--------------------  WordPress plugin RobotsExcludePress  --------------------
+
+https://github.com/maratbn/RobotsExcludePress
+
+Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
+
+Version: 0.1.0-development_unreleased
+
+Licensed under GPL3.  See LICENSE.
+
+Overview:
+
+  At the time of this writing, the latest version of WordPress, version 4.3.1,
+  has functionality to discourage search engines from indexing the whole site,
+  but not functionality to discourage search engines from indexing only certain
+  specific pages and posts of the site.
+
+  RobotsExcludePress is a WordPress plugin that allows site administrators to
+  discourage search engines from indexing, following links from, caching,
+  indexing images from, and / or have additional custom restrictions on only
+  for certain specifically-designated pages and posts.
+
+  It is an easy way to discourage search engines from indexing only specific
+  pages / posts.
+
+  This only applies to search engine robots, and will not effect the site's
+  local search functionality.
+
+Technical summary:
+
+  Plugin works by hooking-in special logic into the action 'wp_head' to inject
+  the tag <meta name='robots' content='...'> with exclusion directives for the
+  specified pages and posts.
