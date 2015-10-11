@@ -292,6 +292,13 @@
                       $inputCheckbox_noarchive =     $inputCheckbox.filter('[name=noarchive]'),
                       $inputCheckbox_noimageindex =  $inputCheckbox.filter('[name=noimageindex]');
 
+                  function _updateCheckboxes_all_none() {
+                      $inputCheckbox_all.prop('checked', _areAllIncluded());
+                      $inputCheckbox_none.prop('checked', _areAllExcluded());
+
+                      _updateReadout();
+                  }
+
                   function _processCheckboxes() {
                       if ($inputCheckbox_noindex.is(':checked')) {
                           _includeToken('noindex');
@@ -314,10 +321,7 @@
                           _excludeToken('noimageindex');
                       }
 
-                      $inputCheckbox_all.prop('checked', _areAllIncluded());
-                      $inputCheckbox_none.prop('checked', _areAllExcluded());
-
-                      _updateReadout();
+                      _updateCheckboxes_all_none();
                   }
                   _processCheckboxes();
                   $inputCheckbox_noindex.bind('change', _processCheckboxes);
