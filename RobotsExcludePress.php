@@ -177,7 +177,7 @@
                     $w_p_query->the_post();
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
-                ?><span data--robots-exclude-press--role='post-config'><?php
+                ?><tbody data--robots-exclude-press--role='post-config'><?php
                   ?><input type='hidden' name='post_<?=$idPost?>'><?php
                   ?><tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-exclude-press--odd-row\''
@@ -206,7 +206,7 @@
                                name='noimageindex'><label>noimageindex</label></input>
                       </td>
                     </tr>
-                  </span><?php
+                  </tbody><?php
                     $indexRow++;
                 }
                 wp_reset_postdata();
