@@ -295,6 +295,8 @@
                       _updateReadout();
                   }
 
+                  _updateCheckboxes_all_none();
+
                   var $inputCheckbox_noindex =       $inputCheckbox.filter('[name=noindex]'),
                       $inputCheckbox_nofollow =      $inputCheckbox.filter('[name=nofollow]'),
                       $inputCheckbox_noarchive =     $inputCheckbox.filter('[name=noarchive]'),
@@ -324,7 +326,7 @@
 
                       _updateCheckboxes_all_none();
                   }
-                  _updateCheckboxes_all_none();
+
                   $inputCheckbox_noindex.bind('change', _processCheckboxes);
                   $inputCheckbox_nofollow.bind('change', _processCheckboxes);
                   $inputCheckbox_noarchive.bind('change', _processCheckboxes);
