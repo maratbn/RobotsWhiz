@@ -177,33 +177,36 @@
                     $w_p_query->the_post();
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
-                ?><input type='hidden' name='post_<?=$idPost?>'><?php
-                ?><tr <?=$indexRow % 2 == 0
-                         ? 'class=\'robots-exclude-press--odd-row\''
-                         : ""?>>
-                    <td colspan='5'>
-                      <div class='robots-exclude-press--readout' type='text'></div>
-                    </td>
-                  </tr>
-                  <tr <?=$indexRow % 2 == 0
-                         ? 'class=\'robots-exclude-press--odd-row\''
-                         : ""?>>
-                    <td><a href='<?=get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
-                    <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
-                    <td><?=$post->post_type?></td>
-                    <td><?=get_page_template_slug($idPost)?></td>
-                    <td><?=get_post_status($idPost)?></td>
-                  </tr>
-                  <tr <?=$indexRow % 2 == 0
-                         ? 'class=\'robots-exclude-press--odd-row\''
-                         : ""?>>
-                    <td colspan='5' class='robots-exclude-press--td--checkboxes'>
-                      <input type='checkbox' name='noindex'><label>noindex</label></input>
-                      <input type='checkbox' name='nofollow'><label>nofollow</label></input>
-                      <input type='checkbox' name='noarchive'><label>noarchive</label></input>
-                      <input type='checkbox' name='noimageindex'><label>noimageindex</label></input>
-                    </td>
-                  </tr><?php
+                ?><span><?php
+                  ?><input type='hidden' name='post_<?=$idPost?>'><?php
+                  ?><tr <?=$indexRow % 2 == 0
+                           ? 'class=\'robots-exclude-press--odd-row\''
+                           : ""?>>
+                      <td colspan='5'>
+                        <div class='robots-exclude-press--readout' type='text'></div>
+                      </td>
+                    </tr>
+                    <tr <?=$indexRow % 2 == 0
+                           ? 'class=\'robots-exclude-press--odd-row\''
+                           : ""?>>
+                      <td><a href='<?=get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
+                      <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
+                      <td><?=$post->post_type?></td>
+                      <td><?=get_page_template_slug($idPost)?></td>
+                      <td><?=get_post_status($idPost)?></td>
+                    </tr>
+                    <tr <?=$indexRow % 2 == 0
+                           ? 'class=\'robots-exclude-press--odd-row\''
+                           : ""?>>
+                      <td colspan='5' class='robots-exclude-press--td--checkboxes'>
+                        <input type='checkbox' name='noindex'><label>noindex</label></input>
+                        <input type='checkbox' name='nofollow'><label>nofollow</label></input>
+                        <input type='checkbox' name='noarchive'><label>noarchive</label></input>
+                        <input type='checkbox'
+                               name='noimageindex'><label>noimageindex</label></input>
+                      </td>
+                    </tr>
+                  </span><?php
                     $indexRow++;
                 }
                 wp_reset_postdata();
