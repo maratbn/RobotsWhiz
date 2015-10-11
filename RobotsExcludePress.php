@@ -277,6 +277,11 @@
                           $inputCheckbox_none.prop('checked', false);
                       }
 
+                      if (arrTokens.length == 0) {
+                          $divReadout.html("&nbsp;");
+                          return;
+                      }
+
                       $divReadout.text("<meta name=\"robots\" content=\"" +
                                           arrTokens.join(" ").replace("\\", "\\\\")
                                                              .replace("\"", "\\\"")
