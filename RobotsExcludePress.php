@@ -199,15 +199,9 @@
                     <tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-exclude-press--odd-row\''
                            : ""?>>
-                      <td colspan='5'>
+                      <td colspan='5' class='robots-exclude-press--td--checkboxes'>
                         <div class='robots-exclude-press--readout'
                              data--robots-exclude-press--role='readout' type='text'></div>
-                      </td>
-                    </tr>
-                    <tr <?=$indexRow % 2 == 0
-                           ? 'class=\'robots-exclude-press--odd-row\''
-                           : ""?>>
-                      <td colspan='5' class='robots-exclude-press--td--checkboxes'>
                         <label><input type='checkbox' name='all'><i>all</i></input></label>
                         <label><input type='checkbox' name='none'><i>none</i></input></label>
                         <label><input type='checkbox' name='noindex'>noindex</input></label>
