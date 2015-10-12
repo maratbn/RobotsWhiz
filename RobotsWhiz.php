@@ -201,7 +201,7 @@
                   ?><input type='hidden'
                            name='post_<?=$idPost?>'
                            data-robots-whiz--role='data'
-                           value='<?=\addslashes($strData)?>'><?php
+                           value='<?=$strData?>'><?php
                   ?><tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-whiz--odd-row\''
                            : ""?>>
