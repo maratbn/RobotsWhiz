@@ -280,10 +280,10 @@
                   }
 
                   function _areAllExcluded() {
-                      return (!_isIncluded('noindex') &&
-                              !_isIncluded('nofollow') &&
-                              !_isIncluded('noarchive') &&
-                              !_isIncluded('noimageindex'));
+                      for (strName in mapCheckboxesStandard) {
+                          if (_isIncluded(strName)) return false;
+                      }
+                      return true;
                   }
 
                   function _areAllIncluded() {
