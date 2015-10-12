@@ -265,8 +265,6 @@
                   }
 
 
-                  var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
-
                   var mapCheckboxesStandard = [];
 
                   function _excludeAll() {
@@ -311,6 +309,8 @@
                                                                           + "\">");
                   }
 
+
+                  var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
                   var $inputCheckboxes_standard = $inputCheckbox
                                                        .filter('[data-robots-whiz--role=cb-std]');
