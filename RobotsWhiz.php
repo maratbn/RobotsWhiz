@@ -340,25 +340,13 @@
                       $inputCheckbox_noimageindex =  $inputCheckbox.filter('[name=noimageindex]');
 
                   function _processCheckboxes() {
-                      if ($inputCheckbox_noindex.is(':checked')) {
-                          _includeToken('noindex');
-                      } else {
-                          _excludeToken('noindex');
-                      }
-                      if ($inputCheckbox_nofollow.is(':checked')) {
-                          _includeToken('nofollow');
-                      } else {
-                          _excludeToken('nofollow');
-                      }
-                      if ($inputCheckbox_noarchive.is(':checked')) {
-                          _includeToken('noarchive');
-                      } else {
-                          _excludeToken('noarchive');
-                      }
-                      if ($inputCheckbox_noimageindex.is(':checked')) {
-                          _includeToken('noimageindex');
-                      } else {
-                          _excludeToken('noimageindex');
+                      for (var strName in mapCheckboxesStandard) {
+                          var $checkboxStandard = mapCheckboxesStandard[strName];
+                          if ($checkboxStandard.is(':checked')) {
+                              _includeToken(strName);
+                          } else {
+                              _excludeToken(strName);
+                          }
                       }
 
                       _updateCheckboxes_all_none();
