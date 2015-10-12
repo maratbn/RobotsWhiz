@@ -195,8 +195,8 @@
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
                     $strPostMeta = \get_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, true);
-                    $dataPost = $strPostMeta ? json_decode($strPostMeta) : null;
-                    $strData = $dataPost ? $dataPost->robots : null;
+                    $dataPost = $strPostMeta ? json_decode($strPostMeta, true) : null;
+                    $strData = $dataPost ? $dataPost['robots'] : null;
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><input type='hidden'
                            name='post_<?=$idPost?>'
