@@ -87,9 +87,10 @@
             preg_match('/^post_(\d+)$/', $strFieldName, $arrMatch);
             if ($arrMatch && count($arrMatch) == 2) {
                 $idPost = $arrMatch[1];
-                $flagIsLocked = isset($_POST['data_' . $idPost]);
-                if ($flagIsLocked) {
-                    \update_post_meta($idPost, ROBOTS_WHIZ, $_POST['data']);
+                $field = 'post_' . $idPost;
+                $data = isset($_POST[$field]) ? $_POST[$field] : null;
+                if ($data) {
+                    \update_post_meta($idPost, ROBOTS_WHIZ, $data);
                 } else {
                     \delete_post_meta($idPost, ROBOTS_WHIZ);
                 }
