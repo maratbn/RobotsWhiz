@@ -406,7 +406,7 @@
 
                           var strTokens = window.prompt("Please specify your custom content:",
                                                         arrTokensPrev.join(" "));
-                          if (!strTokens) return;
+                          if (strTokens == null) return;
 
                           var arrTokensNew = strTokens.split(/\s+/);
                           if (!arrTokensNew) return;
