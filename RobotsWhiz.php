@@ -333,12 +333,6 @@
 
                   _updateCheckboxes_all_none();
 
-
-                  var $inputCheckbox_noindex =       $inputCheckbox.filter('[name=noindex]'),
-                      $inputCheckbox_nofollow =      $inputCheckbox.filter('[name=nofollow]'),
-                      $inputCheckbox_noarchive =     $inputCheckbox.filter('[name=noarchive]'),
-                      $inputCheckbox_noimageindex =  $inputCheckbox.filter('[name=noimageindex]');
-
                   function _processCheckboxes() {
                       for (var strName in mapCheckboxesStandard) {
                           var $checkboxStandard = mapCheckboxesStandard[strName];
