@@ -271,6 +271,7 @@
                       $inputCheckboxes_standard =
                                             $inputCheckbox
                                                   .filter('[data-robots-whiz--role=cb-standard]');
+
                   for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
                       var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
                       var strName = $inputCheckbox_standard.attr('name');
