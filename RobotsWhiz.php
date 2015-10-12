@@ -54,7 +54,7 @@
     namespace plugin_RobotsWhiz;
 
 
-    const ROBOTS_WHIZ    = 'robots_whiz__meta_content';
+    const ROBOTS_WHIZ__META_CONTENT = 'robots_whiz__meta_content';
 
     $ARR_TOKENS_STANDARD = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
@@ -90,9 +90,9 @@
                 $field = 'post_' . $idPost;
                 $data = isset($_POST[$field]) ? $_POST[$field] : null;
                 if ($data) {
-                    \update_post_meta($idPost, ROBOTS_WHIZ, $data);
+                    \update_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, $data);
                 } else {
-                    \delete_post_meta($idPost, ROBOTS_WHIZ);
+                    \delete_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT);
                 }
             }
         }
@@ -194,7 +194,7 @@
                     $w_p_query->the_post();
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
-                    $strPostMeta = \get_post_meta($idPost, ROBOTS_WHIZ, true);
+                    $strPostMeta = \get_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, true);
                     $dataPost = $strPostMeta ? json_decode($strPostMeta) : null;
                     $strData = $dataPost ? $dataPost->robots : null;
                 ?><tbody data--robots-whiz--role='post-config'><?php
