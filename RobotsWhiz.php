@@ -316,10 +316,10 @@
                           return;
                       }
 
-                      $divReadout.text("<meta name=\"robots\" content=\"" +
-                                          arrTokens.join(" ").replace("\\", "\\\\")
-                                                             .replace("\"", "\\\"")
-                                                                          + "\">");
+                      var strContent = arrTokens.join(" ").replace("\\", "\\\\")
+                                                             .replace("\"", "\\\"");
+
+                      $divReadout.text("<meta name=\"robots\" content=\"" + strContent + "\">");
                   }
 
 
