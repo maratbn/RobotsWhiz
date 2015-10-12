@@ -400,6 +400,19 @@
                   var $aAddCustom =    $tbodyPost.find('a[data--robots-whiz--role=add-custom]'),
                       $aClearCustom =  $tbodyPost.find('a[data--robots-whiz--role=clear-custom]');
 
+                  function _updateLinks() {
+                      var arrTokensPrev = _getArrTokensNonStandard();
+                      if (arrTokensPrev.length == 0) {
+                          $aAddCustom.text("add custom...");
+                          $aClearCustom.css('display', 'none');
+                      } else {
+                          $aAddCustom.text("modify custom...");
+                          $aClearCustom.css('display', "");
+                      }
+                  }
+
+                  _updateLinks();
+
                   $aAddCustom.click(function(event) {
                           event.preventDefault();
 
@@ -427,6 +440,7 @@
                           }
 
                           _updateCheckboxes();
+                          _updateLinks();
                       });
 
                   $aClearCustom.click(function(event) {
@@ -444,6 +458,7 @@
                           }
 
                           _updateReadout();
+                          _updateLinks();
                       });
               }
 
