@@ -61,6 +61,7 @@
     add_action('admin_menu', '\\plugin_RobotsWhiz\\action_admin_menu');
     add_action('admin_post_plugin_RobotsWhiz_settings',
                '\\plugin_RobotsWhiz\\action_admin_post_plugin_RobotsWhiz_settings');
+    add_action('wp_head', '\\plugin_RobotsWhiz\\action_wp_head');
     add_filter('plugin_action_links_' . plugin_basename(__FILE__),
                                         '\\plugin_RobotsWhiz\\filter_plugin_action_links');
 
@@ -99,6 +100,28 @@
 
         wp_redirect(getUrlSettings());
         exit();
+    }
+
+    function action_wp_head() {
+        if (!\is_singular()) return;
+
+        global $wp_query;
+        if ($wp_query->post_count != 1) return;
+
+        $post = $wp_query->posts[0];
+        if (!$post) return;
+
+        $idPost = $post->ID;
+        if ($idPost == null) return;
+
+        $strPostMeta = \get_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, true);
+        $dataPost = $strPostMeta ? json_decode($strPostMeta, true) : null;
+        $strData = $dataPost ? $dataPost['robots'] : null;
+        if ($strData == null) return;
+
+        ?><meta name='robots' content='<?=\addslashes(\implode(', ',
+                                                               \preg_split('/\s+/',
+                                                                           $strData)))?>'><?php
     }
 
     function filter_plugin_action_links($arrLinks) {
