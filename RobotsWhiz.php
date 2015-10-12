@@ -121,7 +121,7 @@
 
         ?><meta name='robots' content='<?=\addslashes(\implode(', ',
                                                                \preg_split('/\s+/',
-                                                                           $strData)))?>'><?php
+                                                                           $strData)))?>' /><?php
     }
 
     function filter_plugin_action_links($arrLinks) {
