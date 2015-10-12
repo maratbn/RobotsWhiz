@@ -356,13 +356,12 @@
                           return;
                       }
 
-                      var strContent = arrTokens.join(" ");
-
                       $divReadout.text("<meta name=\"robots\" content=\""
-                                                      + strContent.replace(/\\/g, "\\\\")
-                                                                  .replace(/"/g, "\\\"") + "\">");
+                                                      + arrTokens.join(", ")
+                                                                 .replace(/\\/g, "\\\\")
+                                                                 .replace(/"/g, "\\\"") + "\">");
 
-                      $inputData.val(window.JSON.stringify({'robots': strContent}));
+                      $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
                   }
 
 
