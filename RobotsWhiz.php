@@ -293,6 +293,20 @@
                       return true;
                   }
 
+                  function _getArrTokensNonStandard() {
+                      var arrTokensNonStandard = [];
+
+                      for (var i = 0; i < arrTokens.length; i++) {
+                          var strToken = arrTokens[i];
+
+                          if (!mapCheckboxesStandard[strToken]) {
+                              arrTokensNonStandard.push(strToken);
+                          }
+                      }
+
+                      return arrTokensNonStandard;
+                  }
+
 
                   var $divReadout =  $tbodyPost
                                            .find('div[data--robots-whiz--role=readout]');
@@ -388,7 +402,10 @@
                   $aAddCustom.click(function(event) {
                           event.preventDefault();
 
-                          var strTokens = window.prompt("Please specify your custom content:");
+                          var arrTokensPrev = _getArrTokensNonStandard();
+
+                          var strTokens = window.prompt("Please specify your custom content:",
+                                                        arrTokensPrev.join(" "));
                           if (!strTokens) return;
 
                           var arrCustomTokens = strTokens.split(/\s+/);
