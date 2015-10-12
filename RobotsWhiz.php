@@ -213,11 +213,14 @@
                         <div>
                           <label><input type='checkbox' name='all'><i>all</i></input></label>
                           <label><input type='checkbox' name='none'><i>none</i></input></label>
-                          <label><input type='checkbox' name='noindex'>noindex</input></label>
-                          <label><input type='checkbox' name='nofollow'>nofollow</input></label>
-                          <label><input type='checkbox' name='noarchive'>noarchive</input></label>
-                          <label><input type='checkbox'
-                                        name='noimageindex'>noimageindex</input></label>
+                          <?php
+                              global $ARR_TOKENS_STANDARD;
+                              for ($i = 0; $i < count($ARR_TOKENS_STANDARD); $i++) {
+                              ?><label><input type='checkbox' name='<?=$ARR_TOKENS_STANDARD[$i]?>'><?php
+                                  ?><?=$ARR_TOKENS_STANDARD[$i]?><?php
+                                ?></input></label><?php
+                              }
+                          ?>
                         </div>
                         <div>
                           <label><a class='robots-exclude-press--td--link'
