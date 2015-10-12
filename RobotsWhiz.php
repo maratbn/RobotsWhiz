@@ -397,7 +397,8 @@
                       });
 
 
-                  var $aAddCustom = $tbodyPost.find('a[data--robots-whiz--role=add-custom]');
+                  var $aAddCustom =    $tbodyPost.find('a[data--robots-whiz--role=add-custom]'),
+                      $aClearCustom =  $tbodyPost.find('a[data--robots-whiz--role=clear-custom]');
 
                   $aAddCustom.click(function(event) {
                           event.preventDefault();
@@ -426,6 +427,23 @@
                           }
 
                           _updateCheckboxes();
+                      });
+
+                  $aClearCustom.click(function(event) {
+                          event.preventDefault();
+
+                          var arrTokensPrev = _getArrTokensNonStandard();
+                          if (arrTokensPrev.length == 0) return;
+
+                          if (!window.confirm(
+                                        "Are you sure you want to clear-out the custom content?"))
+                              return;
+
+                          for (var i = 0; i < arrTokensPrev.length; i++) {
+                              _excludeToken(arrTokensPrev[i]);
+                          }
+
+                          _updateReadout();
                       });
               }
 
