@@ -267,15 +267,7 @@
 
                   var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
-                  var mapCheckboxesStandard      = [],
-                      $inputCheckboxes_standard  = $inputCheckbox
-                                                       .filter('[data-robots-whiz--role=cb-std]');
-
-                  for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
-                      var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
-                      var strName = $inputCheckbox_standard.attr('name');
-                      mapCheckboxesStandard[strName] = $inputCheckbox_standard;
-                  }
+                  var mapCheckboxesStandard = [];
 
                   function _excludeAll() {
                       for (strName in mapCheckboxesStandard) {
@@ -318,6 +310,17 @@
                                                              .replace("\"", "\\\"")
                                                                           + "\">");
                   }
+
+
+                  var $inputCheckboxes_standard = $inputCheckbox
+                                                       .filter('[data-robots-whiz--role=cb-std]');
+
+                  for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
+                      var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
+                      var strName = $inputCheckbox_standard.attr('name');
+                      mapCheckboxesStandard[strName] = $inputCheckbox_standard;
+                  }
+
 
                   var $inputCheckbox_all =   $inputCheckbox
                                                        .filter('[data-robots-whiz--role=cb-all]'),
