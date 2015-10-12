@@ -360,10 +360,9 @@
                       _updateCheckboxes_all_none();
                   }
 
-                  $inputCheckbox_noindex.bind('change', _processCheckboxes);
-                  $inputCheckbox_nofollow.bind('change', _processCheckboxes);
-                  $inputCheckbox_noarchive.bind('change', _processCheckboxes);
-                  $inputCheckbox_noimageindex.bind('change', _processCheckboxes);
+                  for (var strName in mapCheckboxesStandard) {
+                      mapCheckboxesStandard[strName].bind('change', _processCheckboxes);
+                  }
 
                   $inputCheckbox_all.bind('change', function() {
                           if (!$inputCheckbox_all.is(':checked')) {
