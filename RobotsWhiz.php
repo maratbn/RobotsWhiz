@@ -260,6 +260,10 @@
                       arrTokens.push(strToken);
                   }
 
+                  function _isIncluded(strToken) {
+                      return (arrTokens.indexOf(strToken) >= 0);
+                  }
+
 
                   var mapCheckboxesStandard = [];
 
@@ -273,10 +277,6 @@
                       for (strName in mapCheckboxesStandard) {
                           _includeToken(strName);
                       }
-                  }
-
-                  function _isIncluded(strToken) {
-                      return (arrTokens.indexOf(strToken) >= 0);
                   }
 
                   function _areAllExcluded() {
