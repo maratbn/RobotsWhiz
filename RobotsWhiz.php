@@ -257,10 +257,9 @@
                   }
 
                   function _excludeAll() {
-                      _excludeToken('noindex');
-                      _excludeToken('nofollow');
-                      _excludeToken('noarchive');
-                      _excludeToken('noimageindex');
+                      for (strName in mapCheckboxesStandard) {
+                          _excludeToken(strName);
+                      }
                   }
 
                   function _includeToken(strToken) {
