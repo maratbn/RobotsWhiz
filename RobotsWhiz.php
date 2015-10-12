@@ -211,7 +211,9 @@
                         <div class='robots-whiz--readout'
                              data--robots-whiz--role='readout' type='text'></div>
                         <div>
-                          <label><input type='checkbox' name='all'><i>all</i></input></label>
+                          <label><input type='checkbox' data-robots-whiz--role='cb-all'>
+                              <i>all</i>
+                            </input></label>
                           <label><input type='checkbox' name='none'><i>none</i></input></label>
                           <?php
                               global $ARR_TOKENS_STANDARD;
@@ -304,7 +306,8 @@
 
                   var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
-                  var $inputCheckbox_all =   $inputCheckbox.filter('[name=all]'),
+                  var $inputCheckbox_all =   $inputCheckbox
+                                                       .filter('[data-robots-whiz--role=cb-all]'),
                       $inputCheckbox_none =  $inputCheckbox.filter('[name=none]');
 
                   function _updateCheckboxes_all_none() {
