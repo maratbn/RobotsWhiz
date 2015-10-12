@@ -220,7 +220,8 @@
                           <?php
                               global $ARR_TOKENS_STANDARD;
                               for ($i = 0; $i < count($ARR_TOKENS_STANDARD); $i++) {
-                              ?><label><input type='checkbox' name='<?=$ARR_TOKENS_STANDARD[$i]?>'><?php
+                              ?><label><input type='checkbox' data-robots-whiz--role='cb-standard'
+                                              name='<?=$ARR_TOKENS_STANDARD[$i]?>'><?php
                                   ?><?=$ARR_TOKENS_STANDARD[$i]?><?php
                                 ?></input></label><?php
                               }
