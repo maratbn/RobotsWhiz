@@ -333,8 +333,8 @@
                           return;
                       }
 
-                      var strContent = arrTokens.join(" ").replace("\\", "\\\\")
-                                                             .replace("\"", "\\\"");
+                      var strContent = arrTokens.join(" ").replace(/\\/g, "\\\\")
+                                                             .replace(/"/g, "\\\"");
 
                       $divReadout.text("<meta name=\"robots\" content=\"" + strContent + "\">");
 
