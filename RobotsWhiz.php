@@ -336,19 +336,6 @@
 
                   _updateCheckboxes_all_none();
 
-                  function _processCheckboxes() {
-                      for (var strName in mapCheckboxesStandard) {
-                          var $checkboxStandard = mapCheckboxesStandard[strName];
-                          if ($checkboxStandard.is(':checked')) {
-                              _includeToken(strName);
-                          } else {
-                              _excludeToken(strName);
-                          }
-                      }
-
-                      _updateCheckboxes_all_none();
-                  }
-
                   function _updateCheckboxes() {
                       for (var strName in mapCheckboxesStandard) {
                           mapCheckboxesStandard[strName].prop('checked', _isIncluded(strName));
@@ -357,8 +344,22 @@
                       _updateCheckboxes_all_none();
                   }
 
+                  function _initCheckboxForInput(strName) {
+                      var $checkboxStandard = mapCheckboxesStandard[strName];
+
+                      $checkboxStandard.bind('change', function() {
+                              if ($checkboxStandard.is(':checked')) {
+                                  _includeToken(strName);
+                              } else {
+                                  _excludeToken(strName);
+                              }
+
+                              _updateCheckboxes_all_none();
+                          });
+                  }
+
                   for (var strName in mapCheckboxesStandard) {
-                      mapCheckboxesStandard[strName].bind('change', _processCheckboxes);
+                      _initCheckboxForInput(strName);
                   }
 
                   $inputCheckbox_all.bind('change', function() {
