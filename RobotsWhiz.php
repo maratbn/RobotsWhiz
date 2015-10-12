@@ -54,7 +54,7 @@
     namespace plugin_RobotsWhiz;
 
 
-    const ROBOTS_WHIZ    = 'robots_whiz';
+    const ROBOTS_WHIZ    = 'robots_whiz__meta_content';
 
     $ARR_TOKENS_STANDARD = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
