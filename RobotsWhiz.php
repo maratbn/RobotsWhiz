@@ -1,85 +1,85 @@
 <?php
 /*
-  Plugin Name: RobotsExcludePress
-  Plugin URI: https://github.com/maratbn/RobotsExcludePress
+  Plugin Name: RobotsWhiz
+  Plugin URI: https://github.com/maratbn/RobotsWhiz
   Description: An easy way to discourage search engines from indexing only specific pages / posts.
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
   Version: 0.1.0-development_unreleased
-  Text Domain: domain-plugin-RobotsExcludePress
+  Text Domain: domain-plugin-RobotsWhiz
 */
 
 /*
-  RobotsExcludePress -- WordPress plugin that allows site administrators to
-                        discourage search engines from indexing, following
-                        links from, caching, indexing images from, and / or
-                        have additional custom restrictions on only for certain
-                        specifically-designated pages and posts.
+  RobotsWhiz -- WordPress plugin that allows site administrators to discourage
+                search engines from indexing, following links from, caching,
+                indexing images from, and / or have additional custom
+                restrictions on only for certain specifically-designated pages
+                and posts.
 
-                        It is an easy way to discourage search engines from
-                        indexing only specific pages / posts.
+                It is an easy way to discourage search engines from indexing
+                only specific pages / posts.
 
-                        This only applies to search engine robots, and will
-                        not effect the site's local search functionality.
+                This only applies to search engine robots, and will not effect
+                the site's local search functionality.
 
-  https://github.com/maratbn/RobotsExcludePress
+  https://github.com/maratbn/RobotsWhiz
 
   Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
   Version:        0.1.0-development_unreleased
 
-  Module:         RobotsExcludePress.php
+  Module:         RobotsWhiz.php
 
-  Description:    Main PHP file for the WordPress plugin 'RobotsExcludePress'.
+  Description:    Main PHP file for the WordPress plugin 'RobotsWhiz'.
 
-  This file is part of RobotsExcludePress.
+  This file is part of RobotsWhiz.
 
   Licensed under the GNU General Public License Version 3.
 
-  RobotsExcludePress is free software: you can redistribute it and/or modify
+  RobotsWhiz is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  RobotsExcludePress is distributed in the hope that it will be useful,
+  RobotsWhiz is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with RobotsExcludePress.  If not, see <http://www.gnu.org/licenses/>.
+  along with RobotsWhiz.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-    namespace plugin_RobotsExcludePress;
+    namespace plugin_RobotsWhiz;
 
 
     const ROBOTS_EXCLUDE_PRESS    = 'robots_exclude_press';
 
-    add_action('admin_menu', '\\plugin_RobotsExcludePress\\action_admin_menu');
-    add_action('admin_post_plugin_RobotsExcludePress_settings',
-               '\\plugin_RobotsExcludePress\\action_admin_post_plugin_RobotsExcludePress_settings');
+    add_action('admin_menu', '\\plugin_RobotsWhiz\\action_admin_menu');
+    add_action('admin_post_plugin_RobotsWhiz_settings',
+               '\\plugin_RobotsWhiz\\action_admin_post_plugin_RobotsWhiz_settings');
     add_filter('plugin_action_links_' . plugin_basename(__FILE__),
-                                        '\\plugin_RobotsExcludePress\\filter_plugin_action_links');
+                                        '\\plugin_RobotsWhiz\\filter_plugin_action_links');
 
 
     function action_admin_menu() {
-        add_options_page( __('RobotsExcludePress Settings', 'domain-plugin-RobotsExcludePress'),
-                          __('RobotsExcludePress', 'domain-plugin-RobotsExcludePress'),
+        add_options_page( __('RobotsWhiz Settings', 'domain-plugin-RobotsWhiz'),
+                          __('RobotsWhiz', 'domain-plugin-RobotsWhiz'),
                           'manage_options',
-                          'plugin_RobotsExcludePress_settings',
-                          '\\plugin_RobotsExcludePress\\render_settings');
+                          'plugin_RobotsWhiz_settings',
+                          '\\plugin_RobotsWhiz\\render_settings');
     }
 
-    function action_admin_post_plugin_RobotsExcludePress_settings() {
+    function action_admin_post_plugin_RobotsWhiz_settings() {
         //  Based on: http://jaskokoyn.com/2013/03/26/wordpress-admin-forms/
         if (!current_user_can('manage_options')) {
             wp_die(__('Insufficient user permissions to modify options.',
-                      'domain-plugin-RobotsExcludePress'));
+                      'domain-plugin-RobotsWhiz'));
         }
 
         // Check that nonce field
-        check_admin_referer('plugin_RobotsExcludePress_settings_nonce');
+        check_admin_referer('plugin_RobotsWhiz_settings_nonce');
 
         foreach ($_POST as $strFieldName => $strFieldValue) {
             preg_match('/^post_(\d+)$/', $strFieldName, $arrMatch);
@@ -101,19 +101,19 @@
     function filter_plugin_action_links($arrLinks) {
         array_push($arrLinks,
                    '<a href=\'' . getUrlSettings() . '\'>'
-                                    . __('Settings', 'domain-plugin-RobotsExcludePress') . '</a>');
+                                    . __('Settings', 'domain-plugin-RobotsWhiz') . '</a>');
         return $arrLinks;
     }
 
     function getUrlSettings() {
-        return admin_url('options-general.php?page=plugin_RobotsExcludePress_settings');
+        return admin_url('options-general.php?page=plugin_RobotsWhiz_settings');
     }
 
     function render_settings() {
         //  Based on http://codex.wordpress.org/Administration_Menus
         if (!current_user_can('manage_options' ))  {
             wp_die(__('You do not have sufficient permissions to access this page.',
-                      'domain-plugin-RobotsExcludePress'));
+                      'domain-plugin-RobotsWhiz'));
         }
     ?><style>
         .robots-exclude-press--table {
@@ -149,13 +149,13 @@
       ?><p><?=sprintf(
         __('Check the checkbox(es) corresponding to the post(s) you want to exclude ' .
            'from robots, then submit the form by clicking \'%1$s\' at the top or bottom.',
-           'domain-plugin-RobotsExcludePress'),
+           'domain-plugin-RobotsWhiz'),
         __('Update Settings',
-           'domain-plugin-RobotsExcludePress'));
+           'domain-plugin-RobotsWhiz'));
              ?></p><?php
       ?><form method='post' action='admin-post.php'><?php
-        ?><input type='hidden' name='action' value='plugin_RobotsExcludePress_settings' /><?php
-          wp_nonce_field('plugin_RobotsExcludePress_settings_nonce');
+        ?><input type='hidden' name='action' value='plugin_RobotsWhiz_settings' /><?php
+          wp_nonce_field('plugin_RobotsWhiz_settings_nonce');
 
           $w_p_query = new \WP_Query(['order'           => 'ASC',
                                       'orderby'         => 'name',
@@ -166,24 +166,24 @@
           global $post;
           if ($w_p_query->have_posts()) {
           ?><input type='submit' value='<?=__('Update Settings',
-                                              'domain-plugin-RobotsExcludePress')
+                                              'domain-plugin-RobotsWhiz')
                                           ?>' class='button-primary'/><hr><?php
           ?><table class='robots-exclude-press--table'><?php
             ?><tr><?php
               ?><th class='robots-exclude-press--column-header'><?=
-                __('ID', 'domain-plugin-RobotsExcludePress')
+                __('ID', 'domain-plugin-RobotsWhiz')
               ?></th><?php
               ?><th class='robots-exclude-press--column-header'><?=
-                __('Post Name', 'domain-plugin-RobotsExcludePress')
+                __('Post Name', 'domain-plugin-RobotsWhiz')
               ?></th><?php
               ?><th class='robots-exclude-press--column-header'><?=
-                __('Post Type', 'domain-plugin-RobotsExcludePress')
+                __('Post Type', 'domain-plugin-RobotsWhiz')
               ?></th><?php
               ?><th class='robots-exclude-press--column-header'><?=
-                __('Page Template', 'domain-plugin-RobotsExcludePress')
+                __('Page Template', 'domain-plugin-RobotsWhiz')
               ?></th><?php
               ?><th class='robots-exclude-press--column-header'><?=
-                __('Post Status', 'domain-plugin-RobotsExcludePress')
+                __('Post Status', 'domain-plugin-RobotsWhiz')
               ?></th><?php
             ?></tr><?php
                 $indexRow = 0;
@@ -233,7 +233,7 @@
                 wp_reset_postdata();
           ?></table><?php
           ?><hr><input type='submit' value='<?=__('Update Settings',
-                                                  'domain-plugin-RobotsExcludePress')
+                                                  'domain-plugin-RobotsWhiz')
                                               ?>' class='button-primary'/><?php
           ?>
           <script type='text/javascript'>
@@ -405,7 +405,7 @@
                   });
           </script><?php
           } else {
-          ?><?=__('No posts', 'domain-plugin-RobotsExcludePress')?><?php
+          ?><?=__('No posts', 'domain-plugin-RobotsWhiz')?><?php
           }
       ?></form></div><?php
     }

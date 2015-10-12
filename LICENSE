@@ -1,16 +1,16 @@
-  RobotsExcludePress -- WordPress plugin that allows site administrators to
-                        discourage search engines from indexing, following
-                        links from, caching, indexing images from, and / or
-                        have additional custom restrictions on only for certain
-                        specifically-designated pages and posts.
+  RobotsWhiz -- WordPress plugin that allows site administrators to discourage
+                search engines from indexing, following links from, caching,
+                indexing images from, and / or have additional custom
+                restrictions on only for certain specifically-designated pages
+                and posts.
 
-                        It is an easy way to discourage search engines from
-                        indexing only specific pages / posts.
+                It is an easy way to discourage search engines from indexing
+                only specific pages / posts.
 
-                        This only applies to search engine robots, and will
-                        not effect the site's local search functionality.
+                This only applies to search engine robots, and will not effect
+                the site's local search functionality.
 
-  https://github.com/maratbn/RobotsExcludePress
+  https://github.com/maratbn/RobotsWhiz
 
   Copyright (C) 2015  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
@@ -18,21 +18,21 @@
 
   Module:         LICENSE
 
-  Description:    License for RobotsExcludePress.
+  Description:    License for RobotsWhiz.
 
-  This file is part of RobotsExcludePress.
+  This file is part of RobotsWhiz.
 
   Licensed under the GNU General Public License Version 3.
 
-  RobotsExcludePress is free software: you can redistribute it and/or modify
+  RobotsWhiz is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  RobotsExcludePress is distributed in the hope that it will be useful,
+  RobotsWhiz is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with RobotsExcludePress.  If not, see <http://www.gnu.org/licenses/>.
+  along with RobotsWhiz.  If not, see <http://www.gnu.org/licenses/>.
