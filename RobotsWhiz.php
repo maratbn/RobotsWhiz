@@ -267,8 +267,8 @@
 
                   var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
-                  var mapCheckboxesStandard = [],
-                      $inputCheckboxes_standard = $inputCheckbox
+                  var mapCheckboxesStandard      = [],
+                      $inputCheckboxes_standard  = $inputCheckbox
                                                        .filter('[data-robots-whiz--role=cb-std]');
 
                   for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
