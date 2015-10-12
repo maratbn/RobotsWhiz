@@ -54,7 +54,7 @@
     namespace plugin_RobotsWhiz;
 
 
-    const ROBOTS_EXCLUDE_PRESS    = 'robots_exclude_press';
+    const ROBOTS_WHIZ    = 'robots_whiz';
 
     add_action('admin_menu', '\\plugin_RobotsWhiz\\action_admin_menu');
     add_action('admin_post_plugin_RobotsWhiz_settings',
@@ -87,9 +87,9 @@
                 $idPost = $arrMatch[1];
                 $flagIsLocked = isset($_POST['data_' . $idPost]);
                 if ($flagIsLocked) {
-                    \update_post_meta($idPost, ROBOTS_EXCLUDE_PRESS, $_POST['data']);
+                    \update_post_meta($idPost, ROBOTS_WHIZ, $_POST['data']);
                 } else {
-                    \delete_post_meta($idPost, ROBOTS_EXCLUDE_PRESS);
+                    \delete_post_meta($idPost, ROBOTS_WHIZ);
                 }
             }
         }
