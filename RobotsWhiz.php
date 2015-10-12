@@ -315,8 +315,17 @@
                   }
 
 
-                  var $divReadout =  $tbodyPost.find('div[data--robots-whiz--role=readout]'),
-                      $inputData =   $tbodyPost.find('input[data-robots-whiz--role=data]');
+                  var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
+
+                  var strTokensInitial = $inputData.val();
+                  var arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
+
+                  for (var i = 0; i < arrTokensInitial.length; i++) {
+                      _includeToken(arrTokensInitial[i]);
+                  }
+
+
+                  var $divReadout = $tbodyPost.find('div[data--robots-whiz--role=readout]');
 
                   function _updateReadout() {
                       if (arrTokens.length == 0) {
