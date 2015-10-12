@@ -220,7 +220,7 @@
                           <?php
                               global $ARR_TOKENS_STANDARD;
                               for ($i = 0; $i < count($ARR_TOKENS_STANDARD); $i++) {
-                              ?><label><input type='checkbox' data-robots-whiz--role='cb-standard'
+                              ?><label><input type='checkbox' data-robots-whiz--role='cb-std'
                                               name='<?=$ARR_TOKENS_STANDARD[$i]?>'><?php
                                   ?><?=$ARR_TOKENS_STANDARD[$i]?><?php
                                 ?></input></label><?php
@@ -268,9 +268,8 @@
                   var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
                   var mapCheckboxesStandard = [],
-                      $inputCheckboxes_standard =
-                                            $inputCheckbox
-                                                  .filter('[data-robots-whiz--role=cb-standard]');
+                      $inputCheckboxes_standard = $inputCheckbox
+                                                       .filter('[data-robots-whiz--role=cb-std]');
 
                   for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
                       var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
