@@ -353,10 +353,9 @@
                   }
 
                   function _updateCheckboxes() {
-                      $inputCheckbox_noindex.prop('checked', _isIncluded('noindex'));
-                      $inputCheckbox_nofollow.prop('checked', _isIncluded('nofollow'));
-                      $inputCheckbox_noarchive.prop('checked', _isIncluded('noarchive'));
-                      $inputCheckbox_noimageindex.prop('checked', _isIncluded('noimageindex'));
+                      for (var strName in mapCheckboxesStandard) {
+                          mapCheckboxesStandard[strName].prop('checked', _isIncluded(strName));
+                      }
 
                       _updateCheckboxes_all_none();
                   }
