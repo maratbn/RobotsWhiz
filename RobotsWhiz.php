@@ -247,7 +247,7 @@
                                               ?>' class='button-primary'/><?php
           ?>
           <script type='text/javascript'>
-              function _processPost($tbodyPost) {
+              function _processPost($, $tbodyPost) {
                   var arrTokens = [];
 
                   function _excludeToken(strToken) {
@@ -412,7 +412,7 @@
                       var arrPosts = $('tbody[data--robots-whiz--role=post-config]');
 
                       for (var i = 0; i < arrPosts.length; i++) {
-                          _processPost($(arrPosts[i]));
+                          _processPost($, $(arrPosts[i]));
                       }
                   });
           </script><?php
