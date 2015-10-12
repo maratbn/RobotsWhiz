@@ -303,6 +303,7 @@
                       return true;
                   }
 
+
                   var $divReadout =  $tbodyPost
                                            .find('div[data--robots-whiz--role=readout]');
 
