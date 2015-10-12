@@ -397,8 +397,8 @@
                       });
 
 
-                  var $aAddCustom = $tbodyPost
-                                          .find('a[data--robots-whiz--role=add-custom]');
+                  var $aAddCustom = $tbodyPost.find('a[data--robots-whiz--role=add-custom]');
+
                   $aAddCustom.click(function(event) {
                           event.preventDefault();
 
