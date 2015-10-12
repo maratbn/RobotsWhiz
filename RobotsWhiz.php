@@ -214,7 +214,9 @@
                           <label><input type='checkbox' data-robots-whiz--role='cb-all'>
                               <i>all</i>
                             </input></label>
-                          <label><input type='checkbox' name='none'><i>none</i></input></label>
+                          <label><input type='checkbox' data-robots-whiz--role='cb-none'>
+                              <i>none</i>
+                            </input></label>
                           <?php
                               global $ARR_TOKENS_STANDARD;
                               for ($i = 0; $i < count($ARR_TOKENS_STANDARD); $i++) {
@@ -308,7 +310,8 @@
 
                   var $inputCheckbox_all =   $inputCheckbox
                                                        .filter('[data-robots-whiz--role=cb-all]'),
-                      $inputCheckbox_none =  $inputCheckbox.filter('[name=none]');
+                      $inputCheckbox_none =  $inputCheckbox
+                                                      .filter('[data-robots-whiz--role=cb-none]');
 
                   function _updateCheckboxes_all_none() {
                       $inputCheckbox_all.prop('checked', _areAllIncluded());
