@@ -382,6 +382,7 @@
                           _updateCheckboxes();
                       });
 
+
                   var $aAddCustom = $tbodyPost
                                           .find('a[data--robots-whiz--role=add-custom]');
                   $aAddCustom.click(function(event) {
