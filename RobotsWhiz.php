@@ -248,13 +248,14 @@
           ?>
           <script type='text/javascript'>
               function _processPost($, $tbodyPost) {
-                  var arrTokens              = [],
-                      mapCheckboxesStandard  = [];
+                  var arrTokens = [];
 
                   function _excludeToken(strToken) {
                       var indexToken = arrTokens.indexOf(strToken);
                       if (indexToken >= 0) arrTokens.splice(indexToken, 1);
                   }
+
+                  var mapCheckboxesStandard = [];
 
                   function _excludeAll() {
                       for (strName in mapCheckboxesStandard) {
