@@ -417,6 +417,14 @@
 
                               _includeToken(strCustomToken);
                           }
+
+                          for (var i = 0; i < arrTokensPrev.length; i++) {
+                              var strTokenPrev = arrTokensPrev[i];
+                              if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
+
+                              _excludeToken(strTokenPrev);
+                          }
+
                           _updateCheckboxes();
                       });
               }
