@@ -194,10 +194,14 @@
                     $w_p_query->the_post();
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
+                    $strPostMeta = \get_post_meta($idPost, ROBOTS_WHIZ, true);
+                    $dataPost = $strPostMeta ? json_decode($strPostMeta) : null;
+                    $strData = $dataPost ? $dataPost->robots : null;
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><input type='hidden'
                            name='post_<?=$idPost?>'
-                           data-robots-whiz--role='data'><?php
+                           data-robots-whiz--role='data'
+                           value='<?=\addslashes($strData)?>'><?php
                   ?><tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-whiz--odd-row\''
                            : ""?>>
