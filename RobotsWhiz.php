@@ -149,8 +149,8 @@
       </style>
       <div class="wrap"><?php
       ?><p><?=sprintf(
-        __('Check the checkbox(es) corresponding to the post(s) you want to exclude ' .
-           'from robots, then submit the form by clicking \'%1$s\' at the top or bottom.',
+        __('Check the checkbox(es) corresponding to the post(s) you want to discourage ' .
+           'robots on, then submit the form by clicking \'%1$s\' at the top or bottom.',
            'domain-plugin-RobotsWhiz'),
         __('Update Settings',
            'domain-plugin-RobotsWhiz'));
