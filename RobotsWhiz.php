@@ -366,8 +366,6 @@
                       _updateReadout();
                   }
 
-                  _updateCheckboxes_all_none();
-
                   function _updateCheckboxes() {
                       for (var strName in mapCheckboxesStandard) {
                           mapCheckboxesStandard[strName].prop('checked', _isIncluded(strName));
@@ -375,6 +373,8 @@
 
                       _updateCheckboxes_all_none();
                   }
+
+                  _updateCheckboxes();
 
                   function _initCheckboxForInput(strName) {
                       var $checkboxStandard = mapCheckboxesStandard[strName];
