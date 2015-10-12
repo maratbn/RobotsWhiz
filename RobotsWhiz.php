@@ -268,10 +268,9 @@
                   }
 
                   function _includeAll() {
-                      _includeToken('noindex');
-                      _includeToken('nofollow');
-                      _includeToken('noarchive');
-                      _includeToken('noimageindex');
+                      for (strName in mapCheckboxesStandard) {
+                          _includeToken(strName);
+                      }
                   }
 
                   function _isIncluded(strToken) {
