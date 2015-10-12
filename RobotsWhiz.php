@@ -255,17 +255,17 @@
                       if (indexToken >= 0) arrTokens.splice(indexToken, 1);
                   }
 
+                  function _includeToken(strToken) {
+                      if (arrTokens.indexOf(strToken) >= 0) return;
+                      arrTokens.push(strToken);
+                  }
+
                   var mapCheckboxesStandard = [];
 
                   function _excludeAll() {
                       for (strName in mapCheckboxesStandard) {
                           _excludeToken(strName);
                       }
-                  }
-
-                  function _includeToken(strToken) {
-                      if (arrTokens.indexOf(strToken) >= 0) return;
-                      arrTokens.push(strToken);
                   }
 
                   function _includeAll() {
