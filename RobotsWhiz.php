@@ -118,32 +118,32 @@
                       'domain-plugin-RobotsWhiz'));
         }
     ?><style>
-        .robots-exclude-press--table {
+        .robots-whiz--table {
             border-collapse:                            collapse;
             width:                                      100%;
         }
-        .robots-exclude-press--odd-row {
+        .robots-whiz--odd-row {
             background-color:                           #dde;
         }
-        .robots-exclude-press--column-header {
+        .robots-whiz--column-header {
             padding-right:                              15px;
             text-align:                                 left;
         }
-        .robots-exclude-press--readout {
+        .robots-whiz--readout {
             font-weight:                                bold;
             text-align:                                 center;
         }
-        .robots-exclude-press--td--checkboxes {
+        .robots-whiz--td--checkboxes {
             padding-bottom:                             10px;
             text-align:                                 center;
         }
-        .robots-exclude-press--td--checkboxes label {
+        .robots-whiz--td--checkboxes label {
             margin-right:                               10px;
         }
-        a.robots-exclude-press--td--link {
+        a.robots-whiz--td--link {
             text-decoration:                            none;
         }
-        a.robots-exclude-press--td--link:hover {
+        a.robots-whiz--td--link:hover {
             text-decoration:                            underline;
         }
       </style>
@@ -170,21 +170,21 @@
           ?><input type='submit' value='<?=__('Update Settings',
                                               'domain-plugin-RobotsWhiz')
                                           ?>' class='button-primary'/><hr><?php
-          ?><table class='robots-exclude-press--table'><?php
+          ?><table class='robots-whiz--table'><?php
             ?><tr><?php
-              ?><th class='robots-exclude-press--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?=
                 __('ID', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-exclude-press--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?=
                 __('Post Name', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-exclude-press--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?=
                 __('Post Type', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-exclude-press--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?=
                 __('Page Template', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-exclude-press--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?=
                 __('Post Status', 'domain-plugin-RobotsWhiz')
               ?></th><?php
             ?></tr><?php
@@ -193,10 +193,10 @@
                     $w_p_query->the_post();
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
-                ?><tbody data--robots-exclude-press--role='post-config'><?php
+                ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><input type='hidden' name='post_<?=$idPost?>'><?php
                   ?><tr <?=$indexRow % 2 == 0
-                           ? 'class=\'robots-exclude-press--odd-row\''
+                           ? 'class=\'robots-whiz--odd-row\''
                            : ""?>>
                       <td><a href='<?=get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
                       <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
@@ -205,11 +205,11 @@
                       <td><?=get_post_status($idPost)?></td>
                     </tr>
                     <tr <?=$indexRow % 2 == 0
-                           ? 'class=\'robots-exclude-press--odd-row\''
+                           ? 'class=\'robots-whiz--odd-row\''
                            : ""?>>
-                      <td colspan='5' class='robots-exclude-press--td--checkboxes'>
-                        <div class='robots-exclude-press--readout'
-                             data--robots-exclude-press--role='readout' type='text'></div>
+                      <td colspan='5' class='robots-whiz--td--checkboxes'>
+                        <div class='robots-whiz--readout'
+                             data--robots-whiz--role='readout' type='text'></div>
                         <div>
                           <label><input type='checkbox' name='all'><i>all</i></input></label>
                           <label><input type='checkbox' name='none'><i>none</i></input></label>
@@ -223,11 +223,11 @@
                           ?>
                         </div>
                         <div>
-                          <label><a class='robots-exclude-press--td--link'
-                                    data--robots-exclude-press--role='add-custom'
+                          <label><a class='robots-whiz--td--link'
+                                    data--robots-whiz--role='add-custom'
                                     href='#'>add custom...</a></label>
-                          <label><a class='robots-exclude-press--td--link'
-                                    data--robots-exclude-press--role='clear-custom'
+                          <label><a class='robots-whiz--td--link'
+                                    data--robots-whiz--role='clear-custom'
                                     href='#'>clear custom</a></label>
                         </div>
                       </td>
@@ -288,7 +288,7 @@
                   }
 
                   var $divReadout =  $tbodyPost
-                                           .find('div[data--robots-exclude-press--role=readout]');
+                                           .find('div[data--robots-whiz--role=readout]');
 
                   function _updateReadout() {
                       if (arrTokens.length == 0) {
@@ -381,7 +381,7 @@
                       });
 
                   var $aAddCustom = $tbodyPost
-                                          .find('a[data--robots-exclude-press--role=add-custom]');
+                                          .find('a[data--robots-whiz--role=add-custom]');
                   $aAddCustom.click(function(event) {
                           event.preventDefault();
 
@@ -402,7 +402,7 @@
               }
 
               jQuery(document).ready(function($) {
-                      var arrPosts = $('tbody[data--robots-exclude-press--role=post-config]');
+                      var arrPosts = $('tbody[data--robots-whiz--role=post-config]');
 
                       for (var i = 0; i < arrPosts.length; i++) {
                           _processPost($(arrPosts[i]));
