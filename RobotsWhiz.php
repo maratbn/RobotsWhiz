@@ -308,8 +308,7 @@
                   }
 
 
-                  var $divReadout =  $tbodyPost
-                                           .find('div[data--robots-whiz--role=readout]');
+                  var $divReadout =  $tbodyPost.find('div[data--robots-whiz--role=readout]');
 
                   function _updateReadout() {
                       if (arrTokens.length == 0) {
