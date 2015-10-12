@@ -267,7 +267,15 @@
 
                   var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
 
-                  var mapCheckboxesStandard = [];
+                  var mapCheckboxesStandard = [],
+                      $inputCheckboxes_standard =
+                                            $inputCheckbox
+                                                  .filter('[data-robots-whiz--role=cb-standard]');
+                  for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
+                      var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
+                      var strName = $inputCheckbox_standard.attr('name');
+                      mapCheckboxesStandard[strName] = $inputCheckbox_standard;
+                  }
 
                   function _excludeAll() {
                       for (strName in mapCheckboxesStandard) {
@@ -324,14 +332,6 @@
 
                   _updateCheckboxes_all_none();
 
-                  var $inputCheckboxes_standard =
-                                            $inputCheckbox
-                                                  .filter('[data-robots-whiz--role=cb-standard]');
-                  for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
-                      var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
-                      var strName = $inputCheckbox_standard.attr('name');
-                      mapCheckboxesStandard[strName] = $inputCheckbox_standard;
-                  }
 
                   var $inputCheckbox_noindex =       $inputCheckbox.filter('[name=noindex]'),
                       $inputCheckbox_nofollow =      $inputCheckbox.filter('[name=nofollow]'),
