@@ -195,8 +195,9 @@
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
                 ?><tbody data--robots-whiz--role='post-config'><?php
-                  ?><input type='hidden' name='post_<?=$idPost?>'
-                                         data-robots-whiz--role='data'><?php
+                  ?><input type='hidden'
+                           name='post_<?=$idPost?>'
+                           data-robots-whiz--role='data'><?php
                   ?><tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-whiz--odd-row\''
                            : ""?>>
