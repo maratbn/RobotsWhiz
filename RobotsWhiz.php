@@ -408,11 +408,11 @@
                                                         arrTokensPrev.join(" "));
                           if (!strTokens) return;
 
-                          var arrCustomTokens = strTokens.split(/\s+/);
-                          if (!arrCustomTokens) return;
+                          var arrTokensNew = strTokens.split(/\s+/);
+                          if (!arrTokensNew) return;
 
-                          for (var i = 0; i < arrCustomTokens.length; i++) {
-                              var strCustomToken = arrCustomTokens[i];
+                          for (var i = 0; i < arrTokensNew.length; i++) {
+                              var strCustomToken = arrTokensNew[i];
                               if (!strCustomToken) continue;
 
                               _includeToken(strCustomToken);
