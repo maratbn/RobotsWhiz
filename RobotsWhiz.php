@@ -56,6 +56,8 @@
 
     const ROBOTS_WHIZ    = 'robots_whiz';
 
+    $ARR_TOKENS_STANDARD = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
+
     add_action('admin_menu', '\\plugin_RobotsWhiz\\action_admin_menu');
     add_action('admin_post_plugin_RobotsWhiz_settings',
                '\\plugin_RobotsWhiz\\action_admin_post_plugin_RobotsWhiz_settings');
