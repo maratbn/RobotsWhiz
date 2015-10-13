@@ -494,7 +494,7 @@
 
                           if (!window
                                 .confirm(
-                                  "<?=__('Are you sure you want to clear-out the custom content?',
+                                  "<?=__('Are you sure you want to clear-out your custom content?',
                                          'domain-plugin-RobotsWhiz')?>"))
                               return;
 
