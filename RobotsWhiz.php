@@ -459,8 +459,10 @@
 
                           var arrTokensPrev = _getArrTokensNonStandard();
 
-                          var strTokens = window.prompt("Please specify your custom content:",
-                                                        arrTokensPrev.join(" "));
+                          var strTokens = window.prompt(
+                                                    "<?=__('Please specify your custom content:',
+                                                            'domain-plugin-RobotsWhiz')?>",
+                                                    arrTokensPrev.join(" "));
                           if (strTokens == null) return;
 
                           var arrTokensNew = strTokens.split(/\s+/);
@@ -490,8 +492,10 @@
                           var arrTokensPrev = _getArrTokensNonStandard();
                           if (arrTokensPrev.length == 0) return;
 
-                          if (!window.confirm(
-                                        "Are you sure you want to clear-out the custom content?"))
+                          if (!window
+                                .confirm(
+                                  "<?=__('Are you sure you want to clear-out the custom content?',
+                                         'domain-plugin-RobotsWhiz')?>"))
                               return;
 
                           for (var i = 0; i < arrTokensPrev.length; i++) {
