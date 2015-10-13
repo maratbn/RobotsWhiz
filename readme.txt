@@ -62,3 +62,6 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 
 = 0.1.0 =
 * Initial release.
+
+= 0.2.0
+* Updated description wording.
