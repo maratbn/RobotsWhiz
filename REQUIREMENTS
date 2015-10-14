@@ -2,6 +2,6 @@ RobotsWhiz requires:
 
     Server-side environment:
 
-     * PHP version >= 5.3
+     * PHP version >= 5.4
 
      * WordPress version >= 3.8.1
