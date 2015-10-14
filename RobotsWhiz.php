@@ -196,19 +196,19 @@
                                           ?>' class='button-primary'/><hr><?php
           ?><table class='robots-whiz--table'><?php
             ?><tr><?php
-              ?><th class='robots-whiz--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?php
                 __('ID', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-whiz--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?php
                 __('Post Name', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-whiz--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?php
                 __('Post Type', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-whiz--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?php
                 __('Page Template', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-whiz--column-header'><?=
+              ?><th class='robots-whiz--column-header'><?php
                 __('Post Status', 'domain-plugin-RobotsWhiz')
               ?></th><?php
             ?></tr><?php
