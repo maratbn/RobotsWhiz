@@ -62,3 +62,6 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 
 = 0.1.0 =
 * Initial release.
+
+= 0.1.1 =
+* Minor code refactoring involving empty PHP echo short tags.
