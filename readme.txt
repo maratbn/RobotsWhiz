@@ -65,6 +65,7 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 
 = 0.1.1 =
 * Minor code refactoring involving empty PHP echo short tags.
+* Corrected REQUIREMENTS in that the supported PHP version is >= 5.4 not >= 5.3
 
 = 0.2.0
 * Updated description wording.
