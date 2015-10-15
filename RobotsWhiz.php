@@ -67,8 +67,8 @@
 
 
     function action_admin_menu() {
-        \add_options_page(__('RobotsWhiz Settings', 'domain-plugin-RobotsWhiz'),
-                          __('RobotsWhiz', 'domain-plugin-RobotsWhiz'),
+        \add_options_page(\__('RobotsWhiz Settings', 'domain-plugin-RobotsWhiz'),
+                          \__('RobotsWhiz', 'domain-plugin-RobotsWhiz'),
                           'manage_options',
                           'plugin_RobotsWhiz_settings',
                           '\\plugin_RobotsWhiz\\render_settings');
@@ -77,8 +77,8 @@
     function action_admin_post_plugin_RobotsWhiz_settings() {
         //  Based on: http://jaskokoyn.com/2013/03/26/wordpress-admin-forms/
         if (!current_user_can('manage_options')) {
-            \wp_die(__('Insufficient user permissions to modify options.',
-                       'domain-plugin-RobotsWhiz'));
+            \wp_die(\__('Insufficient user permissions to modify options.',
+                        'domain-plugin-RobotsWhiz'));
         }
 
         // Check that nonce field
@@ -127,7 +127,7 @@
     function filter_plugin_action_links($arrLinks) {
         \array_push($arrLinks,
                     '<a href=\'' . getUrlSettings() . '\'>'
-                                    . __('Settings', 'domain-plugin-RobotsWhiz') . '</a>');
+                                    . \__('Settings', 'domain-plugin-RobotsWhiz') . '</a>');
         return $arrLinks;
     }
 
@@ -138,8 +138,8 @@
     function render_settings() {
         //  Based on http://codex.wordpress.org/Administration_Menus
         if (!\current_user_can('manage_options' ))  {
-            \wp_die(__('You do not have sufficient permissions to access this page.',
-                       'domain-plugin-RobotsWhiz'));
+            \wp_die(\__('You do not have sufficient permissions to access this page.',
+                        'domain-plugin-RobotsWhiz'));
         }
     ?><style>
         .robots-whiz--table {
@@ -173,11 +173,11 @@
       </style>
       <div class="wrap"><?php
       ?><p><?=\sprintf(
-        __('Check the checkbox(es) corresponding to the post(s) you want to discourage ' .
-           'robots on, then submit the form by clicking \'%1$s\' at the top or bottom.',
-           'domain-plugin-RobotsWhiz'),
-        __('Update Settings',
-           'domain-plugin-RobotsWhiz'));
+        \__('Check the checkbox(es) corresponding to the post(s) you want to discourage ' .
+            'robots on, then submit the form by clicking \'%1$s\' at the top or bottom.',
+            'domain-plugin-RobotsWhiz'),
+        \__('Update Settings',
+            'domain-plugin-RobotsWhiz'));
              ?></p><?php
       ?><form method='post' action='admin-post.php'><?php
         ?><input type='hidden' name='action' value='plugin_RobotsWhiz_settings' /><?php
@@ -191,25 +191,25 @@
 
           global $post;
           if ($w_p_query->have_posts()) {
-          ?><input type='submit' value='<?=__('Update Settings',
-                                              'domain-plugin-RobotsWhiz')
+          ?><input type='submit' value='<?=\__('Update Settings',
+                                               'domain-plugin-RobotsWhiz')
                                           ?>' class='button-primary'/><hr><?php
           ?><table class='robots-whiz--table'><?php
             ?><tr><?php
               ?><th class='robots-whiz--column-header'><?php
-                __('ID', 'domain-plugin-RobotsWhiz')
+                \__('ID', 'domain-plugin-RobotsWhiz')
               ?></th><?php
               ?><th class='robots-whiz--column-header'><?php
-                __('Post Name', 'domain-plugin-RobotsWhiz')
+                \__('Post Name', 'domain-plugin-RobotsWhiz')
               ?></th><?php
               ?><th class='robots-whiz--column-header'><?php
-                __('Post Type', 'domain-plugin-RobotsWhiz')
+                \__('Post Type', 'domain-plugin-RobotsWhiz')
               ?></th><?php
               ?><th class='robots-whiz--column-header'><?php
-                __('Page Template', 'domain-plugin-RobotsWhiz')
+                \__('Page Template', 'domain-plugin-RobotsWhiz')
               ?></th><?php
               ?><th class='robots-whiz--column-header'><?php
-                __('Post Status', 'domain-plugin-RobotsWhiz')
+                \__('Post Status', 'domain-plugin-RobotsWhiz')
               ?></th><?php
             ?></tr><?php
                 $indexRow = 0;
@@ -272,8 +272,8 @@
                 }
                 \wp_reset_postdata();
           ?></table><?php
-          ?><hr><input type='submit' value='<?=__('Update Settings',
-                                                  'domain-plugin-RobotsWhiz')
+          ?><hr><input type='submit' value='<?=\__('Update Settings',
+                                                   'domain-plugin-RobotsWhiz')
                                               ?>' class='button-primary'/><?php
           ?>
           <script type='text/javascript'>
@@ -460,7 +460,7 @@
                           var arrTokensPrev = _getArrTokensNonStandard();
 
                           var strTokens = window.prompt(
-                                                    "<?=__('Please specify your custom content:',
+                                                    "<?=\__('Please specify your custom content:',
                                                             'domain-plugin-RobotsWhiz')?>",
                                                     arrTokensPrev.join(" "));
                           if (strTokens == null) return;
@@ -494,8 +494,8 @@
 
                           if (!window
                                 .confirm(
-                                  "<?=__('Are you sure you want to clear-out your custom content?',
-                                         'domain-plugin-RobotsWhiz')?>"))
+                                  "<?=\__('Are you sure you want to clear-out your custom content?',
+                                          'domain-plugin-RobotsWhiz')?>"))
                               return;
 
                           for (var i = 0; i < arrTokensPrev.length; i++) {
@@ -516,7 +516,7 @@
                   });
           </script><?php
           } else {
-          ?><?=__('No posts', 'domain-plugin-RobotsWhiz')?><?php
+          ?><?=\__('No posts', 'domain-plugin-RobotsWhiz')?><?php
           }
       ?></form></div><?php
     }
