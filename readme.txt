@@ -69,3 +69,4 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 
 = 0.2.0
 * Updated description wording.
+* Added activation check for PHP version to not be < 5.4
