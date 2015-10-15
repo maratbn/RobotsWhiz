@@ -67,7 +67,7 @@
 
 
     function action_admin_menu() {
-        add_options_page( __('RobotsWhiz Settings', 'domain-plugin-RobotsWhiz'),
+        \add_options_page(__('RobotsWhiz Settings', 'domain-plugin-RobotsWhiz'),
                           __('RobotsWhiz', 'domain-plugin-RobotsWhiz'),
                           'manage_options',
                           'plugin_RobotsWhiz_settings',
@@ -77,15 +77,15 @@
     function action_admin_post_plugin_RobotsWhiz_settings() {
         //  Based on: http://jaskokoyn.com/2013/03/26/wordpress-admin-forms/
         if (!current_user_can('manage_options')) {
-            wp_die(__('Insufficient user permissions to modify options.',
-                      'domain-plugin-RobotsWhiz'));
+            \wp_die(__('Insufficient user permissions to modify options.',
+                       'domain-plugin-RobotsWhiz'));
         }
 
         // Check that nonce field
-        check_admin_referer('plugin_RobotsWhiz_settings_nonce');
+        \check_admin_referer('plugin_RobotsWhiz_settings_nonce');
 
         foreach ($_POST as $strFieldName => $strFieldValue) {
-            preg_match('/^post_(\d+)$/', $strFieldName, $arrMatch);
+            \preg_match('/^post_(\d+)$/', $strFieldName, $arrMatch);
             if ($arrMatch && count($arrMatch) == 2) {
                 $idPost = $arrMatch[1];
                 $field = 'post_' . $idPost;
@@ -98,7 +98,7 @@
             }
         }
 
-        wp_redirect(getUrlSettings());
+        \wp_redirect(getUrlSettings());
         exit();
     }
 
@@ -115,7 +115,7 @@
         if ($idPost == null) return;
 
         $strPostMeta = \get_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, true);
-        $dataPost = $strPostMeta ? json_decode($strPostMeta, true) : null;
+        $dataPost = $strPostMeta ? \json_decode($strPostMeta, true) : null;
         $strData = $dataPost ? $dataPost['robots'] : null;
         if ($strData == null) return;
 
@@ -125,21 +125,21 @@
     }
 
     function filter_plugin_action_links($arrLinks) {
-        array_push($arrLinks,
-                   '<a href=\'' . getUrlSettings() . '\'>'
+        \array_push($arrLinks,
+                    '<a href=\'' . getUrlSettings() . '\'>'
                                     . __('Settings', 'domain-plugin-RobotsWhiz') . '</a>');
         return $arrLinks;
     }
 
     function getUrlSettings() {
-        return admin_url('options-general.php?page=plugin_RobotsWhiz_settings');
+        return \admin_url('options-general.php?page=plugin_RobotsWhiz_settings');
     }
 
     function render_settings() {
         //  Based on http://codex.wordpress.org/Administration_Menus
-        if (!current_user_can('manage_options' ))  {
-            wp_die(__('You do not have sufficient permissions to access this page.',
-                      'domain-plugin-RobotsWhiz'));
+        if (!\current_user_can('manage_options' ))  {
+            \wp_die(__('You do not have sufficient permissions to access this page.',
+                       'domain-plugin-RobotsWhiz'));
         }
     ?><style>
         .robots-whiz--table {
@@ -172,7 +172,7 @@
         }
       </style>
       <div class="wrap"><?php
-      ?><p><?=sprintf(
+      ?><p><?=\sprintf(
         __('Check the checkbox(es) corresponding to the post(s) you want to discourage ' .
            'robots on, then submit the form by clicking \'%1$s\' at the top or bottom.',
            'domain-plugin-RobotsWhiz'),
@@ -181,7 +181,7 @@
              ?></p><?php
       ?><form method='post' action='admin-post.php'><?php
         ?><input type='hidden' name='action' value='plugin_RobotsWhiz_settings' /><?php
-          wp_nonce_field('plugin_RobotsWhiz_settings_nonce');
+          \wp_nonce_field('plugin_RobotsWhiz_settings_nonce');
 
           $w_p_query = new \WP_Query(['order'           => 'ASC',
                                       'orderby'         => 'name',
@@ -218,7 +218,7 @@
                     $idPost = $post->ID;
                     $strPostName = $post->post_name;
                     $strPostMeta = \get_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, true);
-                    $dataPost = $strPostMeta ? json_decode($strPostMeta, true) : null;
+                    $dataPost = $strPostMeta ? \json_decode($strPostMeta, true) : null;
                     $strData = $dataPost ? $dataPost['robots'] : null;
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><input type='hidden'
@@ -228,11 +228,11 @@
                   ?><tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-whiz--odd-row\''
                            : ""?>>
-                      <td><a href='<?=get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
-                      <td><a href='<?=get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
+                      <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
+                      <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
                       <td><?=$post->post_type?></td>
-                      <td><?=get_page_template_slug($idPost)?></td>
-                      <td><?=get_post_status($idPost)?></td>
+                      <td><?=\get_page_template_slug($idPost)?></td>
+                      <td><?=\get_post_status($idPost)?></td>
                     </tr>
                     <tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-whiz--odd-row\''
@@ -249,7 +249,7 @@
                             </input></label>
                           <?php
                               global $ARR_TOKENS_STANDARD;
-                              for ($i = 0; $i < count($ARR_TOKENS_STANDARD); $i++) {
+                              for ($i = 0; $i < \count($ARR_TOKENS_STANDARD); $i++) {
                               ?><label><input type='checkbox' data-robots-whiz--role='cb-std'
                                               name='<?=$ARR_TOKENS_STANDARD[$i]?>'><?php
                                   ?><?=$ARR_TOKENS_STANDARD[$i]?><?php
@@ -270,7 +270,7 @@
                   </tbody><?php
                     $indexRow++;
                 }
-                wp_reset_postdata();
+                \wp_reset_postdata();
           ?></table><?php
           ?><hr><input type='submit' value='<?=__('Update Settings',
                                                   'domain-plugin-RobotsWhiz')
