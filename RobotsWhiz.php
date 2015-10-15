@@ -54,6 +54,7 @@
     namespace plugin_RobotsWhiz;
 
 
+    const PHP_VERSION_MIN_SUPPORTED = '5.4';
     const ROBOTS_WHIZ__META_CONTENT = 'robots_whiz__meta_content';
 
     $ARR_TOKENS_STANDARD = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
@@ -64,6 +65,7 @@
     \add_action('wp_head', '\\plugin_RobotsWhiz\\action_wp_head');
     \add_filter('plugin_action_links_' . plugin_basename(__FILE__),
                                         '\\plugin_RobotsWhiz\\filter_plugin_action_links');
+    \register_activation_hook(__FILE__, '\\plugin_RobotsWhiz\\plugin_activation_hook');
 
 
     function action_admin_menu() {
@@ -133,6 +135,14 @@
 
     function getUrlSettings() {
         return \admin_url('options-general.php?page=plugin_RobotsWhiz_settings');
+    }
+
+    function plugin_activation_hook() {
+         if (\version_compare(\strtolower(PHP_VERSION), PHP_VERSION_MIN_SUPPORTED, '<')) {
+            \wp_die(
+                \__('RobotsWhiz plugin cannot be activated because the currently active PHP version on this server is < 5.4 and not supported.  PHP version >= 5.4 is required.',
+                    'domain-plugin-RobotsWhiz'));
+        }
     }
 
     function render_settings() {
