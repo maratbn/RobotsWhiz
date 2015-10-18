@@ -50,6 +50,10 @@ Official project URLs:
 
 == Frequently Asked Questions ==
 
+= Where can I ask a question about RobotsWhiz? =
+
+Ask your questions at: https://wordpress.org/support/plugin/robotswhiz
+
 = Where can I post issues / bugs / feature requests? =
 
 Post issues / bugs / feature requests at: https://github.com/maratbn/RobotsWhiz/issues
