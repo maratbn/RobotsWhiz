@@ -33,7 +33,7 @@ Overview:
 Technical summary:
 
   Plugin works by hooking-in special logic into the action 'wp_head' to inject
-  the tag <meta name='robots' content='...'> with restriction directives for
+  the tag `<meta name='robots' content='...'>` with restriction directives for
   the specified pages and posts.
 
 Official project URLs:
