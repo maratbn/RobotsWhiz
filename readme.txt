@@ -38,6 +38,7 @@ Technical summary:
 
 Official project URLs:
 
+  https://wordpress.org/plugins/robotswhiz
   https://github.com/maratbn/RobotsWhiz
 
 

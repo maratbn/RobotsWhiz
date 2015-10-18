@@ -1,6 +1,7 @@
 <?php
 /*
   Plugin Name: RobotsWhiz
+  Plugin URI: https://wordpress.org/plugins/robotswhiz
   Plugin URI: https://github.com/maratbn/RobotsWhiz
   Description: An easy way to discourage search engines from indexing only specific pages / posts.
   Author: Marat Nepomnyashy
