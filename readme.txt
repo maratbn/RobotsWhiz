@@ -59,6 +59,11 @@ Post issues / bugs / feature requests at: https://github.com/maratbn/RobotsWhiz/
 Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 
 
+== Screenshots ==
+
+1. RobotsWhiz configuration screen.
+
+
 == Changelog ==
 
 = 0.1.0 =
