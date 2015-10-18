@@ -82,7 +82,7 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 * Added activation check for PHP version to not be < 5.4
 
 = 0.2.1 =
-* Fixed bug:  Restored the php echo short tags for rendering <table> column
+* Fixed bug:  Restored the php echo short tags for rendering `<table>` column
   header captions that were incorrectly removed earlier.
 * Fixed bug:  Corrected the logic for processing previously saved values.
 
