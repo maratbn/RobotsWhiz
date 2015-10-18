@@ -234,7 +234,8 @@
                   ?><input type='hidden'
                            name='post_<?=$idPost?>'
                            data-robots-whiz--role='data'
-                           value='<?=$strData?>'><?php
+                           value='<?=\htmlspecialchars(
+                                            \json_encode(['robots' => $strData]))?>'><?php
                   ?><tr <?=$indexRow % 2 == 0
                            ? 'class=\'robots-whiz--odd-row\''
                            : ""?>>
@@ -350,7 +351,10 @@
 
                   var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
-                  var strTokensInitial = $inputData.val();
+                  var strJSONTokensInitial = $inputData.val();
+                  var dataTokensInitial = strJSONTokensInitial &&
+                                          window.JSON.parse(strJSONTokensInitial);
+                  var strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
                   var arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
 
                   for (var i = 0; i < arrTokensInitial.length; i++) {
