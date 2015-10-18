@@ -363,13 +363,12 @@
                   function _updateReadout() {
                       if (arrTokens.length == 0) {
                           $divReadout.html("&nbsp;");
-                          return;
-                      }
-
-                      $divReadout.text("<meta name=\"robots\" content=\""
+                      } else {
+                          $divReadout.text("<meta name=\"robots\" content=\""
                                                       + arrTokens.join(", ")
                                                                  .replace(/\\/g, "\\\\")
                                                                  .replace(/"/g, "\\\"") + "\">");
+                      }
 
                       $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
                   }
