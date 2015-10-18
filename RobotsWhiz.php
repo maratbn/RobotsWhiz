@@ -206,19 +206,19 @@
                                           ?>' class='button-primary'/><hr><?php
           ?><table class='robots-whiz--table'><?php
             ?><tr><?php
-              ?><th class='robots-whiz--column-header'><?php
+              ?><th class='robots-whiz--column-header'><?=
                 \__('ID', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-whiz--column-header'><?php
+              ?><th class='robots-whiz--column-header'><?=
                 \__('Post Name', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-whiz--column-header'><?php
+              ?><th class='robots-whiz--column-header'><?=
                 \__('Post Type', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-whiz--column-header'><?php
+              ?><th class='robots-whiz--column-header'><?=
                 \__('Page Template', 'domain-plugin-RobotsWhiz')
               ?></th><?php
-              ?><th class='robots-whiz--column-header'><?php
+              ?><th class='robots-whiz--column-header'><?=
                 \__('Post Status', 'domain-plugin-RobotsWhiz')
               ?></th><?php
             ?></tr><?php
