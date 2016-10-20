@@ -1,4 +1,4 @@
-  RobotsWhiz -- WordPress plugin that allows site administrators to discourage
+  Robots Meta Whiz -- WordPress plugin that allows site administrators to discourage
                 search engines from indexing, following links from, caching,
                 indexing images from, and / or have additional custom
                 restrictions on only for certain specifically-designated pages
@@ -18,21 +18,21 @@
 
   Module:         LICENSE
 
-  Description:    License for RobotsWhiz.
+  Description:    License for Robots Meta Whiz.
 
-  This file is part of RobotsWhiz.
+  This file is part of Robots Meta Whiz.
 
   Licensed under the GNU General Public License Version 3.
 
-  RobotsWhiz is free software: you can redistribute it and/or modify
+  Robots Meta Whiz is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  RobotsWhiz is distributed in the hope that it will be useful,
+  Robots Meta Whiz is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with RobotsWhiz.  If not, see <http://www.gnu.org/licenses/>.
+  along with Robots Meta Whiz.  If not, see <http://www.gnu.org/licenses/>.

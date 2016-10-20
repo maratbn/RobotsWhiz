@@ -1,4 +1,4 @@
-=== RobotsWhiz ===
+=== Robots Meta Whiz ===
 Contributors: maratbn
 Tags: robots, robots.txt, crawlers, spiders, search engines, discourage search engines, robots policy, page specific robots, meta
 Requires at least: 3.8.1
@@ -19,7 +19,7 @@ Overview:
   but not functionality to discourage search engines from indexing only certain
   specific pages and posts of the site.
 
-  RobotsWhiz is a WordPress plugin that allows site administrators to
+  Robots Meta Whiz is a WordPress plugin that allows site administrators to
   discourage search engines from indexing, following links from, caching,
   indexing images from, and / or have additional custom restrictions on only
   for certain specifically-designated pages and posts.
@@ -50,7 +50,7 @@ Official project URLs:
 
 == Frequently Asked Questions ==
 
-= Where can I ask a question about RobotsWhiz? =
+= Where can I ask a question about Robots Meta Whiz? =
 
 Ask your questions at: https://wordpress.org/support/plugin/robotswhiz
 
@@ -65,7 +65,7 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 
 == Screenshots ==
 
-1. RobotsWhiz configuration screen.
+1. Robots Meta Whiz configuration screen.
 
 
 == Changelog ==

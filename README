@@ -1,4 +1,4 @@
---------------------  WordPress plugin RobotsWhiz  --------------------
+-----------------  WordPress plugin Robots Meta Whiz  ------------------
 
 https://wordpress.org/plugins/robotswhiz
 https://github.com/maratbn/RobotsWhiz
@@ -18,7 +18,7 @@ Overview:
   but not functionality to discourage search engines from indexing only certain
   specific pages and posts of the site.
 
-  RobotsWhiz is a WordPress plugin that allows site administrators to
+  Robots Meta Whiz is a WordPress plugin that allows site administrators to
   discourage search engines from indexing, following links from, caching,
   indexing images from, and / or have additional custom restrictions on only
   for certain specifically-designated pages and posts.

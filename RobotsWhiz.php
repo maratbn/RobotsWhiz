@@ -1,6 +1,6 @@
 <?php
 /*
-  Plugin Name: RobotsWhiz
+  Plugin Name: Robots Meta Whiz
   Plugin URI: https://wordpress.org/plugins/robotswhiz
   Plugin URI: https://github.com/maratbn/RobotsWhiz
   Description: An easy way to discourage search engines from indexing only specific pages / posts with custom meta tags.
@@ -12,7 +12,7 @@
 */
 
 /*
-  RobotsWhiz -- WordPress plugin that allows site administrators to discourage
+  Robots Meta Whiz -- WordPress plugin that allows site administrators to discourage
                 search engines from indexing, following links from, caching,
                 indexing images from, and / or have additional custom
                 restrictions on only for certain specifically-designated pages
@@ -32,24 +32,24 @@
 
   Module:         RobotsWhiz.php
 
-  Description:    Main PHP file for the WordPress plugin 'RobotsWhiz'.
+  Description:    Main PHP file for the WordPress plugin 'Robots Meta Whiz'.
 
-  This file is part of RobotsWhiz.
+  This file is part of Robots Meta Whiz.
 
   Licensed under the GNU General Public License Version 3.
 
-  RobotsWhiz is free software: you can redistribute it and/or modify
+  Robots Meta Whiz is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
 
-  RobotsWhiz is distributed in the hope that it will be useful,
+  Robots Meta Whiz is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
 
   You should have received a copy of the GNU General Public License
-  along with RobotsWhiz.  If not, see <http://www.gnu.org/licenses/>.
+  along with Robots Meta Whiz.  If not, see <http://www.gnu.org/licenses/>.
 */
 
     namespace plugin_RobotsWhiz;
@@ -70,8 +70,8 @@
 
 
     function action_admin_menu() {
-        \add_options_page(\__('RobotsWhiz Settings', 'domain-plugin-RobotsWhiz'),
-                          \__('RobotsWhiz', 'domain-plugin-RobotsWhiz'),
+        \add_options_page(\__('Robots Meta Whiz Settings', 'domain-plugin-RobotsWhiz'),
+                          \__('Robots Meta Whiz', 'domain-plugin-RobotsWhiz'),
                           'manage_options',
                           'plugin_RobotsWhiz_settings',
                           '\\plugin_RobotsWhiz\\render_settings');
@@ -141,7 +141,7 @@
     function plugin_activation_hook() {
          if (\version_compare(\strtolower(PHP_VERSION), PHP_VERSION_MIN_SUPPORTED, '<')) {
             \wp_die(
-                \__('RobotsWhiz plugin cannot be activated because the currently active PHP version on this server is < 5.4 and not supported.  PHP version >= 5.4 is required.',
+                \__('Robots Meta Whiz plugin cannot be activated because the currently active PHP version on this server is < 5.4 and not supported.  PHP version >= 5.4 is required.',
                     'domain-plugin-RobotsWhiz'));
         }
     }
