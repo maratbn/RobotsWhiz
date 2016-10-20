@@ -1,6 +1,6 @@
 === RobotsWhiz ===
 Contributors: maratbn
-Tags: robots, robots.txt, crawlers, spiders, search engines, discourage search engines, robots policy, page specific robots
+Tags: robots, robots.txt, crawlers, spiders, search engines, discourage search engines, robots policy, page specific robots, meta
 Requires at least: 3.8.1
 Tested up to: 4.3.1
 Stable tag: 0.3.0
