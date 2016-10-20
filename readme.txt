@@ -2,7 +2,7 @@
 Contributors: maratbn
 Tags: robots, robots.txt, crawlers, spiders, search engines, discourage search engines, robots policy, page specific robots, meta
 Requires at least: 3.8.1
-Tested up to: 4.3.1
+Tested up to: 4.6.1
 Stable tag: 0.3.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -14,7 +14,7 @@ Easy way to discourage search engines from indexing only specific pages / posts 
 
 Overview:
 
-  At the time of this writing, the latest version of WordPress, version 4.3.1,
+  At the time of this writing, the latest version of WordPress, version 4.6.1,
   has functionality to discourage search engines from indexing the whole site,
   but not functionality to discourage search engines from indexing only certain
   specific pages and posts of the site.
