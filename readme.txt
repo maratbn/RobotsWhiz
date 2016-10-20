@@ -89,3 +89,6 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 = 0.3.0 =
 * Added screenshot of configuration screen.
 * Miscellaneous documentation improvements.
+
+= 1.0.0=
+* Renamed the plugin from RobotsWhiz to Robots Meta Whiz.
