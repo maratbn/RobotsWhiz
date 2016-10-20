@@ -7,7 +7,7 @@ Stable tag: 0.3.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-Easy way to discourage search engines from indexing only specific pages / posts.
+Easy way to discourage search engines from indexing only specific pages / posts with custom meta tags.
 
 
 == Description ==

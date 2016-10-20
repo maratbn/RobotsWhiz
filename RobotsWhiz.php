@@ -3,7 +3,7 @@
   Plugin Name: RobotsWhiz
   Plugin URI: https://wordpress.org/plugins/robotswhiz
   Plugin URI: https://github.com/maratbn/RobotsWhiz
-  Description: An easy way to discourage search engines from indexing only specific pages / posts.
+  Description: An easy way to discourage search engines from indexing only specific pages / posts with custom meta tags.
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
