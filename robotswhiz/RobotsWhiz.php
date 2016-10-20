@@ -30,7 +30,7 @@
 
   Version:        1.0.0-development_unreleased
 
-  Module:         RobotsWhiz.php
+  Module:         robotswhiz/RobotsWhiz.php
 
   Description:    Main PHP file for the WordPress plugin 'Robots Meta Whiz'.
 
