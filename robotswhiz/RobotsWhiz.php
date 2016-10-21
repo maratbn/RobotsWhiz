@@ -55,6 +55,9 @@
     namespace plugin_RobotsWhiz;
 
 
+    const IS_MODE_RELEASE = false;
+
+
     const PHP_VERSION_MIN_SUPPORTED = '5.4';
     const ROBOTS_WHIZ__META_CONTENT = 'robots_whiz__meta_content';
 
