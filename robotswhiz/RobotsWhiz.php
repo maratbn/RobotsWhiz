@@ -55,6 +55,9 @@
     namespace plugin_RobotsWhiz;
 
 
+    const PLUGIN_VERSION = '1.1.0-development_unreleased';
+
+
     const IS_MODE_RELEASE = false;
 
 
