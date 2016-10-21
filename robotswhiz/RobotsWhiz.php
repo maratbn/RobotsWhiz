@@ -145,6 +145,10 @@
         return \admin_url('options-general.php?page=plugin_RobotsWhiz_settings');
     }
 
+    function getUVArg() {
+        return 'uv=' . PLUGIN_VERSION . (IS_MODE_RELEASE ? "" : ('_' . \time() . \rand()));
+    }
+
     function plugin_activation_hook() {
          if (\version_compare(\strtolower(PHP_VERSION), PHP_VERSION_MIN_SUPPORTED, '<')) {
             \wp_die(
