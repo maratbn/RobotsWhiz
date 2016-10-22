@@ -304,245 +304,247 @@
                                               ?>' class='button-primary'/><?php
           ?>
           <script type='text/javascript'>
-              function _processPost($, $tbodyPost) {
-                  var arrTokens = [];
+              (function() {
+                  function _processPost($, $tbodyPost) {
+                      var arrTokens = [];
 
-                  function _excludeToken(strToken) {
-                      var indexToken = arrTokens.indexOf(strToken);
-                      if (indexToken >= 0) arrTokens.splice(indexToken, 1);
-                  }
-
-                  function _includeToken(strToken) {
-                      if (arrTokens.indexOf(strToken) >= 0) return;
-                      arrTokens.push(strToken);
-                  }
-
-                  function _isIncluded(strToken) {
-                      return (arrTokens.indexOf(strToken) >= 0);
-                  }
-
-
-                  var mapCheckboxesStandard = [];
-
-                  function _excludeAll() {
-                      for (strName in mapCheckboxesStandard) {
-                          _excludeToken(strName);
+                      function _excludeToken(strToken) {
+                          var indexToken = arrTokens.indexOf(strToken);
+                          if (indexToken >= 0) arrTokens.splice(indexToken, 1);
                       }
-                  }
 
-                  function _includeAll() {
-                      for (strName in mapCheckboxesStandard) {
-                          _includeToken(strName);
+                      function _includeToken(strToken) {
+                          if (arrTokens.indexOf(strToken) >= 0) return;
+                          arrTokens.push(strToken);
                       }
-                  }
 
-                  function _areAllExcluded() {
-                      for (strName in mapCheckboxesStandard) {
-                          if (_isIncluded(strName)) return false;
+                      function _isIncluded(strToken) {
+                          return (arrTokens.indexOf(strToken) >= 0);
                       }
-                      return true;
-                  }
 
-                  function _areAllIncluded() {
-                      for (strName in mapCheckboxesStandard) {
-                          if (!_isIncluded(strName)) return false;
-                      }
-                      return true;
-                  }
 
-                  function _getArrTokensNonStandard() {
-                      var arrTokensNonStandard = [];
+                      var mapCheckboxesStandard = [];
 
-                      for (var i = 0; i < arrTokens.length; i++) {
-                          var strToken = arrTokens[i];
-
-                          if (!mapCheckboxesStandard[strToken]) {
-                              arrTokensNonStandard.push(strToken);
+                      function _excludeAll() {
+                          for (strName in mapCheckboxesStandard) {
+                              _excludeToken(strName);
                           }
                       }
 
-                      return arrTokensNonStandard;
-                  }
-
-
-                  var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
-
-                  var strJSONTokensInitial = $inputData.val();
-                  var dataTokensInitial = strJSONTokensInitial &&
-                                          window.JSON.parse(strJSONTokensInitial);
-                  var strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
-                  var arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
-
-                  for (var i = 0; i < arrTokensInitial.length; i++) {
-                      _includeToken(arrTokensInitial[i]);
-                  }
-
-
-                  var $divReadout = $tbodyPost.find('div[data--robots-whiz--role=readout]');
-
-                  function _updateReadout() {
-                      if (arrTokens.length == 0) {
-                          $divReadout.html("&nbsp;");
-                      } else {
-                          $divReadout.text("<meta name=\"robots\" content=\""
-                                                      + arrTokens.join(", ")
-                                                                 .replace(/\\/g, "\\\\")
-                                                                 .replace(/"/g, "\\\"") + "\">");
+                      function _includeAll() {
+                          for (strName in mapCheckboxesStandard) {
+                              _includeToken(strName);
+                          }
                       }
 
-                      $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
-                  }
+                      function _areAllExcluded() {
+                          for (strName in mapCheckboxesStandard) {
+                              if (_isIncluded(strName)) return false;
+                          }
+                          return true;
+                      }
+
+                      function _areAllIncluded() {
+                          for (strName in mapCheckboxesStandard) {
+                              if (!_isIncluded(strName)) return false;
+                          }
+                          return true;
+                      }
+
+                      function _getArrTokensNonStandard() {
+                          var arrTokensNonStandard = [];
+
+                          for (var i = 0; i < arrTokens.length; i++) {
+                              var strToken = arrTokens[i];
+
+                              if (!mapCheckboxesStandard[strToken]) {
+                                  arrTokensNonStandard.push(strToken);
+                              }
+                          }
+
+                          return arrTokensNonStandard;
+                      }
 
 
-                  var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
+                      var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
-                  var $inputCheckboxes_standard = $inputCheckbox
-                                                       .filter('[data-robots-whiz--role=cb-std]');
+                      var strJSONTokensInitial = $inputData.val();
+                      var dataTokensInitial = strJSONTokensInitial &&
+                                              window.JSON.parse(strJSONTokensInitial);
+                      var strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
+                      var arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
 
-                  for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
-                      var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
-                      var strName = $inputCheckbox_standard.attr('name');
-                      mapCheckboxesStandard[strName] = $inputCheckbox_standard;
-                  }
+                      for (var i = 0; i < arrTokensInitial.length; i++) {
+                          _includeToken(arrTokensInitial[i]);
+                      }
 
 
-                  var $inputCheckbox_all =   $inputCheckbox
-                                                       .filter('[data-robots-whiz--role=cb-all]'),
-                      $inputCheckbox_none =  $inputCheckbox
-                                                      .filter('[data-robots-whiz--role=cb-none]');
+                      var $divReadout = $tbodyPost.find('div[data--robots-whiz--role=readout]');
 
-                  function _updateCheckboxes_all_none() {
-                      $inputCheckbox_all.prop('checked', _areAllIncluded());
-                      $inputCheckbox_none.prop('checked', _areAllExcluded());
+                      function _updateReadout() {
+                          if (arrTokens.length == 0) {
+                              $divReadout.html("&nbsp;");
+                          } else {
+                              $divReadout.text("<meta name=\"robots\" content=\""
+                                                          + arrTokens.join(", ")
+                                                                     .replace(/\\/g, "\\\\")
+                                                                     .replace(/"/g, "\\\"") + "\">");
+                          }
 
-                      _updateReadout();
-                  }
+                          $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
+                      }
 
-                  function _updateCheckboxes() {
+
+                      var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
+
+                      var $inputCheckboxes_standard = $inputCheckbox
+                                                           .filter('[data-robots-whiz--role=cb-std]');
+
+                      for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
+                          var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
+                          var strName = $inputCheckbox_standard.attr('name');
+                          mapCheckboxesStandard[strName] = $inputCheckbox_standard;
+                      }
+
+
+                      var $inputCheckbox_all =   $inputCheckbox
+                                                           .filter('[data-robots-whiz--role=cb-all]'),
+                          $inputCheckbox_none =  $inputCheckbox
+                                                          .filter('[data-robots-whiz--role=cb-none]');
+
+                      function _updateCheckboxes_all_none() {
+                          $inputCheckbox_all.prop('checked', _areAllIncluded());
+                          $inputCheckbox_none.prop('checked', _areAllExcluded());
+
+                          _updateReadout();
+                      }
+
+                      function _updateCheckboxes() {
+                          for (var strName in mapCheckboxesStandard) {
+                              mapCheckboxesStandard[strName].prop('checked', _isIncluded(strName));
+                          }
+
+                          _updateCheckboxes_all_none();
+                      }
+
+                      _updateCheckboxes();
+
+                      function _initCheckboxForInput(strName) {
+                          var $checkboxStandard = mapCheckboxesStandard[strName];
+
+                          $checkboxStandard.bind('change', function() {
+                                  if ($checkboxStandard.is(':checked')) {
+                                      _includeToken(strName);
+                                  } else {
+                                      _excludeToken(strName);
+                                  }
+
+                                  _updateCheckboxes_all_none();
+                              });
+                      }
+
                       for (var strName in mapCheckboxesStandard) {
-                          mapCheckboxesStandard[strName].prop('checked', _isIncluded(strName));
+                          _initCheckboxForInput(strName);
                       }
 
-                      _updateCheckboxes_all_none();
-                  }
-
-                  _updateCheckboxes();
-
-                  function _initCheckboxForInput(strName) {
-                      var $checkboxStandard = mapCheckboxesStandard[strName];
-
-                      $checkboxStandard.bind('change', function() {
-                              if ($checkboxStandard.is(':checked')) {
-                                  _includeToken(strName);
-                              } else {
-                                  _excludeToken(strName);
+                      $inputCheckbox_all.bind('change', function() {
+                              if (!$inputCheckbox_all.is(':checked')) {
+                                  $inputCheckbox_all.prop('checked', true);
+                                  return;
                               }
 
-                              _updateCheckboxes_all_none();
+                              _includeAll();
+                              _updateCheckboxes();
+                          });
+
+                      $inputCheckbox_none.bind('change', function() {
+                              if (!$inputCheckbox_none.is(':checked')) {
+                                  $inputCheckbox_none.prop('checked', true);
+                                  return;
+                              }
+
+                              _excludeAll();
+                              _updateCheckboxes();
+                          });
+
+
+                      var $aAddCustom =    $tbodyPost.find('a[data--robots-whiz--role=add-custom]'),
+                          $aClearCustom =  $tbodyPost.find('a[data--robots-whiz--role=clear-custom]');
+
+                      function _updateLinks() {
+                          var arrTokensPrev = _getArrTokensNonStandard();
+                          if (arrTokensPrev.length == 0) {
+                              $aAddCustom.text("add custom...");
+                              $aClearCustom.css('display', 'none');
+                          } else {
+                              $aAddCustom.text("modify custom...");
+                              $aClearCustom.css('display', "");
+                          }
+                      }
+
+                      _updateLinks();
+
+                      $aAddCustom.click(function(event) {
+                              event.preventDefault();
+
+                              var arrTokensPrev = _getArrTokensNonStandard();
+
+                              var strTokens = window.prompt(
+                                                        "<?=\__('Please specify your custom content:',
+                                                                'domain-plugin-RobotsWhiz')?>",
+                                                        arrTokensPrev.join(" "));
+                              if (strTokens == null) return;
+
+                              var arrTokensNew = strTokens.split(/\s+/);
+                              if (!arrTokensNew) return;
+
+                              for (var i = 0; i < arrTokensNew.length; i++) {
+                                  var strCustomToken = arrTokensNew[i];
+                                  if (!strCustomToken) continue;
+
+                                  _includeToken(strCustomToken);
+                              }
+
+                              for (var i = 0; i < arrTokensPrev.length; i++) {
+                                  var strTokenPrev = arrTokensPrev[i];
+                                  if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
+
+                                  _excludeToken(strTokenPrev);
+                              }
+
+                              _updateCheckboxes();
+                              _updateLinks();
+                          });
+
+                      $aClearCustom.click(function(event) {
+                              event.preventDefault();
+
+                              var arrTokensPrev = _getArrTokensNonStandard();
+                              if (arrTokensPrev.length == 0) return;
+
+                              if (!window
+                                    .confirm(
+                                      "<?=\__('Are you sure you want to clear-out your custom content?',
+                                              'domain-plugin-RobotsWhiz')?>"))
+                                  return;
+
+                              for (var i = 0; i < arrTokensPrev.length; i++) {
+                                  _excludeToken(arrTokensPrev[i]);
+                              }
+
+                              _updateReadout();
+                              _updateLinks();
                           });
                   }
 
-                  for (var strName in mapCheckboxesStandard) {
-                      _initCheckboxForInput(strName);
-                  }
+                  jQuery(document).ready(function($) {
+                          var arrPosts = $('tbody[data--robots-whiz--role=post-config]');
 
-                  $inputCheckbox_all.bind('change', function() {
-                          if (!$inputCheckbox_all.is(':checked')) {
-                              $inputCheckbox_all.prop('checked', true);
-                              return;
+                          for (var i = 0; i < arrPosts.length; i++) {
+                              _processPost($, $(arrPosts[i]));
                           }
-
-                          _includeAll();
-                          _updateCheckboxes();
                       });
-
-                  $inputCheckbox_none.bind('change', function() {
-                          if (!$inputCheckbox_none.is(':checked')) {
-                              $inputCheckbox_none.prop('checked', true);
-                              return;
-                          }
-
-                          _excludeAll();
-                          _updateCheckboxes();
-                      });
-
-
-                  var $aAddCustom =    $tbodyPost.find('a[data--robots-whiz--role=add-custom]'),
-                      $aClearCustom =  $tbodyPost.find('a[data--robots-whiz--role=clear-custom]');
-
-                  function _updateLinks() {
-                      var arrTokensPrev = _getArrTokensNonStandard();
-                      if (arrTokensPrev.length == 0) {
-                          $aAddCustom.text("add custom...");
-                          $aClearCustom.css('display', 'none');
-                      } else {
-                          $aAddCustom.text("modify custom...");
-                          $aClearCustom.css('display', "");
-                      }
-                  }
-
-                  _updateLinks();
-
-                  $aAddCustom.click(function(event) {
-                          event.preventDefault();
-
-                          var arrTokensPrev = _getArrTokensNonStandard();
-
-                          var strTokens = window.prompt(
-                                                    "<?=\__('Please specify your custom content:',
-                                                            'domain-plugin-RobotsWhiz')?>",
-                                                    arrTokensPrev.join(" "));
-                          if (strTokens == null) return;
-
-                          var arrTokensNew = strTokens.split(/\s+/);
-                          if (!arrTokensNew) return;
-
-                          for (var i = 0; i < arrTokensNew.length; i++) {
-                              var strCustomToken = arrTokensNew[i];
-                              if (!strCustomToken) continue;
-
-                              _includeToken(strCustomToken);
-                          }
-
-                          for (var i = 0; i < arrTokensPrev.length; i++) {
-                              var strTokenPrev = arrTokensPrev[i];
-                              if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
-
-                              _excludeToken(strTokenPrev);
-                          }
-
-                          _updateCheckboxes();
-                          _updateLinks();
-                      });
-
-                  $aClearCustom.click(function(event) {
-                          event.preventDefault();
-
-                          var arrTokensPrev = _getArrTokensNonStandard();
-                          if (arrTokensPrev.length == 0) return;
-
-                          if (!window
-                                .confirm(
-                                  "<?=\__('Are you sure you want to clear-out your custom content?',
-                                          'domain-plugin-RobotsWhiz')?>"))
-                              return;
-
-                          for (var i = 0; i < arrTokensPrev.length; i++) {
-                              _excludeToken(arrTokensPrev[i]);
-                          }
-
-                          _updateReadout();
-                          _updateLinks();
-                      });
-              }
-
-              jQuery(document).ready(function($) {
-                      var arrPosts = $('tbody[data--robots-whiz--role=post-config]');
-
-                      for (var i = 0; i < arrPosts.length; i++) {
-                          _processPost($, $(arrPosts[i]));
-                      }
-                  });
+              })();
           </script><?php
           } else {
           ?><?=\__('No posts', 'domain-plugin-RobotsWhiz')?><?php
