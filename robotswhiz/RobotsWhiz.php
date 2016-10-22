@@ -492,9 +492,8 @@
 
                               var arrTokensPrev = _getArrTokensNonStandard();
 
-                              var strTokens = window.prompt(
-                                                        strPromptCustomContent,
-                                                        arrTokensPrev.join(" "));
+                              var strTokens = window.prompt(strPromptCustomContent,
+                                                            arrTokensPrev.join(" "));
                               if (strTokens == null) return;
 
                               var arrTokensNew = strTokens.split(/\s+/);
