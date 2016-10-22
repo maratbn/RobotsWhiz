@@ -526,8 +526,7 @@
                               var arrTokensPrev = _getArrTokensNonStandard();
                               if (arrTokensPrev.length == 0) return;
 
-                              if (!window.confirm(strConfirmCustomClear))
-                                  return;
+                              if (!window.confirm(strConfirmCustomClear)) return;
 
                               for (var i = 0; i < arrTokensPrev.length; i++) {
                                   _excludeToken(arrTokensPrev[i]);
