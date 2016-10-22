@@ -305,6 +305,9 @@
           ?>
           <script type='text/javascript'>
               (function() {
+                  var strPromptCustomContent = "<?=\__('Please specify your custom content:',
+                                                       'domain-plugin-RobotsWhiz')?>";
+
                   function _processPost($, $tbodyPost) {
                       var arrTokens = [];
 
@@ -490,8 +493,7 @@
                               var arrTokensPrev = _getArrTokensNonStandard();
 
                               var strTokens = window.prompt(
-                                                        "<?=\__('Please specify your custom content:',
-                                                                'domain-plugin-RobotsWhiz')?>",
+                                                        strPromptCustomContent,
                                                         arrTokensPrev.join(" "));
                               if (strTokens == null) return;
 
