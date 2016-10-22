@@ -305,7 +305,10 @@
           ?>
           <script type='text/javascript'>
               (function() {
-                  var strPromptCustomContent = "<?=\__('Please specify your custom content:',
+                  var strConfirmCustomClear
+                              = "<?=\__('Are you sure you want to clear-out your custom content?',
+                                        'domain-plugin-RobotsWhiz')?>",
+                      strPromptCustomContent = "<?=\__('Please specify your custom content:',
                                                        'domain-plugin-RobotsWhiz')?>";
 
                   function _processPost($, $tbodyPost) {
@@ -523,10 +526,7 @@
                               var arrTokensPrev = _getArrTokensNonStandard();
                               if (arrTokensPrev.length == 0) return;
 
-                              if (!window
-                                    .confirm(
-                                      "<?=\__('Are you sure you want to clear-out your custom content?',
-                                              'domain-plugin-RobotsWhiz')?>"))
+                              if (!window.confirm(strConfirmCustomClear))
                                   return;
 
                               for (var i = 0; i < arrTokensPrev.length; i++) {
