@@ -256,16 +256,16 @@
                            data-robots-whiz--role='data'
                            value='<?=\htmlspecialchars(
                                             \json_encode(['robots' => $strData]))?>'><?php
-                  ?><tr <?=$indexRow % 2 == 0 ? 'class=\'robots-whiz--odd-row\''
-                                              : ""?>>
+                  ?><tr class='<?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
+                                                     : ""?>'>
                       <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
                       <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
                       <td><?=$post->post_type?></td>
                       <td><?=\get_page_template_slug($idPost)?></td>
                       <td><?=\get_post_status($idPost)?></td>
                     </tr>
-                    <tr <?=$indexRow % 2 == 0 ? 'class=\'robots-whiz--odd-row\''
-                                              : ""?>>
+                    <tr class='<?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
+                                                     : ""?>'>
                       <td colspan='5' class='robots-whiz--td--checkboxes'>
                         <div class='robots-whiz--readout'
                              data--robots-whiz--role='readout' type='text'></div>
