@@ -75,7 +75,7 @@
         \add_action('admin_menu', '\\plugin_RobotsWhiz\\action_admin_menu');
         \add_action('admin_post_plugin_RobotsWhiz_settings',
                     '\\plugin_RobotsWhiz\\action_admin_post_plugin_RobotsWhiz_settings');
-        \add_filter('plugin_action_links_' . plugin_basename(__FILE__),
+        \add_filter('plugin_action_links_' . \plugin_basename(__FILE__),
                     '\\plugin_RobotsWhiz\\filter_plugin_action_links');
     }
 
