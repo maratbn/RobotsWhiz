@@ -2,3 +2,9 @@
 1.  Install Webpack Node.js module:
 
     $ npm install webpack
+
+
+2.  Compile JavaScript with Webpack:
+
+    $ ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js
+
