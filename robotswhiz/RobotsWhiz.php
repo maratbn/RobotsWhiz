@@ -73,6 +73,7 @@
 
 
     if (\is_admin()) {
+        \add_action('admin_enqueue_scripts', '\\plugin_RobotsWhiz\\action_admin_enqueue_scripts');
         \add_action('admin_menu', '\\plugin_RobotsWhiz\\action_admin_menu');
         \add_action('admin_post_plugin_RobotsWhiz_settings',
                     '\\plugin_RobotsWhiz\\action_admin_post_plugin_RobotsWhiz_settings');
@@ -80,6 +81,17 @@
                     '\\plugin_RobotsWhiz\\filter_plugin_action_links');
     }
 
+
+    function action_admin_enqueue_scripts($hook) {
+        if ($hook != 'settings_page_plugin_RobotsWhiz_settings') return;
+
+        \wp_enqueue_script(
+            'plugin_RobotsWhiz_entry',
+            \plugin_dir_url(__FILE__) . 'webpack_out/entry.js',
+            null,
+            getUVArg(),
+            false);
+    }
 
     function action_admin_menu() {
         \add_options_page(\__('Robots Meta Whiz Settings', 'domain-plugin-RobotsWhiz'),
