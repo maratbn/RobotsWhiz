@@ -66,14 +66,18 @@
 
     $ARR_TOKENS_STANDARD = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
-    \add_action('admin_menu', '\\plugin_RobotsWhiz\\action_admin_menu');
-    \add_action('admin_post_plugin_RobotsWhiz_settings',
-                '\\plugin_RobotsWhiz\\action_admin_post_plugin_RobotsWhiz_settings');
     \add_action('wp_head', '\\plugin_RobotsWhiz\\action_wp_head');
 
-    \add_filter('plugin_action_links_' . plugin_basename(__FILE__),
-                '\\plugin_RobotsWhiz\\filter_plugin_action_links');
     \register_activation_hook(__FILE__, '\\plugin_RobotsWhiz\\plugin_activation_hook');
+
+
+    if (\is_admin()) {
+        \add_action('admin_menu', '\\plugin_RobotsWhiz\\action_admin_menu');
+        \add_action('admin_post_plugin_RobotsWhiz_settings',
+                    '\\plugin_RobotsWhiz\\action_admin_post_plugin_RobotsWhiz_settings');
+        \add_filter('plugin_action_links_' . plugin_basename(__FILE__),
+                    '\\plugin_RobotsWhiz\\filter_plugin_action_links');
+    }
 
 
     function action_admin_menu() {
