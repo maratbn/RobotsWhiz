@@ -19,9 +19,10 @@ Overview:
   specific pages and posts of the site.
 
   Robots Meta Whiz is a WordPress plugin that allows site administrators to
-  discourage search engines from indexing, following links from, caching,
-  indexing images from, and / or have additional custom restrictions on only
-  for certain specifically-designated pages and posts.
+  deploy custom meta robots tags to discourage search engines from indexing,
+  following links from, caching, indexing images from, and / or have
+  additional custom restrictions on only for certain specifically-designated
+  pages and posts.
 
   It is an easy way to discourage search engines from indexing only specific
   pages / posts.
