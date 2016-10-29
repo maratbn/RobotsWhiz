@@ -41,10 +41,12 @@
   along with Robots Meta Whiz.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+const path = require('path');
+
 module.exports = {
         entry: './webpack_in/entry.js',
         output: {
-                path:      __dirname + '/robotswhiz/webpack_out',
+                path:      path.join(__dirname, 'robotswhiz', 'webpack_out'),
                 filename:  'entry.js'
             }
     };
