@@ -57,13 +57,21 @@ window.document.body.appendChild(elRenderTo);
 ReactDOM.render(<Test/>, elRenderTo);
 
 
+class Control extends React.Component {
+  render() {
+      return (
+          <a style={{margin: '0.25em'}}>{this.props.label}</a>
+        );
+    }
+}
+
 class Controls extends React.Component {
   render() {
       return (
           <div>
-            <a style={{margin: '0.25em'}}>add custom...</a>
-            <a style={{margin: '0.25em'}}>modify custom...</a>
-            <a style={{margin: '0.25em'}}>clear custom</a>
+            <Control label="add custom..."/>
+            <Control label="modify custom..."/>
+            <Control label="clear custom"/>
           </div>
         );
     }
