@@ -4,13 +4,17 @@
     $ npm install webpack
 
 
-2.  Install the 'babel-loader' and 'babel-preset-es2015' npm modules:
+2.  Install the 'babel-loader', 'babel-preset-es2015', and 'babel-preset-react' npm modules:
 
     $ npm install babel-loader
 
     ...
 
     $ npm install babel-preset-es2015
+
+    ...
+
+    $ npm install babel-preset-react
 
 
 3.  Install the 'react' and 'react-dom' npm modules:
