@@ -4,7 +4,12 @@
     $ npm install webpack
 
 
-2.  Compile JavaScript with Webpack:
+2.  Install the 'babel-loader' npm module:
+
+    $ npm install babel-loader
+
+
+3.  Compile JavaScript with Webpack:
 
     $ ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js
 
