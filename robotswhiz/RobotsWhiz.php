@@ -90,7 +90,7 @@
             \plugin_dir_url(__FILE__) . 'webpack_out/entry.js',
             null,
             getUVArg(),
-            false);
+            true);
     }
 
     function action_admin_menu() {
