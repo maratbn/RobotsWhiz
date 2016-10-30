@@ -60,7 +60,9 @@ ReactDOM.render(<Test/>, elRenderTo);
 class Control extends React.Component {
   render() {
       return (
-          <a style={{margin: '0.25em'}}>{this.props.label}</a>
+          <label>
+            <a style={{margin: '0.25em'}}>{this.props.label}</a>
+          </label>
         );
     }
 }
