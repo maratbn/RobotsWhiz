@@ -12,7 +12,9 @@
 3.  Install the 'react' and 'react-dom' npm modules:
 
     $ npm install react
+
     ...
+
     $ npm install react-dom
 
 
