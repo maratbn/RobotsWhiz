@@ -71,9 +71,9 @@ class Controls extends React.Component {
 
 const arrElControlsContainer = document.getElementsByClassName('robots-whiz--td--checkboxes');
 if (arrElControlsContainer) {
-  for (let i = 0; i < arrElControlsContainer.length; i++) {
-    const elContainer = document.createElement('div');
-    arrElControlsContainer[i].appendChild(elContainer);
-    ReactDOM.render(<Controls/>, elContainer);
-  }
+  [].slice.call(arrElControlsContainer).map(elControlsContainer => {
+      const elContainer = document.createElement('div');
+      elControlsContainer.appendChild(elContainer);
+      ReactDOM.render(<Controls/>, elContainer);
+    });
 }
