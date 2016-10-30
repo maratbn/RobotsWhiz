@@ -40,4 +40,6 @@
   along with Robots Meta Whiz.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+import React from 'react';
+
 console.log("JSX entry logic.");
