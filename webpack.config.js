@@ -45,6 +45,13 @@ const path = require('path');
 
 module.exports = {
         entry: './webpack_in/entry.js',
+        module: {
+                loaders: [{
+                        test:     /\.jsx$/,
+                        loader:   'babel-loader',
+                        exclude:  [/node_modules/]
+                    }]
+            },
         output: {
                 path:      path.join(__dirname, 'robotswhiz', 'webpack_out'),
                 filename:  'entry.js'
