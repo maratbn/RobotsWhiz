@@ -41,5 +41,17 @@
 */
 
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 console.log("JSX entry logic.");
+
+class Test extends React.Component {
+  render() {
+      return (<center>React component rendering logic.</center>);
+    }
+}
+
+const elRenderTo = document.createElement('div');
+window.document.body.appendChild(elRenderTo);
+
+ReactDOM.render(<Test/>, elRenderTo);
