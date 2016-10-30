@@ -88,7 +88,7 @@
         \wp_enqueue_script(
             'plugin_RobotsWhiz_entry',
             \plugin_dir_url(__FILE__) . 'webpack_out/entry.js',
-            null,
+            ['jquery'],
             getUVArg(),
             true);
     }
