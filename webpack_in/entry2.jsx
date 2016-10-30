@@ -55,3 +55,25 @@ const elRenderTo = document.createElement('div');
 window.document.body.appendChild(elRenderTo);
 
 ReactDOM.render(<Test/>, elRenderTo);
+
+
+class Controls extends React.Component {
+  render() {
+      return (
+          <div>
+            <a style={{margin: '0.25em'}}>add custom...</a>
+            <a style={{margin: '0.25em'}}>modify custom...</a>
+            <a style={{margin: '0.25em'}}>clear custom</a>
+          </div>
+        );
+    }
+}
+
+const arrElControlsContainer = document.getElementsByClassName('robots-whiz--td--checkboxes');
+if (arrElControlsContainer) {
+  for (let i = 0; i < arrElControlsContainer.length; i++) {
+    const elContainer = document.createElement('div');
+    arrElControlsContainer[i].appendChild(elContainer);
+    ReactDOM.render(<Controls/>, elContainer);
+  }
+}
