@@ -9,7 +9,14 @@
     $ npm install babel-loader
 
 
-3.  Compile JavaScript with Webpack:
+3.  Install the 'react' and 'react-dom' npm modules:
+
+    $ npm install react
+    ...
+    $ npm install react-dom
+
+
+4.  Compile JavaScript with Webpack:
 
     $ ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js
 
