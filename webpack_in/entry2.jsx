@@ -51,6 +51,7 @@ class Control extends React.Component {
           <label>
             <a className='robots-whiz--td--link' style={{margin: '0.25em'}}
                 onClick={event => { event.preventDefault();
+                                    this.props.callback_click();
                                   }}>{this.props.label}</a>
           </label>
         );
@@ -58,6 +59,7 @@ class Control extends React.Component {
 }
 
 Control.propTypes = {
+    callback_click:   React.PropTypes.func.isRequired,
     label:            React.PropTypes.string
   };
 
@@ -65,9 +67,9 @@ class Controls extends React.Component {
   render() {
       return (
           <div>
-            <Control label="add custom..."/>
-            <Control label="modify custom..."/>
-            <Control label="clear custom"/>
+            <Control callback_click={() => {}} label="add custom..."/>
+            <Control callback_click={() => {}} label="modify custom..."/>
+            <Control callback_click={() => {}} label="clear custom"/>
           </div>
         );
     }
