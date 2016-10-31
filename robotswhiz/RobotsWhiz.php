@@ -505,7 +505,7 @@
 
                       _updateLinks();
 
-                      function addCustom() {
+                      function modifyCustom() {
                           var arrTokensPrev = _getArrTokensNonStandard();
 
                           var strTokens = window.prompt(strPromptCustomContent,
@@ -536,7 +536,7 @@
                       $aAddCustom.click(function(event) {
                               event.preventDefault();
 
-                              addCustom();
+                              modifyCustom();
                           });
 
                       function clearCustom() {
@@ -563,7 +563,7 @@
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
                       if ($tdCheckboxes.length == 1) {
                           window._plugin_RobotsWhiz__renderControls($tdCheckboxes[0], {
-                                        addCustom:     addCustom,
+                                        modifyCustom:  modifyCustom,
                                         clearCustom:   clearCustom
                                     });
                       }
