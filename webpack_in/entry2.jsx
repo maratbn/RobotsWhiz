@@ -86,12 +86,18 @@ class Controls extends React.Component {
 Controls.propTypes = {
   };
 
+
+function renderControls(tdCheckboxes) {
+  const elContainer = document.createElement('div');
+  tdCheckboxes.appendChild(elContainer);
+  ReactDOM.render(<Controls/>, elContainer);
+}
+
+
 jQuery(document).ready($ => {
     $('[data--robots-whiz--role=post-config]').each((i, tbodyPost) => {
         $(tbodyPost).find('td.robots-whiz--td--checkboxes').each((j, tdCheckboxes) => {
-            const elContainer = document.createElement('div');
-            tdCheckboxes.appendChild(elContainer);
-            ReactDOM.render(<Controls/>, elContainer);
+            renderControls(tdCheckboxes);
           });
       });
   });
