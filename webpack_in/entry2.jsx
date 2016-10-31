@@ -69,18 +69,20 @@ class Controls extends React.Component {
           <div>
             <Control callback_click={() => {}} label="add custom..."/>
             <Control callback_click={() => {}} label="modify custom..."/>
-            <Control callback_click={() => {}} label="clear custom"/>
+            <Control callback_click={() => {  this.props.clearCustom();
+                                           }} label="clear custom"/>
           </div>
         );
     }
 }
 
 Controls.propTypes = {
+    clearCustom:  React.PropTypes.func.isRequired
   };
 
 
-window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes) {
+window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
   const elContainer = document.createElement('div');
   tdCheckboxes.appendChild(elContainer);
-  ReactDOM.render(<Controls/>, elContainer);
+  ReactDOM.render(<Controls clearCustom={objAPI.clearCustom}/>, elContainer);
 }
