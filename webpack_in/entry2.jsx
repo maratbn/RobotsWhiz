@@ -69,7 +69,8 @@ class Controls extends React.Component {
           <div>
             <Control callback_click={() => {  this.props.modifyCustom();
                                            }} label="add custom..." />
-            <Control callback_click={() => {}} label="modify custom..." />
+            <Control callback_click={() => {  this.props.modifyCustom();
+                                           }} label="modify custom..." />
             <Control callback_click={() => {  this.props.clearCustom();
                                            }} label="clear custom" />
           </div>
