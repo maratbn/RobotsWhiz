@@ -90,7 +90,7 @@
             \plugin_dir_url(__FILE__) . 'webpack_out/entry.js',
             ['jquery'],
             getUVArg(),
-            true);
+            false);
     }
 
     function action_admin_menu() {
@@ -550,6 +550,12 @@
                               _updateReadout();
                               _updateLinks();
                           });
+
+
+                      var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
+                      if ($tdCheckboxes.length == 1) {
+                          window._plugin_RobotsWhiz__renderControls($tdCheckboxes[0]);
+                      }
                   }
 
                   jQuery(document).ready(function($) {

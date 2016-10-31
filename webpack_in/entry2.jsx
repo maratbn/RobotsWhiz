@@ -80,12 +80,3 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes) {
   tdCheckboxes.appendChild(elContainer);
   ReactDOM.render(<Controls/>, elContainer);
 }
-
-
-jQuery(document).ready($ => {
-    $('[data--robots-whiz--role=post-config]').each((i, tbodyPost) => {
-        $(tbodyPost).find('td.robots-whiz--td--checkboxes').each((j, tdCheckboxes) => {
-            window._plugin_RobotsWhiz__renderControls(tdCheckboxes);
-          });
-      });
-  });
