@@ -78,14 +78,14 @@ class Controls extends React.Component {
 }
 
 Controls.propTypes = {
-    addCustom:    React.PropTypes.func.isRequired,
-    clearCustom:  React.PropTypes.func.isRequired
+    addCustom:     React.PropTypes.func.isRequired,
+    clearCustom:   React.PropTypes.func.isRequired
   };
 
 
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
   const elContainer = document.createElement('div');
   tdCheckboxes.appendChild(elContainer);
-  ReactDOM.render(<Controls addCustom={objAPI.addCustom}
-                            clearCustom={objAPI.clearCustom} />, elContainer);
+  ReactDOM.render(<Controls addCustom     ={objAPI.addCustom}
+                            clearCustom   ={objAPI.clearCustom} />, elContainer);
 }
