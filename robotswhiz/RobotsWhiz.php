@@ -563,8 +563,8 @@
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
                       if ($tdCheckboxes.length == 1) {
                           window._plugin_RobotsWhiz__renderControls($tdCheckboxes[0], {
-                                        addCustom:   addCustom,
-                                        clearCustom: clearCustom
+                                        addCustom:     addCustom,
+                                        clearCustom:   clearCustom
                                     });
                       }
                   }
