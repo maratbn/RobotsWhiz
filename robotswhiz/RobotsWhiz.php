@@ -563,9 +563,9 @@
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
                       if ($tdCheckboxes.length == 1) {
                           window._plugin_RobotsWhiz__renderControls($tdCheckboxes[0], {
-                                        clearCustom:   clearCustom,
-                                        getArrTokensNonStandard: _getArrTokensNonStandard,
-                                        modifyCustom:  modifyCustom
+                                        clearCustom:              clearCustom,
+                                        getArrTokensNonStandard:  _getArrTokensNonStandard,
+                                        modifyCustom:             modifyCustom
                                     });
                       }
                   }
