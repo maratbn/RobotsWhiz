@@ -86,6 +86,6 @@ Controls.propTypes = {
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
   const elContainer = document.createElement('div');
   tdCheckboxes.appendChild(elContainer);
-  ReactDOM.render(<Controls modifyCustom  ={objAPI.modifyCustom}
-                            clearCustom   ={objAPI.clearCustom} />, elContainer);
+  ReactDOM.render(<Controls clearCustom   ={objAPI.clearCustom}
+                            modifyCustom  ={objAPI.modifyCustom} />, elContainer);
 }
