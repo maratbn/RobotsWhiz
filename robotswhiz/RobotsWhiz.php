@@ -505,34 +505,38 @@
 
                       _updateLinks();
 
+                      function addCustom() {
+                          var arrTokensPrev = _getArrTokensNonStandard();
+
+                          var strTokens = window.prompt(strPromptCustomContent,
+                                                        arrTokensPrev.join(" "));
+                          if (strTokens == null) return;
+
+                          var arrTokensNew = strTokens.split(/\s+/);
+                          if (!arrTokensNew) return;
+
+                          for (var i = 0; i < arrTokensNew.length; i++) {
+                              var strCustomToken = arrTokensNew[i];
+                              if (!strCustomToken) continue;
+
+                              _includeToken(strCustomToken);
+                          }
+
+                          for (var i = 0; i < arrTokensPrev.length; i++) {
+                              var strTokenPrev = arrTokensPrev[i];
+                              if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
+
+                              _excludeToken(strTokenPrev);
+                          }
+
+                          _updateCheckboxes();
+                          _updateLinks();
+                      }
+
                       $aAddCustom.click(function(event) {
                               event.preventDefault();
 
-                              var arrTokensPrev = _getArrTokensNonStandard();
-
-                              var strTokens = window.prompt(strPromptCustomContent,
-                                                            arrTokensPrev.join(" "));
-                              if (strTokens == null) return;
-
-                              var arrTokensNew = strTokens.split(/\s+/);
-                              if (!arrTokensNew) return;
-
-                              for (var i = 0; i < arrTokensNew.length; i++) {
-                                  var strCustomToken = arrTokensNew[i];
-                                  if (!strCustomToken) continue;
-
-                                  _includeToken(strCustomToken);
-                              }
-
-                              for (var i = 0; i < arrTokensPrev.length; i++) {
-                                  var strTokenPrev = arrTokensPrev[i];
-                                  if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
-
-                                  _excludeToken(strTokenPrev);
-                              }
-
-                              _updateCheckboxes();
-                              _updateLinks();
+                              addCustom();
                           });
 
                       function clearCustom() {
