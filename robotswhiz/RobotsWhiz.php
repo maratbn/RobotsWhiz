@@ -564,6 +564,7 @@
                       if ($tdCheckboxes.length == 1) {
                           window._plugin_RobotsWhiz__renderControls($tdCheckboxes[0], {
                                         clearCustom:   clearCustom,
+                                        getArrTokensNonStandard: _getArrTokensNonStandard,
                                         modifyCustom:  modifyCustom
                                     });
                       }
