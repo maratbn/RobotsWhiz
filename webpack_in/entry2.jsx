@@ -60,7 +60,7 @@ class Control extends React.Component {
 
 Control.propTypes = {
     callback_click:   React.PropTypes.func.isRequired,
-    label:            React.PropTypes.string
+    label:            React.PropTypes.string.isRequired
   };
 
 class Controls extends React.Component {
