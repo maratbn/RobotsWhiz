@@ -535,20 +535,24 @@
                               _updateLinks();
                           });
 
+                      function clearCustom() {
+                          var arrTokensPrev = _getArrTokensNonStandard();
+                          if (arrTokensPrev.length == 0) return;
+
+                          if (!window.confirm(strConfirmCustomClear)) return;
+
+                          for (var i = 0; i < arrTokensPrev.length; i++) {
+                              _excludeToken(arrTokensPrev[i]);
+                          }
+
+                          _updateReadout();
+                          _updateLinks();
+                      }
+
                       $aClearCustom.click(function(event) {
                               event.preventDefault();
 
-                              var arrTokensPrev = _getArrTokensNonStandard();
-                              if (arrTokensPrev.length == 0) return;
-
-                              if (!window.confirm(strConfirmCustomClear)) return;
-
-                              for (var i = 0; i < arrTokensPrev.length; i++) {
-                                  _excludeToken(arrTokensPrev[i]);
-                              }
-
-                              _updateReadout();
-                              _updateLinks();
+                              clearCustom();
                           });
 
 
