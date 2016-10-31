@@ -49,7 +49,9 @@ class Control extends React.Component {
   render() {
       return (
           <label>
-            <a className='robots-whiz--td--link' style={{margin: '0.25em'}}>{this.props.label}</a>
+            <a className='robots-whiz--td--link' style={{margin: '0.25em'}}
+                onClick={event => { event.preventDefault();
+                                  }}>{this.props.label}</a>
           </label>
         );
     }
