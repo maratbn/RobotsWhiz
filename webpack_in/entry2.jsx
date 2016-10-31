@@ -83,6 +83,9 @@ class Controls extends React.Component {
     }
 }
 
+Controls.propTypes = {
+  };
+
 jQuery(document).ready($ => {
     $('[data--robots-whiz--role=post-config]').each((i, tbodyPost) => {
         $(tbodyPost).find('td.robots-whiz--td--checkboxes').each((j, tdCheckbox) => {
