@@ -88,9 +88,9 @@ Controls.propTypes = {
 
 jQuery(document).ready($ => {
     $('[data--robots-whiz--role=post-config]').each((i, tbodyPost) => {
-        $(tbodyPost).find('td.robots-whiz--td--checkboxes').each((j, tdCheckbox) => {
+        $(tbodyPost).find('td.robots-whiz--td--checkboxes').each((j, tdCheckboxes) => {
             const elContainer = document.createElement('div');
-            tdCheckbox.appendChild(elContainer);
+            tdCheckboxes.appendChild(elContainer);
             ReactDOM.render(<Controls/>, elContainer);
           });
       });
