@@ -83,11 +83,12 @@ class Controls extends React.Component {
     }
 }
 
-const arrElControlsContainer = document.getElementsByClassName('robots-whiz--td--checkboxes');
-if (arrElControlsContainer) {
-  [].slice.call(arrElControlsContainer).map(elControlsContainer => {
-      const elContainer = document.createElement('div');
-      elControlsContainer.appendChild(elContainer);
-      ReactDOM.render(<Controls/>, elContainer);
-    });
-}
+jQuery(document).ready($ => {
+    $('[data--robots-whiz--role=post-config]').each((i, tbodyPost) => {
+        $(tbodyPost).find('td.robots-whiz--td--checkboxes').each((j, tdCheckbox) => {
+            const elContainer = document.createElement('div');
+            tdCheckbox.appendChild(elContainer);
+            ReactDOM.render(<Controls/>, elContainer);
+          });
+      });
+  });
