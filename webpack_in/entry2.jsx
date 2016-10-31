@@ -58,7 +58,7 @@ class Control extends React.Component {
 }
 
 Control.propTypes = {
-    label:  React.PropTypes.string
+    label:            React.PropTypes.string
   };
 
 class Controls extends React.Component {
