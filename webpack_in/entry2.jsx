@@ -78,7 +78,7 @@ class Controls extends React.Component {
             <Control callback_click={() => { this.props.modifyCustom(); }}
                      label={ this.props.labelModifyCustom } />
             <Control callback_click={() => { this.props.clearCustom(); }}
-                     label="clear custom" />
+                     label={ this.props.labelClearCustom } />
           </div>
         );
     }
@@ -98,6 +98,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
     ReactDOM.render(<Controls clearCustom              ={ objAPI.clearCustom }
                               getArrTokensNonStandard  ={ objAPI.getArrTokensNonStandard }
                               labelAddCustom           ={ objAPI.strLabelAddCustom }
+                              labelClearCustom         ={ objAPI.strLabelClearCustom }
                               labelModifyCustom        ={ objAPI.strLabelModifyCustom }
                               modifyCustom             ={ objAPI.modifyCustom }
                               ref                      ={ (controls) =>
