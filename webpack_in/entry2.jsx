@@ -80,7 +80,7 @@ class Controls extends React.Component {
       return (
           <div>
             <Control callback_click={() => { this.props.modifyCustom(); }}
-                     label={ this.props.labelModifyCustom } />
+                     label={ objParams.strLabelModifyCustom } />
             <Control callback_click={() => { this.props.clearCustom(); }}
                      label={ objParams.strLabelClearCustom } />
           </div>
