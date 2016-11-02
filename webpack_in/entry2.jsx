@@ -46,8 +46,7 @@ import ReactDOM from 'react-dom';
 console.log("JSX entry logic.");
 
 
-let objParams = null,
-    strLabelAddCustom = null;
+let objParams = null;
 
 
 class Control extends React.Component {
@@ -74,7 +73,7 @@ class Controls extends React.Component {
       return (
           <div>
             <Control callback_click={() => { this.props.modifyCustom(); }}
-                     label={ strLabelAddCustom } />
+                     label={ objParams.strLabelAddCustom } />
           </div>
         );
     } else {
@@ -100,8 +99,6 @@ Controls.propTypes = {
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
 
     objParams = objAPI;
-
-    strLabelAddCustom = objAPI.strLabelAddCustom;
 
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
