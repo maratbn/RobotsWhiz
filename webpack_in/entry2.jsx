@@ -52,7 +52,7 @@ class Control extends React.Component {
             <a className='robots-whiz--td--link' style={{margin: '0.25em'}}
                 onClick={event => { event.preventDefault();
                                     this.props.callback_click();
-                                  }}>{this.props.label}</a>
+                                  }}>{ this.props.label }</a>
           </label>
         );
     }
