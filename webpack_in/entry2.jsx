@@ -46,7 +46,8 @@ import ReactDOM from 'react-dom';
 console.log("JSX entry logic.");
 
 
-let strConfirmCustomClear = null,
+let objParams = null,
+    strConfirmCustomClear = null,
     strLabelAddCustom = null;
 
 
@@ -98,6 +99,8 @@ Controls.propTypes = {
 
 
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
+
+    objParams = objAPI;
 
     strConfirmCustomClear = objAPI.strConfirmCustomClear;
     strLabelAddCustom = objAPI.strLabelAddCustom;
