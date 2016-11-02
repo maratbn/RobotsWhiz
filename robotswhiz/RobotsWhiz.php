@@ -544,6 +544,7 @@
                                         clearCustom:              clearCustom,
                                         getArrTokensNonStandard:  _getArrTokensNonStandard,
                                         modifyCustom:             modifyCustom,
+                                        strConfirmCustomClear:    strConfirmCustomClear,
                                         strLabelAddCustom:        strLabelAddCustom,
                                         strLabelClearCustom:      strLabelClearCustom,
                                         strLabelModifyCustom:     strLabelModifyCustom

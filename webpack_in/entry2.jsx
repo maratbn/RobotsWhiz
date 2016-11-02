@@ -45,6 +45,10 @@ import ReactDOM from 'react-dom';
 
 console.log("JSX entry logic.");
 
+
+var strConfirmCustomClear = null;
+
+
 class Control extends React.Component {
   render() {
       return (
@@ -93,6 +97,9 @@ Controls.propTypes = {
 
 
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
+
+    strConfirmCustomClear = objAPI.strConfirmCustomClear;
+
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
     ReactDOM.render(<Controls clearCustom              ={ objAPI.clearCustom }
