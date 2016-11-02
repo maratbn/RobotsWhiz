@@ -318,6 +318,9 @@
                       strLabelAddCustom
                             = "<?=\__('add custom...',
                                       'domain-plugin-RobotsWhiz')?>",
+                      strLabelModifyCustom
+                            = "<?=\__('modify custom...',
+                                      'domain-plugin-RobotsWhiz')?>",
                       strPromptCustomContent
                             = "<?=\__('Please specify your custom content:',
                                       'domain-plugin-RobotsWhiz')?>";
@@ -538,7 +541,8 @@
                                         clearCustom:              clearCustom,
                                         getArrTokensNonStandard:  _getArrTokensNonStandard,
                                         modifyCustom:             modifyCustom,
-                                        strLabelAddCustom:        strLabelAddCustom
+                                        strLabelAddCustom:        strLabelAddCustom,
+                                        strLabelModifyCustom:     strLabelModifyCustom
                                     });
                       }
                   }
