@@ -47,7 +47,6 @@ console.log("JSX entry logic.");
 
 
 let objParams = null,
-    strConfirmCustomClear = null,
     strLabelAddCustom = null;
 
 
@@ -102,7 +101,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
 
     objParams = objAPI;
 
-    strConfirmCustomClear = objAPI.strConfirmCustomClear;
     strLabelAddCustom = objAPI.strLabelAddCustom;
 
     const elContainer = document.createElement('div');
