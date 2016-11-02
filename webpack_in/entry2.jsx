@@ -46,7 +46,7 @@ import ReactDOM from 'react-dom';
 console.log("JSX entry logic.");
 
 
-var strConfirmCustomClear = null,
+let strConfirmCustomClear = null,
     strLabelAddCustom = null;
 
 
