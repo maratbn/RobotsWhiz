@@ -65,16 +65,23 @@ Control.propTypes = {
 
 class Controls extends React.Component {
   render() {
-      return (
-          <div>
-            <Control callback_click={() => { this.props.modifyCustom(); }}
-                     label="add custom..." />
-            <Control callback_click={() => { this.props.modifyCustom(); }}
-                     label="modify custom..." />
-            <Control callback_click={() => { this.props.clearCustom(); }}
-                     label="clear custom" />
-          </div>
-        );
+      if (this.props.getArrTokensNonStandard() == 0) {
+        return (
+            <div>
+              <Control callback_click={() => { this.props.modifyCustom(); }}
+                       label="add custom..." />
+            </div>
+          );
+      } else {
+        return (
+            <div>
+              <Control callback_click={() => { this.props.modifyCustom(); }}
+                       label="modify custom..." />
+              <Control callback_click={() => { this.props.clearCustom(); }}
+                       label="clear custom" />
+            </div>
+          );
+      }
     }
 }
 
