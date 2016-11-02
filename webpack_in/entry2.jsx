@@ -91,4 +91,4 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
   ReactDOM.render(<Controls clearCustom              ={objAPI.clearCustom}
                             getArrTokensNonStandard  ={objAPI.getArrTokensNonStandard}
                             modifyCustom             ={objAPI.modifyCustom} />, elContainer);
-}
+};
