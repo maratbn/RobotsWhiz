@@ -299,11 +299,6 @@
                               }
                           ?>
                         </div>
-                        <div>
-                          <label><a class='robots-whiz--td--link'
-                                    data--robots-whiz--role='clear-custom'
-                                    href='#'>clear custom</a></label>
-                        </div>
                       </td>
                     </tr>
                   </tbody><?php
@@ -488,19 +483,6 @@
                           });
 
 
-                      var $aClearCustom =  $tbodyPost.find('a[data--robots-whiz--role=clear-custom]');
-
-                      function _updateLinks() {
-                          var arrTokensPrev = _getArrTokensNonStandard();
-                          if (arrTokensPrev.length == 0) {
-                              $aClearCustom.css('display', 'none');
-                          } else {
-                              $aClearCustom.css('display', "");
-                          }
-                      }
-
-                      _updateLinks();
-
                       function modifyCustom() {
                           var arrTokensPrev = _getArrTokensNonStandard();
 
@@ -526,7 +508,6 @@
                           }
 
                           _updateCheckboxes();
-                          _updateLinks();
                       }
 
                       function clearCustom() {
@@ -540,14 +521,7 @@
                           }
 
                           _updateReadout();
-                          _updateLinks();
                       }
-
-                      $aClearCustom.click(function(event) {
-                              event.preventDefault();
-
-                              clearCustom();
-                          });
 
 
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
