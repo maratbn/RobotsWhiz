@@ -90,5 +90,8 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
     tdCheckboxes.appendChild(elContainer);
     ReactDOM.render(<Controls clearCustom              ={objAPI.clearCustom}
                               getArrTokensNonStandard  ={objAPI.getArrTokensNonStandard}
-                              modifyCustom             ={objAPI.modifyCustom} />, elContainer);
+                              modifyCustom             ={objAPI.modifyCustom}
+                              ref                      ={(controls) =>
+                                                            objAPI.callbackControls(controls)} />,
+                    elContainer);
   };

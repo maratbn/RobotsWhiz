@@ -327,7 +327,8 @@
                                                        'domain-plugin-RobotsWhiz')?>";
 
                   function _processPost($, $tbodyPost) {
-                      var arrTokens = [];
+                      var arrTokens = [],
+                          controls = null;
 
                       function _excludeToken(strToken) {
                           var indexToken = arrTokens.indexOf(strToken);
@@ -413,6 +414,7 @@
                           }
 
                           $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
+                          if (controls) controls.forceUpdate();
                       }
 
 
@@ -563,6 +565,10 @@
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
                       if ($tdCheckboxes.length == 1) {
                           window._plugin_RobotsWhiz__renderControls($tdCheckboxes[0], {
+                                        callbackControls: function(controlsInstantiated) {
+                                                controls = controlsInstantiated;
+                                            },
+
                                         clearCustom:              clearCustom,
                                         getArrTokensNonStandard:  _getArrTokensNonStandard,
                                         modifyCustom:             modifyCustom
