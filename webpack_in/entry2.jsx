@@ -46,7 +46,8 @@ import ReactDOM from 'react-dom';
 console.log("JSX entry logic.");
 
 
-var strConfirmCustomClear = null;
+var strConfirmCustomClear = null,
+    strLabelAddCustom = null;
 
 
 class Control extends React.Component {
@@ -73,7 +74,7 @@ class Controls extends React.Component {
       return (
           <div>
             <Control callback_click={() => { this.props.modifyCustom(); }}
-                     label={ this.props.labelAddCustom } />
+                     label={ strLabelAddCustom } />
           </div>
         );
     } else {
@@ -99,12 +100,12 @@ Controls.propTypes = {
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
 
     strConfirmCustomClear = objAPI.strConfirmCustomClear;
+    strLabelAddCustom = objAPI.strLabelAddCustom;
 
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
     ReactDOM.render(<Controls clearCustom              ={ objAPI.clearCustom }
                               getArrTokensNonStandard  ={ objAPI.getArrTokensNonStandard }
-                              labelAddCustom           ={ objAPI.strLabelAddCustom }
                               labelClearCustom         ={ objAPI.strLabelClearCustom }
                               labelModifyCustom        ={ objAPI.strLabelModifyCustom }
                               modifyCustom             ={ objAPI.modifyCustom }
