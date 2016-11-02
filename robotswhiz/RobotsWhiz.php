@@ -315,6 +315,9 @@
                   var strConfirmCustomClear
                             = "<?=\__('Are you sure you want to clear-out your custom content?',
                                       'domain-plugin-RobotsWhiz')?>",
+                      strLabelAddCustom
+                            = "<?=\__('add custom...',
+                                      'domain-plugin-RobotsWhiz')?>",
                       strPromptCustomContent
                             = "<?=\__('Please specify your custom content:',
                                       'domain-plugin-RobotsWhiz')?>";
@@ -534,7 +537,8 @@
 
                                         clearCustom:              clearCustom,
                                         getArrTokensNonStandard:  _getArrTokensNonStandard,
-                                        modifyCustom:             modifyCustom
+                                        modifyCustom:             modifyCustom,
+                                        strLabelAddCustom:        strLabelAddCustom
                                     });
                       }
                   }

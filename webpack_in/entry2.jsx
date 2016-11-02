@@ -69,7 +69,7 @@ class Controls extends React.Component {
       return (
           <div>
             <Control callback_click={() => { this.props.modifyCustom(); }}
-                     label="add custom..." />
+                     label={ this.props.labelAddCustom } />
           </div>
         );
     } else {
@@ -97,6 +97,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
     tdCheckboxes.appendChild(elContainer);
     ReactDOM.render(<Controls clearCustom              ={objAPI.clearCustom}
                               getArrTokensNonStandard  ={objAPI.getArrTokensNonStandard}
+                              labelAddCustom           ={objAPI.strLabelAddCustom}
                               modifyCustom             ={objAPI.modifyCustom}
                               ref                      ={(controls) =>
                                                             objAPI.callbackControls(controls)} />,
