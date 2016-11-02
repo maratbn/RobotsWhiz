@@ -313,10 +313,11 @@
           <script type='text/javascript'>
               (function() {
                   var strConfirmCustomClear
-                              = "<?=\__('Are you sure you want to clear-out your custom content?',
-                                        'domain-plugin-RobotsWhiz')?>",
-                      strPromptCustomContent = "<?=\__('Please specify your custom content:',
-                                                       'domain-plugin-RobotsWhiz')?>";
+                            = "<?=\__('Are you sure you want to clear-out your custom content?',
+                                      'domain-plugin-RobotsWhiz')?>",
+                      strPromptCustomContent
+                            = "<?=\__('Please specify your custom content:',
+                                      'domain-plugin-RobotsWhiz')?>";
 
                   function _processPost($, $tbodyPost) {
                       var arrTokens = [],
