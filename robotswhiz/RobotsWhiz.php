@@ -554,7 +554,8 @@
                                         clearCustom:              clearCustom,
                                         excludeToken:             excludeToken,
                                         getArrTokensNonStandard:  getArrTokensNonStandard,
-                                        modifyCustom:             modifyCustom
+                                        modifyCustom:             modifyCustom,
+                                        updateReadout:            updateReadout
                                     });
                       }
                   }

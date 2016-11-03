@@ -114,6 +114,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                               clearCustom              ={ objFunctions.clearCustom }
                               getArrTokensNonStandard  ={ objFunctions.getArrTokensNonStandard }
                               modifyCustom             ={ objFunctions.modifyCustom }
+                              updateReadout            ={ objFunctions.updateReadout }
                               ref                      ={ (controls) =>
                                                                       callbackControls(controls) }
                       />,
