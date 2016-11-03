@@ -544,11 +544,11 @@
 
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
                       if ($tdCheckboxes.length == 1) {
-                          window._plugin_RobotsWhiz__renderControls($tdCheckboxes[0], {
-                                        callbackControls: function(controlsInstantiated) {
-                                                controls = controlsInstantiated;
-                                            },
-
+                          window._plugin_RobotsWhiz__renderControls(
+                                    $tdCheckboxes[0],
+                                    function(controlsInstantiated) {
+                                        controls = controlsInstantiated;
+                                    }, {
                                         clearCustom:              clearCustom,
                                         getArrTokensNonStandard:  getArrTokensNonStandard,
                                         modifyCustom:             modifyCustom

@@ -96,7 +96,7 @@ Controls.propTypes = {
   };
 
 
-window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
+window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, callbackControls, objAPI) {
 
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
@@ -104,7 +104,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
                               getArrTokensNonStandard  ={ objAPI.getArrTokensNonStandard }
                               modifyCustom             ={ objAPI.modifyCustom }
                               ref                      ={ (controls) =>
-                                                            objAPI.callbackControls(controls) }
+                                                                      callbackControls(controls) }
                       />,
                     elContainer);
   };
