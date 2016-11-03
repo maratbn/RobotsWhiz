@@ -46,7 +46,7 @@ import ReactDOM from 'react-dom';
 console.log("JSX entry logic.");
 
 
-let objParams = null;
+let mapStrings = null;
 
 
 class Control extends React.Component {
@@ -73,16 +73,16 @@ class Controls extends React.Component {
       return (
           <div>
             <Control callback_click={() => { this.props.modifyCustom(); }}
-                     label={ objParams.strLabelAddCustom } />
+                     label={ mapStrings.strLabelAddCustom } />
           </div>
         );
     } else {
       return (
           <div>
             <Control callback_click={() => { this.props.modifyCustom(); }}
-                     label={ objParams.strLabelModifyCustom } />
+                     label={ mapStrings.strLabelModifyCustom } />
             <Control callback_click={() => { this.props.clearCustom(); }}
-                     label={ objParams.strLabelClearCustom } />
+                     label={ mapStrings.strLabelClearCustom } />
           </div>
         );
     }
@@ -98,7 +98,7 @@ Controls.propTypes = {
 
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
 
-    objParams = objAPI;
+    mapStrings = objAPI;
 
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
