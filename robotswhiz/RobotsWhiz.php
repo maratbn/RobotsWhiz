@@ -383,7 +383,7 @@
                           return true;
                       }
 
-                      function _getArrTokensNonStandard() {
+                      function getArrTokensNonStandard() {
                           var arrTokensNonStandard = [];
 
                           for (var i = 0; i < arrTokens.length; i++) {
@@ -502,7 +502,7 @@
 
 
                       function modifyCustom() {
-                          var arrTokensPrev = _getArrTokensNonStandard();
+                          var arrTokensPrev = getArrTokensNonStandard();
 
                           var strTokens = window.prompt(strPromptCustomContent,
                                                         arrTokensPrev.join(" "));
@@ -529,7 +529,7 @@
                       }
 
                       function clearCustom() {
-                          var arrTokensPrev = _getArrTokensNonStandard();
+                          var arrTokensPrev = getArrTokensNonStandard();
                           if (arrTokensPrev.length == 0) return;
 
                           if (!window.confirm(strConfirmCustomClear)) return;
@@ -550,7 +550,7 @@
                                             },
 
                                         clearCustom:              clearCustom,
-                                        getArrTokensNonStandard:  _getArrTokensNonStandard,
+                                        getArrTokensNonStandard:  getArrTokensNonStandard,
                                         modifyCustom:             modifyCustom
                                     });
                       }
