@@ -552,6 +552,7 @@
                                         arrTokens:                arrTokens
                                     }, {
                                         clearCustom:              clearCustom,
+                                        excludeToken:             excludeToken,
                                         getArrTokensNonStandard:  getArrTokensNonStandard,
                                         modifyCustom:             modifyCustom
                                     });
