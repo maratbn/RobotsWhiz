@@ -413,7 +413,7 @@
 
                       var $divReadout = $tbodyPost.find('div[data--robots-whiz--role=readout]');
 
-                      function _updateReadout() {
+                      function updateReadout() {
                           if (arrTokens.length == 0) {
                               $divReadout.html("&nbsp;");
                           } else {
@@ -449,7 +449,7 @@
                           $inputCheckbox_all.prop('checked', _areAllIncluded());
                           $inputCheckbox_none.prop('checked', _areAllExcluded());
 
-                          _updateReadout();
+                          updateReadout();
                       }
 
                       function _updateCheckboxes() {
@@ -538,7 +538,7 @@
                               excludeToken(arrTokensPrev[i]);
                           }
 
-                          _updateReadout();
+                          updateReadout();
                       }
 
 
