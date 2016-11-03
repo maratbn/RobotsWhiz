@@ -68,6 +68,20 @@ Control.propTypes = {
   };
 
 class Controls extends React.Component {
+
+  clearCustom() {
+    var arrTokensPrev = this.props.getArrTokensNonStandard();
+    if (arrTokensPrev.length == 0) return;
+
+    if (!window.confirm(mapStrings.strConfirmCustomClear)) return;
+
+    for (var i = 0; i < arrTokensPrev.length; i++) {
+      this.props.excludeToken(arrTokensPrev[i]);
+    }
+
+    this.props.updateReadout();
+  }
+
   render() {
     if (this.props.getArrTokensNonStandard() == 0) {
       return (
@@ -81,7 +95,7 @@ class Controls extends React.Component {
           <div>
             <Control callback_click={() => { this.props.modifyCustom(); }}
                      label={ mapStrings.strLabelModifyCustom } />
-            <Control callback_click={() => { this.props.clearCustom(); }}
+            <Control callback_click={() => { this.clearCustom(); }}
                      label={ mapStrings.strLabelClearCustom } />
           </div>
         );
@@ -95,7 +109,6 @@ Controls.propTypes = {
     arrTokens:                React.PropTypes.array.isRequired,
 
     //  Functions:
-    clearCustom:              React.PropTypes.func.isRequired,
     excludeToken:             React.PropTypes.func.isRequired,
     getArrTokensNonStandard:  React.PropTypes.func.isRequired,
     modifyCustom:             React.PropTypes.func.isRequired
@@ -111,7 +124,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     tdCheckboxes.appendChild(elContainer);
     ReactDOM.render(<Controls arrTokens                ={ objData.arrTokens }
                               excludeToken             ={ objFunctions.excludeToken }
-                              clearCustom              ={ objFunctions.clearCustom }
                               getArrTokensNonStandard  ={ objFunctions.getArrTokensNonStandard }
                               modifyCustom             ={ objFunctions.modifyCustom }
                               updateReadout            ={ objFunctions.updateReadout }

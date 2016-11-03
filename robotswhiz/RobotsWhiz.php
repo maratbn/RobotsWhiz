@@ -528,19 +528,6 @@
                           _updateCheckboxes();
                       }
 
-                      function clearCustom() {
-                          var arrTokensPrev = getArrTokensNonStandard();
-                          if (arrTokensPrev.length == 0) return;
-
-                          if (!window.confirm(strConfirmCustomClear)) return;
-
-                          for (var i = 0; i < arrTokensPrev.length; i++) {
-                              excludeToken(arrTokensPrev[i]);
-                          }
-
-                          updateReadout();
-                      }
-
 
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
                       if ($tdCheckboxes.length == 1) {
@@ -551,7 +538,6 @@
                                     }, {
                                         arrTokens:                arrTokens
                                     }, {
-                                        clearCustom:              clearCustom,
                                         excludeToken:             excludeToken,
                                         getArrTokensNonStandard:  getArrTokensNonStandard,
                                         modifyCustom:             modifyCustom,
