@@ -75,9 +75,9 @@ class Controls extends React.Component {
 
     if (!window.confirm(mapStrings.strConfirmCustomClear)) return;
 
-    for (var i = 0; i < arrTokensPrev.length; i++) {
-      this.props.excludeToken(arrTokensPrev[i]);
-    }
+    arrTokensPrev.map(strToken => {
+        this.props.excludeToken(strToken);
+      });
 
     this.props.updateReadout();
   }
