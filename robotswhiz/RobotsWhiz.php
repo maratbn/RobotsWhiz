@@ -452,7 +452,7 @@
                           updateReadout();
                       }
 
-                      function _updateCheckboxes() {
+                      function updateCheckboxes() {
                           for (var strName in mapCheckboxesStandard) {
                               mapCheckboxesStandard[strName].prop('checked', _isIncluded(strName));
                           }
@@ -460,7 +460,7 @@
                           _updateCheckboxes_all_none();
                       }
 
-                      _updateCheckboxes();
+                      updateCheckboxes();
 
                       function _initCheckboxForInput(strName) {
                           var $checkboxStandard = mapCheckboxesStandard[strName];
@@ -487,7 +487,7 @@
                               }
 
                               _includeAll();
-                              _updateCheckboxes();
+                              updateCheckboxes();
                           });
 
                       $inputCheckbox_none.bind('change', function() {
@@ -497,7 +497,7 @@
                               }
 
                               _excludeAll();
-                              _updateCheckboxes();
+                              updateCheckboxes();
                           });
 
 
@@ -525,7 +525,7 @@
                               excludeToken(strTokenPrev);
                           }
 
-                          _updateCheckboxes();
+                          updateCheckboxes();
                       }
 
 
