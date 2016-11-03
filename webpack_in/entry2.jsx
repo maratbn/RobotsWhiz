@@ -112,7 +112,8 @@ Controls.propTypes = {
     excludeToken:             React.PropTypes.func.isRequired,
     getArrTokensNonStandard:  React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
-    modifyCustom:             React.PropTypes.func.isRequired
+    modifyCustom:             React.PropTypes.func.isRequired,
+    updateCheckboxes:         React.PropTypes.func.isRequired
   };
 
 
@@ -128,6 +129,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                               getArrTokensNonStandard  ={ objFunctions.getArrTokensNonStandard }
                               includeToken             ={ objFunctions.includeToken }
                               modifyCustom             ={ objFunctions.modifyCustom }
+                              updateCheckboxes         ={ objFunctions.updateCheckboxes }
                               updateReadout            ={ objFunctions.updateReadout }
                               ref                      ={ (controls) =>
                                                                       callbackControls(controls) }

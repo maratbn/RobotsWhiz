@@ -542,6 +542,7 @@
                                         getArrTokensNonStandard:  getArrTokensNonStandard,
                                         includeToken:             includeToken,
                                         modifyCustom:             modifyCustom,
+                                        updateCheckboxes:         updateCheckboxes,
                                         updateReadout:            updateReadout
                                     });
                       }
