@@ -328,6 +328,14 @@
                             = "<?=\__('Please specify your custom content:',
                                       'domain-plugin-RobotsWhiz')?>";
 
+                  window._plugin_RobotsWhiz__setStrings({
+                          strConfirmCustomClear:    strConfirmCustomClear,
+                          strLabelAddCustom:        strLabelAddCustom,
+                          strLabelClearCustom:      strLabelClearCustom,
+                          strLabelModifyCustom:     strLabelModifyCustom
+                      });
+
+
                   function _processPost($, $tbodyPost) {
                       var arrTokens = [],
                           controls = null;
@@ -543,11 +551,7 @@
 
                                         clearCustom:              clearCustom,
                                         getArrTokensNonStandard:  _getArrTokensNonStandard,
-                                        modifyCustom:             modifyCustom,
-                                        strConfirmCustomClear:    strConfirmCustomClear,
-                                        strLabelAddCustom:        strLabelAddCustom,
-                                        strLabelClearCustom:      strLabelClearCustom,
-                                        strLabelModifyCustom:     strLabelModifyCustom
+                                        modifyCustom:             modifyCustom
                                     });
                       }
                   }

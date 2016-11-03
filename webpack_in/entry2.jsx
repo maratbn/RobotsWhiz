@@ -98,8 +98,6 @@ Controls.propTypes = {
 
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
 
-    mapStrings = objAPI;
-
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
     ReactDOM.render(<Controls clearCustom              ={ objAPI.clearCustom }
@@ -109,4 +107,8 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes, objAPI) {
                                                             objAPI.callbackControls(controls) }
                       />,
                     elContainer);
+  };
+
+window._plugin_RobotsWhiz__setStrings = function(mapStringsSet) {
+    mapStrings = mapStringsSet;
   };
