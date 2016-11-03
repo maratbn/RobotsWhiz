@@ -70,7 +70,7 @@ Control.propTypes = {
 class Controls extends React.Component {
 
   clearCustom() {
-    var arrTokensPrev = this.props.getArrTokensNonStandard();
+    let arrTokensPrev = this.props.getArrTokensNonStandard();
     if (arrTokensPrev.length == 0) return;
 
     if (!window.confirm(mapStrings.strConfirmCustomClear)) return;
