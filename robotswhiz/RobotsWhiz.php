@@ -340,7 +340,7 @@
                       var arrTokens = [],
                           controls = null;
 
-                      function _excludeToken(strToken) {
+                      function excludeToken(strToken) {
                           var indexToken = arrTokens.indexOf(strToken);
                           if (indexToken >= 0) arrTokens.splice(indexToken, 1);
                       }
@@ -359,7 +359,7 @@
 
                       function _excludeAll() {
                           for (strName in mapCheckboxesStandard) {
-                              _excludeToken(strName);
+                              excludeToken(strName);
                           }
                       }
 
@@ -469,7 +469,7 @@
                                   if ($checkboxStandard.is(':checked')) {
                                       _includeToken(strName);
                                   } else {
-                                      _excludeToken(strName);
+                                      excludeToken(strName);
                                   }
 
                                   _updateCheckboxes_all_none();
@@ -522,7 +522,7 @@
                               var strTokenPrev = arrTokensPrev[i];
                               if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
 
-                              _excludeToken(strTokenPrev);
+                              excludeToken(strTokenPrev);
                           }
 
                           _updateCheckboxes();
@@ -535,7 +535,7 @@
                           if (!window.confirm(strConfirmCustomClear)) return;
 
                           for (var i = 0; i < arrTokensPrev.length; i++) {
-                              _excludeToken(arrTokensPrev[i]);
+                              excludeToken(arrTokensPrev[i]);
                           }
 
                           _updateReadout();
