@@ -90,6 +90,8 @@ class Controls extends React.Component {
 }
 
 Controls.propTypes = {
+
+    //  Functions:
     clearCustom:              React.PropTypes.func.isRequired,
     getArrTokensNonStandard:  React.PropTypes.func.isRequired,
     modifyCustom:             React.PropTypes.func.isRequired
