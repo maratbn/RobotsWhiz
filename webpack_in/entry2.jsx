@@ -100,6 +100,7 @@ Controls.propTypes = {
 
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      callbackControls,
+                                                     objData,
                                                      objFunctions) {
 
     const elContainer = document.createElement('div');

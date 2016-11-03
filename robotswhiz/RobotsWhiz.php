@@ -549,6 +549,7 @@
                                     function(controlsInstantiated) {
                                         controls = controlsInstantiated;
                                     }, {
+                                    }, {
                                         clearCustom:              clearCustom,
                                         getArrTokensNonStandard:  getArrTokensNonStandard,
                                         modifyCustom:             modifyCustom
