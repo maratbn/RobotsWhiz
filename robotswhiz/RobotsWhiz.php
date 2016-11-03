@@ -345,7 +345,7 @@
                           if (indexToken >= 0) arrTokens.splice(indexToken, 1);
                       }
 
-                      function _includeToken(strToken) {
+                      function includeToken(strToken) {
                           if (arrTokens.indexOf(strToken) >= 0) return;
                           arrTokens.push(strToken);
                       }
@@ -365,7 +365,7 @@
 
                       function _includeAll() {
                           for (strName in mapCheckboxesStandard) {
-                              _includeToken(strName);
+                              includeToken(strName);
                           }
                       }
 
@@ -407,7 +407,7 @@
                       var arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
 
                       for (var i = 0; i < arrTokensInitial.length; i++) {
-                          _includeToken(arrTokensInitial[i]);
+                          includeToken(arrTokensInitial[i]);
                       }
 
 
@@ -467,7 +467,7 @@
 
                           $checkboxStandard.bind('change', function() {
                                   if ($checkboxStandard.is(':checked')) {
-                                      _includeToken(strName);
+                                      includeToken(strName);
                                   } else {
                                       excludeToken(strName);
                                   }
@@ -515,7 +515,7 @@
                               var strCustomToken = arrTokensNew[i];
                               if (!strCustomToken) continue;
 
-                              _includeToken(strCustomToken);
+                              includeToken(strCustomToken);
                           }
 
                           for (var i = 0; i < arrTokensPrev.length; i++) {
