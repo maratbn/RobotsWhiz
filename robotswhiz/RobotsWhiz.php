@@ -540,6 +540,7 @@
                                     }, {
                                         excludeToken:             excludeToken,
                                         getArrTokensNonStandard:  getArrTokensNonStandard,
+                                        includeToken:             includeToken,
                                         modifyCustom:             modifyCustom,
                                         updateReadout:            updateReadout
                                     });
