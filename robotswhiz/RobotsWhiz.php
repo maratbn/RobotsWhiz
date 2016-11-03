@@ -332,7 +332,8 @@
                           strConfirmCustomClear:    strConfirmCustomClear,
                           strLabelAddCustom:        strLabelAddCustom,
                           strLabelClearCustom:      strLabelClearCustom,
-                          strLabelModifyCustom:     strLabelModifyCustom
+                          strLabelModifyCustom:     strLabelModifyCustom,
+                          strPromptCustomContent:   strPromptCustomContent
                       });
 
 
