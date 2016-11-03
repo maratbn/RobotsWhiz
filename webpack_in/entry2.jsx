@@ -82,18 +82,45 @@ class Controls extends React.Component {
     this.props.updateReadout();
   }
 
+  modifyCustom() {
+    var arrTokensPrev = this.props.getArrTokensNonStandard();
+
+    var strTokens = window.prompt(mapStrings.strPromptCustomContent,
+                                  arrTokensPrev.join(" "));
+    if (strTokens == null) return;
+
+    var arrTokensNew = strTokens.split(/\s+/);
+    if (!arrTokensNew) return;
+
+    for (var i = 0; i < arrTokensNew.length; i++) {
+      var strCustomToken = arrTokensNew[i];
+      if (!strCustomToken) continue;
+
+      this.props.includeToken(strCustomToken);
+    }
+
+    for (var i = 0; i < arrTokensPrev.length; i++) {
+      var strTokenPrev = arrTokensPrev[i];
+      if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
+
+      this.props.excludeToken(strTokenPrev);
+    }
+
+    this.props.updateCheckboxes();
+  }
+
   render() {
     if (this.props.getArrTokensNonStandard() == 0) {
       return (
           <div>
-            <Control callback_click={() => { this.props.modifyCustom(); }}
+            <Control callback_click={() => { this.modifyCustom(); }}
                      label={ mapStrings.strLabelAddCustom } />
           </div>
         );
     } else {
       return (
           <div>
-            <Control callback_click={() => { this.props.modifyCustom(); }}
+            <Control callback_click={() => { this.modifyCustom(); }}
                      label={ mapStrings.strLabelModifyCustom } />
             <Control callback_click={() => { this.clearCustom(); }}
                      label={ mapStrings.strLabelClearCustom } />
@@ -112,7 +139,6 @@ Controls.propTypes = {
     excludeToken:             React.PropTypes.func.isRequired,
     getArrTokensNonStandard:  React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
-    modifyCustom:             React.PropTypes.func.isRequired,
     updateCheckboxes:         React.PropTypes.func.isRequired
   };
 
@@ -128,7 +154,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                               excludeToken             ={ objFunctions.excludeToken }
                               getArrTokensNonStandard  ={ objFunctions.getArrTokensNonStandard }
                               includeToken             ={ objFunctions.includeToken }
-                              modifyCustom             ={ objFunctions.modifyCustom }
                               updateCheckboxes         ={ objFunctions.updateCheckboxes }
                               updateReadout            ={ objFunctions.updateReadout }
                               ref                      ={ (controls) =>

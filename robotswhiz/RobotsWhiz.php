@@ -502,34 +502,6 @@
                           });
 
 
-                      function modifyCustom() {
-                          var arrTokensPrev = getArrTokensNonStandard();
-
-                          var strTokens = window.prompt(strPromptCustomContent,
-                                                        arrTokensPrev.join(" "));
-                          if (strTokens == null) return;
-
-                          var arrTokensNew = strTokens.split(/\s+/);
-                          if (!arrTokensNew) return;
-
-                          for (var i = 0; i < arrTokensNew.length; i++) {
-                              var strCustomToken = arrTokensNew[i];
-                              if (!strCustomToken) continue;
-
-                              includeToken(strCustomToken);
-                          }
-
-                          for (var i = 0; i < arrTokensPrev.length; i++) {
-                              var strTokenPrev = arrTokensPrev[i];
-                              if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
-
-                              excludeToken(strTokenPrev);
-                          }
-
-                          updateCheckboxes();
-                      }
-
-
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
                       if ($tdCheckboxes.length == 1) {
                           window._plugin_RobotsWhiz__renderControls(
@@ -542,7 +514,6 @@
                                         excludeToken:             excludeToken,
                                         getArrTokensNonStandard:  getArrTokensNonStandard,
                                         includeToken:             includeToken,
-                                        modifyCustom:             modifyCustom,
                                         updateCheckboxes:         updateCheckboxes,
                                         updateReadout:            updateReadout
                                     });
