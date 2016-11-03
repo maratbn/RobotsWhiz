@@ -91,6 +91,9 @@ class Controls extends React.Component {
 
 Controls.propTypes = {
 
+    //  Data:
+    arrTokens:                React.PropTypes.array.isRequired,
+
     //  Functions:
     clearCustom:              React.PropTypes.func.isRequired,
     getArrTokensNonStandard:  React.PropTypes.func.isRequired,
@@ -105,7 +108,8 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
 
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
-    ReactDOM.render(<Controls clearCustom              ={ objFunctions.clearCustom }
+    ReactDOM.render(<Controls arrTokens                ={ objData.arrTokens }
+                              clearCustom              ={ objFunctions.clearCustom }
                               getArrTokensNonStandard  ={ objFunctions.getArrTokensNonStandard }
                               modifyCustom             ={ objFunctions.modifyCustom }
                               ref                      ={ (controls) =>
