@@ -158,6 +158,10 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      objData,
                                                      objFunctions) {
 
+    const elContainerCheckboxes = document.createElement('div');
+    tdCheckboxes.appendChild(elContainerCheckboxes);
+
+
     const elContainerCustom = document.createElement('div');
     tdCheckboxes.appendChild(elContainerCustom);
     ReactDOM.render(<CustomRow arrTokens                ={ objData.arrTokens }
