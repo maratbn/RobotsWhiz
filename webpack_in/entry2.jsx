@@ -110,12 +110,11 @@ class Controls extends React.Component {
         this.props.includeToken(strCustomToken);
       });
 
-    for (var i = 0; i < arrTokensPrev.length; i++) {
-      var strTokenPrev = arrTokensPrev[i];
-      if (arrTokensNew.indexOf(strTokenPrev) >= 0) continue;
+    arrTokensPrev.map(strTokenPrev => {
+        if (arrTokensNew.indexOf(strTokenPrev) >= 0) return;
 
-      this.props.excludeToken(strTokenPrev);
-    }
+        this.props.excludeToken(strTokenPrev);
+      });
 
     this.props.updateCheckboxes();
   }
