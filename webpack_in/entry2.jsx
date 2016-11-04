@@ -63,8 +63,8 @@ class Link extends React.Component {
 }
 
 Link.propTypes = {
-    callback_click:   React.PropTypes.func.isRequired,
-    label:            React.PropTypes.string.isRequired
+    callback_click:           React.PropTypes.func.isRequired,
+    label:                    React.PropTypes.string.isRequired
   };
 
 class CustomRow extends React.Component {
