@@ -509,7 +509,8 @@
                                     function(controlsInstantiated) {
                                         controls = controlsInstantiated;
                                     }, {
-                                        arrTokens:                arrTokens
+                                        arrTokens:                arrTokens,
+                                        mapCheckboxesStandard:    mapCheckboxesStandard
                                     }, {
                                         excludeToken:             excludeToken,
                                         getArrTokensNonStandard:  getArrTokensNonStandard,

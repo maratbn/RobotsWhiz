@@ -134,6 +134,7 @@ Controls.propTypes = {
 
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
+    mapCheckboxesStandard:    React.PropTypes.object.isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
@@ -151,6 +152,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
     ReactDOM.render(<Controls arrTokens                ={ objData.arrTokens }
+                              mapCheckboxesStandard    ={ objData.mapCheckboxesStandard }
                               excludeToken             ={ objFunctions.excludeToken }
                               getArrTokensNonStandard  ={ objFunctions.getArrTokensNonStandard }
                               includeToken             ={ objFunctions.includeToken }
