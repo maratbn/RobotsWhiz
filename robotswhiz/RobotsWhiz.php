@@ -356,7 +356,7 @@
                       }
 
 
-                      var mapCheckboxesStandard = [];
+                      var mapCheckboxesStandard = {};
 
                       function _excludeAll() {
                           for (strName in mapCheckboxesStandard) {
