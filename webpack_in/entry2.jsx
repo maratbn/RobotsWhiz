@@ -104,12 +104,11 @@ class Controls extends React.Component {
     var arrTokensNew = strTokens.split(/\s+/);
     if (!arrTokensNew) return;
 
-    for (var i = 0; i < arrTokensNew.length; i++) {
-      var strCustomToken = arrTokensNew[i];
-      if (!strCustomToken) continue;
+    arrTokensNew.map(strCustomToken => {
+        if (!strCustomToken) return;
 
-      this.props.includeToken(strCustomToken);
-    }
+        this.props.includeToken(strCustomToken);
+      });
 
     for (var i = 0; i < arrTokensPrev.length; i++) {
       var strTokenPrev = arrTokensPrev[i];
