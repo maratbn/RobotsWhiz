@@ -70,7 +70,7 @@ Control.propTypes = {
 class Controls extends React.Component {
 
   clearCustom() {
-    let arrTokensPrev = this.props.getArrTokensNonStandard();
+    let arrTokensPrev = this.getArrTokensNonStandard();
     if (arrTokensPrev.length == 0) return;
 
     if (!window.confirm(mapStrings.strConfirmCustomClear)) return;
@@ -82,8 +82,22 @@ class Controls extends React.Component {
     this.props.updateReadout();
   }
 
+  getArrTokensNonStandard() {
+    var arrTokensNonStandard = [];
+
+    for (var i = 0; i < this.props.arrTokens.length; i++) {
+      var strToken = this.props.arrTokens[i];
+
+      if (!this.props.mapCheckboxesStandard[strToken]) {
+        arrTokensNonStandard.push(strToken);
+      }
+    }
+
+    return arrTokensNonStandard;
+  }
+
   modifyCustom() {
-    var arrTokensPrev = this.props.getArrTokensNonStandard();
+    var arrTokensPrev = this.getArrTokensNonStandard();
 
     var strTokens = window.prompt(mapStrings.strPromptCustomContent,
                                   arrTokensPrev.join(" "));
@@ -110,7 +124,7 @@ class Controls extends React.Component {
   }
 
   render() {
-    if (this.props.getArrTokensNonStandard() == 0) {
+    if (this.getArrTokensNonStandard() == 0) {
       return (
           <div>
             <Control callback_click={() => { this.modifyCustom(); }}
@@ -138,7 +152,6 @@ Controls.propTypes = {
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
-    getArrTokensNonStandard:  React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
     updateCheckboxes:         React.PropTypes.func.isRequired
   };
@@ -154,7 +167,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     ReactDOM.render(<Controls arrTokens                ={ objData.arrTokens }
                               mapCheckboxesStandard    ={ objData.mapCheckboxesStandard }
                               excludeToken             ={ objFunctions.excludeToken }
-                              getArrTokensNonStandard  ={ objFunctions.getArrTokensNonStandard }
                               includeToken             ={ objFunctions.includeToken }
                               updateCheckboxes         ={ objFunctions.updateCheckboxes }
                               updateReadout            ={ objFunctions.updateReadout }

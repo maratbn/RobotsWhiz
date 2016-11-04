@@ -384,20 +384,6 @@
                           return true;
                       }
 
-                      function getArrTokensNonStandard() {
-                          var arrTokensNonStandard = [];
-
-                          for (var i = 0; i < arrTokens.length; i++) {
-                              var strToken = arrTokens[i];
-
-                              if (!mapCheckboxesStandard[strToken]) {
-                                  arrTokensNonStandard.push(strToken);
-                              }
-                          }
-
-                          return arrTokensNonStandard;
-                      }
-
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
@@ -513,7 +499,6 @@
                                         mapCheckboxesStandard:    mapCheckboxesStandard
                                     }, {
                                         excludeToken:             excludeToken,
-                                        getArrTokensNonStandard:  getArrTokensNonStandard,
                                         includeToken:             includeToken,
                                         updateCheckboxes:         updateCheckboxes,
                                         updateReadout:            updateReadout
