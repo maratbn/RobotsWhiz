@@ -67,7 +67,7 @@ Control.propTypes = {
     label:            React.PropTypes.string.isRequired
   };
 
-class Controls extends React.Component {
+class CustomRow extends React.Component {
 
   clearCustom() {
     let arrTokensPrev = this.getArrTokensNonStandard();
@@ -140,7 +140,7 @@ class Controls extends React.Component {
   }
 }
 
-Controls.propTypes = {
+CustomRow.propTypes = {
 
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
@@ -160,13 +160,13 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
 
     const elContainer = document.createElement('div');
     tdCheckboxes.appendChild(elContainer);
-    ReactDOM.render(<Controls arrTokens                ={ objData.arrTokens }
-                              mapCheckboxesStandard    ={ objData.mapCheckboxesStandard }
-                              excludeToken             ={ objFunctions.excludeToken }
-                              includeToken             ={ objFunctions.includeToken }
-                              updateCheckboxes         ={ objFunctions.updateCheckboxes }
-                              updateReadout            ={ objFunctions.updateReadout }
-                              ref                      ={ (controls) =>
+    ReactDOM.render(<CustomRow arrTokens                ={ objData.arrTokens }
+                               mapCheckboxesStandard    ={ objData.mapCheckboxesStandard }
+                               excludeToken             ={ objFunctions.excludeToken }
+                               includeToken             ={ objFunctions.includeToken }
+                               updateCheckboxes         ={ objFunctions.updateCheckboxes }
+                               updateReadout            ={ objFunctions.updateReadout }
+                               ref                      ={ (controls) =>
                                                                       callbackControls(controls) }
                       />,
                     elContainer);
