@@ -158,8 +158,8 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      objData,
                                                      objFunctions) {
 
-    const elContainer = document.createElement('div');
-    tdCheckboxes.appendChild(elContainer);
+    const elContainerCustom = document.createElement('div');
+    tdCheckboxes.appendChild(elContainerCustom);
     ReactDOM.render(<CustomRow arrTokens                ={ objData.arrTokens }
                                mapCheckboxesStandard    ={ objData.mapCheckboxesStandard }
                                excludeToken             ={ objFunctions.excludeToken }
@@ -169,7 +169,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                ref                      ={ (controls) =>
                                                                       callbackControls(controls) }
                       />,
-                    elContainer);
+                    elContainerCustom);
   };
 
 window._plugin_RobotsWhiz__setStrings = function(mapStringsSet) {
