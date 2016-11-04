@@ -85,13 +85,11 @@ class Controls extends React.Component {
   getArrTokensNonStandard() {
     var arrTokensNonStandard = [];
 
-    for (var i = 0; i < this.props.arrTokens.length; i++) {
-      var strToken = this.props.arrTokens[i];
-
-      if (!this.props.mapCheckboxesStandard[strToken]) {
-        arrTokensNonStandard.push(strToken);
-      }
-    }
+    this.props.arrTokens.map(strToken => {
+        if (!this.props.mapCheckboxesStandard[strToken]) {
+          arrTokensNonStandard.push(strToken);
+        }
+      });
 
     return arrTokensNonStandard;
   }
