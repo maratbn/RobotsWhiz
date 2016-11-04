@@ -49,7 +49,7 @@ console.log("JSX entry logic.");
 let mapStrings = null;
 
 
-class Control extends React.Component {
+class Link extends React.Component {
   render() {
       return (
           <label>
@@ -62,7 +62,7 @@ class Control extends React.Component {
     }
 }
 
-Control.propTypes = {
+Link.propTypes = {
     callback_click:   React.PropTypes.func.isRequired,
     label:            React.PropTypes.string.isRequired
   };
@@ -123,17 +123,17 @@ class CustomRow extends React.Component {
     if (this.getArrTokensNonStandard() == 0) {
       return (
           <div>
-            <Control callback_click={() => { this.modifyCustom(); }}
-                     label={ mapStrings.strLabelAddCustom } />
+            <Link callback_click={() => { this.modifyCustom(); }}
+                  label={ mapStrings.strLabelAddCustom } />
           </div>
         );
     } else {
       return (
           <div>
-            <Control callback_click={() => { this.modifyCustom(); }}
-                     label={ mapStrings.strLabelModifyCustom } />
-            <Control callback_click={() => { this.clearCustom(); }}
-                     label={ mapStrings.strLabelClearCustom } />
+            <Link callback_click={() => { this.modifyCustom(); }}
+                  label={ mapStrings.strLabelModifyCustom } />
+            <Link callback_click={() => { this.clearCustom(); }}
+                  label={ mapStrings.strLabelClearCustom } />
           </div>
         );
     }
