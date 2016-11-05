@@ -151,13 +151,24 @@ class CheckboxStd extends React.Component {
                   is_checked={ this.props.isIncluded(this.props.token) }
                   role='cb-std'
                   label={ this.props.token }
-                  name={ this.props.token } />
+                  name={ this.props.token }
+                  on_change={ (event) => {
+                                if (event.checked) {
+                                  this.props.includeToken(this.props.token);
+                                } else {
+                                  this.props.excludeToken(this.props.token);
+                                }
+                                this.props.updateCheckboxes();
+                              }} />
       );
   }
 }
 
 CheckboxStd.propTypes = {
+    excludeToken:             React.PropTypes.func.isRequired,
+    includeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired,
+    updateCheckboxes:         React.PropTypes.func.isRequired,
     token:                    React.PropTypes.string.isRequired
   };
 
@@ -192,13 +203,25 @@ class CheckboxRow extends React.Component {
                               excludeAll={ this.props.excludeAll }
                               updateCheckboxes={ this.props.updateCheckboxes } />
           <CheckboxStd token='noindex'
-                       isIncluded={ this.props.isIncluded } />
+                       excludeToken={ this.props.excludeToken }
+                       includeToken={ this.props.includeToken }
+                       isIncluded={ this.props.isIncluded }
+                       updateCheckboxes={ this.props.updateCheckboxes } />
           <CheckboxStd token='nofollow'
-                       isIncluded={ this.props.isIncluded } />
+                       excludeToken={ this.props.excludeToken }
+                       includeToken={ this.props.includeToken }
+                       isIncluded={ this.props.isIncluded }
+                       updateCheckboxes={ this.props.updateCheckboxes } />
           <CheckboxStd token='noarchive'
-                       isIncluded={ this.props.isIncluded } />
+                       excludeToken={ this.props.excludeToken }
+                       includeToken={ this.props.includeToken }
+                       isIncluded={ this.props.isIncluded }
+                       updateCheckboxes={ this.props.updateCheckboxes } />
           <CheckboxStd token='noimageindex'
-                       isIncluded={ this.props.isIncluded } />
+                       excludeToken={ this.props.excludeToken }
+                       includeToken={ this.props.includeToken }
+                       isIncluded={ this.props.isIncluded }
+                       updateCheckboxes={ this.props.updateCheckboxes } />
         </div>
       );
   }
@@ -208,7 +231,9 @@ CheckboxRow.propTypes = {
     areAllExcluded:           React.PropTypes.func.isRequired,
     areAllIncluded:           React.PropTypes.func.isRequired,
     excludeAll:               React.PropTypes.func.isRequired,
+    excludeToken:             React.PropTypes.func.isRequired,
     includeAll:               React.PropTypes.func.isRequired,
+    includeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired,
     updateCheckboxes:         React.PropTypes.func.isRequired
   };
