@@ -256,8 +256,8 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                includeToken             ={ objFunctions.includeToken }
                                updateCheckboxes         ={ objFunctions.updateCheckboxes }
                                updateReadout            ={ objFunctions.updateReadout }
-                               ref                      ={ (controls) =>
-                                                                      callbackControls(controls) }
+                               ref                      ={ (custom_rowNew) =>
+                                                                 callbackControls(custom_rowNew) }
                       />,
                     elContainerCustom);
   };
