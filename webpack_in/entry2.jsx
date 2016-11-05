@@ -59,7 +59,7 @@ class Checkbox extends React.Component {
                    name={ this.props.name }
                    onChange={ (event) => {
                                 if (this.props.on_change) {
-                                  this.props.on_change({ checked: event.target.value == 'on' });
+                                  this.props.on_change({ checked: event.target.checked });
                                 }
                               } } />
             { this.props.is_italic ? (<i>{ this.props.label }</i>) : this.props.label }
