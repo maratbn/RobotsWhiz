@@ -123,6 +123,7 @@ class CheckboxStd extends React.Component {
   render() {
     return (
         <Checkbox is_italic={ false }
+                  is_checked={ this.props.isIncluded(this.props.token) }
                   role='cb-std'
                   label={ this.props.token }
                   name={ this.props.token } />
@@ -131,6 +132,7 @@ class CheckboxStd extends React.Component {
 }
 
 CheckboxStd.propTypes = {
+    isIncluded:               React.PropTypes.func.isRequired,
     token:                    React.PropTypes.string.isRequired
   };
 
@@ -160,10 +162,10 @@ class CheckboxRow extends React.Component {
         <div>
           <CheckboxNonStdAll areAllIncluded={ this.props.areAllIncluded } />
           <CheckboxNonStdNone areAllExcluded={ this.props.areAllExcluded } />
-          <CheckboxStd token='noindex' />
-          <CheckboxStd token='nofollow' />
-          <CheckboxStd token='noarchive' />
-          <CheckboxStd token='noimageindex' />
+          <CheckboxStd token='noindex' isIncluded={ this.props.isIncluded } />
+          <CheckboxStd token='nofollow' isIncluded={ this.props.isIncluded } />
+          <CheckboxStd token='noarchive' isIncluded={ this.props.isIncluded } />
+          <CheckboxStd token='noimageindex' isIncluded={ this.props.isIncluded } />
         </div>
       );
   }
@@ -171,7 +173,8 @@ class CheckboxRow extends React.Component {
 
 CheckboxRow.propTypes = {
     areAllExcluded:           React.PropTypes.func.isRequired,
-    areAllIncluded:           React.PropTypes.func.isRequired
+    areAllIncluded:           React.PropTypes.func.isRequired,
+    isIncluded:               React.PropTypes.func.isRequired
   };
 
 

@@ -502,6 +502,7 @@
                                         areAllIncluded:           areAllIncluded,
                                         excludeToken:             excludeToken,
                                         includeToken:             includeToken,
+                                        isIncluded:               isIncluded,
                                         updateCheckboxes:         updateCheckboxes,
                                         updateReadout:            updateReadout
                                     });
