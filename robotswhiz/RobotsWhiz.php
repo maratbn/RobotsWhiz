@@ -358,7 +358,7 @@
 
                       var mapCheckboxesStandard = {};
 
-                      function _excludeAll() {
+                      function excludeAll() {
                           for (strName in mapCheckboxesStandard) {
                               excludeToken(strName);
                           }
@@ -483,7 +483,7 @@
                                   return;
                               }
 
-                              _excludeAll();
+                              excludeAll();
                               updateCheckboxes();
                           });
 
