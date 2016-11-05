@@ -244,10 +244,12 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      objData,
                                                      objFunctions) {
 
-    let custom_row = null;
+    let checkbox_row = null,
+        custom_row = null;
 
     const objectControls = {
         forceUpdate: () => {
+            if (checkbox_row) checkbox_row.forceUpdate();
             if (custom_row) custom_row.forceUpdate();
           }
       };
