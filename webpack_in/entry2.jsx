@@ -73,7 +73,9 @@ Checkbox.propTypes = {
 class CheckboxNonStd extends React.Component {
   render() {
     return (
-        <Checkbox is_italic={ true } role={ this.props.role } label={ this.props.label } />
+        <Checkbox is_italic={ true }
+                  role={ this.props.role }
+                  label={ this.props.label } />
       );
   }
 }
