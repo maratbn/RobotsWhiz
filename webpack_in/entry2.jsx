@@ -109,10 +109,14 @@ CheckboxNonStdAll.propTypes = {
 class CheckboxNonStdNone extends React.Component {
   render() {
     return (
-        <CheckboxNonStd role='cb-none' label='none' />
+        <CheckboxNonStd role='cb-none' label='none' is_checked={ this.props.areAllExcluded() } />
       );
   }
 }
+
+CheckboxNonStdNone.propTypes = {
+    areAllExcluded:           React.PropTypes.func.isRequired
+  };
 
 
 class CheckboxStd extends React.Component {
@@ -155,7 +159,7 @@ class CheckboxRow extends React.Component {
     return (
         <div>
           <CheckboxNonStdAll areAllIncluded={ this.props.areAllIncluded } />
-          <CheckboxNonStdNone />
+          <CheckboxNonStdNone areAllExcluded={ this.props.areAllExcluded } />
           <CheckboxStd token='noindex' />
           <CheckboxStd token='nofollow' />
           <CheckboxStd token='noarchive' />
@@ -166,6 +170,7 @@ class CheckboxRow extends React.Component {
 }
 
 CheckboxRow.propTypes = {
+    areAllExcluded:           React.PropTypes.func.isRequired,
     areAllIncluded:           React.PropTypes.func.isRequired
   };
 
