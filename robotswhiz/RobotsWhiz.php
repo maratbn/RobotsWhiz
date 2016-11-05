@@ -364,7 +364,7 @@
                           }
                       }
 
-                      function _includeAll() {
+                      function includeAll() {
                           for (strName in mapCheckboxesStandard) {
                               includeToken(strName);
                           }
@@ -473,7 +473,7 @@
                                   return;
                               }
 
-                              _includeAll();
+                              includeAll();
                               updateCheckboxes();
                           });
 
