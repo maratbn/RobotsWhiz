@@ -84,7 +84,8 @@ class CheckboxNonStd extends React.Component {
         <Checkbox is_italic={ true }
                   is_checked={ this.props.is_checked }
                   role={ this.props.role }
-                  label={ this.props.label } />
+                  label={ this.props.label }
+                  on_change={ this.props.on_change } />
       );
   }
 }
@@ -92,7 +93,8 @@ class CheckboxNonStd extends React.Component {
 CheckboxNonStd.propTypes = {
     role:                     React.PropTypes.string.isRequired,
     label:                    React.PropTypes.string.isRequired,
-    is_checked:               React.PropTypes.bool
+    is_checked:               React.PropTypes.bool,
+    on_change:                React.PropTypes.func
   };
 
 
@@ -101,13 +103,21 @@ class CheckboxNonStdAll extends React.Component {
     return (
         <CheckboxNonStd role='cb-all'
                         label='all'
-                        is_checked={ this.props.areAllIncluded() } />
+                        is_checked={ this.props.areAllIncluded() }
+                        on_change={ (event) => {
+                                      if (event.checked) {
+                                        this.props.includeAll();
+                                        this.props.updateCheckboxes();
+                                      }
+                                    }} />
       );
   }
 }
 
 CheckboxNonStdAll.propTypes = {
-    areAllIncluded:           React.PropTypes.func.isRequired
+    areAllIncluded:           React.PropTypes.func.isRequired,
+    includeAll:               React.PropTypes.func.isRequired,
+    updateCheckboxes:         React.PropTypes.func.isRequired
   };
 
 
@@ -165,7 +175,9 @@ class CheckboxRow extends React.Component {
   render() {
     return (
         <div>
-          <CheckboxNonStdAll areAllIncluded={ this.props.areAllIncluded } />
+          <CheckboxNonStdAll areAllIncluded={ this.props.areAllIncluded }
+                             includeAll={ this.props.includeAll }
+                             updateCheckboxes={ this.props.updateCheckboxes } />
           <CheckboxNonStdNone areAllExcluded={ this.props.areAllExcluded } />
           <CheckboxStd token='noindex' isIncluded={ this.props.isIncluded } />
           <CheckboxStd token='nofollow' isIncluded={ this.props.isIncluded } />
@@ -179,7 +191,9 @@ class CheckboxRow extends React.Component {
 CheckboxRow.propTypes = {
     areAllExcluded:           React.PropTypes.func.isRequired,
     areAllIncluded:           React.PropTypes.func.isRequired,
-    isIncluded:               React.PropTypes.func.isRequired
+    includeAll:               React.PropTypes.func.isRequired,
+    isIncluded:               React.PropTypes.func.isRequired,
+    updateCheckboxes:         React.PropTypes.func.isRequired
   };
 
 

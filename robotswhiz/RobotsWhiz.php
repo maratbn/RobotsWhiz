@@ -501,6 +501,7 @@
                                         areAllExcluded:           areAllExcluded,
                                         areAllIncluded:           areAllIncluded,
                                         excludeToken:             excludeToken,
+                                        includeAll:               includeAll,
                                         includeToken:             includeToken,
                                         isIncluded:               isIncluded,
                                         updateCheckboxes:         updateCheckboxes,
