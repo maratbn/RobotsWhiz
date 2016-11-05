@@ -96,7 +96,9 @@ CheckboxNonStd.propTypes = {
 class CheckboxNonStdAll extends React.Component {
   render() {
     return (
-        <CheckboxNonStd role='cb-all' label='all' is_checked={ this.props.areAllIncluded() } />
+        <CheckboxNonStd role='cb-all'
+                        label='all'
+                        is_checked={ this.props.areAllIncluded() } />
       );
   }
 }
