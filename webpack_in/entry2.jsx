@@ -58,7 +58,9 @@ class Checkbox extends React.Component {
                    data-robots-whiz--role={ this.props.role }
                    name={ this.props.name }
                    onChange={ (event) => {
-                                event.preventDefault();
+                                if (this.props.on_change) {
+                                  this.props.on_change({ checked: event.target.value == 'on' });
+                                }
                               } } />
             { this.props.is_italic ? (<i>{ this.props.label }</i>) : this.props.label }
           </label>
@@ -71,7 +73,8 @@ Checkbox.propTypes = {
     name:                     React.PropTypes.string,
     label:                    React.PropTypes.string.isRequired,
     is_italic:                React.PropTypes.bool.isRequired,
-    is_checked:               React.PropTypes.bool
+    is_checked:               React.PropTypes.bool,
+    on_change:                React.PropTypes.func
   };
 
 
