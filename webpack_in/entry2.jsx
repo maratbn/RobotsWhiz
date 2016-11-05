@@ -49,6 +49,75 @@ console.log("JSX entry logic.");
 let mapStrings = null;
 
 
+class Checkbox extends React.Component {
+  render() {
+      return (
+          <label>
+            <input type='checkbox'
+                   data-robots-whiz--role={ this.props.role }
+                   name={ this.props.name } />
+            { this.props.is_italic ? (<i>{ this.props.label }</i>) : this.props.label }
+          </label>
+        );
+    }
+}
+
+Checkbox.propTypes = {
+    role:                     React.PropTypes.string.isRequired,
+    name:                     React.PropTypes.string,
+    label:                    React.PropTypes.string.isRequired,
+    is_italic:                React.PropTypes.bool.isRequired
+  };
+
+
+class CheckboxNonStd extends React.Component {
+  render() {
+    return (
+        <Checkbox is_italic={ true } role={ this.props.role } label={ this.props.label } />
+      );
+  }
+}
+
+CheckboxNonStd.propTypes = {
+    role:                     React.PropTypes.string.isRequired,
+    label:                    React.PropTypes.string.isRequired
+  };
+
+
+class CheckboxNonStdAll extends React.Component {
+  render() {
+    return (
+        <CheckboxNonStd role='cb-all' label='all' />
+      );
+  }
+}
+
+
+class CheckboxNonStdNone extends React.Component {
+  render() {
+    return (
+        <CheckboxNonStd role='cb-none' label='none' />
+      );
+  }
+}
+
+
+class CheckboxStd extends React.Component {
+  render() {
+    return (
+        <Checkbox is_italic={ false }
+                  role='cb-std'
+                  label={ this.props.token }
+                  name={ this.props.token } />
+      );
+  }
+}
+
+CheckboxStd.propTypes = {
+    token:                    React.PropTypes.string.isRequired
+  };
+
+
 class Link extends React.Component {
   render() {
       return (
@@ -66,6 +135,22 @@ Link.propTypes = {
     callback_click:           React.PropTypes.func.isRequired,
     label:                    React.PropTypes.string.isRequired
   };
+
+
+class CheckboxRow extends React.Component {
+  render() {
+    return (
+        <div>
+          <CheckboxNonStdAll />
+          <CheckboxNonStdNone />
+          <CheckboxStd token='noindex' />
+          <CheckboxStd token='nofollow' />
+          <CheckboxStd token='noarchive' />
+          <CheckboxStd token='noimageindex' />
+        </div>
+      );
+  }
+}
 
 
 class CustomRow extends React.Component {
