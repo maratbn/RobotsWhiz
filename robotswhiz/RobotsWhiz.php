@@ -351,7 +351,7 @@
                           arrTokens.push(strToken);
                       }
 
-                      function _isIncluded(strToken) {
+                      function isIncluded(strToken) {
                           return (arrTokens.indexOf(strToken) >= 0);
                       }
 
@@ -372,14 +372,14 @@
 
                       function areAllExcluded() {
                           for (strName in mapCheckboxesStandard) {
-                              if (_isIncluded(strName)) return false;
+                              if (isIncluded(strName)) return false;
                           }
                           return true;
                       }
 
                       function areAllIncluded() {
                           for (strName in mapCheckboxesStandard) {
-                              if (!_isIncluded(strName)) return false;
+                              if (!isIncluded(strName)) return false;
                           }
                           return true;
                       }
@@ -441,7 +441,7 @@
 
                       function updateCheckboxes() {
                           for (var strName in mapCheckboxesStandard) {
-                              mapCheckboxesStandard[strName].prop('checked', _isIncluded(strName));
+                              mapCheckboxesStandard[strName].prop('checked', isIncluded(strName));
                           }
 
                           _updateCheckboxes_all_none();
