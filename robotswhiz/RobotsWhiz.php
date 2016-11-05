@@ -500,6 +500,7 @@
                                     }, {
                                         areAllExcluded:           areAllExcluded,
                                         areAllIncluded:           areAllIncluded,
+                                        excludeAll:               excludeAll,
                                         excludeToken:             excludeToken,
                                         includeAll:               includeAll,
                                         includeToken:             includeToken,

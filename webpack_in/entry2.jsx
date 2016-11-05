@@ -126,13 +126,21 @@ class CheckboxNonStdNone extends React.Component {
     return (
         <CheckboxNonStd role='cb-none'
                         label='none'
-                        is_checked={ this.props.areAllExcluded() } />
+                        is_checked={ this.props.areAllExcluded() }
+                        on_change={ (event) => {
+                                      if (event.checked) {
+                                        this.props.excludeAll();
+                                        this.props.updateCheckboxes();
+                                      }
+                                    }} />
       );
   }
 }
 
 CheckboxNonStdNone.propTypes = {
-    areAllExcluded:           React.PropTypes.func.isRequired
+    areAllExcluded:           React.PropTypes.func.isRequired,
+    excludeAll:               React.PropTypes.func.isRequired,
+    updateCheckboxes:         React.PropTypes.func.isRequired
   };
 
 
@@ -180,7 +188,9 @@ class CheckboxRow extends React.Component {
           <CheckboxNonStdAll areAllIncluded={ this.props.areAllIncluded }
                              includeAll={ this.props.includeAll }
                              updateCheckboxes={ this.props.updateCheckboxes } />
-          <CheckboxNonStdNone areAllExcluded={ this.props.areAllExcluded } />
+          <CheckboxNonStdNone areAllExcluded={ this.props.areAllExcluded }
+                              excludeAll={ this.props.excludeAll }
+                              updateCheckboxes={ this.props.updateCheckboxes } />
           <CheckboxStd token='noindex' isIncluded={ this.props.isIncluded } />
           <CheckboxStd token='nofollow' isIncluded={ this.props.isIncluded } />
           <CheckboxStd token='noarchive' isIncluded={ this.props.isIncluded } />
@@ -193,6 +203,7 @@ class CheckboxRow extends React.Component {
 CheckboxRow.propTypes = {
     areAllExcluded:           React.PropTypes.func.isRequired,
     areAllIncluded:           React.PropTypes.func.isRequired,
+    excludeAll:               React.PropTypes.func.isRequired,
     includeAll:               React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired,
     updateCheckboxes:         React.PropTypes.func.isRequired
