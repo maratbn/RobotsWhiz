@@ -498,6 +498,7 @@
                                         arrTokens:                arrTokens,
                                         mapCheckboxesStandard:    mapCheckboxesStandard
                                     }, {
+                                        areAllIncluded:           areAllIncluded,
                                         excludeToken:             excludeToken,
                                         includeToken:             includeToken,
                                         updateCheckboxes:         updateCheckboxes,

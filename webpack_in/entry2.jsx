@@ -54,6 +54,7 @@ class Checkbox extends React.Component {
       return (
           <label>
             <input type='checkbox'
+                   checked={ this.props.is_checked }
                    data-robots-whiz--role={ this.props.role }
                    name={ this.props.name }
                    onChange={ (event) => {
@@ -69,7 +70,8 @@ Checkbox.propTypes = {
     role:                     React.PropTypes.string.isRequired,
     name:                     React.PropTypes.string,
     label:                    React.PropTypes.string.isRequired,
-    is_italic:                React.PropTypes.bool.isRequired
+    is_italic:                React.PropTypes.bool.isRequired,
+    is_checked:               React.PropTypes.bool
   };
 
 
@@ -77,6 +79,7 @@ class CheckboxNonStd extends React.Component {
   render() {
     return (
         <Checkbox is_italic={ true }
+                  is_checked={ this.props.is_checked }
                   role={ this.props.role }
                   label={ this.props.label } />
       );
@@ -85,17 +88,22 @@ class CheckboxNonStd extends React.Component {
 
 CheckboxNonStd.propTypes = {
     role:                     React.PropTypes.string.isRequired,
-    label:                    React.PropTypes.string.isRequired
+    label:                    React.PropTypes.string.isRequired,
+    is_checked:               React.PropTypes.bool
   };
 
 
 class CheckboxNonStdAll extends React.Component {
   render() {
     return (
-        <CheckboxNonStd role='cb-all' label='all' />
+        <CheckboxNonStd role='cb-all' label='all' is_checked={ this.props.areAllIncluded() } />
       );
   }
 }
+
+CheckboxNonStdAll.propTypes = {
+    areAllIncluded:           React.PropTypes.func.isRequired
+  };
 
 
 class CheckboxNonStdNone extends React.Component {
@@ -146,7 +154,7 @@ class CheckboxRow extends React.Component {
   render() {
     return (
         <div>
-          <CheckboxNonStdAll />
+          <CheckboxNonStdAll areAllIncluded={ this.props.areAllIncluded } />
           <CheckboxNonStdNone />
           <CheckboxStd token='noindex' />
           <CheckboxStd token='nofollow' />
@@ -156,6 +164,10 @@ class CheckboxRow extends React.Component {
       );
   }
 }
+
+CheckboxRow.propTypes = {
+    areAllIncluded:           React.PropTypes.func.isRequired
+  };
 
 
 class CustomRow extends React.Component {
