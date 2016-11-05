@@ -244,6 +244,9 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      objData,
                                                      objFunctions) {
 
+    let custom_row = null;
+
+
     const elContainerCheckboxes = document.createElement('div');
     tdCheckboxes.appendChild(elContainerCheckboxes);
 
@@ -257,6 +260,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                updateCheckboxes         ={ objFunctions.updateCheckboxes }
                                updateReadout            ={ objFunctions.updateReadout }
                                ref                      ={ (custom_rowNew) => {
+                                                              custom_row = custom_rowNew;
                                                               callbackControls(custom_rowNew);
                                                             }}
                       />,
