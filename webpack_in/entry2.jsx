@@ -55,7 +55,10 @@ class Checkbox extends React.Component {
           <label>
             <input type='checkbox'
                    data-robots-whiz--role={ this.props.role }
-                   name={ this.props.name } />
+                   name={ this.props.name }
+                   onChange={ (event) => {
+                                event.preventDefault();
+                              } } />
             { this.props.is_italic ? (<i>{ this.props.label }</i>) : this.props.label }
           </label>
         );
