@@ -191,10 +191,14 @@ class CheckboxRow extends React.Component {
           <CheckboxNonStdNone areAllExcluded={ this.props.areAllExcluded }
                               excludeAll={ this.props.excludeAll }
                               updateCheckboxes={ this.props.updateCheckboxes } />
-          <CheckboxStd token='noindex' isIncluded={ this.props.isIncluded } />
-          <CheckboxStd token='nofollow' isIncluded={ this.props.isIncluded } />
-          <CheckboxStd token='noarchive' isIncluded={ this.props.isIncluded } />
-          <CheckboxStd token='noimageindex' isIncluded={ this.props.isIncluded } />
+          <CheckboxStd token='noindex'
+                       isIncluded={ this.props.isIncluded } />
+          <CheckboxStd token='nofollow'
+                       isIncluded={ this.props.isIncluded } />
+          <CheckboxStd token='noarchive'
+                       isIncluded={ this.props.isIncluded } />
+          <CheckboxStd token='noimageindex'
+                       isIncluded={ this.props.isIncluded } />
         </div>
       );
   }
