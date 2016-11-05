@@ -377,7 +377,7 @@
                           return true;
                       }
 
-                      function _areAllIncluded() {
+                      function areAllIncluded() {
                           for (strName in mapCheckboxesStandard) {
                               if (!_isIncluded(strName)) return false;
                           }
@@ -433,7 +433,7 @@
                                                           .filter('[data-robots-whiz--role=cb-none]');
 
                       function _updateCheckboxes_all_none() {
-                          $inputCheckbox_all.prop('checked', _areAllIncluded());
+                          $inputCheckbox_all.prop('checked', areAllIncluded());
                           $inputCheckbox_none.prop('checked', _areAllExcluded());
 
                           updateReadout();
