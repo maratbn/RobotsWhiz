@@ -370,7 +370,7 @@
                           }
                       }
 
-                      function _areAllExcluded() {
+                      function areAllExcluded() {
                           for (strName in mapCheckboxesStandard) {
                               if (_isIncluded(strName)) return false;
                           }
@@ -434,7 +434,7 @@
 
                       function _updateCheckboxes_all_none() {
                           $inputCheckbox_all.prop('checked', areAllIncluded());
-                          $inputCheckbox_none.prop('checked', _areAllExcluded());
+                          $inputCheckbox_none.prop('checked', areAllExcluded());
 
                           updateReadout();
                       }
