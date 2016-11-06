@@ -290,7 +290,7 @@ class CustomRow extends React.Component {
         this.props.excludeToken(strTokenPrev);
       });
 
-    this.props.updateCheckboxes();
+    this.props.updateReadout();
   }
 
   render() {
