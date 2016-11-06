@@ -338,10 +338,6 @@
                           arrTokens.push(strToken);
                       }
 
-                      function isIncluded(strToken) {
-                          return (arrTokens.indexOf(strToken) >= 0);
-                      }
-
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
@@ -387,7 +383,6 @@
                                     }, {
                                         excludeToken:             excludeToken,
                                         includeToken:             includeToken,
-                                        isIncluded:               isIncluded,
                                         updateReadout:            updateReadout
                                     });
                       }

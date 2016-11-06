@@ -221,36 +221,42 @@ Link.propTypes = {
 
 
 class CheckboxRow extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.isIncluded = (strToken) => (this.props.arrTokens.indexOf(strToken) >= 0);
+  }
+
   render() {
     return (
         <div>
           <CheckboxNonStdAll arrTokensStandard={ this.props.arrTokensStandard }
                              includeToken={ this.props.includeToken }
-                             isIncluded={ this.props.isIncluded }
+                             isIncluded={ this.isIncluded }
                              updateReadout={ this.props.updateReadout } />
           <CheckboxNonStdNone arrTokensStandard={ this.props.arrTokensStandard }
                               excludeToken={ this.props.excludeToken }
-                              isIncluded={ this.props.isIncluded }
+                              isIncluded={ this.isIncluded }
                               updateReadout={ this.props.updateReadout } />
           <CheckboxStd token='noindex'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
-                       isIncluded={ this.props.isIncluded }
+                       isIncluded={ this.isIncluded }
                        updateReadout={ this.props.updateReadout } />
           <CheckboxStd token='nofollow'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
-                       isIncluded={ this.props.isIncluded }
+                       isIncluded={ this.isIncluded }
                        updateReadout={ this.props.updateReadout } />
           <CheckboxStd token='noarchive'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
-                       isIncluded={ this.props.isIncluded }
+                       isIncluded={ this.isIncluded }
                        updateReadout={ this.props.updateReadout } />
           <CheckboxStd token='noimageindex'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
-                       isIncluded={ this.props.isIncluded }
+                       isIncluded={ this.isIncluded }
                        updateReadout={ this.props.updateReadout } />
         </div>
       );
@@ -258,10 +264,10 @@ class CheckboxRow extends React.Component {
 }
 
 CheckboxRow.propTypes = {
+    arrTokens:                React.PropTypes.array.isRequired,
     arrTokensStandard:        React.PropTypes.array.isRequired,
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
-    isIncluded:               React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
   };
 
@@ -374,10 +380,10 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
 
     const elContainerCheckboxes = document.createElement('div');
     tdCheckboxes.appendChild(elContainerCheckboxes);
-    ReactDOM.render(<CheckboxRow arrTokensStandard      ={ objData.arrTokensStandard }
+    ReactDOM.render(<CheckboxRow arrTokens              ={ objData.arrTokens }
+                                 arrTokensStandard      ={ objData.arrTokensStandard }
                                  excludeToken           ={ objFunctions.excludeToken }
                                  includeToken           ={ objFunctions.includeToken }
-                                 isIncluded             ={ objFunctions.isIncluded }
                                  updateReadout          ={ objFunctions.updateReadout }
                                  ref                    ={ (checkbox_rowNew) => {
                                                               checkbox_row = checkbox_rowNew
