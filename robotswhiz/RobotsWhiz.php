@@ -362,26 +362,30 @@
                       var mapCheckboxesStandard = {};
 
                       function excludeAll() {
-                          for (strName in mapCheckboxesStandard) {
+                          for (var i = 0; i < arrTokensStandard.length; i++) {
+                              var strName = arrTokensStandard[i];
                               excludeToken(strName);
                           }
                       }
 
                       function includeAll() {
-                          for (strName in mapCheckboxesStandard) {
+                          for (var i = 0; i < arrTokensStandard.length; i++) {
+                              var strName = arrTokensStandard[i];
                               includeToken(strName);
                           }
                       }
 
                       function areAllExcluded() {
-                          for (strName in mapCheckboxesStandard) {
+                          for (var i = 0; i < arrTokensStandard.length; i++) {
+                              var strName = arrTokensStandard[i];
                               if (isIncluded(strName)) return false;
                           }
                           return true;
                       }
 
                       function areAllIncluded() {
-                          for (strName in mapCheckboxesStandard) {
+                          for (var i = 0; i < arrTokensStandard.length; i++) {
+                              var strName = arrTokensStandard[i];
                               if (!isIncluded(strName)) return false;
                           }
                           return true;
