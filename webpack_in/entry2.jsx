@@ -143,6 +143,13 @@ class CheckboxNonStdNone extends React.Component {
     return true;
   }
 
+  excludeAll() {
+    for (var i = 0; i < this.props.arrTokensStandard.length; i++) {
+      var strName = this.props.arrTokensStandard[i];
+      this.props.excludeToken(strName);
+    }
+  }
+
   render() {
     return (
         <CheckboxNonStd role='cb-none'
@@ -150,7 +157,7 @@ class CheckboxNonStdNone extends React.Component {
                         is_checked={ this.areAllExcluded() }
                         on_change={ (event) => {
                                       if (event.checked) {
-                                        this.props.excludeAll();
+                                        this.excludeAll();
                                         this.props.updateReadout();
                                       }
                                     }} />
@@ -160,7 +167,7 @@ class CheckboxNonStdNone extends React.Component {
 
 CheckboxNonStdNone.propTypes = {
     arrTokensStandard:        React.PropTypes.array.isRequired,
-    excludeAll:               React.PropTypes.func.isRequired,
+    excludeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
   };
@@ -223,7 +230,7 @@ class CheckboxRow extends React.Component {
                              isIncluded={ this.props.isIncluded }
                              updateReadout={ this.props.updateReadout } />
           <CheckboxNonStdNone arrTokensStandard={ this.props.arrTokensStandard }
-                              excludeAll={ this.props.excludeAll }
+                              excludeToken={ this.props.excludeToken }
                               isIncluded={ this.props.isIncluded }
                               updateReadout={ this.props.updateReadout } />
           <CheckboxStd token='noindex'
@@ -253,7 +260,6 @@ class CheckboxRow extends React.Component {
 
 CheckboxRow.propTypes = {
     arrTokensStandard:        React.PropTypes.array.isRequired,
-    excludeAll:               React.PropTypes.func.isRequired,
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired,
@@ -370,7 +376,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     const elContainerCheckboxes = document.createElement('div');
     tdCheckboxes.appendChild(elContainerCheckboxes);
     ReactDOM.render(<CheckboxRow arrTokensStandard      ={ objData.arrTokensStandard }
-                                 excludeAll             ={ objFunctions.excludeAll }
                                  excludeToken           ={ objFunctions.excludeToken }
                                  includeToken           ={ objFunctions.includeToken }
                                  isIncluded             ={ objFunctions.isIncluded }

@@ -342,13 +342,6 @@
                           return (arrTokens.indexOf(strToken) >= 0);
                       }
 
-                      function excludeAll() {
-                          for (var i = 0; i < arrTokensStandard.length; i++) {
-                              var strName = arrTokensStandard[i];
-                              excludeToken(strName);
-                          }
-                      }
-
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
@@ -392,7 +385,6 @@
                                         arrTokens:                arrTokens,
                                         arrTokensStandard:        arrTokensStandard,
                                     }, {
-                                        excludeAll:               excludeAll,
                                         excludeToken:             excludeToken,
                                         includeToken:             includeToken,
                                         isIncluded:               isIncluded,
