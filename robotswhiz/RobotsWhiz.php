@@ -349,13 +349,6 @@
                           }
                       }
 
-                      function includeAll() {
-                          for (var i = 0; i < arrTokensStandard.length; i++) {
-                              var strName = arrTokensStandard[i];
-                              includeToken(strName);
-                          }
-                      }
-
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
@@ -401,7 +394,6 @@
                                     }, {
                                         excludeAll:               excludeAll,
                                         excludeToken:             excludeToken,
-                                        includeAll:               includeAll,
                                         includeToken:             includeToken,
                                         isIncluded:               isIncluded,
                                         updateReadout:            updateReadout
