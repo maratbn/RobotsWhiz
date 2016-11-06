@@ -144,8 +144,8 @@ class CheckboxNonStdNone extends React.Component {
   }
 
   excludeAll() {
-    for (var i = 0; i < this.props.arrTokensStandard.length; i++) {
-      var strName = this.props.arrTokensStandard[i];
+    for (let i = 0; i < this.props.arrTokensStandard.length; i++) {
+      let strName = this.props.arrTokensStandard[i];
       this.props.excludeToken(strName);
     }
   }
