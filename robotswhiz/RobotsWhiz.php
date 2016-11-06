@@ -180,6 +180,8 @@
             \wp_die(\__('You do not have sufficient permissions to access this page.',
                         'domain-plugin-RobotsWhiz'));
         }
+
+        global $ARR_TOKENS_STANDARD;
     ?><style>
         .robots-whiz--table {
             border-collapse:                            collapse;
@@ -290,7 +292,6 @@
                               <i>none</i>
                             </input></label>
                           <?php
-                              global $ARR_TOKENS_STANDARD;
                               for ($i = 0; $i < \count($ARR_TOKENS_STANDARD); $i++) {
                               ?><label><input type='checkbox' data-robots-whiz--role='cb-std'
                                               name='<?=$ARR_TOKENS_STANDARD[$i]?>'><?php
