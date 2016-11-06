@@ -319,7 +319,6 @@ CustomRow.propTypes = {
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
     arrTokensStandard:        React.PropTypes.array.isRequired,
-    mapCheckboxesStandard:    React.PropTypes.object.isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
@@ -354,7 +353,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     tdCheckboxes.appendChild(elContainerCustom);
     ReactDOM.render(<CustomRow arrTokens                ={ objData.arrTokens }
                                arrTokensStandard        ={ objData.arrTokensStandard }
-                               mapCheckboxesStandard    ={ objData.mapCheckboxesStandard }
                                excludeToken             ={ objFunctions.excludeToken }
                                includeToken             ={ objFunctions.includeToken }
                                updateCheckboxes         ={ objFunctions.updateCheckboxes }

@@ -498,8 +498,7 @@
                                     }, {
                                         arrTokens:                arrTokens,
                                         arrTokensStandard:        <?=\json_encode(
-                                                                          $ARR_TOKENS_STANDARD)?>,
-                                        mapCheckboxesStandard:    mapCheckboxesStandard
+                                                                          $ARR_TOKENS_STANDARD)?>
                                     }, {
                                         areAllExcluded:           areAllExcluded,
                                         areAllIncluded:           areAllIncluded,
