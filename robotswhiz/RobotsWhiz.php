@@ -406,7 +406,7 @@
                           updateReadout();
                       }
 
-                      updateCheckboxes();
+                      updateReadout();
 
 
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
