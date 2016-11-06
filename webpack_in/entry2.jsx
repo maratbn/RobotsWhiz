@@ -323,7 +323,8 @@ CustomRow.propTypes = {
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
-    updateCheckboxes:         React.PropTypes.func.isRequired
+    updateCheckboxes:         React.PropTypes.func.isRequired,
+    updateReadout:            React.PropTypes.func.isRequired
   };
 
 
