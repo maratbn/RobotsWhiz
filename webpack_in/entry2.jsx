@@ -255,7 +255,7 @@ class CustomRow extends React.Component {
   }
 
   getArrTokensNonStandard() {
-    const isTokenNonStandard = strToken => !this.props.mapCheckboxesStandard[strToken];
+    const isTokenNonStandard = strToken => !this.props.arrTokensStandard.includes(strToken);
 
     let arrTokensNonStandard = [];
 
@@ -318,6 +318,7 @@ CustomRow.propTypes = {
 
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
+    arrTokensStandard:        React.PropTypes.array.isRequired,
     mapCheckboxesStandard:    React.PropTypes.object.isRequired,
 
     //  Functions:
@@ -352,6 +353,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     const elContainerCustom = document.createElement('div');
     tdCheckboxes.appendChild(elContainerCustom);
     ReactDOM.render(<CustomRow arrTokens                ={ objData.arrTokens }
+                               arrTokensStandard        ={ objData.arrTokensStandard }
                                mapCheckboxesStandard    ={ objData.mapCheckboxesStandard }
                                excludeToken             ={ objFunctions.excludeToken }
                                includeToken             ={ objFunctions.includeToken }
