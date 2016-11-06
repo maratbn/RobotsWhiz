@@ -96,4 +96,4 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 * Additional minor changes to description and keywords.
 
 = 1.1.0 =
-
+* Having the robots meta tokens be sorted alphabetically.
