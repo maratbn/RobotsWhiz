@@ -313,7 +313,9 @@
           ?>
           <script type='text/javascript'>
               (function() {
-                  var strConfirmCustomClear
+                  var arrTokensStandard = <?=\json_encode($ARR_TOKENS_STANDARD)?>,
+
+                      strConfirmCustomClear
                             = "<?=\__('Are you sure you want to clear-out your custom content?',
                                       'domain-plugin-RobotsWhiz')?>",
                       strLabelAddCustom
@@ -497,8 +499,7 @@
                                         controls = controlsInstantiated;
                                     }, {
                                         arrTokens:                arrTokens,
-                                        arrTokensStandard:        <?=\json_encode(
-                                                                          $ARR_TOKENS_STANDARD)?>
+                                        arrTokensStandard:        arrTokensStandard,
                                     }, {
                                         areAllExcluded:           areAllExcluded,
                                         areAllIncluded:           areAllIncluded,
