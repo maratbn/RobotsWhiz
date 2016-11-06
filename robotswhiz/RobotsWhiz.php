@@ -358,9 +358,6 @@
                           return (arrTokens.indexOf(strToken) >= 0);
                       }
 
-
-                      var mapCheckboxesStandard = {};
-
                       function excludeAll() {
                           for (var i = 0; i < arrTokensStandard.length; i++) {
                               var strName = arrTokensStandard[i];
@@ -426,6 +423,8 @@
 
                       var $inputCheckboxes_standard = $inputCheckbox
                                                            .filter('[data-robots-whiz--role=cb-std]');
+
+                      var mapCheckboxesStandard = {};
 
                       for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
                           var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
