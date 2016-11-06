@@ -402,10 +402,6 @@
                           if (controls) controls.forceUpdate();
                       }
 
-                      function updateCheckboxes() {
-                          updateReadout();
-                      }
-
                       updateReadout();
 
 
