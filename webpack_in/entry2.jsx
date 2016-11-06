@@ -131,8 +131,8 @@ CheckboxNonStdAll.propTypes = {
 
 class CheckboxNonStdNone extends React.Component {
   areAllExcluded() {
-    for (var i = 0; i < this.props.arrTokensStandard.length; i++) {
-      var strName = this.props.arrTokensStandard[i];
+    for (let i = 0; i < this.props.arrTokensStandard.length; i++) {
+      let strName = this.props.arrTokensStandard[i];
       if (this.props.isIncluded(strName)) return false;
     }
     return true;
