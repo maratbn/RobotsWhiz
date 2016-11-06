@@ -364,14 +364,6 @@
                           return true;
                       }
 
-                      function areAllIncluded() {
-                          for (var i = 0; i < arrTokensStandard.length; i++) {
-                              var strName = arrTokensStandard[i];
-                              if (!isIncluded(strName)) return false;
-                          }
-                          return true;
-                      }
-
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
@@ -416,7 +408,6 @@
                                         arrTokensStandard:        arrTokensStandard,
                                     }, {
                                         areAllExcluded:           areAllExcluded,
-                                        areAllIncluded:           areAllIncluded,
                                         excludeAll:               excludeAll,
                                         excludeToken:             excludeToken,
                                         includeAll:               includeAll,
