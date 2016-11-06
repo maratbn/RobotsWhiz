@@ -355,6 +355,8 @@
                       var $divReadout = $tbodyPost.find('div[data--robots-whiz--role=readout]');
 
                       function updateReadout() {
+                          arrTokens.sort();
+
                           if (arrTokens.length == 0) {
                               $divReadout.html("&nbsp;");
                           } else {
