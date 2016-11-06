@@ -107,8 +107,7 @@ class CheckboxNonStdAll extends React.Component {
   }
 
   includeAll() {
-    for (let i = 0; i < this.props.arrTokensStandard.length; i++) {
-      let strName = this.props.arrTokensStandard[i];
+    for (let strName of this.props.arrTokensStandard) {
       this.props.includeToken(strName);
     }
   }
