@@ -255,7 +255,7 @@ class CustomRow extends React.Component {
   }
 
   getArrTokensNonStandard() {
-    var arrTokensNonStandard = [];
+    let arrTokensNonStandard = [];
 
     this.props.arrTokens.map(strToken => {
         if (!this.props.mapCheckboxesStandard[strToken]) {
