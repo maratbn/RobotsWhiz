@@ -284,22 +284,6 @@
                       <td colspan='5' class='robots-whiz--td--checkboxes'>
                         <div class='robots-whiz--readout'
                              data--robots-whiz--role='readout' type='text'></div>
-                        <div>
-                          <label><input type='checkbox' data-robots-whiz--role='cb-all'>
-                              <i>all</i>
-                            </input></label>
-                          <label><input type='checkbox' data-robots-whiz--role='cb-none'>
-                              <i>none</i>
-                            </input></label>
-                          <?php
-                              for ($i = 0; $i < \count($ARR_TOKENS_STANDARD); $i++) {
-                              ?><label><input type='checkbox' data-robots-whiz--role='cb-std'
-                                              name='<?=$ARR_TOKENS_STANDARD[$i]?>'><?php
-                                  ?><?=$ARR_TOKENS_STANDARD[$i]?><?php
-                                ?></input></label><?php
-                              }
-                          ?>
-                        </div>
                       </td>
                     </tr>
                   </tbody><?php
@@ -418,80 +402,15 @@
                           if (controls) controls.forceUpdate();
                       }
 
-
-                      var $inputCheckbox = $tbodyPost.find('input[type=checkbox]');
-
-                      var $inputCheckboxes_standard = $inputCheckbox
-                                                           .filter('[data-robots-whiz--role=cb-std]');
-
-                      var mapCheckboxesStandard = {};
-
-                      for (var i = 0; i < $inputCheckboxes_standard.length; i++) {
-                          var $inputCheckbox_standard = $($inputCheckboxes_standard[i]);
-                          var strName = $inputCheckbox_standard.attr('name');
-                          mapCheckboxesStandard[strName] = $inputCheckbox_standard;
-                      }
-
-
-                      var $inputCheckbox_all =   $inputCheckbox
-                                                           .filter('[data-robots-whiz--role=cb-all]'),
-                          $inputCheckbox_none =  $inputCheckbox
-                                                          .filter('[data-robots-whiz--role=cb-none]');
-
                       function _updateCheckboxes_all_none() {
-                          $inputCheckbox_all.prop('checked', areAllIncluded());
-                          $inputCheckbox_none.prop('checked', areAllExcluded());
-
                           updateReadout();
                       }
 
                       function updateCheckboxes() {
-                          for (var strName in mapCheckboxesStandard) {
-                              mapCheckboxesStandard[strName].prop('checked', isIncluded(strName));
-                          }
-
                           _updateCheckboxes_all_none();
                       }
 
                       updateCheckboxes();
-
-                      function _initCheckboxForInput(strName) {
-                          var $checkboxStandard = mapCheckboxesStandard[strName];
-
-                          $checkboxStandard.bind('change', function() {
-                                  if ($checkboxStandard.is(':checked')) {
-                                      includeToken(strName);
-                                  } else {
-                                      excludeToken(strName);
-                                  }
-
-                                  _updateCheckboxes_all_none();
-                              });
-                      }
-
-                      for (var strName in mapCheckboxesStandard) {
-                          _initCheckboxForInput(strName);
-                      }
-
-                      $inputCheckbox_all.bind('change', function() {
-                              if (!$inputCheckbox_all.is(':checked')) {
-                                  $inputCheckbox_all.prop('checked', true);
-                                  return;
-                              }
-
-                              includeAll();
-                              updateCheckboxes();
-                          });
-
-                      $inputCheckbox_none.bind('change', function() {
-                              if (!$inputCheckbox_none.is(':checked')) {
-                                  $inputCheckbox_none.prop('checked', true);
-                                  return;
-                              }
-
-                              excludeAll();
-                              updateCheckboxes();
-                          });
 
 
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');

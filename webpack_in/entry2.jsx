@@ -347,6 +347,18 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
 
     const elContainerCheckboxes = document.createElement('div');
     tdCheckboxes.appendChild(elContainerCheckboxes);
+    ReactDOM.render(<CheckboxRow areAllExcluded         ={ objFunctions.areAllExcluded }
+                                 areAllIncluded         ={ objFunctions.areAllIncluded }
+                                 excludeAll             ={ objFunctions.excludeAll }
+                                 excludeToken           ={ objFunctions.excludeToken }
+                                 includeAll             ={ objFunctions.includeAll }
+                                 includeToken           ={ objFunctions.includeToken }
+                                 isIncluded             ={ objFunctions.isIncluded }
+                                 updateCheckboxes       ={ objFunctions.updateCheckboxes }
+                                 ref                    ={ (checkbox_rowNew) => {
+                                                              checkbox_row = checkbox_rowNew
+                                                            }} />,
+                    elContainerCheckboxes);
 
 
     const elContainerCustom = document.createElement('div');
