@@ -71,29 +71,29 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 
 == Changelog ==
 
-= 0.1.0 =
-* Initial release.
+= 1.1.0 =
+* Having the robots meta tokens be sorted alphabetically.
 
-= 0.1.1 =
-* Minor code refactoring involving empty PHP echo short tags.
-* Corrected REQUIREMENTS in that the supported PHP version is >= 5.4 not >= 5.3
+= 1.0.0 =
+* Renamed the plugin from RobotsWhiz to Robots Meta Whiz.
+* Additional minor changes to description and keywords.
 
-= 0.2.0 =
-* Updated description wording.
-* Added activation check for PHP version to not be < 5.4
+= 0.3.0 =
+* Added screenshot of configuration screen.
+* Miscellaneous documentation improvements.
 
 = 0.2.1 =
 * Fixed bug:  Restored the php echo short tags for rendering `<table>` column
   header captions that were incorrectly removed earlier.
 * Fixed bug:  Corrected the logic for processing previously saved values.
 
-= 0.3.0 =
-* Added screenshot of configuration screen.
-* Miscellaneous documentation improvements.
+= 0.2.0 =
+* Updated description wording.
+* Added activation check for PHP version to not be < 5.4
 
-= 1.0.0 =
-* Renamed the plugin from RobotsWhiz to Robots Meta Whiz.
-* Additional minor changes to description and keywords.
+= 0.1.1 =
+* Minor code refactoring involving empty PHP echo short tags.
+* Corrected REQUIREMENTS in that the supported PHP version is >= 5.4 not >= 5.3
 
-= 1.1.0 =
-* Having the robots meta tokens be sorted alphabetically.
+= 0.1.0 =
+* Initial release.
