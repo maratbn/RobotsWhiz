@@ -426,7 +426,6 @@
                                         includeAll:               includeAll,
                                         includeToken:             includeToken,
                                         isIncluded:               isIncluded,
-                                        updateCheckboxes:         updateCheckboxes,
                                         updateReadout:            updateReadout
                                     });
                       }
