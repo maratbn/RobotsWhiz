@@ -323,7 +323,6 @@ CustomRow.propTypes = {
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
-    updateCheckboxes:         React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
   };
 
@@ -368,7 +367,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                arrTokensStandard        ={ objData.arrTokensStandard }
                                excludeToken             ={ objFunctions.excludeToken }
                                includeToken             ={ objFunctions.includeToken }
-                               updateCheckboxes         ={ objFunctions.updateCheckboxes }
                                updateReadout            ={ objFunctions.updateReadout }
                                ref                      ={ (custom_rowNew) => {
                                                               custom_row = custom_rowNew;
