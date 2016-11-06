@@ -402,12 +402,8 @@
                           if (controls) controls.forceUpdate();
                       }
 
-                      function _updateCheckboxes_all_none() {
-                          updateReadout();
-                      }
-
                       function updateCheckboxes() {
-                          _updateCheckboxes_all_none();
+                          updateReadout();
                       }
 
                       updateCheckboxes();
