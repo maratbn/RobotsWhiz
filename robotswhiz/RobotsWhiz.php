@@ -282,8 +282,6 @@
                     <tr class='robots-whiz--2nd-row <?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
                                                                           : ""?>'>
                       <td colspan='5' class='robots-whiz--td--checkboxes'>
-                        <div class='robots-whiz--readout'
-                             data--robots-whiz--role='readout'></div>
                       </td>
                     </tr>
                   </tbody><?php
@@ -351,20 +349,8 @@
                           includeToken(arrTokensInitial[i]);
                       }
 
-
-                      var $divReadout = $tbodyPost.find('div[data--robots-whiz--role=readout]');
-
                       function updateReadout() {
                           arrTokens.sort();
-
-                          if (arrTokens.length == 0) {
-                              $divReadout.html("&nbsp;");
-                          } else {
-                              $divReadout.text("<meta name=\"robots\" content=\""
-                                                          + arrTokens.join(", ")
-                                                                     .replace(/\\/g, "\\\\")
-                                                                     .replace(/"/g, "\\\"") + "\">");
-                          }
 
                           $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
                           if (controls) controls.forceUpdate();

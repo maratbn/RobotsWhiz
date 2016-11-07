@@ -49,6 +49,25 @@ console.log("JSX entry logic.");
 let mapStrings = null;
 
 
+class Readout extends React.Component {
+  render() {
+      return (
+          <div className='robots-whiz--readout'>
+            { this.props.arrTokens.length == 0
+                ? '\u00A0'
+                : "<meta name=\"robots\" content=\"" + this.props.arrTokens.join(", ")
+                                                                           .replace(/\\/g, "\\\\")
+                                                                           .replace(/"/g, "\\\"")
+                                                     + "\">" }
+          </div>);
+    }
+}
+
+Readout.propTypes = {
+    arrTokens:                React.PropTypes.array.isRequired
+  };
+
+
 class Checkbox extends React.Component {
   render() {
       return (
@@ -397,15 +416,26 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      objData,
                                                      objFunctions) {
 
-    let rows = null;
+    let readout = null,
+        rows = null;
 
     const objectControls = {
         forceUpdate: () => {
+            if (readout) readout.forceUpdate();
             if (rows) rows.forceUpdate();
           }
       };
 
     callbackControls(objectControls);
+
+
+    const elContainerReadout = document.createElement('div');
+    tdCheckboxes.appendChild(elContainerReadout);
+    ReactDOM.render(<Readout arrTokens                  ={ objData.arrTokens }
+                             ref                        ={ (readoutNew) => {
+                                                              readout = readoutNew;
+                                                            }} />,
+                    elContainerReadout);
 
 
     const elContainerRows = document.createElement('div');
