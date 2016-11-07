@@ -379,7 +379,7 @@ CustomRow.propTypes = {
   };
 
 
-class Rows extends React.Component {
+class Controls extends React.Component {
   constructor(props) {
     super(props);
 
@@ -406,7 +406,7 @@ class Rows extends React.Component {
   }
 }
 
-Rows.propTypes = {
+Controls.propTypes = {
 
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
@@ -453,12 +453,12 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
 
     const elContainerRows = document.createElement('div');
     tdCheckboxes.appendChild(elContainerRows);
-    ReactDOM.render(<Rows arrTokens                     ={ arrTokens }
-                          includeToken                  ={ includeToken }
-                          updateReadout                 ={ updateReadout }
-                          ref                           ={ (rowsNew) => {
-                                                              rows = rowsNew;
-                                                            }} />,
+    ReactDOM.render(<Controls arrTokens                     ={ arrTokens }
+                              includeToken                  ={ includeToken }
+                              updateReadout                 ={ updateReadout }
+                              ref                           ={ (rowsNew) => {
+                                                                  rows = rowsNew;
+                                                                }} />,
                     elContainerRows);
   };
 
