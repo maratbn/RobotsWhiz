@@ -439,13 +439,13 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
         includeToken(strToken);
       });
 
-    let rows = null;
+    let controls = null;
 
     function updateReadout() {
       arrTokens.sort();
 
       $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
-      if (rows) rows.forceUpdate();
+      if (controls) controls.forceUpdate();
     }
 
     updateReadout();
@@ -457,7 +457,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                               includeToken                  ={ includeToken }
                               updateReadout                 ={ updateReadout }
                               ref                           ={ (controlsNew) => {
-                                                                  rows = controlsNew;
+                                                                  controls = controlsNew;
                                                                 }} />,
                     elContainerRows);
   };
