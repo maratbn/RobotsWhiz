@@ -318,8 +318,7 @@
 
 
                   function _processPost($, $tbodyPost) {
-                      var arrTokens = [],
-                          controls = null;
+                      var arrTokens = [];
 
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
@@ -329,9 +328,7 @@
                       if ($tdCheckboxes.length == 1) {
                           window._plugin_RobotsWhiz__renderControls(
                                     $tdCheckboxes[0],
-                                    function(controlsInstantiated) {
-                                        controls = controlsInstantiated;
-                                    }, {
+                                    {
                                         arrTokens:                arrTokens,
                                         $inputData:               $inputData
                                     });

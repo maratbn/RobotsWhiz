@@ -415,7 +415,6 @@ Rows.propTypes = {
 
 
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
-                                                     callbackControls,
                                                      objData) {
 
     const arrTokens = objData.arrTokens;
@@ -447,15 +446,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     }
 
     updateReadout();
-
-
-    const objectControls = {
-        forceUpdate: () => {
-            if (rows) rows.forceUpdate();
-          }
-      };
-
-    callbackControls(objectControls);
 
 
     const elContainerRows = document.createElement('div');
