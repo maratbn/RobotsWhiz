@@ -334,7 +334,6 @@
                                     }, {
                                         arrTokens:                arrTokens,
                                         $inputData:               $inputData
-                                    }, {
                                     });
                       }
                   }
