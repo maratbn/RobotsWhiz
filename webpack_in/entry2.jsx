@@ -451,15 +451,15 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     updateReadout();
 
 
-    const elContainerRows = document.createElement('div');
-    tdCheckboxes.appendChild(elContainerRows);
+    const elContainerControls = document.createElement('div');
+    tdCheckboxes.appendChild(elContainerControls);
     ReactDOM.render(<Controls arrTokens                     ={ arrTokens }
                               includeToken                  ={ includeToken }
                               updateReadout                 ={ updateReadout }
                               ref                           ={ (controlsNew) => {
                                                                   controls = controlsNew;
                                                                 }} />,
-                    elContainerRows);
+                    elContainerControls);
   };
 
 window._plugin_RobotsWhiz__setStrings = function(mapStringsSet) {
