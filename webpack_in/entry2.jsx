@@ -456,8 +456,8 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     ReactDOM.render(<Controls arrTokens                     ={ arrTokens }
                               includeToken                  ={ includeToken }
                               updateReadout                 ={ updateReadout }
-                              ref                           ={ (rowsNew) => {
-                                                                  rows = rowsNew;
+                              ref                           ={ (controlsNew) => {
+                                                                  rows = controlsNew;
                                                                 }} />,
                     elContainerRows);
   };
