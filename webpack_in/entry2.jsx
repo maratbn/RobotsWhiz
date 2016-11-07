@@ -434,11 +434,11 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
 
     const $inputData = objData.$inputData;
 
-    var strJSONTokensInitial = $inputData.val();
-    var dataTokensInitial = strJSONTokensInitial &&
-                            window.JSON.parse(strJSONTokensInitial);
-    var strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
-    var arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
+    const strJSONTokensInitial = $inputData.val();
+    const dataTokensInitial = strJSONTokensInitial &&
+                              window.JSON.parse(strJSONTokensInitial);
+    const strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
+    const arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
 
     for (var i = 0; i < arrTokensInitial.length; i++) {
       includeToken(arrTokensInitial[i]);
