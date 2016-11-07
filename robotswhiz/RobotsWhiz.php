@@ -283,7 +283,7 @@
                                                                           : ""?>'>
                       <td colspan='5' class='robots-whiz--td--checkboxes'>
                         <div class='robots-whiz--readout'
-                             data--robots-whiz--role='readout' type='text'></div>
+                             data--robots-whiz--role='readout'></div>
                       </td>
                     </tr>
                   </tbody><?php
