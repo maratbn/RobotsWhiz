@@ -427,6 +427,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
 
     const arrTokens = objData.arrTokens;
 
+    const updateReadout = objFunctions.updateReadout;
 
     let rows = null;
 
@@ -444,7 +445,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     ReactDOM.render(<Rows arrTokens                     ={ arrTokens }
                           arrTokensStandard             ={ objData.arrTokensStandard }
                           includeToken                  ={ objFunctions.includeToken }
-                          updateReadout                 ={ objFunctions.updateReadout }
+                          updateReadout                 ={ updateReadout }
                           ref                           ={ (rowsNew) => {
                                                               rows = rowsNew;
                                                             }} />,
