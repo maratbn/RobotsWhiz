@@ -315,7 +315,7 @@
                       });
 
 
-                  function _processPost($, $tbodyPost) {
+                  function _processPost($, $tbodyPost, indexPost) {
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
@@ -325,6 +325,7 @@
                           window._plugin_RobotsWhiz__renderControls(
                                     $tdRoot[0],
                                     {
+                                        indexRow:                 indexPost,
                                         $inputData:               $inputData
                                     });
                       }
@@ -334,7 +335,7 @@
                           var arrPosts = $('tbody[data--robots-whiz--role=post-config]');
 
                           for (var i = 0; i < arrPosts.length; i++) {
-                              _processPost($, $(arrPosts[i]));
+                              _processPost($, $(arrPosts[i]), i);
                           }
                       });
               })();
