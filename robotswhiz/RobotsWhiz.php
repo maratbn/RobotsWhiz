@@ -324,13 +324,6 @@
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
-                      function updateReadout() {
-                          arrTokens.sort();
-
-                          $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
-                          if (controls) controls.forceUpdate();
-                      }
-
 
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
                       if ($tdCheckboxes.length == 1) {
@@ -342,7 +335,6 @@
                                         arrTokens:                arrTokens,
                                         $inputData:               $inputData
                                     }, {
-                                        updateReadout:            updateReadout
                                     });
                       }
                   }

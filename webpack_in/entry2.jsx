@@ -438,12 +438,17 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
         includeToken(strToken);
       });
 
-    const updateReadout = objFunctions.updateReadout;
+    let rows = null;
+
+    function updateReadout() {
+      arrTokens.sort();
+
+      $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
+      if (rows) rows.forceUpdate();
+    }
 
     updateReadout();
 
-
-    let rows = null;
 
     const objectControls = {
         forceUpdate: () => {
