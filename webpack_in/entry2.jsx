@@ -391,7 +391,7 @@ class Controls extends React.Component {
 
   render() {
     return (
-        <div>
+        <td colSpan='5' className='robots-whiz--td--checkboxes'>
           <Readout arrTokens              ={ this.props.arrTokens } />
           <CheckboxRow arrTokens          ={ this.props.arrTokens }
                        excludeToken       ={ this.excludeToken }
@@ -401,7 +401,7 @@ class Controls extends React.Component {
                      excludeToken         ={ this.excludeToken }
                      includeToken         ={ this.props.includeToken }
                      updateReadout        ={ this.props.updateReadout } />
-        </div>
+        </td>
       );
   }
 }
@@ -451,9 +451,11 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     updateReadout();
 
 
-    const elContainerControls = document.createElement('td');
-    elContainerControls.setAttribute('colspan', '5');
-    elContainerControls.setAttribute('class', 'robots-whiz--td--checkboxes');
+    const elContainerControls = document.createElement('tr');
+    elContainerControls.setAttribute('class',
+                                     'robots-whiz--2nd-row' + ((objData.indexRow % 2 == 0)
+                                                                ? ' robots-whiz--odd-row'
+                                                                : ""));
     tdCheckboxes.appendChild(elContainerControls);
     ReactDOM.render(<Controls arrTokens                     ={ arrTokens }
                               includeToken                  ={ includeToken }

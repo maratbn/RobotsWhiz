@@ -276,9 +276,6 @@
                       <td><?=\get_page_template_slug($idPost)?></td>
                       <td><?=\get_post_status($idPost)?></td>
                     </tr>
-                    <tr class='robots-whiz--2nd-row <?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
-                                                                          : ""?>'>
-                    </tr>
                   </tbody><?php
                     $indexRow++;
                 }
@@ -320,10 +317,9 @@
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
 
-                      var $tdRoot = $tbodyPost.find('tr.robots-whiz--2nd-row');
-                      if ($tdRoot.length == 1) {
+                      if ($tbodyPost.length == 1) {
                           window._plugin_RobotsWhiz__renderControls(
-                                    $tdRoot[0],
+                                    $tbodyPost[0],
                                     {
                                         indexRow:                 indexPost,
                                         $inputData:               $inputData
