@@ -440,9 +440,9 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     const strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
     const arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
 
-    for (var i = 0; i < arrTokensInitial.length; i++) {
-      includeToken(arrTokensInitial[i]);
-    }
+    arrTokensInitial.map(strToken => {
+        includeToken(strToken);
+      });
 
     const updateReadout = objFunctions.updateReadout;
 
