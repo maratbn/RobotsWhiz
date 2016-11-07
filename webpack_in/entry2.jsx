@@ -417,7 +417,7 @@ Rows.propTypes = {
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      objData) {
 
-    const arrTokens = objData.arrTokens;
+    const arrTokens = [];
 
     function includeToken(strToken) {
       if (arrTokens.indexOf(strToken) >= 0) return;
