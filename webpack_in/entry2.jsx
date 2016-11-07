@@ -427,7 +427,27 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
 
     const arrTokens = objData.arrTokens;
 
+    function includeToken(strToken) {
+      if (arrTokens.indexOf(strToken) >= 0) return;
+      arrTokens.push(strToken);
+    }
+
+    const $inputData = objData.$inputData;
+
+    var strJSONTokensInitial = $inputData.val();
+    var dataTokensInitial = strJSONTokensInitial &&
+                            window.JSON.parse(strJSONTokensInitial);
+    var strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
+    var arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
+
+    for (var i = 0; i < arrTokensInitial.length; i++) {
+      includeToken(arrTokensInitial[i]);
+    }
+
     const updateReadout = objFunctions.updateReadout;
+
+    updateReadout();
+
 
     let rows = null;
 
@@ -444,7 +464,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     tdCheckboxes.appendChild(elContainerRows);
     ReactDOM.render(<Rows arrTokens                     ={ arrTokens }
                           arrTokensStandard             ={ objData.arrTokensStandard }
-                          includeToken                  ={ objFunctions.includeToken }
+                          includeToken                  ={ includeToken }
                           updateReadout                 ={ updateReadout }
                           ref                           ={ (rowsNew) => {
                                                               rows = rowsNew;

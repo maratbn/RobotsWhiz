@@ -326,23 +326,8 @@
                       var arrTokens = [],
                           controls = null;
 
-                      function includeToken(strToken) {
-                          if (arrTokens.indexOf(strToken) >= 0) return;
-                          arrTokens.push(strToken);
-                      }
-
 
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
-
-                      var strJSONTokensInitial = $inputData.val();
-                      var dataTokensInitial = strJSONTokensInitial &&
-                                              window.JSON.parse(strJSONTokensInitial);
-                      var strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
-                      var arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
-
-                      for (var i = 0; i < arrTokensInitial.length; i++) {
-                          includeToken(arrTokensInitial[i]);
-                      }
 
                       function updateReadout() {
                           arrTokens.sort();
@@ -350,8 +335,6 @@
                           $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
                           if (controls) controls.forceUpdate();
                       }
-
-                      updateReadout();
 
 
                       var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
@@ -363,8 +346,8 @@
                                     }, {
                                         arrTokens:                arrTokens,
                                         arrTokensStandard:        arrTokensStandard,
+                                        $inputData:               $inputData
                                     }, {
-                                        includeToken:             includeToken,
                                         updateReadout:            updateReadout
                                     });
                       }
