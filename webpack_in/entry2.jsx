@@ -383,6 +383,7 @@ class Rows extends React.Component {
   render() {
     return (
         <div>
+          <Readout arrTokens              ={ this.props.arrTokens } />
           <CheckboxRow arrTokens          ={ this.props.arrTokens }
                        arrTokensStandard  ={ this.props.arrTokensStandard }
                        excludeToken       ={ this.props.excludeToken }
@@ -416,26 +417,15 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      objData,
                                                      objFunctions) {
 
-    let readout = null,
-        rows = null;
+    let rows = null;
 
     const objectControls = {
         forceUpdate: () => {
-            if (readout) readout.forceUpdate();
             if (rows) rows.forceUpdate();
           }
       };
 
     callbackControls(objectControls);
-
-
-    const elContainerReadout = document.createElement('div');
-    tdCheckboxes.appendChild(elContainerReadout);
-    ReactDOM.render(<Readout arrTokens                  ={ objData.arrTokens }
-                             ref                        ={ (readoutNew) => {
-                                                              readout = readoutNew;
-                                                            }} />,
-                    elContainerReadout);
 
 
     const elContainerRows = document.createElement('div');
