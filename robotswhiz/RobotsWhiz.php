@@ -322,10 +322,10 @@
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
 
-                      var $tdCheckboxes = $tbodyPost.find('td.robots-whiz--td--checkboxes');
-                      if ($tdCheckboxes.length == 1) {
+                      var $tdRoot = $tbodyPost.find('td.robots-whiz--td--checkboxes');
+                      if ($tdRoot.length == 1) {
                           window._plugin_RobotsWhiz__renderControls(
-                                    $tdCheckboxes[0],
+                                    $tdRoot[0],
                                     {
                                         $inputData:               $inputData
                                     });
