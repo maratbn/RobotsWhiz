@@ -360,49 +360,65 @@ CustomRow.propTypes = {
   };
 
 
+class Rows extends React.Component {
+  render() {
+    return (
+        <div>
+          <CheckboxRow arrTokens          ={ this.props.arrTokens }
+                       arrTokensStandard  ={ this.props.arrTokensStandard }
+                       excludeToken       ={ this.props.excludeToken }
+                       includeToken       ={ this.props.includeToken }
+                       updateReadout      ={ this.props.updateReadout } />
+          <CustomRow arrTokens            ={ this.props.arrTokens }
+                     arrTokensStandard    ={ this.props.arrTokensStandard }
+                     excludeToken         ={ this.props.excludeToken }
+                     includeToken         ={ this.props.includeToken }
+                     updateReadout        ={ this.props.updateReadout } />
+        </div>
+      );
+  }
+}
+
+Rows.propTypes = {
+
+    //  Data:
+    arrTokens:                React.PropTypes.array.isRequired,
+    arrTokensStandard:        React.PropTypes.array.isRequired,
+
+    //  Functions:
+    excludeToken:             React.PropTypes.func.isRequired,
+    includeToken:             React.PropTypes.func.isRequired,
+    updateReadout:            React.PropTypes.func.isRequired
+  };
+
+
 window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                      callbackControls,
                                                      objData,
                                                      objFunctions) {
 
-    let checkbox_row = null,
-        custom_row = null;
+    let rows = null;
 
     const objectControls = {
         forceUpdate: () => {
-            if (checkbox_row) checkbox_row.forceUpdate();
-            if (custom_row) custom_row.forceUpdate();
+            if (rows) rows.forceUpdate();
           }
       };
 
     callbackControls(objectControls);
 
 
-    const elContainerCheckboxes = document.createElement('div');
-    tdCheckboxes.appendChild(elContainerCheckboxes);
-    ReactDOM.render(<CheckboxRow arrTokens              ={ objData.arrTokens }
-                                 arrTokensStandard      ={ objData.arrTokensStandard }
-                                 excludeToken           ={ objFunctions.excludeToken }
-                                 includeToken           ={ objFunctions.includeToken }
-                                 updateReadout          ={ objFunctions.updateReadout }
-                                 ref                    ={ (checkbox_rowNew) => {
-                                                              checkbox_row = checkbox_rowNew
+    const elContainerRows = document.createElement('div');
+    tdCheckboxes.appendChild(elContainerRows);
+    ReactDOM.render(<Rows arrTokens                     ={ objData.arrTokens }
+                          arrTokensStandard             ={ objData.arrTokensStandard }
+                          excludeToken                  ={ objFunctions.excludeToken }
+                          includeToken                  ={ objFunctions.includeToken }
+                          updateReadout                 ={ objFunctions.updateReadout }
+                          ref                           ={ (rowsNew) => {
+                                                              rows = rowsNew;
                                                             }} />,
-                    elContainerCheckboxes);
-
-
-    const elContainerCustom = document.createElement('div');
-    tdCheckboxes.appendChild(elContainerCustom);
-    ReactDOM.render(<CustomRow arrTokens                ={ objData.arrTokens }
-                               arrTokensStandard        ={ objData.arrTokensStandard }
-                               excludeToken             ={ objFunctions.excludeToken }
-                               includeToken             ={ objFunctions.includeToken }
-                               updateReadout            ={ objFunctions.updateReadout }
-                               ref                      ={ (custom_rowNew) => {
-                                                              custom_row = custom_rowNew;
-                                                            }}
-                      />,
-                    elContainerCustom);
+                    elContainerRows);
   };
 
 window._plugin_RobotsWhiz__setStrings = function(mapStringsSet) {
