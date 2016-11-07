@@ -451,7 +451,9 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     updateReadout();
 
 
-    const elContainerControls = document.createElement('div');
+    const elContainerControls = document.createElement('td');
+    elContainerControls.setAttribute('colspan', '5');
+    elContainerControls.setAttribute('class', 'robots-whiz--td--checkboxes');
     tdCheckboxes.appendChild(elContainerControls);
     ReactDOM.render(<Controls arrTokens                     ={ arrTokens }
                               includeToken                  ={ includeToken }

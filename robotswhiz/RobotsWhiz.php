@@ -278,8 +278,6 @@
                     </tr>
                     <tr class='robots-whiz--2nd-row <?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
                                                                           : ""?>'>
-                      <td colspan='5' class='robots-whiz--td--checkboxes'>
-                      </td>
                     </tr>
                   </tbody><?php
                     $indexRow++;
@@ -322,7 +320,7 @@
                       var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
 
 
-                      var $tdRoot = $tbodyPost.find('td.robots-whiz--td--checkboxes');
+                      var $tdRoot = $tbodyPost.find('tr.robots-whiz--2nd-row');
                       if ($tdRoot.length == 1) {
                           window._plugin_RobotsWhiz__renderControls(
                                     $tdRoot[0],
