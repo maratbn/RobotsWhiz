@@ -384,7 +384,7 @@ class Rows extends React.Component {
     super(props);
 
     this.excludeToken = (strToken) => {
-        var indexToken = this.props.arrTokens.indexOf(strToken);
+        const indexToken = this.props.arrTokens.indexOf(strToken);
         if (indexToken >= 0) this.props.arrTokens.splice(indexToken, 1);
       };
   }
