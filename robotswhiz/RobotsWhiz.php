@@ -65,7 +65,6 @@
     const PHP_VERSION_MIN_SUPPORTED = '5.4';
     const ROBOTS_WHIZ__META_CONTENT = 'robots_whiz__meta_content';
 
-    $ARR_TOKENS_STANDARD = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
     \add_action('wp_head', '\\plugin_RobotsWhiz\\action_wp_head');
 
@@ -180,8 +179,6 @@
             \wp_die(\__('You do not have sufficient permissions to access this page.',
                         'domain-plugin-RobotsWhiz'));
         }
-
-        global $ARR_TOKENS_STANDARD;
     ?><style>
         .robots-whiz--table {
             border-collapse:                            collapse;
@@ -295,7 +292,7 @@
           ?>
           <script type='text/javascript'>
               (function() {
-                  var arrTokensStandard = <?=\json_encode($ARR_TOKENS_STANDARD)?>,
+                  var arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'],
 
                       strConfirmCustomClear
                             = "<?=\__('Are you sure you want to clear-out your custom content?',
