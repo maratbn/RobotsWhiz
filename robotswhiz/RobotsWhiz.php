@@ -292,9 +292,7 @@
           ?>
           <script type='text/javascript'>
               (function() {
-                  var arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'],
-
-                      strConfirmCustomClear
+                  var strConfirmCustomClear
                             = "<?=\__('Are you sure you want to clear-out your custom content?',
                                       'domain-plugin-RobotsWhiz')?>",
                       strLabelAddCustom
@@ -342,7 +340,6 @@
                                         controls = controlsInstantiated;
                                     }, {
                                         arrTokens:                arrTokens,
-                                        arrTokensStandard:        arrTokensStandard,
                                         $inputData:               $inputData
                                     }, {
                                         updateReadout:            updateReadout

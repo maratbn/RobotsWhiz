@@ -46,6 +46,9 @@ import ReactDOM from 'react-dom';
 console.log("JSX entry logic.");
 
 
+const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
+
+
 let mapStrings = null;
 
 
@@ -119,14 +122,14 @@ CheckboxNonStd.propTypes = {
 
 class CheckboxNonStdAll extends React.Component {
   areAllIncluded() {
-    for (let strName of this.props.arrTokensStandard) {
+    for (let strName of arrTokensStandard) {
       if (!this.props.isIncluded(strName)) return false;
     }
     return true;
   }
 
   includeAll() {
-    for (let strName of this.props.arrTokensStandard) {
+    for (let strName of arrTokensStandard) {
       this.props.includeToken(strName);
     }
   }
@@ -147,7 +150,6 @@ class CheckboxNonStdAll extends React.Component {
 }
 
 CheckboxNonStdAll.propTypes = {
-    arrTokensStandard:        React.PropTypes.array.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
@@ -156,14 +158,14 @@ CheckboxNonStdAll.propTypes = {
 
 class CheckboxNonStdNone extends React.Component {
   areAllExcluded() {
-    for (let strName of this.props.arrTokensStandard) {
+    for (let strName of arrTokensStandard) {
       if (this.props.isIncluded(strName)) return false;
     }
     return true;
   }
 
   excludeAll() {
-    for (let strName of this.props.arrTokensStandard) {
+    for (let strName of arrTokensStandard) {
       this.props.excludeToken(strName);
     }
   }
@@ -184,7 +186,6 @@ class CheckboxNonStdNone extends React.Component {
 }
 
 CheckboxNonStdNone.propTypes = {
-    arrTokensStandard:        React.PropTypes.array.isRequired,
     excludeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
@@ -249,12 +250,10 @@ class CheckboxRow extends React.Component {
   render() {
     return (
         <div>
-          <CheckboxNonStdAll arrTokensStandard={ this.props.arrTokensStandard }
-                             includeToken={ this.props.includeToken }
+          <CheckboxNonStdAll includeToken={ this.props.includeToken }
                              isIncluded={ this.isIncluded }
                              updateReadout={ this.props.updateReadout } />
-          <CheckboxNonStdNone arrTokensStandard={ this.props.arrTokensStandard }
-                              excludeToken={ this.props.excludeToken }
+          <CheckboxNonStdNone excludeToken={ this.props.excludeToken }
                               isIncluded={ this.isIncluded }
                               updateReadout={ this.props.updateReadout } />
           <CheckboxStd token='noindex'
@@ -284,7 +283,6 @@ class CheckboxRow extends React.Component {
 
 CheckboxRow.propTypes = {
     arrTokens:                React.PropTypes.array.isRequired,
-    arrTokensStandard:        React.PropTypes.array.isRequired,
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
@@ -307,7 +305,7 @@ class CustomRow extends React.Component {
   }
 
   getArrTokensNonStandard() {
-    const isTokenNonStandard = strToken => !this.props.arrTokensStandard.includes(strToken);
+    const isTokenNonStandard = strToken => !arrTokensStandard.includes(strToken);
 
     let arrTokensNonStandard = [];
 
@@ -370,7 +368,6 @@ CustomRow.propTypes = {
 
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
-    arrTokensStandard:        React.PropTypes.array.isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
@@ -394,12 +391,10 @@ class Rows extends React.Component {
         <div>
           <Readout arrTokens              ={ this.props.arrTokens } />
           <CheckboxRow arrTokens          ={ this.props.arrTokens }
-                       arrTokensStandard  ={ this.props.arrTokensStandard }
                        excludeToken       ={ this.excludeToken }
                        includeToken       ={ this.props.includeToken }
                        updateReadout      ={ this.props.updateReadout } />
           <CustomRow arrTokens            ={ this.props.arrTokens }
-                     arrTokensStandard    ={ this.props.arrTokensStandard }
                      excludeToken         ={ this.excludeToken }
                      includeToken         ={ this.props.includeToken }
                      updateReadout        ={ this.props.updateReadout } />
@@ -412,7 +407,6 @@ Rows.propTypes = {
 
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
-    arrTokensStandard:        React.PropTypes.array.isRequired,
 
     //  Functions:
     includeToken:             React.PropTypes.func.isRequired,
@@ -463,7 +457,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     const elContainerRows = document.createElement('div');
     tdCheckboxes.appendChild(elContainerRows);
     ReactDOM.render(<Rows arrTokens                     ={ arrTokens }
-                          arrTokensStandard             ={ objData.arrTokensStandard }
                           includeToken                  ={ includeToken }
                           updateReadout                 ={ updateReadout }
                           ref                           ={ (rowsNew) => {
