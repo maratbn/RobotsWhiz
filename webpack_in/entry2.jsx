@@ -380,18 +380,27 @@ CustomRow.propTypes = {
 
 
 class Rows extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.excludeToken = (strToken) => {
+        var indexToken = this.props.arrTokens.indexOf(strToken);
+        if (indexToken >= 0) this.props.arrTokens.splice(indexToken, 1);
+      };
+  }
+
   render() {
     return (
         <div>
           <Readout arrTokens              ={ this.props.arrTokens } />
           <CheckboxRow arrTokens          ={ this.props.arrTokens }
                        arrTokensStandard  ={ this.props.arrTokensStandard }
-                       excludeToken       ={ this.props.excludeToken }
+                       excludeToken       ={ this.excludeToken }
                        includeToken       ={ this.props.includeToken }
                        updateReadout      ={ this.props.updateReadout } />
           <CustomRow arrTokens            ={ this.props.arrTokens }
                      arrTokensStandard    ={ this.props.arrTokensStandard }
-                     excludeToken         ={ this.props.excludeToken }
+                     excludeToken         ={ this.excludeToken }
                      includeToken         ={ this.props.includeToken }
                      updateReadout        ={ this.props.updateReadout } />
         </div>
@@ -406,7 +415,6 @@ Rows.propTypes = {
     arrTokensStandard:        React.PropTypes.array.isRequired,
 
     //  Functions:
-    excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
   };
@@ -432,7 +440,6 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
     tdCheckboxes.appendChild(elContainerRows);
     ReactDOM.render(<Rows arrTokens                     ={ objData.arrTokens }
                           arrTokensStandard             ={ objData.arrTokensStandard }
-                          excludeToken                  ={ objFunctions.excludeToken }
                           includeToken                  ={ objFunctions.includeToken }
                           updateReadout                 ={ objFunctions.updateReadout }
                           ref                           ={ (rowsNew) => {

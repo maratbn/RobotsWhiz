@@ -326,11 +326,6 @@
                       var arrTokens = [],
                           controls = null;
 
-                      function excludeToken(strToken) {
-                          var indexToken = arrTokens.indexOf(strToken);
-                          if (indexToken >= 0) arrTokens.splice(indexToken, 1);
-                      }
-
                       function includeToken(strToken) {
                           if (arrTokens.indexOf(strToken) >= 0) return;
                           arrTokens.push(strToken);
@@ -369,7 +364,6 @@
                                         arrTokens:                arrTokens,
                                         arrTokensStandard:        arrTokensStandard,
                                     }, {
-                                        excludeToken:             excludeToken,
                                         includeToken:             includeToken,
                                         updateReadout:            updateReadout
                                     });
