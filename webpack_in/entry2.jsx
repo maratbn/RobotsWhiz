@@ -282,7 +282,10 @@ class CheckboxRow extends React.Component {
 }
 
 CheckboxRow.propTypes = {
+    //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
+
+    //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
