@@ -263,7 +263,7 @@
                     $dataPost     = $strPostMeta ? \json_decode($strPostMeta, true) : null;
                     $strData      = $dataPost ? $dataPost['robots'] : null;
 
-                    $mapRowsToPosts['row_' . $indexRow] = $idPost;
+                    $mapRowsToPosts['row_' . $indexRow] = ['id' => $idPost];
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><input type='hidden'
                            name='post_<?=$idPost?>'
@@ -329,6 +329,7 @@
                                         $inputData:           $inputData,
                                         post: {
                                                 id:           mapRowsToPosts['row_' + indexPost]
+                                                                                            ['id']
                                             }
                                     });
                       }
