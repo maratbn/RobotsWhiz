@@ -326,7 +326,11 @@
                                     $tbodyPost[0],
                                     {
                                         indexRow:                 indexPost,
-                                        $inputData:               $inputData
+                                        $inputData:               $inputData,
+                                        post: {
+                                                id:               mapRowsToPosts['row_'
+                                                                                      + indexPost]
+                                            }
                                     });
                       }
                   }
