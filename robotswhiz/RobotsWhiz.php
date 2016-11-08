@@ -322,14 +322,15 @@
 
 
                       if ($tbodyPost.length == 1) {
+                          var objPost = mapRowsToPosts['row_' + indexPost];
+
                           window._plugin_RobotsWhiz__renderControls(
                                     $tbodyPost[0],
                                     {
                                         indexRow:             indexPost,
                                         $inputData:           $inputData,
                                         post: {
-                                                id:           mapRowsToPosts['row_' + indexPost]
-                                                                                            ['id']
+                                                id:           objPost['id']
                                             }
                                     });
                       }
