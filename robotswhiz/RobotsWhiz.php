@@ -265,7 +265,10 @@
 
                     $mapRowsToPosts['row_' . $indexRow] = [
                             'id' => $idPost,
-                            'link_edit' => \get_edit_post_link($idPost)
+                            'link_edit' => \get_edit_post_link($idPost),
+                            'type' => $post->post_type,
+                            'template' => \get_page_template_slug($idPost),
+                            'status' => \get_post_status($idPost)
                         ];
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><input type='hidden'
