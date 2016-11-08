@@ -411,7 +411,12 @@ Controls.propTypes = {
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
     post:                     React.PropTypes.shape({
-      id:                         React.PropTypes.number.isRequired
+      id:                         React.PropTypes.number.isRequired,
+      link_edit:                  React.PropTypes.string.isRequired,
+      type:                       React.PropTypes.string.isRequired,
+      template:                   React.PropTypes.oneOfType([React.PropTypes.bool,
+                                                             React.PropTypes.string]).isRequired,
+      status:                     React.PropTypes.string.isRequired
                                 }).isRequired,
 
     //  Functions:
