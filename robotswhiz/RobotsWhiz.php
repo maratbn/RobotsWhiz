@@ -253,6 +253,7 @@
               ?></tr><?php
             ?></thead><?php
                 $indexRow = 0;
+                $mapRowsToPosts = [];
                 while($w_p_query->have_posts()) {
 
                     $w_p_query->the_post();
@@ -262,6 +263,7 @@
                     $dataPost     = $strPostMeta ? \json_decode($strPostMeta, true) : null;
                     $strData      = $dataPost ? $dataPost['robots'] : null;
 
+                    $mapRowsToPosts['row_' . $indexRow] = $idPost;
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><input type='hidden'
                            name='post_<?=$idPost?>'
@@ -287,7 +289,9 @@
           ?>
           <script type='text/javascript'>
               (function() {
-                  var strConfirmCustomClear
+                  var mapRowsToPosts = <?=\json_encode($mapRowsToPosts)?>,
+
+                      strConfirmCustomClear
                             = "<?=\__('Are you sure you want to clear-out your custom content?',
                                       'domain-plugin-RobotsWhiz')?>",
                       strLabelAddCustom
