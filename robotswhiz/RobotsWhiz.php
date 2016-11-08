@@ -332,9 +332,7 @@
                                     {
                                         indexRow:             indexPost,
                                         $inputData:           $inputData,
-                                        post: {
-                                                id:           objPost['id']
-                                            }
+                                        post:                 objPost
                                     });
                       }
                   }
