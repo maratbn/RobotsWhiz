@@ -410,7 +410,9 @@ Controls.propTypes = {
 
     //  Data:
     arrTokens:                React.PropTypes.array.isRequired,
-    idPost:                   React.PropTypes.number.isRequired,
+    post:                     React.PropTypes.shape({
+      id:                         React.PropTypes.number.isRequired
+                                }).isRequired,
 
     //  Functions:
     includeToken:             React.PropTypes.func.isRequired,
@@ -459,7 +461,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                                                 : ""));
     tdCheckboxes.appendChild(elContainerControls);
     ReactDOM.render(<Controls arrTokens                     ={ arrTokens }
-                              idPost                        ={ objData['post']['id'] }
+                              post                          ={ objData['post'] }
                               includeToken                  ={ includeToken }
                               updateReadout                 ={ updateReadout }
                               ref                           ={ (controlsNew) => {
