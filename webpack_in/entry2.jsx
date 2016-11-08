@@ -428,7 +428,7 @@ Controls.propTypes = {
   };
 
 
-window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
+window._plugin_RobotsWhiz__renderControls = function(elParent,
                                                      objData) {
 
     const arrTokens = [];
@@ -467,7 +467,7 @@ window._plugin_RobotsWhiz__renderControls = function(tdCheckboxes,
                                      'robots-whiz--2nd-row' + ((objData.indexRow % 2 == 0)
                                                                 ? ' robots-whiz--odd-row'
                                                                 : ""));
-    tdCheckboxes.appendChild(elContainerControls);
+    elParent.appendChild(elContainerControls);
     ReactDOM.render(<Controls arrTokens                     ={ arrTokens }
                               indexRow                      ={ objData.indexRow }
                               post                          ={ objData['post'] }
