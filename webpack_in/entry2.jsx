@@ -413,6 +413,7 @@ Controls.propTypes = {
     post:                     React.PropTypes.shape({
       id:                         React.PropTypes.number.isRequired,
       link_edit:                  React.PropTypes.string.isRequired,
+      name:                       React.PropTypes.string.isRequired,
       type:                       React.PropTypes.string.isRequired,
       template:                   React.PropTypes.oneOfType([React.PropTypes.bool,
                                                              React.PropTypes.string]).isRequired,
