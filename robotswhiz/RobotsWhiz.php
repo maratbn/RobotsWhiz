@@ -263,9 +263,10 @@
                     $dataPost     = $strPostMeta ? \json_decode($strPostMeta, true) : null;
                     $strData      = $dataPost ? $dataPost['robots'] : null;
 
-                    $mapRowsToPosts['row_' . $indexRow] = ['id' => $idPost,
-                                                           'link_edit' => \get_edit_post_link
-                                                                                       ($idPost)];
+                    $mapRowsToPosts['row_' . $indexRow] = [
+                            'id' => $idPost,
+                            'link_edit' => \get_edit_post_link($idPost)
+                        ];
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><input type='hidden'
                            name='post_<?=$idPost?>'
