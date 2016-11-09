@@ -440,11 +440,7 @@ window._plugin_RobotsWhiz__renderControls = function(elParent,
 
     const $inputData = objData.$inputData;
 
-    const strJSONTokensInitial = $inputData.val();
-    const dataTokensInitial = strJSONTokensInitial &&
-                              window.JSON.parse(strJSONTokensInitial);
-    const strTokensInitial = dataTokensInitial && dataTokensInitial['robots'];
-    const arrTokensInitial = strTokensInitial && strTokensInitial.split(/\s+/) || [];
+    const arrTokensInitial = objData.post.data && objData.post.data.split(/\s+/) || [];
 
     arrTokensInitial.map(strToken => {
         includeToken(strToken);
