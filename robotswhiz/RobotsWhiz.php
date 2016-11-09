@@ -273,11 +273,6 @@
                             'data'       => $strData
                         ];
                 ?><tbody data--robots-whiz--role='post-config'><?php
-                  ?><input type='hidden'
-                           name='post_<?=$idPost?>'
-                           data-robots-whiz--role='data'
-                           value='<?=\htmlspecialchars(
-                                            \json_encode(['robots' => $strData]))?>'><?php
                   ?><tr class='robots-whiz--1st-row <?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
                                                                           : ""?>'>
                       <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
@@ -326,9 +321,6 @@
 
                   function _processPost($, $tbodyPost, indexPost) {
 
-                      var $inputData = $tbodyPost.find('input[data-robots-whiz--role=data]');
-
-
                       if ($tbodyPost.length == 1) {
                           var objPost = mapRowsToPosts['row_' + indexPost];
 
@@ -336,7 +328,6 @@
                                     $tbodyPost[0],
                                     {
                                         indexRow:             indexPost,
-                                        $inputData:           $inputData,
                                         post:                 objPost
                                     });
                       }

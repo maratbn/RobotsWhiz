@@ -240,6 +240,23 @@ Link.propTypes = {
   };
 
 
+class HiddenDataField extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {value: ""};
+  }
+
+  render() {
+      return (
+          <input type='hidden'
+                 name={ 'post_' + this.props.post.id }
+                 value={ this.state.value } />
+        );
+    }
+}
+
+
 class CheckboxRow extends React.Component {
   constructor(props) {
     super(props);
@@ -431,6 +448,18 @@ Controls.propTypes = {
 window._plugin_RobotsWhiz__renderControls = function(elParent,
                                                      objData) {
 
+    let hidden_data_field = null;
+
+    const elContainerData = document.createElement('span');
+    elParent.appendChild(elContainerData);
+    ReactDOM.render(<HiddenDataField post         ={ objData.post }
+                                     ref          ={ (hidden_data_fieldNew) => {
+                                                         hidden_data_field = hidden_data_fieldNew;
+                                                      }} />,
+                    elContainerData);
+
+
+
     const arrTokens = [];
 
     function includeToken(strToken) {
@@ -438,7 +467,6 @@ window._plugin_RobotsWhiz__renderControls = function(elParent,
       arrTokens.push(strToken);
     }
 
-    const $inputData = objData.$inputData;
 
     const arrTokensInitial = objData.post.data && objData.post.data.split(/\s+/) || [];
 
@@ -451,8 +479,13 @@ window._plugin_RobotsWhiz__renderControls = function(elParent,
     function updateReadout() {
       arrTokens.sort();
 
-      $inputData.val(window.JSON.stringify({'robots': arrTokens.join(" ")}));
       if (controls) controls.forceUpdate();
+      if (hidden_data_field) hidden_data_field.setState({value: window
+                                                                  .JSON
+                                                                    .stringify({
+                                                                        'robots': arrTokens
+                                                                                        .join(" ")
+                                                                      })});
     }
 
     updateReadout();
