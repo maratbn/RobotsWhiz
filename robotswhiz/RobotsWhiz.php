@@ -253,6 +253,7 @@
               ?></tr><?php
             ?></thead><?php
                 $indexRow = 0;
+                $arrPosts = [];
                 $mapRowsToPosts = [];
                 while($w_p_query->have_posts()) {
 
@@ -272,6 +273,7 @@
                             'status'     => \get_post_status($idPost),
                             'data'       => $strData
                         ];
+                    \array_push($arrPosts, $objPost);
                     $mapRowsToPosts['row_' . $indexRow] = $objPost;
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><tr class='robots-whiz--1st-row <?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
