@@ -263,7 +263,7 @@
                     $dataPost     = $strPostMeta ? \json_decode($strPostMeta, true) : null;
                     $strData      = $dataPost ? $dataPost['robots'] : null;
 
-                    $mapRowsToPosts['row_' . $indexRow] = [
+                    $objPost = [
                             'id'         => $idPost,
                             'link_edit'  => \get_edit_post_link($idPost),
                             'name'       => $strPostName,
@@ -272,6 +272,7 @@
                             'status'     => \get_post_status($idPost),
                             'data'       => $strData
                         ];
+                    $mapRowsToPosts['row_' . $indexRow] = $objPost;
                 ?><tbody data--robots-whiz--role='post-config'><?php
                   ?><tr class='robots-whiz--1st-row <?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
                                                                           : ""?>'>
