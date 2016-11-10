@@ -244,14 +244,14 @@ class HiddenDataField extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {value: ""};
+    this.state = {tokens: ""};
   }
 
   render() {
       return (
           <input type='hidden'
                  name={ 'post_' + this.props.post.id }
-                 value={ JSON.stringify({'robots': this.state.value}) } />
+                 value={ JSON.stringify({'robots': this.state.tokens}) } />
         );
     }
 }
@@ -490,7 +490,7 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
       arrTokens.sort();
 
       if (controls) controls.forceUpdate();
-      if (hidden_data_field) hidden_data_field.setState({value: arrTokens.join(" ")});
+      if (hidden_data_field) hidden_data_field.setState({tokens: arrTokens.join(" ")});
     }
 
     updateReadout();
