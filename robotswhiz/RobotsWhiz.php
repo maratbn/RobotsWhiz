@@ -232,7 +232,7 @@
           ?><input type='submit' value='<?=\__('Update Settings',
                                                'domain-plugin-RobotsWhiz')
                                           ?>' class='button-primary'/><hr><?php
-          ?><table class='robots-whiz--table'><?php
+          ?><table class='robots-whiz--table' data--robots-whiz--role='posts'><?php
             ?><thead><?php
               ?><tr><?php
                 ?><th class='robots-whiz--column-header'><?=
