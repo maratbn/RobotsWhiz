@@ -343,11 +343,15 @@
 
                           if (arr$tbody.length != <?=$totalPosts?>) return;
 
-                          for (var i = 0; i < arr$tbody.length; i++) {
+                      <?php
+                          for ($i = 0; $i < $totalPosts; $i++) {
+                          ?>
                               _processPost($,
-                                           $(arr$tbody[i]),
-                                           i);
+                                           $(arr$tbody[<?=$i?>]),
+                                           <?=$i?>);
+                          <?php
                           }
+                      ?>
                       });
               })();
           </script><?php
