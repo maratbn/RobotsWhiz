@@ -337,10 +337,10 @@
                   }
 
                   jQuery(document).ready(function($) {
-                          var arrPosts = $('tbody[data--robots-whiz--role=post-config]');
+                          var arr$tbody = $('tbody[data--robots-whiz--role=post-config]');
 
-                          for (var i = 0; i < arrPosts.length; i++) {
-                              _processPost($, $(arrPosts[i]), i);
+                          for (var i = 0; i < arr$tbody.length; i++) {
+                              _processPost($, $(arr$tbody[i]), i);
                           }
                       });
               })();
