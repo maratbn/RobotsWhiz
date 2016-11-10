@@ -292,6 +292,8 @@
           ?><hr><input type='submit' value='<?=\__('Update Settings',
                                                    'domain-plugin-RobotsWhiz')
                                               ?>' class='button-primary'/><?php
+
+              $totalPosts = \count($arrPosts);
           ?>
           <script type='text/javascript'>
               (function() {
@@ -339,7 +341,7 @@
                   jQuery(document).ready(function($) {
                           var arr$tbody = $('tbody[data--robots-whiz--role=post-config]');
 
-                          if (arr$tbody.length != <?=\count($arrPosts)?>) return;
+                          if (arr$tbody.length != <?=$totalPosts?>) return;
 
                           for (var i = 0; i < arr$tbody.length; i++) {
                               _processPost($,
