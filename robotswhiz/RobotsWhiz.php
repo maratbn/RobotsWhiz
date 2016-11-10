@@ -322,16 +322,13 @@
                       });
 
 
-                  function _processPost($, $tbodyPost, indexPost) {
-
-                      if ($tbodyPost.length == 1) {
-                          window._plugin_RobotsWhiz__renderControls(
-                                    $tbodyPost[0],
-                                    {
-                                        indexRow:             indexPost,
-                                        post:                 arrPosts[indexPost]
-                                    });
-                      }
+                  function _processPost($, tbodyPost, indexPost) {
+                      window._plugin_RobotsWhiz__renderControls(
+                                tbodyPost,
+                                {
+                                    indexRow:             indexPost,
+                                    post:                 arrPosts[indexPost]
+                                });
                   }
 
                   jQuery(document).ready(function($) {
@@ -343,7 +340,7 @@
                           for ($i = 0; $i < $totalPosts; $i++) {
                           ?>
                               _processPost($,
-                                           $(arr$tbody[<?=$i?>]),
+                                           arr$tbody[<?=$i?>],
                                            <?=$i?>);
                           <?php
                           }
