@@ -490,9 +490,7 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
       arrTokens.sort();
 
       if (controls) controls.forceUpdate();
-      if (hidden_data_field) hidden_data_field.setState({value: window
-                                                                  .JSON
-                                                                    .stringify({
+      if (hidden_data_field) hidden_data_field.setState({value: JSON.stringify({
                                                                         'robots': arrTokens
                                                                                         .join(" ")
                                                                       })});
