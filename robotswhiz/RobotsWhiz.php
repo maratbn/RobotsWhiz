@@ -339,6 +339,8 @@
                   jQuery(document).ready(function($) {
                           var arr$tbody = $('tbody[data--robots-whiz--role=post-config]');
 
+                          if (arr$tbody.length != <?=\count($arrPosts)?>) return;
+
                           for (var i = 0; i < arr$tbody.length; i++) {
                               _processPost($,
                                            $(arr$tbody[i]),
