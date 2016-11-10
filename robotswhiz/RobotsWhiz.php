@@ -297,7 +297,7 @@
           ?>
           <script type='text/javascript'>
               (function() {
-                  var mapRowsToPosts = <?=\json_encode($mapRowsToPosts)?>,
+                  var arrPosts = <?=\json_encode($arrPosts)?>,
 
                       strConfirmCustomClear
                             = "<?=\__('Are you sure you want to clear-out your custom content?',
@@ -327,13 +327,11 @@
                   function _processPost($, $tbodyPost, indexPost) {
 
                       if ($tbodyPost.length == 1) {
-                          var objPost = mapRowsToPosts['row_' + indexPost];
-
                           window._plugin_RobotsWhiz__renderControls(
                                     $tbodyPost[0],
                                     {
                                         indexRow:             indexPost,
-                                        post:                 objPost
+                                        post:                 arrPosts[indexPost]
                                     });
                       }
                   }
