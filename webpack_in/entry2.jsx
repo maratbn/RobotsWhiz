@@ -256,6 +256,12 @@ class HiddenDataField extends React.Component {
     }
 }
 
+HiddenDataField.propTypes = {
+    post:                     React.PropTypes.shape({
+      id:                         React.PropTypes.number.isRequired
+                                }).isRequired
+  };
+
 
 class CheckboxRow extends React.Component {
   constructor(props) {
