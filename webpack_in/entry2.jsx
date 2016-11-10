@@ -455,20 +455,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                      elParent,
                                                      objData) {
 
-    let hidden_data_field = null;
-
-    const elContainerData = document.createElement('span');
-    elParent.appendChild(elContainerData);
-    function renderHiddenDataField() {
-      ReactDOM.render(<HiddenDataField post       ={{ id: objData.post.id }}
-                                       ref        ={ (hidden_data_fieldNew) => {
-                                                         hidden_data_field = hidden_data_fieldNew;
-                                                      }} />,
-                      elContainerData);
-    }
-    renderHiddenDataField();
-
-
     const arrTokens = [];
 
     function includeToken(strToken) {
@@ -482,6 +468,21 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     arrTokensInitial.map(strToken => {
         includeToken(strToken);
       });
+
+
+    let hidden_data_field = null;
+
+    const elContainerData = document.createElement('span');
+    elParent.appendChild(elContainerData);
+    function renderHiddenDataField() {
+      ReactDOM.render(<HiddenDataField post       ={{ id: objData.post.id }}
+                                       ref        ={ (hidden_data_fieldNew) => {
+                                                         hidden_data_field = hidden_data_fieldNew;
+                                                      }} />,
+                      elContainerData);
+    }
+    renderHiddenDataField();
+
 
     let controls = null;
 
