@@ -323,14 +323,17 @@
 
 
                   jQuery(document).ready(function($) {
-                          var arr$tbody = $('tbody[data--robots-whiz--role=post-config]');
+                          var $tablePosts = $('table[data--robots-whiz--role=posts]'),
+                              arr$tbody = $('tbody[data--robots-whiz--role=post-config]');
 
+                          if ($tablePosts.length != 1) return;
                           if (arr$tbody.length != <?=$totalPosts?>) return;
 
                       <?php
                           for ($i = 0; $i < $totalPosts; $i++) {
                           ?>
                               window._plugin_RobotsWhiz__renderControls(
+                                    $tablePosts[0],
                                     arr$tbody[<?=$i?>],
                                     {
                                         indexRow:             <?=$i?>,

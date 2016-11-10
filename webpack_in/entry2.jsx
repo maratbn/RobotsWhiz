@@ -445,7 +445,8 @@ Controls.propTypes = {
   };
 
 
-window._plugin_RobotsWhiz__renderControls = function(elParent,
+window._plugin_RobotsWhiz__renderControls = function(tablePosts,
+                                                     elParent,
                                                      objData) {
 
     let hidden_data_field = null;
