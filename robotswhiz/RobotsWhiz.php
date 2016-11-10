@@ -340,7 +340,9 @@
                           var arr$tbody = $('tbody[data--robots-whiz--role=post-config]');
 
                           for (var i = 0; i < arr$tbody.length; i++) {
-                              _processPost($, $(arr$tbody[i]), i);
+                              _processPost($,
+                                           $(arr$tbody[i]),
+                                           i);
                           }
                       });
               })();
