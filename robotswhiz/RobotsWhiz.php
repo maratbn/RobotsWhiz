@@ -322,15 +322,6 @@
                       });
 
 
-                  function _processPost($, tbodyPost, indexPost) {
-                      window._plugin_RobotsWhiz__renderControls(
-                                tbodyPost,
-                                {
-                                    indexRow:             indexPost,
-                                    post:                 arrPosts[indexPost]
-                                });
-                  }
-
                   jQuery(document).ready(function($) {
                           var arr$tbody = $('tbody[data--robots-whiz--role=post-config]');
 
@@ -339,9 +330,12 @@
                       <?php
                           for ($i = 0; $i < $totalPosts; $i++) {
                           ?>
-                              _processPost($,
-                                           arr$tbody[<?=$i?>],
-                                           <?=$i?>);
+                              window._plugin_RobotsWhiz__renderControls(
+                                    arr$tbody[<?=$i?>],
+                                    {
+                                        indexRow:             <?=$i?>,
+                                        post:                 arrPosts[<?=$i?>]
+                                    });
                           <?php
                           }
                       ?>
