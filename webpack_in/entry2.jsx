@@ -245,7 +245,7 @@ class HiddenDataField extends React.Component {
       return (
           <input type='hidden'
                  name={ 'post_' + this.props.post.id }
-                 value={ JSON.stringify({'robots': this.props.post.val}) } />
+                 value={ JSON.stringify({'robots': this.props.post.val.join(" ")}) } />
         );
     }
 }
@@ -253,7 +253,7 @@ class HiddenDataField extends React.Component {
 HiddenDataField.propTypes = {
     post:                     React.PropTypes.shape({
       id:                         React.PropTypes.number.isRequired,
-      val:                        React.PropTypes.string.isRequired
+      val:                        React.PropTypes.array.isRequired
                                 }).isRequired
   };
 
@@ -471,7 +471,7 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     elParent.appendChild(elContainerData);
     function renderHiddenDataField() {
       ReactDOM.render(<HiddenDataField post       ={{ id: objData.post.id,
-                                                      val: arrTokens.join(" ") }} />,
+                                                      val: arrTokens }} />,
                       elContainerData);
     }
     renderHiddenDataField();
