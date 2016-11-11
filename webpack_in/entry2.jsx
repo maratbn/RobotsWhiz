@@ -463,7 +463,8 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     }
 
 
-    const arrTokensInitial = objData.post.data && objData.post.data.split(/\s+/) || [];
+    const arrTokensInitial = objData.post.data &&
+                             objData.post.data.split(/\s+/) || [];
 
     arrTokensInitial.map(strToken => {
         includeToken(strToken);
