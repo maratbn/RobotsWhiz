@@ -467,16 +467,11 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
       });
 
 
-    let hidden_data_field = null;
-
     const elContainerData = document.createElement('span');
     elParent.appendChild(elContainerData);
     function renderHiddenDataField() {
       ReactDOM.render(<HiddenDataField post       ={{ id: objData.post.id,
-                                                      val: arrTokens.join(" ") }}
-                                       ref        ={ (hidden_data_fieldNew) => {
-                                                         hidden_data_field = hidden_data_fieldNew;
-                                                      }} />,
+                                                      val: arrTokens.join(" ") }} />,
                       elContainerData);
     }
     renderHiddenDataField();
