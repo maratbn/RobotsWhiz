@@ -495,14 +495,14 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                                 ? ' robots-whiz--odd-row'
                                                                 : ""));
     elParent.appendChild(elContainerControls);
-    ReactDOM.render(<Controls arrTokens                     ={ arrTokens }
-                              indexRow                      ={ objData.indexRow }
-                              post                          ={ objData['post'] }
-                              includeToken                  ={ includeToken }
-                              updateReadout                 ={ updateReadout }
-                              ref                           ={ (controlsNew) => {
-                                                                  controls = controlsNew;
-                                                                }} />,
+    ReactDOM.render(<Controls arrTokens           ={ arrTokens }
+                              indexRow            ={ objData.indexRow }
+                              post                ={ objData['post'] }
+                              includeToken        ={ includeToken }
+                              updateReadout       ={ updateReadout }
+                              ref                 ={ (controlsNew) => {
+                                                        controls = controlsNew;
+                                                      }} />,
                     elContainerControls);
   };
 
