@@ -468,7 +468,7 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
 
 
     const elContainerData = document.createElement('span');
-    elParent.appendChild(elContainerData);
+    tablePosts.appendChild(elContainerData);
     function renderHiddenDataField() {
       ReactDOM.render(<HiddenDataField post       ={{ id: objData.post.id,
                                                       val: arrTokens }} />,
