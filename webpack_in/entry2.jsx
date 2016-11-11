@@ -409,6 +409,7 @@ class Controls extends React.Component {
     this.includeToken = (strToken) => {
         if (this.props.arrTokens.indexOf(strToken) >= 0) return;
         this.props.arrTokens.push(strToken);
+        this.props.arrTokens.sort();
       };
 
     const arrTokensInitial = props.post.data &&
@@ -480,8 +481,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     let controls = null;
 
     function updateReadout() {
-      arrTokens.sort();
-
       if (controls) controls.forceUpdate();
       renderHiddenDataField();
     }
