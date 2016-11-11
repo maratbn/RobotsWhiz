@@ -442,7 +442,7 @@ Controls.propTypes = {
       template:                   React.PropTypes.oneOfType([React.PropTypes.bool,
                                                              React.PropTypes.string]).isRequired,
       status:                     React.PropTypes.string.isRequired,
-      data:                       React.PropTypes.string.isRequired
+      data:                       React.PropTypes.string
                                 }).isRequired,
 
     //  Functions:
