@@ -405,6 +405,21 @@ class Controls extends React.Component {
         const indexToken = this.props.arrTokens.indexOf(strToken);
         if (indexToken >= 0) this.props.arrTokens.splice(indexToken, 1);
       };
+
+    this.includeToken = (strToken) => {
+        if (this.props.arrTokens.indexOf(strToken) >= 0) return;
+        this.props.arrTokens.push(strToken);
+      };
+
+    const arrTokensInitial = props.post.data &&
+                             (typeof props.post.data == 'string') &&
+                             props.post.data.split(/\s+/) || [];
+
+    arrTokensInitial.map(strToken => {
+        this.includeToken(strToken);
+      });
+
+    this.props.updateReadout();
   }
 
   render() {
@@ -413,11 +428,11 @@ class Controls extends React.Component {
           <Readout arrTokens              ={ this.props.arrTokens } />
           <CheckboxRow arrTokens          ={ this.props.arrTokens }
                        excludeToken       ={ this.excludeToken }
-                       includeToken       ={ this.props.includeToken }
+                       includeToken       ={ this.includeToken }
                        updateReadout      ={ this.props.updateReadout } />
           <CustomRow arrTokens            ={ this.props.arrTokens }
                      excludeToken         ={ this.excludeToken }
-                     includeToken         ={ this.props.includeToken }
+                     includeToken         ={ this.includeToken }
                      updateReadout        ={ this.props.updateReadout } />
         </td>
       );
@@ -441,7 +456,6 @@ Controls.propTypes = {
                                 }).isRequired,
 
     //  Functions:
-    includeToken:             React.PropTypes.func.isRequired,
     updateReadout:            React.PropTypes.func.isRequired
   };
 
@@ -451,20 +465,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                      objData) {
 
     const arrTokens = [];
-
-    function includeToken(strToken) {
-      if (arrTokens.indexOf(strToken) >= 0) return;
-      arrTokens.push(strToken);
-    }
-
-
-    const arrTokensInitial = objData.post.data &&
-                             (typeof objData.post.data == 'string') &&
-                             objData.post.data.split(/\s+/) || [];
-
-    arrTokensInitial.map(strToken => {
-        includeToken(strToken);
-      });
 
 
     const elContainerData = document.createElement('span');
@@ -486,8 +486,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
       renderHiddenDataField();
     }
 
-    updateReadout();
-
 
     const elContainerControls = document.createElement('tr');
     elContainerControls.setAttribute('class',
@@ -498,7 +496,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     ReactDOM.render(<Controls arrTokens           ={ arrTokens }
                               indexRow            ={ objData.indexRow }
                               post                ={ objData['post'] }
-                              includeToken        ={ includeToken }
                               updateReadout       ={ updateReadout }
                               ref                 ={ (controlsNew) => {
                                                         controls = controlsNew;
