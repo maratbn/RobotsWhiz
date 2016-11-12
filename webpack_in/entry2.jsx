@@ -74,13 +74,14 @@ let mapStrings = null;
 
 class Readout extends React.Component {
   render() {
+      const { arrTokens } = this.props;
       return (
           <div className='robots-whiz--readout'>
-            { this.props.arrTokens.length == 0
+            { arrTokens.length == 0
                 ? '\u00A0'
-                : "<meta name=\"robots\" content=\"" + this.props.arrTokens.join(", ")
-                                                                           .replace(/\\/g, "\\\\")
-                                                                           .replace(/"/g, "\\\"")
+                : "<meta name=\"robots\" content=\"" + arrTokens.join(", ")
+                                                                .replace(/\\/g, "\\\\")
+                                                                .replace(/"/g, "\\\"")
                                                      + "\">" }
           </div>);
     }
