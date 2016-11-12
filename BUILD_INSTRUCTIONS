@@ -26,7 +26,12 @@
     $ npm install react-dom
 
 
-4.  Compile JavaScript with Webpack:
+4.  Install the 'redux' npm module:
+
+    $ npm install redux
+
+
+5.  Compile JavaScript with Webpack:
 
     $ ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js
 
