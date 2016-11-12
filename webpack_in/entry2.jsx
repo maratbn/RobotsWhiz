@@ -277,7 +277,7 @@ class CheckboxRow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.isIncluded = (strToken) => (this.props.arrTokens.indexOf(strToken) >= 0);
+    this.isIncluded = (strToken) => (this.props.store.getState().indexOf(strToken) >= 0);
   }
 
   render() {
@@ -310,7 +310,7 @@ class CheckboxRow extends React.Component {
 
 CheckboxRow.propTypes = {
     //  Data:
-    arrTokens:                React.PropTypes.array.isRequired,
+    store:                    React.PropTypes.object.isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
@@ -434,9 +434,9 @@ class Controls extends React.Component {
     return (
         <td colSpan='5' className='robots-whiz--td--checkboxes'>
           <Readout store                  ={ this.props.store } />
-          <CheckboxRow arrTokens          ={ this.props.arrTokens }
-                       excludeToken       ={ this.excludeToken }
-                       includeToken       ={ this.includeToken } />
+          <CheckboxRow excludeToken       ={ this.excludeToken }
+                       includeToken       ={ this.includeToken }
+                       store              ={ this.props.store } />
           <CustomRow arrTokens            ={ this.props.arrTokens }
                      excludeToken         ={ this.excludeToken }
                      includeToken         ={ this.includeToken } />
