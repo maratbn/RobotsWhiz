@@ -423,6 +423,12 @@ class Controls extends React.Component {
       });
   }
 
+  componentWillMount() {
+    this.props.store.subscribe(() => {
+        this.forceUpdate();
+      });
+  }
+
   render() {
     return (
         <td colSpan='5' className='robots-whiz--td--checkboxes'>
@@ -476,7 +482,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     let controls = null;
 
     function updateReadout() {
-      if (controls) controls.forceUpdate();
       renderHiddenDataField();
     }
     store.subscribe(updateReadout);
