@@ -42,8 +42,28 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore } from 'redux';
 
 console.log("JSX entry logic.");
+
+
+const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
+      ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN';
+
+const reducer = (state = [], action) => {
+    const strToken = action.token;
+
+    if (action.type == ACTION__EXCLUDE_TOKEN) {
+      var indexToken = state.indexOf(strToken);
+      if (indexToken != -1) {
+        return state.slice(0, indexToken).concat(state.slice(indexToken + 1, state.length));
+      }
+    } else if (action.type == ACTION__INCLUDE_TOKEN) {
+      if (state.indexOf(strToken) == -1) return [...state, strToken].sort();
+    }
+
+    return state;
+  };
 
 
 const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
@@ -404,12 +424,18 @@ class Controls extends React.Component {
     this.excludeToken = (strToken) => {
         const indexToken = this.props.arrTokens.indexOf(strToken);
         if (indexToken >= 0) this.props.arrTokens.splice(indexToken, 1);
+
+        this.props.store.dispatch({type:   ACTION__EXCLUDE_TOKEN,
+                                   token:  strToken});
       };
 
     this.includeToken = (strToken) => {
         if (this.props.arrTokens.indexOf(strToken) >= 0) return;
         this.props.arrTokens.push(strToken);
         this.props.arrTokens.sort();
+
+        this.props.store.dispatch({type:   ACTION__INCLUDE_TOKEN,
+                                   token:  strToken});
       };
 
     const arrTokensInitial = props.post.data &&
@@ -455,6 +481,7 @@ Controls.propTypes = {
       status:                     React.PropTypes.string.isRequired,
       data:                       React.PropTypes.string
                                 }).isRequired,
+    store:                    React.PropTypes.object.isRequired,
 
     //  Functions:
     updateReadout:            React.PropTypes.func.isRequired
@@ -464,6 +491,8 @@ Controls.propTypes = {
 window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                      elParent,
                                                      objData) {
+
+    const store = createStore(reducer);
 
     const arrTokens = [];
 
@@ -495,6 +524,7 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     ReactDOM.render(<Controls arrTokens           ={ arrTokens }
                               indexRow            ={ objData.indexRow }
                               post                ={ objData['post'] }
+                              store               ={ store }
                               updateReadout       ={ updateReadout }
                               ref                 ={ (controlsNew) => {
                                                         controls = controlsNew;
