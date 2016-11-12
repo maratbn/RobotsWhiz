@@ -74,7 +74,7 @@ let mapStrings = null;
 
 class Readout extends React.Component {
   render() {
-      const { arrTokens } = this.props;
+      const arrTokens = this.props.store.getState();
       return (
           <div className='robots-whiz--readout'>
             { arrTokens.length == 0
@@ -88,7 +88,7 @@ class Readout extends React.Component {
 }
 
 Readout.propTypes = {
-    arrTokens:                React.PropTypes.array.isRequired
+    store:                    React.PropTypes.object.isRequired
   };
 
 
@@ -433,7 +433,7 @@ class Controls extends React.Component {
   render() {
     return (
         <td colSpan='5' className='robots-whiz--td--checkboxes'>
-          <Readout arrTokens              ={ this.props.arrTokens } />
+          <Readout store                  ={ this.props.store } />
           <CheckboxRow arrTokens          ={ this.props.arrTokens }
                        excludeToken       ={ this.excludeToken }
                        includeToken       ={ this.includeToken } />
