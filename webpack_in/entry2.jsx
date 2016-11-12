@@ -405,18 +405,11 @@ class Controls extends React.Component {
     super(props);
 
     this.excludeToken = (strToken) => {
-        const indexToken = this.props.arrTokens.indexOf(strToken);
-        if (indexToken >= 0) this.props.arrTokens.splice(indexToken, 1);
-
         this.props.store.dispatch({type:   ACTION__EXCLUDE_TOKEN,
                                    token:  strToken});
       };
 
     this.includeToken = (strToken) => {
-        if (this.props.arrTokens.indexOf(strToken) >= 0) return;
-        this.props.arrTokens.push(strToken);
-        this.props.arrTokens.sort();
-
         this.props.store.dispatch({type:   ACTION__INCLUDE_TOKEN,
                                    token:  strToken});
       };
@@ -448,7 +441,6 @@ class Controls extends React.Component {
 Controls.propTypes = {
 
     //  Data:
-    arrTokens:                React.PropTypes.array.isRequired,
     indexRow:                 React.PropTypes.number.isRequired,
     post:                     React.PropTypes.shape({
       id:                         React.PropTypes.number.isRequired,
@@ -469,8 +461,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                      objData) {
 
     const store = createStore(reducer);
-
-    const arrTokens = [];
 
 
     const elContainerData = document.createElement('span');
@@ -498,8 +488,7 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                                 ? ' robots-whiz--odd-row'
                                                                 : ""));
     elParent.appendChild(elContainerControls);
-    ReactDOM.render(<Controls arrTokens           ={ arrTokens }
-                              indexRow            ={ objData.indexRow }
+    ReactDOM.render(<Controls indexRow            ={ objData.indexRow }
                               post                ={ objData['post'] }
                               store               ={ store }
                               ref                 ={ (controlsNew) => {
