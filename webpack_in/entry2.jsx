@@ -336,7 +336,7 @@ class CustomRow extends React.Component {
 
     let arrTokensNonStandard = [];
 
-    this.props.arrTokens.map(strToken => {
+    this.props.store.getState().map(strToken => {
         if (isTokenNonStandard(strToken)) {
           arrTokensNonStandard.push(strToken);
         }
@@ -392,7 +392,7 @@ class CustomRow extends React.Component {
 CustomRow.propTypes = {
 
     //  Data:
-    arrTokens:                React.PropTypes.array.isRequired,
+    store:                    React.PropTypes.object.isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
@@ -437,9 +437,9 @@ class Controls extends React.Component {
           <CheckboxRow excludeToken       ={ this.excludeToken }
                        includeToken       ={ this.includeToken }
                        store              ={ this.props.store } />
-          <CustomRow arrTokens            ={ this.props.arrTokens }
-                     excludeToken         ={ this.excludeToken }
-                     includeToken         ={ this.includeToken } />
+          <CustomRow excludeToken         ={ this.excludeToken }
+                     includeToken         ={ this.includeToken }
+                     store                ={ this.props.store } />
         </td>
       );
   }
