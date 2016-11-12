@@ -479,8 +479,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     renderHiddenDataField();
 
 
-    let controls = null;
-
     function updateReadout() {
       renderHiddenDataField();
     }
@@ -495,10 +493,7 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     elParent.appendChild(elContainerControls);
     ReactDOM.render(<Controls indexRow            ={ objData.indexRow }
                               post                ={ objData['post'] }
-                              store               ={ store }
-                              ref                 ={ (controlsNew) => {
-                                                        controls = controlsNew;
-                                                      }} />,
+                              store               ={ store } />,
                     elContainerControls);
   };
 
