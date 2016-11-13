@@ -66,6 +66,12 @@ const reducer = (state = [], action) => {
   };
 
 
+const createActionExclude = (strToken) => {
+    return {type:   ACTION__EXCLUDE_TOKEN,
+            token:  strToken};
+  };
+
+
 const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
 
@@ -452,8 +458,7 @@ class TrControls extends React.Component {
     super(props);
 
     this.excludeToken = (strToken) => {
-        this.props.store.dispatch({type:   ACTION__EXCLUDE_TOKEN,
-                                   token:  strToken});
+        this.props.store.dispatch(createActionExclude(strToken));
       };
 
     this.includeToken = (strToken) => {
