@@ -400,7 +400,7 @@ CustomRow.propTypes = {
   };
 
 
-class Controls extends React.Component {
+class TrControls extends React.Component {
   constructor(props) {
     super(props);
 
@@ -450,7 +450,7 @@ class Controls extends React.Component {
   }
 }
 
-Controls.propTypes = {
+TrControls.propTypes = {
 
     //  Data:
     indexRow:                 React.PropTypes.number.isRequired,
@@ -478,9 +478,9 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
 
     const elContainerControls = document.createElement('tbody');
     $(elContainerControls).insertAfter(elParent);
-    ReactDOM.render(<Controls indexRow            ={ objData.indexRow }
-                              post                ={ objData['post'] }
-                              store               ={ store } />,
+    ReactDOM.render(<TrControls indexRow          ={ objData.indexRow }
+                                post              ={ objData['post'] }
+                                store             ={ store } />,
                     elContainerControls);
   };
 
