@@ -272,8 +272,6 @@
                             'data'       => $strData
                         ];
                     \array_push($arrPosts, $objPost);
-                ?><tbody data--robots-whiz--role='post-config'><?php
-                ?></tbody><?php
                     $indexRow++;
                 }
                 \wp_reset_postdata();
@@ -314,11 +312,9 @@
 
 
                   jQuery(document).ready(function($) {
-                          var $tablePosts = $('table[data--robots-whiz--role=posts]'),
-                              arr$tbody = $('tbody[data--robots-whiz--role=post-config]');
+                          var $tablePosts = $('table[data--robots-whiz--role=posts]');
 
                           if ($tablePosts.length != 1) return;
-                          if (arr$tbody.length != <?=$totalPosts?>) return;
 
                       <?php
                           for ($i = 0; $i < $totalPosts; $i++) {
