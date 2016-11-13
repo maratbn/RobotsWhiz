@@ -442,6 +442,8 @@ class Controls extends React.Component {
             <CustomRow excludeToken     ={ this.excludeToken }
                        includeToken     ={ this.includeToken }
                        store            ={ this.props.store } />
+            <HiddenDataField post       ={{ id: this.props.post.id,
+                                            val: this.props.store.getState() }} />
           </td>
         </tr>
       );
@@ -472,22 +474,6 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                      $) {
 
     const store = createStore(reducer);
-
-
-    const elContainerData = document.createElement('span');
-    tablePosts.appendChild(elContainerData);
-    function renderHiddenDataField() {
-      ReactDOM.render(<HiddenDataField post       ={{ id: objData.post.id,
-                                                      val: store.getState() }} />,
-                      elContainerData);
-    }
-    renderHiddenDataField();
-
-
-    function updateReadout() {
-      renderHiddenDataField();
-    }
-    store.subscribe(updateReadout);
 
 
     const elContainerControls = document.createElement('tbody');
