@@ -400,6 +400,39 @@ CustomRow.propTypes = {
   };
 
 
+class TrData extends React.Component {
+  render() {
+    return (
+        <tr className={ 'robots-whiz--2nd-row' + ((this.props.indexRow % 2 == 0)
+                                                                ? ' robots-whiz--odd-row'
+                                                                : "") }>
+          <td><a href={ this.props.post.link_edit }>{ this.props.post.id }</a></td>
+          <td><a href={ this.props.post.link_edit }>{ this.props.post.name }</a></td>
+          <td>{ this.props.post.type }</td>
+          <td>{ this.props.post.template }</td>
+          <td>{ this.props.post.status }</td>
+        </tr>
+      );
+  }
+}
+
+TrData.propTypes = {
+
+    //  Data:
+    indexRow:                 React.PropTypes.number.isRequired,
+    post:                     React.PropTypes.shape({
+      id:                         React.PropTypes.number.isRequired,
+      link_edit:                  React.PropTypes.string.isRequired,
+      name:                       React.PropTypes.string.isRequired,
+      type:                       React.PropTypes.string.isRequired,
+      template:                   React.PropTypes.oneOfType([React.PropTypes.bool,
+                                                             React.PropTypes.string]).isRequired,
+      status:                     React.PropTypes.string.isRequired,
+      data:                       React.PropTypes.string
+                                }).isRequired
+  };
+
+
 class TrControls extends React.Component {
   constructor(props) {
     super(props);
@@ -450,22 +483,9 @@ class TrControls extends React.Component {
   }
 }
 
-TrControls.propTypes = {
-
-    //  Data:
-    indexRow:                 React.PropTypes.number.isRequired,
-    post:                     React.PropTypes.shape({
-      id:                         React.PropTypes.number.isRequired,
-      link_edit:                  React.PropTypes.string.isRequired,
-      name:                       React.PropTypes.string.isRequired,
-      type:                       React.PropTypes.string.isRequired,
-      template:                   React.PropTypes.oneOfType([React.PropTypes.bool,
-                                                             React.PropTypes.string]).isRequired,
-      status:                     React.PropTypes.string.isRequired,
-      data:                       React.PropTypes.string
-                                }).isRequired,
+TrControls.propTypes = Object.assign({
     store:                    React.PropTypes.object.isRequired
-  };
+  }, TrData.propTypes);
 
 
 window._plugin_RobotsWhiz__renderControls = function(tablePosts,
@@ -482,6 +502,12 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                 post              ={ objData['post'] }
                                 store             ={ store } />,
                     elContainerControls);
+
+    const elContainerData = document.createElement('tbody');
+    $(elContainerData).insertAfter(elParent);
+    ReactDOM.render(<TrData indexRow          ={ objData.indexRow }
+                            post              ={ objData['post'] } />,
+                    elContainerData);
   };
 
 window._plugin_RobotsWhiz__setStrings = function(mapStringsSet) {

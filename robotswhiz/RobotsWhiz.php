@@ -273,15 +273,7 @@
                         ];
                     \array_push($arrPosts, $objPost);
                 ?><tbody data--robots-whiz--role='post-config'><?php
-                  ?><tr class='robots-whiz--1st-row <?=$indexRow % 2 == 0 ? 'robots-whiz--odd-row'
-                                                                          : ""?>'>
-                      <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$idPost?></a></td>
-                      <td><a href='<?=\get_edit_post_link($idPost)?>'><?=$strPostName?></a></td>
-                      <td><?=$post->post_type?></td>
-                      <td><?=\get_page_template_slug($idPost)?></td>
-                      <td><?=\get_post_status($idPost)?></td>
-                    </tr>
-                  </tbody><?php
+                ?></tbody><?php
                     $indexRow++;
                 }
                 \wp_reset_postdata();
