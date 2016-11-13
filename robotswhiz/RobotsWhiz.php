@@ -262,10 +262,9 @@
                     $strPostMeta  = \get_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, true);
                     $dataPost     = $strPostMeta ? \json_decode($strPostMeta, true) : null;
                     $strData      = $dataPost ? $dataPost['robots'] : null;
-
                     $objPost = [
                             'id'         => $idPost,
-                            'link_edit'  => \get_edit_post_link($idPost),
+                            'link_edit'  => \get_edit_post_link($idPost, ""),
                             'name'       => $strPostName,
                             'type'       => $post->post_type,
                             'template'   => \get_page_template_slug($idPost),
