@@ -325,7 +325,6 @@
                           ?>
                               window._plugin_RobotsWhiz__renderControls(
                                     $tablePosts[0],
-                                    arr$tbody[<?=$i?>],
                                     {
                                         indexRow:             <?=$i?>,
                                         post:                 arrPosts[<?=$i?>]

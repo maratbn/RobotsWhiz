@@ -489,7 +489,6 @@ TrControls.propTypes = Object.assign({
 
 
 window._plugin_RobotsWhiz__renderControls = function(tablePosts,
-                                                     elParent,
                                                      objData) {
 
     const store = createStore(reducer);
