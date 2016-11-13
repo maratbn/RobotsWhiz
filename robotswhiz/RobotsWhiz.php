@@ -286,6 +286,21 @@
               (function() {
                   var arrPosts = <?=\json_encode($arrPosts)?>,
 
+                      strColumnID
+                            = "<?=\__('ID', 'domain-plugin-RobotsWhiz')?>",
+
+                      strColumnName
+                            = "<?=\__('Post Name', 'domain-plugin-RobotsWhiz')?>",
+
+                      strColumnType
+                            = "<?=\__('Post Type', 'domain-plugin-RobotsWhiz')?>",
+
+                      strColumnTemplate
+                            = "<?=\__('Page Template', 'domain-plugin-RobotsWhiz')?>",
+
+                      strColumnStatus
+                            = "<?=\__('Post Status', 'domain-plugin-RobotsWhiz')?>",
+
                       strConfirmCustomClear
                             = "<?=\__('Are you sure you want to clear-out your custom content?',
                                       'domain-plugin-RobotsWhiz')?>",
@@ -303,6 +318,11 @@
                                       'domain-plugin-RobotsWhiz')?>";
 
                   window._plugin_RobotsWhiz__setStrings({
+                          strColumnID:              strColumnID,
+                          strColumnName:            strColumnName,
+                          strColumnType:            strColumnType,
+                          strColumnTemplate:        strColumnTemplate,
+                          strColumnStatus:          strColumnStatus,
                           strConfirmCustomClear:    strConfirmCustomClear,
                           strLabelAddCustom:        strLabelAddCustom,
                           strLabelClearCustom:      strLabelClearCustom,
