@@ -435,13 +435,13 @@ class Controls extends React.Component {
                                                                 ? ' robots-whiz--odd-row'
                                                                 : "") }>
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
-            <Readout store                  ={ this.props.store } />
-            <CheckboxRow excludeToken       ={ this.excludeToken }
-                         includeToken       ={ this.includeToken }
-                         store              ={ this.props.store } />
-            <CustomRow excludeToken         ={ this.excludeToken }
-                       includeToken         ={ this.includeToken }
-                       store                ={ this.props.store } />
+            <Readout store              ={ this.props.store } />
+            <CheckboxRow excludeToken   ={ this.excludeToken }
+                         includeToken   ={ this.includeToken }
+                         store          ={ this.props.store } />
+            <CustomRow excludeToken     ={ this.excludeToken }
+                       includeToken     ={ this.includeToken }
+                       store            ={ this.props.store } />
           </td>
         </tr>
       );
