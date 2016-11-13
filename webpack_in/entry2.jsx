@@ -72,6 +72,20 @@ const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 let mapStrings = null;
 
 
+class TrHeader extends React.Component {
+  render() {
+    return (
+        <tr>
+          <th className='robots-whiz--column-header'>{ mapStrings.strColumnID }</th>
+          <th className='robots-whiz--column-header'>{ mapStrings.strColumnName }</th>
+          <th className='robots-whiz--column-header'>{ mapStrings.strColumnType }</th>
+          <th className='robots-whiz--column-header'>{ mapStrings.strColumnTemplate }</th>
+          <th className='robots-whiz--column-header'>{ mapStrings.strColumnStatus }</th>
+        </tr>);
+  }
+}
+
+
 class Readout extends React.Component {
   render() {
       const arrTokens = this.props.store.getState();
@@ -487,6 +501,13 @@ TrControls.propTypes = Object.assign({
     store:                    React.PropTypes.object.isRequired
   }, TrData.propTypes);
 
+
+window._plugin_RobotsWhiz__renderHeader = function(tablePosts) {
+    const elContainerHeader = document.createElement('thead');
+    tablePosts.appendChild(elContainerHeader);
+    ReactDOM.render(<TrHeader />,
+                    elContainerHeader);
+  };
 
 window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                      objData) {
