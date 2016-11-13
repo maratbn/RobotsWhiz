@@ -229,33 +229,33 @@
 
           global $post;
           if ($w_p_query->have_posts()) {
+              $indexRow = 0;
+              $arrPosts = [];
+              while($w_p_query->have_posts()) {
+
+                  $w_p_query->the_post();
+                  $idPost       = $post->ID;
+                  $strPostName  = $post->post_name;
+                  $strPostMeta  = \get_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, true);
+                  $dataPost     = $strPostMeta ? \json_decode($strPostMeta, true) : null;
+                  $strData      = $dataPost ? $dataPost['robots'] : null;
+                  $objPost = [
+                          'id'         => $idPost,
+                          'link_edit'  => \get_edit_post_link($idPost, ""),
+                          'name'       => $strPostName,
+                          'type'       => $post->post_type,
+                          'template'   => \get_page_template_slug($idPost),
+                          'status'     => \get_post_status($idPost),
+                          'data'       => $strData
+                      ];
+                  \array_push($arrPosts, $objPost);
+                  $indexRow++;
+              }
+              \wp_reset_postdata();
           ?><input type='submit' value='<?=\__('Update Settings',
                                                'domain-plugin-RobotsWhiz')
                                           ?>' class='button-primary'/><hr><?php
           ?><table class='robots-whiz--table' data--robots-whiz--role='posts'><?php
-                $indexRow = 0;
-                $arrPosts = [];
-                while($w_p_query->have_posts()) {
-
-                    $w_p_query->the_post();
-                    $idPost       = $post->ID;
-                    $strPostName  = $post->post_name;
-                    $strPostMeta  = \get_post_meta($idPost, ROBOTS_WHIZ__META_CONTENT, true);
-                    $dataPost     = $strPostMeta ? \json_decode($strPostMeta, true) : null;
-                    $strData      = $dataPost ? $dataPost['robots'] : null;
-                    $objPost = [
-                            'id'         => $idPost,
-                            'link_edit'  => \get_edit_post_link($idPost, ""),
-                            'name'       => $strPostName,
-                            'type'       => $post->post_type,
-                            'template'   => \get_page_template_slug($idPost),
-                            'status'     => \get_post_status($idPost),
-                            'data'       => $strData
-                        ];
-                    \array_push($arrPosts, $objPost);
-                    $indexRow++;
-                }
-                \wp_reset_postdata();
           ?></table><?php
           ?><hr><input type='submit' value='<?=\__('Update Settings',
                                                    'domain-plugin-RobotsWhiz')
