@@ -338,7 +338,8 @@
                                     {
                                         indexRow:             <?=$i?>,
                                         post:                 arrPosts[<?=$i?>]
-                                    });
+                                    },
+                                    $);
                           <?php
                           }
                       ?>
