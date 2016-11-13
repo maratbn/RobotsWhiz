@@ -431,15 +431,19 @@ class Controls extends React.Component {
 
   render() {
     return (
-        <td colSpan='5' className='robots-whiz--td--checkboxes'>
-          <Readout store                  ={ this.props.store } />
-          <CheckboxRow excludeToken       ={ this.excludeToken }
-                       includeToken       ={ this.includeToken }
-                       store              ={ this.props.store } />
-          <CustomRow excludeToken         ={ this.excludeToken }
-                     includeToken         ={ this.includeToken }
-                     store                ={ this.props.store } />
-        </td>
+        <tr className={ 'robots-whiz--2nd-row' + ((this.props.indexRow % 2 == 0)
+                                                                ? ' robots-whiz--odd-row'
+                                                                : "") }>
+          <td colSpan='5' className='robots-whiz--td--checkboxes'>
+            <Readout store                  ={ this.props.store } />
+            <CheckboxRow excludeToken       ={ this.excludeToken }
+                         includeToken       ={ this.includeToken }
+                         store              ={ this.props.store } />
+            <CustomRow excludeToken         ={ this.excludeToken }
+                       includeToken         ={ this.includeToken }
+                       store                ={ this.props.store } />
+          </td>
+        </tr>
       );
   }
 }
@@ -486,12 +490,8 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     store.subscribe(updateReadout);
 
 
-    const elContainerControls = document.createElement('tr');
-    elContainerControls.setAttribute('class',
-                                     'robots-whiz--2nd-row' + ((objData.indexRow % 2 == 0)
-                                                                ? ' robots-whiz--odd-row'
-                                                                : ""));
-    elParent.appendChild(elContainerControls);
+    const elContainerControls = document.createElement('tbody');
+    $(elContainerControls).insertAfter(elParent);
     ReactDOM.render(<Controls indexRow            ={ objData.indexRow }
                               post                ={ objData['post'] }
                               store               ={ store } />,
