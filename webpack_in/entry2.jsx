@@ -497,13 +497,13 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
 
 
     const elContainerData = document.createElement('tbody');
-    $(elContainerData).insertAfter(elParent);
+    tablePosts.appendChild(elContainerData);
     ReactDOM.render(<TrData indexRow          ={ objData.indexRow }
                             post              ={ objData['post'] } />,
                     elContainerData);
 
     const elContainerControls = document.createElement('tbody');
-    $(elContainerControls).insertAfter(elContainerData);
+    tablePosts.appendChild(elContainerControls);
     ReactDOM.render(<TrControls indexRow          ={ objData.indexRow }
                                 post              ={ objData['post'] }
                                 store             ={ store } />,
