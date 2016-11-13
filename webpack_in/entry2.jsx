@@ -496,18 +496,18 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     const store = createStore(reducer);
 
 
-    const elContainerControls = document.createElement('tbody');
-    $(elContainerControls).insertAfter(elParent);
-    ReactDOM.render(<TrControls indexRow          ={ objData.indexRow }
-                                post              ={ objData['post'] }
-                                store             ={ store } />,
-                    elContainerControls);
-
     const elContainerData = document.createElement('tbody');
     $(elContainerData).insertAfter(elParent);
     ReactDOM.render(<TrData indexRow          ={ objData.indexRow }
                             post              ={ objData['post'] } />,
                     elContainerData);
+
+    const elContainerControls = document.createElement('tbody');
+    $(elContainerControls).insertAfter(elContainerData);
+    ReactDOM.render(<TrControls indexRow          ={ objData.indexRow }
+                                post              ={ objData['post'] }
+                                store             ={ store } />,
+                    elContainerControls);
   };
 
 window._plugin_RobotsWhiz__setStrings = function(mapStringsSet) {
