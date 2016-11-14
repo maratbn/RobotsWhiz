@@ -66,13 +66,13 @@ const reducer = (state = [], action) => {
   };
 
 
-const createActionExclude = (strToken, post_id) => {
+const createActionExclude = (post_id, strToken) => {
     return {type:     ACTION__EXCLUDE_TOKEN,
             post_id:  post_id,
             token:    strToken};
   };
 
-const createActionInclude = (strToken, post_id) => {
+const createActionInclude = (post_id, strToken) => {
     return {type:     ACTION__INCLUDE_TOKEN,
             post_id:  post_id,
             token:    strToken};
@@ -471,11 +471,11 @@ class TrControls extends React.Component {
     super(props);
 
     this.excludeToken = (strToken) => {
-        this.props.store.dispatch(createActionExclude(strToken, this.props.post.id));
+        this.props.store.dispatch(createActionExclude(this.props.post.id, strToken));
       };
 
     this.includeToken = (strToken) => {
-        this.props.store.dispatch(createActionInclude(strToken, this.props.post.id));
+        this.props.store.dispatch(createActionInclude(this.props.post.id, strToken));
       };
 
     const arrTokensInitial = props.post.data &&
