@@ -340,6 +340,7 @@ class CheckboxRow extends React.Component {
 
 CheckboxRow.propTypes = {
     //  Data:
+    post_id:                  React.PropTypes.number.isRequired,
     store:                    React.PropTypes.object.isRequired,
 
     //  Functions:
@@ -498,7 +499,8 @@ class TrControls extends React.Component {
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
             <Readout post_id            ={ this.props.post.id }
                      store              ={ this.props.store } />
-            <CheckboxRow store          ={ this.props.store }
+            <CheckboxRow post_id        ={ this.props.post.id }
+                         store          ={ this.props.store }
                          excludeToken   ={ this.excludeToken }
                          includeToken   ={ this.includeToken } />
             <CustomRow store            ={ this.props.store }
