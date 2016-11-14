@@ -71,6 +71,11 @@ const createActionExclude = (strToken) => {
             token:  strToken};
   };
 
+const createActionInclude = (strToken) => {
+    return {type:   ACTION__INCLUDE_TOKEN,
+            token:  strToken};
+  };
+
 
 const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
@@ -462,8 +467,7 @@ class TrControls extends React.Component {
       };
 
     this.includeToken = (strToken) => {
-        this.props.store.dispatch({type:   ACTION__INCLUDE_TOKEN,
-                                   token:  strToken});
+        this.props.store.dispatch(createActionInclude(strToken));
       };
 
     const arrTokensInitial = props.post.data &&
