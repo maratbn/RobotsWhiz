@@ -51,7 +51,7 @@ const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
       ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN';
 
 const reducer = (state = [], action) => {
-    const token = action.token;
+    const { token } = action;
 
     if (action.type == ACTION__EXCLUDE_TOKEN) {
       var indexToken = state.indexOf(token);
