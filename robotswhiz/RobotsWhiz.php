@@ -255,8 +255,7 @@
           ?><input type='submit' value='<?=\__('Update Settings',
                                                'domain-plugin-RobotsWhiz')
                                           ?>' class='button-primary'/><hr><?php
-          ?><table class='robots-whiz--table' data--robots-whiz--role='posts'><?php
-          ?></table><?php
+          ?><span data--robots-whiz--role='table-container'></span><?php
           ?><hr><input type='submit' value='<?=\__('Update Settings',
                                                    'domain-plugin-RobotsWhiz')
                                               ?>' class='button-primary'/><?php
@@ -313,23 +312,9 @@
 
 
                   jQuery(document).ready(function($) {
-                          var $tablePosts = $('table[data--robots-whiz--role=posts]');
-
-                          if ($tablePosts.length != 1) return;
-
-                          window._plugin_RobotsWhiz__renderHeader($tablePosts[0]);
-                      <?php
-                          for ($i = 0; $i < $totalPosts; $i++) {
-                          ?>
-                              window._plugin_RobotsWhiz__renderControls(
-                                    $tablePosts[0],
-                                    {
-                                        indexRow:             <?=$i?>,
-                                        post:                 arrPosts[<?=$i?>]
-                                    });
-                          <?php
-                          }
-                      ?>
+                          window._plugin_RobotsWhiz__renderTable(
+                                           $('span[data--robots-whiz--role=table-container]')[0],
+                                           arrPosts);
                       });
               })();
           </script><?php

@@ -533,27 +533,35 @@ class TrControls extends React.Component {
 TrControls.propTypes = TrData.propTypes;
 
 
-window._plugin_RobotsWhiz__renderHeader = function(tablePosts) {
-    const elContainerHeader = document.createElement('thead');
-    tablePosts.appendChild(elContainerHeader);
-    ReactDOM.render(<TrHeader />,
-                    elContainerHeader);
+class TableOfPosts extends React.Component {
+  render() {
+    let arrRows = [];
+    for (let i = 0; i < this.props.posts.length; i++) {
+      const objPost = this.props.posts[i];
+      arrRows.push(
+          <tbody key={ objPost.id }>
+            <TrData indexRow={ i } post={ objPost } />
+            <TrControls indexRow={ i } post={ objPost } />
+          </tbody>
+        );
+    }
+    return (
+        <table className='robots-whiz--table'>
+          <thead><TrHeader /></thead>
+          { arrRows }
+        </table>
+      );
+  }
+}
+
+TableOfPosts.propTypes = {
+    posts:                    React.PropTypes.arrayOf(TrControls.propTypes.post).isRequired
   };
 
-window._plugin_RobotsWhiz__renderControls = function(tablePosts,
-                                                     objData) {
 
-    const elContainerData = document.createElement('tbody');
-    tablePosts.appendChild(elContainerData);
-    ReactDOM.render(<TrData indexRow          ={ objData.indexRow }
-                            post              ={ objData['post'] } />,
-                    elContainerData);
-
-    const elContainerControls = document.createElement('tbody');
-    tablePosts.appendChild(elContainerControls);
-    ReactDOM.render(<TrControls indexRow          ={ objData.indexRow }
-                                post              ={ objData['post'] } />,
-                    elContainerControls);
+window._plugin_RobotsWhiz__renderTable = function(elContainer, arrPosts) {
+    ReactDOM.render(<TableOfPosts posts={ arrPosts } />,
+                    elContainer);
   };
 
 window._plugin_RobotsWhiz__setStrings = function(mapStringsSet) {
