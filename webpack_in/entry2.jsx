@@ -51,15 +51,15 @@ const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
       ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN';
 
 const reducer = (state = [], action) => {
-    const strToken = action.token;
+    const token = action.token;
 
     if (action.type == ACTION__EXCLUDE_TOKEN) {
-      var indexToken = state.indexOf(strToken);
+      var indexToken = state.indexOf(token);
       if (indexToken != -1) {
         return state.slice(0, indexToken).concat(state.slice(indexToken + 1, state.length));
       }
     } else if (action.type == ACTION__INCLUDE_TOKEN) {
-      if (state.indexOf(strToken) == -1) return [...state, strToken].sort();
+      if (state.indexOf(token) == -1) return [...state, token].sort();
     }
 
     return state;
