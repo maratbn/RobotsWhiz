@@ -50,16 +50,26 @@ console.log("JSX entry logic.");
 const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
       ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN';
 
-const reducer = (state = [], action) => {
-    const { token } = action;
+const reducer = (state = {}, action) => {
+    const { post_id, token } = action;
+
+    const arrTokensOld = state[post_id] || [];
 
     if (action.type == ACTION__EXCLUDE_TOKEN) {
-      var indexToken = state.indexOf(token);
+      var indexToken = arrTokensOld.indexOf(token);
       if (indexToken != -1) {
-        return state.slice(0, indexToken).concat(state.slice(indexToken + 1, state.length));
+        const stateNew = Object.assign({}, state);
+        stateNew[post_id] = arrTokensOld.slice(0, indexToken)
+                                        .concat(arrTokensOld.slice(indexToken + 1,
+                                                                   arrTokensOld.length));
+        return stateNew;
       }
     } else if (action.type == ACTION__INCLUDE_TOKEN) {
-      if (state.indexOf(token) == -1) return [...state, token].sort();
+      if (arrTokensOld.indexOf(token) == -1) {
+        const stateNew = Object.assign({}, state);
+        stateNew[post_id] = [...arrTokensOld, token].sort();
+        return stateNew;
+      }
     }
 
     return state;
@@ -78,7 +88,7 @@ const dispatchActionInclude = (store, post_id, strToken) => {
                     token:    strToken});
   };
 
-const getTokens = (store, post_id) => (store.getState());
+const getTokens = (store, post_id) => (store.getState()[post_id] || []);
 
 
 const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
