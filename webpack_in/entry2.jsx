@@ -78,6 +78,14 @@ const createActionInclude = (post_id, strToken) => {
             token:    strToken};
   };
 
+const dispatchActionExclude = (store, post_id, strToken) => {
+    store.dispatch(createActionExclude(post_id, strToken));
+  };
+
+const dispatchActionInclude = (store, post_id, strToken) => {
+    store.dispatch(createActionInclude(post_id, strToken));
+  };
+
 const getTokens = (store, post_id) => (store.getState());
 
 
@@ -471,11 +479,11 @@ class TrControls extends React.Component {
     super(props);
 
     this.excludeToken = (strToken) => {
-        this.props.store.dispatch(createActionExclude(this.props.post.id, strToken));
+        dispatchActionExclude(this.props.store, this.props.post.id, strToken);
       };
 
     this.includeToken = (strToken) => {
-        this.props.store.dispatch(createActionInclude(this.props.post.id, strToken));
+        dispatchActionInclude(this.props.store, this.props.post.id, strToken);
       };
 
     const arrTokensInitial = props.post.data &&
