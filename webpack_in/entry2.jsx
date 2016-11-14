@@ -78,19 +78,19 @@ const reducer = (state = {}, action) => {
 
 const store = createStore(reducer);
 
-const dispatchActionExclude = (store, post_id, strToken) => {
+const dispatchActionExclude = (post_id, strToken) => {
     store.dispatch({type:     ACTION__EXCLUDE_TOKEN,
                     post_id:  post_id,
                     token:    strToken});
   };
 
-const dispatchActionInclude = (store, post_id, strToken) => {
+const dispatchActionInclude = (post_id, strToken) => {
     store.dispatch({type:     ACTION__INCLUDE_TOKEN,
                     post_id:  post_id,
                     token:    strToken});
   };
 
-const getTokens = (store, post_id) => (store.getState()[post_id] || []);
+const getTokens = (post_id) => (store.getState()[post_id] || []);
 
 
 const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
@@ -115,7 +115,7 @@ class TrHeader extends React.Component {
 
 class Readout extends React.Component {
   render() {
-      const arrTokens = getTokens(this.props.store, this.props.post_id);
+      const arrTokens = getTokens(this.props.post_id);
       return (
           <div className='robots-whiz--readout'>
             { arrTokens.length == 0
@@ -319,8 +319,7 @@ class CheckboxRow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.isIncluded = (strToken) => (getTokens(this.props.store,
-                                               this.props.post_id).indexOf(strToken) >= 0);
+    this.isIncluded = (strToken) => (getTokens(this.props.post_id).indexOf(strToken) >= 0);
   }
 
   render() {
@@ -380,7 +379,7 @@ class CustomRow extends React.Component {
 
     let arrTokensNonStandard = [];
 
-    getTokens(this.props.store, this.props.post_id).map(strToken => {
+    getTokens(this.props.post_id).map(strToken => {
         if (isTokenNonStandard(strToken)) {
           arrTokensNonStandard.push(strToken);
         }
@@ -483,11 +482,11 @@ class TrControls extends React.Component {
     super(props);
 
     this.excludeToken = (strToken) => {
-        dispatchActionExclude(this.props.store, this.props.post.id, strToken);
+        dispatchActionExclude(this.props.post.id, strToken);
       };
 
     this.includeToken = (strToken) => {
-        dispatchActionInclude(this.props.store, this.props.post.id, strToken);
+        dispatchActionInclude(this.props.post.id, strToken);
       };
 
     const arrTokensInitial = props.post.data &&
@@ -500,10 +499,10 @@ class TrControls extends React.Component {
   }
 
   componentWillMount() {
-    let arrTokensOld = getTokens(this.props.store, this.props.post.id);
+    let arrTokensOld = getTokens(this.props.post.id);
 
     this.props.store.subscribe(() => {
-        const arrTokensNew = getTokens(this.props.store, this.props.post.id);
+        const arrTokensNew = getTokens(this.props.post.id);
 
         if (arrTokensNew == arrTokensOld) return;
         if ((arrTokensNew.length == 0) && (arrTokensOld.length == 0)) return;
@@ -530,8 +529,7 @@ class TrControls extends React.Component {
                        excludeToken     ={ this.excludeToken }
                        includeToken     ={ this.includeToken } />
             <HiddenDataField post       ={{ id: this.props.post.id,
-                                            val: getTokens(this.props.store,
-                                                           this.props.post.id) }} />
+                                            val: getTokens(this.props.post.id) }} />
           </td>
         </tr>
       );
