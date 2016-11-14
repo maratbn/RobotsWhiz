@@ -78,6 +78,8 @@ const createActionInclude = (strToken, post_id) => {
             token:    strToken};
   };
 
+const getTokens = (store) => (store.getState());
+
 
 const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
@@ -101,7 +103,7 @@ class TrHeader extends React.Component {
 
 class Readout extends React.Component {
   render() {
-      const arrTokens = this.props.store.getState();
+      const arrTokens = getTokens(this.props.store);
       return (
           <div className='robots-whiz--readout'>
             { arrTokens.length == 0
@@ -304,7 +306,7 @@ class CheckboxRow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.isIncluded = (strToken) => (this.props.store.getState().indexOf(strToken) >= 0);
+    this.isIncluded = (strToken) => (getTokens(this.props.store).indexOf(strToken) >= 0);
   }
 
   render() {
@@ -363,7 +365,7 @@ class CustomRow extends React.Component {
 
     let arrTokensNonStandard = [];
 
-    this.props.store.getState().map(strToken => {
+    getTokens(this.props.store).map(strToken => {
         if (isTokenNonStandard(strToken)) {
           arrTokensNonStandard.push(strToken);
         }
@@ -501,7 +503,7 @@ class TrControls extends React.Component {
                        includeToken     ={ this.includeToken }
                        store            ={ this.props.store } />
             <HiddenDataField post       ={{ id: this.props.post.id,
-                                            val: this.props.store.getState() }} />
+                                            val: getTokens(this.props.store) }} />
           </td>
         </tr>
       );
