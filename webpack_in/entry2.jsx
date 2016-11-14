@@ -129,8 +129,7 @@ class Readout extends React.Component {
 }
 
 Readout.propTypes = {
-    post_id:                  React.PropTypes.number.isRequired,
-    store:                    React.PropTypes.object.isRequired
+    post_id:                  React.PropTypes.number.isRequired
   };
 
 
@@ -353,7 +352,6 @@ class CheckboxRow extends React.Component {
 CheckboxRow.propTypes = {
     //  Data:
     post_id:                  React.PropTypes.number.isRequired,
-    store:                    React.PropTypes.object.isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
@@ -436,7 +434,6 @@ CustomRow.propTypes = {
 
     //  Data:
     post_id:                  React.PropTypes.number.isRequired,
-    store:                    React.PropTypes.object.isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
@@ -518,14 +515,11 @@ class TrControls extends React.Component {
                                                                 ? ' robots-whiz--odd-row'
                                                                 : "") }>
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
-            <Readout post_id            ={ this.props.post.id }
-                     store              ={ this.props.store } />
+            <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id }
-                         store          ={ this.props.store }
                          excludeToken   ={ this.excludeToken }
                          includeToken   ={ this.includeToken } />
             <CustomRow post_id          ={ this.props.post.id }
-                       store            ={ this.props.store }
                        excludeToken     ={ this.excludeToken }
                        includeToken     ={ this.includeToken } />
             <HiddenDataField post       ={{ id: this.props.post.id,
@@ -536,9 +530,7 @@ class TrControls extends React.Component {
   }
 }
 
-TrControls.propTypes = Object.assign({
-    store:                    React.PropTypes.object.isRequired
-  }, TrData.propTypes);
+TrControls.propTypes = TrData.propTypes;
 
 
 window._plugin_RobotsWhiz__renderHeader = function(tablePosts) {
@@ -560,8 +552,7 @@ window._plugin_RobotsWhiz__renderControls = function(tablePosts,
     const elContainerControls = document.createElement('tbody');
     tablePosts.appendChild(elContainerControls);
     ReactDOM.render(<TrControls indexRow          ={ objData.indexRow }
-                                post              ={ objData['post'] }
-                                store             ={ store } />,
+                                post              ={ objData['post'] } />,
                     elContainerControls);
   };
 
