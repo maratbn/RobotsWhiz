@@ -76,6 +76,8 @@ const reducer = (state = {}, action) => {
   };
 
 
+const store = createStore(reducer);
+
 const dispatchActionExclude = (store, post_id, strToken) => {
     store.dispatch({type:     ACTION__EXCLUDE_TOKEN,
                     post_id:  post_id,
@@ -550,9 +552,6 @@ window._plugin_RobotsWhiz__renderHeader = function(tablePosts) {
 
 window._plugin_RobotsWhiz__renderControls = function(tablePosts,
                                                      objData) {
-
-    const store = createStore(reducer);
-
 
     const elContainerData = document.createElement('tbody');
     tablePosts.appendChild(elContainerData);
