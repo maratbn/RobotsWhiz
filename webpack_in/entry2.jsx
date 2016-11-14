@@ -67,13 +67,13 @@ const reducer = (state = [], action) => {
 
 
 const createActionExclude = (strToken) => {
-    return {type:   ACTION__EXCLUDE_TOKEN,
-            token:  strToken};
+    return {type:     ACTION__EXCLUDE_TOKEN,
+            token:    strToken};
   };
 
 const createActionInclude = (strToken) => {
-    return {type:   ACTION__INCLUDE_TOKEN,
-            token:  strToken};
+    return {type:     ACTION__INCLUDE_TOKEN,
+            token:    strToken};
   };
 
 
