@@ -501,7 +501,7 @@ class TrControls extends React.Component {
   componentWillMount() {
     let arrTokensOld = getTokens(this.props.post.id);
 
-    this.props.store.subscribe(() => {
+    store.subscribe(() => {
         const arrTokensNew = getTokens(this.props.post.id);
 
         if (arrTokensNew == arrTokensOld) return;
