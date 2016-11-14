@@ -66,24 +66,16 @@ const reducer = (state = [], action) => {
   };
 
 
-const createActionExclude = (post_id, strToken) => {
-    return {type:     ACTION__EXCLUDE_TOKEN,
-            post_id:  post_id,
-            token:    strToken};
-  };
-
-const createActionInclude = (post_id, strToken) => {
-    return {type:     ACTION__INCLUDE_TOKEN,
-            post_id:  post_id,
-            token:    strToken};
-  };
-
 const dispatchActionExclude = (store, post_id, strToken) => {
-    store.dispatch(createActionExclude(post_id, strToken));
+    store.dispatch({type:     ACTION__EXCLUDE_TOKEN,
+                    post_id:  post_id,
+                    token:    strToken});
   };
 
 const dispatchActionInclude = (store, post_id, strToken) => {
-    store.dispatch(createActionInclude(post_id, strToken));
+    store.dispatch({type:     ACTION__INCLUDE_TOKEN,
+                    post_id:  post_id,
+                    token:    strToken});
   };
 
 const getTokens = (store, post_id) => (store.getState());
