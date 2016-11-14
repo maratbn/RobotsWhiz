@@ -498,12 +498,12 @@ class TrControls extends React.Component {
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
             <Readout post_id            ={ this.props.post.id }
                      store              ={ this.props.store } />
-            <CheckboxRow excludeToken   ={ this.excludeToken }
-                         includeToken   ={ this.includeToken }
-                         store          ={ this.props.store } />
-            <CustomRow excludeToken     ={ this.excludeToken }
-                       includeToken     ={ this.includeToken }
-                       store            ={ this.props.store } />
+            <CheckboxRow store          ={ this.props.store }
+                         excludeToken   ={ this.excludeToken }
+                         includeToken   ={ this.includeToken } />
+            <CustomRow store            ={ this.props.store }
+                       excludeToken     ={ this.excludeToken }
+                       includeToken     ={ this.includeToken } />
             <HiddenDataField post       ={{ id: this.props.post.id,
                                             val: getTokens(this.props.store) }} />
           </td>
