@@ -117,6 +117,7 @@ class Readout extends React.Component {
 }
 
 Readout.propTypes = {
+    post_id:                  React.PropTypes.number.isRequired,
     store:                    React.PropTypes.object.isRequired
   };
 
@@ -495,7 +496,8 @@ class TrControls extends React.Component {
                                                                 ? ' robots-whiz--odd-row'
                                                                 : "") }>
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
-            <Readout store              ={ this.props.store } />
+            <Readout post_id            ={ this.props.post.id }
+                     store              ={ this.props.store } />
             <CheckboxRow excludeToken   ={ this.excludeToken }
                          includeToken   ={ this.includeToken }
                          store          ={ this.props.store } />
