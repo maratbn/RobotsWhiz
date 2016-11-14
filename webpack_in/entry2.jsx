@@ -423,6 +423,7 @@ class CustomRow extends React.Component {
 CustomRow.propTypes = {
 
     //  Data:
+    post_id:                  React.PropTypes.number.isRequired,
     store:                    React.PropTypes.object.isRequired,
 
     //  Functions:
@@ -503,7 +504,8 @@ class TrControls extends React.Component {
                          store          ={ this.props.store }
                          excludeToken   ={ this.excludeToken }
                          includeToken   ={ this.includeToken } />
-            <CustomRow store            ={ this.props.store }
+            <CustomRow post_id          ={ this.props.post.id }
+                       store            ={ this.props.store }
                        excludeToken     ={ this.excludeToken }
                        includeToken     ={ this.includeToken } />
             <HiddenDataField post       ={{ id: this.props.post.id,
