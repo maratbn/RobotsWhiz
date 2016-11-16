@@ -535,18 +535,17 @@ TrControls.propTypes = TrData.propTypes;
 
 class TableOfPosts extends React.Component {
   render() {
-    let arrRows = this.props.posts.map((objPost, i) => {
-        return (
-            <tbody key={ objPost.id }>
-              <TrData indexRow={ i } post={ objPost } />
-              <TrControls indexRow={ i } post={ objPost } />
-            </tbody>
-          );
-      });
     return (
         <table className='robots-whiz--table'>
           <thead><TrHeader /></thead>
-          { arrRows }
+          { this.props.posts.map((objPost, i) => {
+                return (
+                    <tbody key={ objPost.id }>
+                      <TrData indexRow={ i } post={ objPost } />
+                      <TrControls indexRow={ i } post={ objPost } />
+                    </tbody>
+                  );
+              }) }
         </table>
       );
   }
