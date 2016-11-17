@@ -48,12 +48,13 @@ console.log("JSX entry logic.");
 
 
 const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
-      ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN';
+      ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN',
+      ARR_EMPTY             = [];
 
 const reducer = (state = {}, action) => {
     const { post_id, token } = action;
 
-    const arrTokensOld = state[post_id] || [];
+    const arrTokensOld = state[post_id] || ARR_EMPTY;
 
     if (action.type == ACTION__EXCLUDE_TOKEN) {
       var indexToken = arrTokensOld.indexOf(token);
@@ -90,7 +91,7 @@ const dispatchActionInclude = (post_id, strToken) => {
                     token:    strToken});
   };
 
-const getTokens = (post_id) => (store.getState()[post_id] || []);
+const getTokens = (post_id) => (store.getState()[post_id] || ARR_EMPTY);
 
 
 const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
