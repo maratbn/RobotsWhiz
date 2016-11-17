@@ -497,17 +497,8 @@ class TrControls extends React.Component {
   }
 
   componentWillMount() {
-    let arrTokensOld = getTokens(this.props.post.id);
-
-    store.subscribe(() => {
-        const arrTokensNew = getTokens(this.props.post.id);
-
-        if (arrTokensNew == arrTokensOld) return;
-        if ((arrTokensNew.length == 0) && (arrTokensOld.length == 0)) return;
-
-        this.forceUpdate();
-        arrTokensOld = arrTokensNew;
-      });
+    store.subscribe(() => this._updateState());
+    this._updateState();
   }
 
   render() {
@@ -524,10 +515,21 @@ class TrControls extends React.Component {
                        excludeToken     ={ this.excludeToken }
                        includeToken     ={ this.includeToken } />
             <HiddenDataField post       ={{ id: this.props.post.id,
-                                            val: getTokens(this.props.post.id) }} />
+                                            val: this.state.tokens }} />
           </td>
         </tr>
       );
+  }
+
+  _updateState() {
+    const arrTokensNew = getTokens(this.props.post.id);
+
+    if (this.state &&
+        this.state.tokens == arrTokensNew) return;
+
+    this.setState({
+        tokens: arrTokensNew
+      });
   }
 }
 
