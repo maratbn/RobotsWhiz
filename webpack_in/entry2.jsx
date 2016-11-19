@@ -43,6 +43,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
 console.log("JSX entry logic.");
 
@@ -560,7 +561,7 @@ TableOfPosts.propTypes = {
 
 
 window._plugin_RobotsWhiz__renderTable = function(elContainer, arrPosts) {
-    ReactDOM.render(<TableOfPosts posts={ arrPosts } />,
+    ReactDOM.render(<Provider store={ store }><TableOfPosts posts={ arrPosts } /></Provider>,
                     elContainer);
   };
 
