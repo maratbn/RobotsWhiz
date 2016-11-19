@@ -31,7 +31,12 @@
     $ npm install redux
 
 
-5.  Compile JavaScript with Webpack:
+5.  Install the 'react-redux' npm module:
+
+    $ npm install react-redux
+
+
+6.  Compile JavaScript with Webpack:
 
     $ ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js
 
