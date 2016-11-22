@@ -484,16 +484,12 @@ class TrControls extends React.Component {
         dispatchActionExclude(this.props.post.id, strToken);
       };
 
-    this.includeToken = (strToken) => {
-        dispatchActionInclude(this.props.post.id, strToken);
-      };
-
     const arrTokensInitial = props.post.data &&
                              (typeof props.post.data == 'string') &&
                              props.post.data.split(/\s+/) || [];
 
     arrTokensInitial.map(strToken => {
-        this.includeToken(strToken);
+        this.props.includeToken(strToken);
       });
   }
 
@@ -506,10 +502,10 @@ class TrControls extends React.Component {
             <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id }
                          excludeToken   ={ this.excludeToken }
-                         includeToken   ={ this.includeToken } />
+                         includeToken   ={ this.props.includeToken } />
             <CustomRow post_id          ={ this.props.post.id }
                        excludeToken     ={ this.excludeToken }
-                       includeToken     ={ this.includeToken } />
+                       includeToken     ={ this.props.includeToken } />
             <HiddenDataField post       ={{ id: this.props.post.id,
                                             val: this.props.tokens }} />
           </td>
@@ -522,6 +518,8 @@ TrControls.propTypes = TrData.propTypes;
 
 TrControls = connect((store, ownProps) => ({
     tokens: getTokens(ownProps.post.id)
+  }), (dispatch, ownProps) => ({
+    includeToken: (strToken) => {dispatchActionInclude(ownProps.post.id, strToken);}
   }))(TrControls);
 
 
