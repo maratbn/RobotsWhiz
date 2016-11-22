@@ -95,7 +95,7 @@ const dispatchActionInclude = (post_id, strToken) => {
 const getTokens = (post_id) => (store.getState()[post_id] || ARR_EMPTY);
 
 
-const arrTokensStandard = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
+const ARR_TOKENS_STANDARD = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
 
 let mapStrings = null;
@@ -186,14 +186,14 @@ CheckboxNonStd.propTypes = {
 
 class CheckboxNonStdAll extends React.Component {
   areAllIncluded() {
-    for (let strName of arrTokensStandard) {
+    for (let strName of ARR_TOKENS_STANDARD) {
       if (!this.props.isIncluded(strName)) return false;
     }
     return true;
   }
 
   includeAll() {
-    for (let strName of arrTokensStandard) {
+    for (let strName of ARR_TOKENS_STANDARD) {
       this.props.includeToken(strName);
     }
   }
@@ -220,14 +220,14 @@ CheckboxNonStdAll.propTypes = {
 
 class CheckboxNonStdNone extends React.Component {
   areAllExcluded() {
-    for (let strName of arrTokensStandard) {
+    for (let strName of ARR_TOKENS_STANDARD) {
       if (this.props.isIncluded(strName)) return false;
     }
     return true;
   }
 
   excludeAll() {
-    for (let strName of arrTokensStandard) {
+    for (let strName of ARR_TOKENS_STANDARD) {
       this.props.excludeToken(strName);
     }
   }
@@ -375,7 +375,7 @@ class CustomRow extends React.Component {
   }
 
   getArrTokensNonStandard() {
-    const isTokenNonStandard = strToken => !arrTokensStandard.includes(strToken);
+    const isTokenNonStandard = strToken => !ARR_TOKENS_STANDARD.includes(strToken);
 
     let arrTokensNonStandard = [];
 
