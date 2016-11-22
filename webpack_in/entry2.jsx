@@ -497,11 +497,6 @@ class TrControls extends React.Component {
       });
   }
 
-  componentWillMount() {
-    store.subscribe(() => this._updateState());
-    this._updateState();
-  }
-
   render() {
     return (
         <tr className={ 'robots-whiz--2nd-row' + ((this.props.indexRow % 2 == 0)
@@ -516,21 +511,10 @@ class TrControls extends React.Component {
                        excludeToken     ={ this.excludeToken }
                        includeToken     ={ this.includeToken } />
             <HiddenDataField post       ={{ id: this.props.post.id,
-                                            val: this.state.tokens }} />
+                                            val: this.props.tokens }} />
           </td>
         </tr>
       );
-  }
-
-  _updateState() {
-    const arrTokensNew = getTokens(this.props.post.id);
-
-    if (this.state &&
-        this.state.tokens == arrTokensNew) return;
-
-    this.setState({
-        tokens: arrTokensNew
-      });
   }
 }
 
