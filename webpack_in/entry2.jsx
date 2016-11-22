@@ -480,10 +480,6 @@ class TrControls extends React.Component {
   constructor(props) {
     super(props);
 
-    this.excludeToken = (strToken) => {
-        dispatchActionExclude(this.props.post.id, strToken);
-      };
-
     const arrTokensInitial = props.post.data &&
                              (typeof props.post.data == 'string') &&
                              props.post.data.split(/\s+/) || [];
@@ -501,10 +497,10 @@ class TrControls extends React.Component {
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
             <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id }
-                         excludeToken   ={ this.excludeToken }
+                         excludeToken   ={ this.props.excludeToken }
                          includeToken   ={ this.props.includeToken } />
             <CustomRow post_id          ={ this.props.post.id }
-                       excludeToken     ={ this.excludeToken }
+                       excludeToken     ={ this.props.excludeToken }
                        includeToken     ={ this.props.includeToken } />
             <HiddenDataField post       ={{ id: this.props.post.id,
                                             val: this.props.tokens }} />
@@ -519,6 +515,7 @@ TrControls.propTypes = TrData.propTypes;
 TrControls = connect((store, ownProps) => ({
     tokens: getTokens(ownProps.post.id)
   }), (dispatch, ownProps) => ({
+    excludeToken: (strToken) => {dispatchActionExclude(ownProps.post.id, strToken);},
     includeToken: (strToken) => {dispatchActionInclude(ownProps.post.id, strToken);}
   }))(TrControls);
 
