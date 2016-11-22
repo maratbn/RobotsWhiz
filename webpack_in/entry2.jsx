@@ -50,7 +50,8 @@ console.log("JSX entry logic.");
 
 const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
       ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN',
-      ARR_EMPTY             = [];
+      ARR_EMPTY             = [],
+      ARR_TOKENS_STANDARD   = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
 const reducer = (state = {}, action) => {
     const { post_id, token } = action;
@@ -93,9 +94,6 @@ const dispatchActionInclude = (post_id, strToken) => {
   };
 
 const getTokens = (post_id) => (store.getState()[post_id] || ARR_EMPTY);
-
-
-const ARR_TOKENS_STANDARD = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
 
 let mapStrings = null;
