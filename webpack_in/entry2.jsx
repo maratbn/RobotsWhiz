@@ -43,7 +43,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import { Provider } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 
 console.log("JSX entry logic.");
 
@@ -535,6 +535,10 @@ class TrControls extends React.Component {
 }
 
 TrControls.propTypes = TrData.propTypes;
+
+TrControls = connect((store, ownProps) => ({
+    tokens: getTokens(ownProps.post.id)
+  }))(TrControls);
 
 
 class TableOfPosts extends React.Component {
