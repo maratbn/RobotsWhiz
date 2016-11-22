@@ -556,7 +556,7 @@ class TableOfPosts extends React.Component {
 }
 
 TableOfPosts.propTypes = {
-    posts:                    React.PropTypes.arrayOf(TrControls.propTypes.post).isRequired
+    posts:                    React.PropTypes.arrayOf(TrData.propTypes.post).isRequired
   };
 
 
