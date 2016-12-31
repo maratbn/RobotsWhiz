@@ -60,6 +60,12 @@ const createActionToExcludeToken = (post_id, strToken) => {
             token:    strToken};
   };
 
+const createActionToIncludeToken = (post_id, strToken) => {
+    return {type:     ACTION__INCLUDE_TOKEN,
+            post_id:  post_id,
+            token:    strToken};
+  };
+
 
 const reducer = (state = {}, action) => {
     const { post_id, token } = action;
@@ -94,9 +100,7 @@ const dispatchActionExclude = (post_id, strToken) => {
   };
 
 const dispatchActionInclude = (post_id, strToken) => {
-    store.dispatch({type:     ACTION__INCLUDE_TOKEN,
-                    post_id:  post_id,
-                    token:    strToken});
+    store.dispatch(createActionToIncludeToken(post_id, strToken));
   };
 
 const getTokens = (post_id) => (store.getState()[post_id] || ARR_EMPTY);
