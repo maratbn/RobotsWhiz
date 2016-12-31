@@ -53,6 +53,14 @@ const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
       ARR_EMPTY             = [],
       ARR_TOKENS_STANDARD   = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
+
+const createActionToExcludeToken = (post_id, strToken) => {
+    return {type:     ACTION__EXCLUDE_TOKEN,
+            post_id:  post_id,
+            token:    strToken};
+  };
+
+
 const reducer = (state = {}, action) => {
     const { post_id, token } = action;
 
@@ -82,9 +90,7 @@ const reducer = (state = {}, action) => {
 const store = createStore(reducer);
 
 const dispatchActionExclude = (post_id, strToken) => {
-    store.dispatch({type:     ACTION__EXCLUDE_TOKEN,
-                    post_id:  post_id,
-                    token:    strToken});
+    store.dispatch(createActionToExcludeToken(post_id, strToken));
   };
 
 const dispatchActionInclude = (post_id, strToken) => {
