@@ -95,9 +95,8 @@ const reducer = (state = {}, action) => {
 
 const store = createStore(reducer);
 
-const dispatchActionExclude = bindActionCreators(createActionToExcludeToken, store.dispatch);
-
-const dispatchActionInclude = bindActionCreators(createActionToIncludeToken, store.dispatch);
+const dispatchActionExclude = bindActionCreators(createActionToExcludeToken, store.dispatch),
+      dispatchActionInclude = bindActionCreators(createActionToIncludeToken, store.dispatch);
 
 const getTokens = (post_id) => (store.getState()[post_id] || ARR_EMPTY);
 
