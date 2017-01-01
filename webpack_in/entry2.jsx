@@ -58,9 +58,8 @@ const createActionToExcludeToken = (post_id, strToken) => {
     return {type:     ACTION__EXCLUDE_TOKEN,
             post_id:  post_id,
             token:    strToken};
-  };
-
-const createActionToIncludeToken = (post_id, strToken) => {
+  },
+  createActionToIncludeToken = (post_id, strToken) => {
     return {type:     ACTION__INCLUDE_TOKEN,
             post_id:  post_id,
             token:    strToken};
