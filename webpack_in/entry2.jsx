@@ -92,7 +92,8 @@ const reducer = (state = {}, action) => {
   };
 
 
-const store = createStore(reducer);
+const store = createStore(reducer,
+                          window.devToolsExtension && window.devToolsExtension());
 
 const dispatchActionExclude = bindActionCreators(createActionToExcludeToken, store.dispatch),
       dispatchActionInclude = bindActionCreators(createActionToIncludeToken, store.dispatch);
