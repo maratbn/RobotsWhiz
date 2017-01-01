@@ -102,8 +102,8 @@ const getTokens = (post_id) => (store.getState()[post_id] || ARR_EMPTY);
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    excludeToken: (strToken) => {dispatchActionExclude(ownProps.post.id, strToken);},
-    includeToken: (strToken) => {dispatchActionInclude(ownProps.post.id, strToken);}
+    excludeToken: (strToken) => dispatchActionExclude(ownProps.post.id, strToken),
+    includeToken: (strToken) => dispatchActionInclude(ownProps.post.id, strToken)
   });
 
 
