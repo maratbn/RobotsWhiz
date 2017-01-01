@@ -42,7 +42,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { bindActionCreators, createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 
 console.log("JSX entry logic.");
@@ -95,13 +95,9 @@ const reducer = (state = {}, action) => {
 
 const store = createStore(reducer);
 
-const dispatchActionExclude = (post_id, strToken) => {
-    store.dispatch(createActionToExcludeToken(post_id, strToken));
-  };
+const dispatchActionExclude = bindActionCreators(createActionToExcludeToken, store.dispatch);
 
-const dispatchActionInclude = (post_id, strToken) => {
-    store.dispatch(createActionToIncludeToken(post_id, strToken));
-  };
+const dispatchActionInclude = bindActionCreators(createActionToIncludeToken, store.dispatch);
 
 const getTokens = (post_id) => (store.getState()[post_id] || ARR_EMPTY);
 
