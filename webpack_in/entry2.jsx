@@ -101,6 +101,12 @@ const dispatchActionExclude = bindActionCreators(createActionToExcludeToken, sto
 const getTokens = (post_id) => (store.getState()[post_id] || ARR_EMPTY);
 
 
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    excludeToken: (strToken) => {dispatchActionExclude(ownProps.post.id, strToken);},
+    includeToken: (strToken) => {dispatchActionInclude(ownProps.post.id, strToken);}
+  });
+
+
 let mapStrings = null;
 
 
@@ -514,11 +520,6 @@ class TrControls extends React.Component {
 }
 
 TrControls.propTypes = TrData.propTypes;
-
-const mapDispatchToProps = (dispatch, ownProps) => ({
-    excludeToken: (strToken) => {dispatchActionExclude(ownProps.post.id, strToken);},
-    includeToken: (strToken) => {dispatchActionInclude(ownProps.post.id, strToken);}
-  });
 
 TrControls = connect((store, ownProps) => ({
     tokens: getTokens(ownProps.post.id)
