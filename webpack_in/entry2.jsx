@@ -156,21 +156,21 @@ Readout = connect((state, ownProps) => ({
 
 class Checkbox extends React.Component {
   render() {
-      return (
-          <label>
-            <input type='checkbox'
-                   checked={ this.props.is_checked }
-                   data-robots-whiz--role={ this.props.role }
-                   name={ this.props.name }
-                   onChange={ (event) => {
-                                if (this.props.on_change) {
-                                  this.props.on_change({ checked: event.target.checked });
-                                }
-                              } } />
-            { this.props.is_italic ? (<i>{ this.props.label }</i>) : this.props.label }
-          </label>
-        );
-    }
+    return (
+        <label>
+          <input type='checkbox'
+                 checked={ this.props.is_checked }
+                 data-robots-whiz--role={ this.props.role }
+                 name={ this.props.name }
+                 onChange={ (event) => {
+                              if (this.props.on_change) {
+                                this.props.on_change({ checked: event.target.checked });
+                              }
+                            } } />
+          { this.props.is_italic ? (<i>{ this.props.label }</i>) : this.props.label }
+        </label>
+      );
+  }
 }
 
 Checkbox.propTypes = {
