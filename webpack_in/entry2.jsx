@@ -533,8 +533,7 @@ class TrControls extends React.Component {
 TrControls.propTypes = TrData.propTypes;
 
 TrControls = connect((state, ownProps) => ({
-    tokens: getTokens(ownProps.post.id)
-  }), mapDispatchToProps)(TrControls);
+  }), mapDispatchToProps, null, {pure: false})(TrControls);
 
 
 class TableOfPosts extends React.Component {
