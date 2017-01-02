@@ -468,7 +468,7 @@ CustomRow.propTypes = {
 
 CustomRow = connect((state, ownProps) => ({
     post_tokens: state[ownProps.post_id] || ARR_EMPTY
-  }), mapDispatchToPropsForPostID, null, {pure: false})(CustomRow);
+  }), mapDispatchToPropsForPostID)(CustomRow);
 
 
 class TrData extends React.Component {
