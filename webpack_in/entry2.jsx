@@ -330,7 +330,7 @@ class HiddenDataField extends React.Component {
 HiddenDataField.propTypes = {
     post:                     React.PropTypes.shape({
       id:                         React.PropTypes.number.isRequired,
-      val:                        React.PropTypes.array.isRequired
+      val:                        React.PropTypes.arrayOf(React.PropTypes.string).isRequired
                                 }).isRequired
   };
 
