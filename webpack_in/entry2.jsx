@@ -130,12 +130,13 @@ class TrHeader extends React.Component {
 
 class Readout extends React.Component {
   render() {
-      const arrTokens = getTokens(this.props.post_id);
       return (
           <div className='robots-whiz--readout'>
-            { arrTokens.length == 0
+            { this.props.post_tokens.length == 0
                 ? '\u00A0'
-                : "<meta name=\"robots\" content=\"" + arrTokens.join(", ")
+                : "<meta name=\"robots\" content=\"" + this.props
+                                                              .post_tokens
+                                                                .join(", ")
                                                                 .replace(/\\/g, "\\\\")
                                                                 .replace(/"/g, "\\\"")
                                                      + "\">" }
@@ -144,7 +145,8 @@ class Readout extends React.Component {
 }
 
 Readout.propTypes = {
-    post_id:                  React.PropTypes.number.isRequired
+    post_id:                  React.PropTypes.number.isRequired,
+    post_tokens:              React.PropTypes.arrayOf(React.PropTypes.string).isRequired
   };
 
 
@@ -512,7 +514,8 @@ class TrControls extends React.Component {
                                                                 ? ' robots-whiz--odd-row'
                                                                 : "") }>
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
-            <Readout post_id            ={ this.props.post.id } />
+            <Readout post_id            ={ this.props.post.id }
+                     post_tokens        ={ this.props.tokens } />
             <CheckboxRow post_id        ={ this.props.post.id } />
             <CustomRow post_id          ={ this.props.post.id } />
             <HiddenDataField post       ={{ id: this.props.post.id,
