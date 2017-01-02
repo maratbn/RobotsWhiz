@@ -531,7 +531,7 @@ class TrControls extends React.Component {
 
 TrControls.propTypes = TrData.propTypes;
 
-TrControls = connect((store, ownProps) => ({
+TrControls = connect((state, ownProps) => ({
     tokens: getTokens(ownProps.post.id)
   }), mapDispatchToProps)(TrControls);
 
