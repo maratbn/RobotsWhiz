@@ -332,6 +332,10 @@ HiddenDataField.propTypes = {
     post_tokens:              React.PropTypes.arrayOf(React.PropTypes.string).isRequired
   };
 
+HiddenDataField = connect((state, ownProps) => ({
+    post_tokens: state[ownProps.post_id] || ARR_EMPTY
+  }))(HiddenDataField);
+
 
 class CheckboxRow extends React.Component {
   constructor(props) {
@@ -519,8 +523,7 @@ class TrControls extends React.Component {
             <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id } />
             <CustomRow post_id          ={ this.props.post.id } />
-            <HiddenDataField post_id    ={ this.props.post.id }
-                             post_tokens={ this.props.tokens } />
+            <HiddenDataField post_id    ={ this.props.post.id } />
           </td>
         </tr>
       );
