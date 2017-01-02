@@ -402,7 +402,7 @@ class CustomRow extends React.Component {
 
     let arrTokensNonStandard = [];
 
-    getTokens(this.props.post_id).map(strToken => {
+    this.props.post_tokens.map(strToken => {
         if (isTokenNonStandard(strToken)) {
           arrTokensNonStandard.push(strToken);
         }
@@ -459,13 +459,16 @@ CustomRow.propTypes = {
 
     //  Data:
     post_id:                  React.PropTypes.number.isRequired,
+    post_tokens:              React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired
   };
 
-CustomRow = connect(null, mapDispatchToPropsForPostID, null, {pure: false})(CustomRow);
+CustomRow = connect((state, ownProps) => ({
+    post_tokens: state[ownProps.post_id] || ARR_EMPTY
+  }), mapDispatchToPropsForPostID, null, {pure: false})(CustomRow);
 
 
 class TrData extends React.Component {
