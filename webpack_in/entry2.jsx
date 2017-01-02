@@ -457,6 +457,8 @@ CustomRow.propTypes = {
     includeToken:             React.PropTypes.func.isRequired
   };
 
+CustomRow = connect(null, mapDispatchToPropsForPostID, null, {pure: false})(CustomRow);
+
 
 class TrData extends React.Component {
   render() {
@@ -512,9 +514,7 @@ class TrControls extends React.Component {
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
             <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id } />
-            <CustomRow post_id          ={ this.props.post.id }
-                       excludeToken     ={ this.props.excludeToken }
-                       includeToken     ={ this.props.includeToken } />
+            <CustomRow post_id          ={ this.props.post.id } />
             <HiddenDataField post       ={{ id: this.props.post.id,
                                             val: this.props.tokens }} />
           </td>
