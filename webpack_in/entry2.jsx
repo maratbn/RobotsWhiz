@@ -149,6 +149,10 @@ Readout.propTypes = {
     post_tokens:              React.PropTypes.arrayOf(React.PropTypes.string).isRequired
   };
 
+Readout = connect((state, ownProps) => ({
+    post_tokens: state[ownProps.post_id] || ARR_EMPTY
+  }))(Readout);
+
 
 class Checkbox extends React.Component {
   render() {
@@ -514,8 +518,7 @@ class TrControls extends React.Component {
                                                                 ? ' robots-whiz--odd-row'
                                                                 : "") }>
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
-            <Readout post_id            ={ this.props.post.id }
-                     post_tokens        ={ this.props.tokens } />
+            <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id } />
             <CustomRow post_id          ={ this.props.post.id } />
             <HiddenDataField post       ={{ id: this.props.post.id,
