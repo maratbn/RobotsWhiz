@@ -321,17 +321,15 @@ class HiddenDataField extends React.Component {
   render() {
       return (
           <input type='hidden'
-                 name={ 'post_' + this.props.post.id }
-                 value={ JSON.stringify({'robots': this.props.post.val.join(" ")}) } />
+                 name={ 'post_' + this.props.post_id }
+                 value={ JSON.stringify({'robots': this.props.post_tokens.join(" ")}) } />
         );
     }
 }
 
 HiddenDataField.propTypes = {
-    post:                     React.PropTypes.shape({
-      id:                         React.PropTypes.number.isRequired,
-      val:                        React.PropTypes.arrayOf(React.PropTypes.string).isRequired
-                                }).isRequired
+    post_id:                  React.PropTypes.number.isRequired,
+    post_tokens:              React.PropTypes.arrayOf(React.PropTypes.string).isRequired
   };
 
 
@@ -521,8 +519,8 @@ class TrControls extends React.Component {
             <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id } />
             <CustomRow post_id          ={ this.props.post.id } />
-            <HiddenDataField post       ={{ id: this.props.post.id,
-                                            val: this.props.tokens }} />
+            <HiddenDataField post_id    ={ this.props.post.id }
+                             post_tokens={ this.props.tokens } />
           </td>
         </tr>
       );
