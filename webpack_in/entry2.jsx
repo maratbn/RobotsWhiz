@@ -77,6 +77,7 @@ const reducer = (state = {}, action) => {
         return {
             ...state,
             [post_id]: {
+                ...state[post_id],
                 data: arrTokensOld.slice(0, indexToken)
                                   .concat(arrTokensOld.slice(indexToken + 1, arrTokensOld.length))
               }
@@ -87,6 +88,7 @@ const reducer = (state = {}, action) => {
         return {
             ...state,
             [post_id]: {
+                ...state[post_id],
                 data: [...arrTokensOld, token].sort()
               }
           };
