@@ -105,14 +105,18 @@ const store = createStore(reducer,
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-      excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post.id, strToken)),
-      includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post.id, strToken))
+      excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post.id,
+                                                                      strToken)),
+      includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post.id,
+                                                                      strToken))
     });
 
 
 const mapDispatchToProps_Post = (dispatch, ownProps) => ({
-      excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post_id, strToken)),
-      includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post_id, strToken))
+      excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post_id,
+                                                                      strToken)),
+      includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post_id,
+                                                                      strToken))
     });
 
 
