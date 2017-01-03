@@ -74,7 +74,7 @@ const reducer = (state = {}, action) => {
     if (action.type == ACTION__EXCLUDE_TOKEN) {
       var indexToken = arrTokensOld.indexOf(token);
       if (indexToken != -1) {
-        const stateNew = Object.assign({}, state);
+        const stateNew = {...state};
         stateNew[post_id] = {
             data: arrTokensOld.slice(0, indexToken)
                               .concat(arrTokensOld.slice(indexToken + 1, arrTokensOld.length))
@@ -83,7 +83,7 @@ const reducer = (state = {}, action) => {
       }
     } else if (action.type == ACTION__INCLUDE_TOKEN) {
       if (arrTokensOld.indexOf(token) == -1) {
-        const stateNew = Object.assign({}, state);
+        const stateNew = {...state};
         stateNew[post_id] = {
             data: [...arrTokensOld, token].sort()
           };
