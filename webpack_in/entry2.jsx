@@ -55,48 +55,48 @@ const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
 
 
 const createActionToExcludeToken = (post_id, strToken) => {
-    return {type:     ACTION__EXCLUDE_TOKEN,
-            post_id:  post_id,
-            token:    strToken};
-  },
+      return {type:     ACTION__EXCLUDE_TOKEN,
+              post_id:  post_id,
+              token:    strToken};
+    },
   createActionToIncludeToken = (post_id, strToken) => {
-    return {type:     ACTION__INCLUDE_TOKEN,
-            post_id:  post_id,
-            token:    strToken};
-  };
+      return {type:     ACTION__INCLUDE_TOKEN,
+              post_id:  post_id,
+              token:    strToken};
+    };
 
 
 const reducer = (state = {}, action) => {
-    const { post_id, token } = action;
+      const { post_id, token } = action;
 
-    const arrTokensOld = state[post_id] && state[post_id].data || ARR_EMPTY;
+      const arrTokensOld = state[post_id] && state[post_id].data || ARR_EMPTY;
 
-    if (action.type == ACTION__EXCLUDE_TOKEN) {
-      var indexToken = arrTokensOld.indexOf(token);
-      if (indexToken != -1) {
-        return {
-            ...state,
-            [post_id]: {
-                ...state[post_id],
-                data: arrTokensOld.slice(0, indexToken)
-                                  .concat(arrTokensOld.slice(indexToken + 1, arrTokensOld.length))
-              }
-          };
+      if (action.type == ACTION__EXCLUDE_TOKEN) {
+        var indexToken = arrTokensOld.indexOf(token);
+        if (indexToken != -1) {
+          return {
+              ...state,
+              [post_id]: {
+                  ...state[post_id],
+                  data: arrTokensOld.slice(0, indexToken)
+                                    .concat(arrTokensOld.slice(indexToken + 1, arrTokensOld.length))
+                }
+            };
+        }
+      } else if (action.type == ACTION__INCLUDE_TOKEN) {
+        if (arrTokensOld.indexOf(token) == -1) {
+          return {
+              ...state,
+              [post_id]: {
+                  ...state[post_id],
+                  data: [...arrTokensOld, token].sort()
+                }
+            };
+        }
       }
-    } else if (action.type == ACTION__INCLUDE_TOKEN) {
-      if (arrTokensOld.indexOf(token) == -1) {
-        return {
-            ...state,
-            [post_id]: {
-                ...state[post_id],
-                data: [...arrTokensOld, token].sort()
-              }
-          };
-      }
-    }
 
-    return state;
-  };
+      return state;
+    };
 
 
 const store = createStore(reducer,
@@ -104,26 +104,26 @@ const store = createStore(reducer,
 
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post.id, strToken)),
-    includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post.id, strToken))
-  });
+      excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post.id, strToken)),
+      includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post.id, strToken))
+    });
 
 
 const mapDispatchToProps_Post = (dispatch, ownProps) => ({
-    excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post_id, strToken)),
-    includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post_id, strToken))
-  });
+      excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post_id, strToken)),
+      includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post_id, strToken))
+    });
 
 
 const mapStateToProps_Post = (state, propsIn) => {
-    let propsOut = {
-        post_tokens: state[propsIn.post_id] && state[propsIn.post_id].data || ARR_EMPTY
-      };
+      let propsOut = {
+          post_tokens: state[propsIn.post_id] && state[propsIn.post_id].data || ARR_EMPTY
+        };
 
-    propsOut.isIncluded = (strToken) => (propsOut.post_tokens.indexOf(strToken) >= 0);
+      propsOut.isIncluded = (strToken) => (propsOut.post_tokens.indexOf(strToken) >= 0);
 
-    return propsOut;
-  };
+      return propsOut;
+    };
 
 
 let mapStrings = null;
