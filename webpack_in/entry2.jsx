@@ -341,7 +341,7 @@ class CheckboxRow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.isIncluded = (strToken) => (getTokens(this.props.post_id).indexOf(strToken) >= 0);
+    this.isIncluded = (strToken) => (this.props.post_tokens.indexOf(strToken) >= 0);
   }
 
   render() {
@@ -375,13 +375,16 @@ class CheckboxRow extends React.Component {
 CheckboxRow.propTypes = {
     //  Data:
     post_id:                  React.PropTypes.number.isRequired,
+    post_tokens:              React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired
   };
 
-CheckboxRow = connect(null, mapDispatchToPropsForPostID, null, {pure: false})(CheckboxRow);
+CheckboxRow = connect((state, ownProps) => ({
+    post_tokens: state[ownProps.post_id] || ARR_EMPTY
+  }), mapDispatchToPropsForPostID, null, {pure: false})(CheckboxRow);
 
 
 class CustomRow extends React.Component {
