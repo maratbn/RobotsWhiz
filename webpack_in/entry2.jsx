@@ -108,8 +108,8 @@ const mapDispatchToProps_Post = (dispatch, ownProps) => ({
   });
 
 
-const mapStateToProps_Post = (state, ownProps) => ({
-    post_tokens: state[ownProps.post_id] || ARR_EMPTY
+const mapStateToProps_Post = (state, propsIn) => ({
+    post_tokens: state[propsIn.post_id] || ARR_EMPTY
   });
 
 
