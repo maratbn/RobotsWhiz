@@ -310,6 +310,7 @@ class CheckboxStd extends React.Component {
 
 CheckboxStd.propTypes = {
     //  Data:
+    post_id:                  React.PropTypes.number.isRequired,
     token:                    React.PropTypes.string.isRequired,
 
     //  Functions:
@@ -362,19 +363,23 @@ class CheckboxRow extends React.Component {
         <div>
           <CheckboxNonStdAll post_id={ this.props.post_id } />
           <CheckboxNonStdNone post_id={ this.props.post_id } />
-          <CheckboxStd token='noindex'
+          <CheckboxStd post_id={ this.props.post_id }
+                       token='noindex'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
                        isIncluded={ this.props.isIncluded } />
-          <CheckboxStd token='nofollow'
+          <CheckboxStd post_id={ this.props.post_id }
+                       token='nofollow'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
                        isIncluded={ this.props.isIncluded } />
-          <CheckboxStd token='noarchive'
+          <CheckboxStd post_id={ this.props.post_id }
+                       token='noarchive'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
                        isIncluded={ this.props.isIncluded } />
-          <CheckboxStd token='noimageindex'
+          <CheckboxStd post_id={ this.props.post_id }
+                       token='noimageindex'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
                        isIncluded={ this.props.isIncluded } />
