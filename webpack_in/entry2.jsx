@@ -336,35 +336,29 @@ HiddenDataField = connect(mapStateToProps_Post)(HiddenDataField);
 
 
 class CheckboxRow extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.isIncluded = (strToken) => (this.props.post_tokens.indexOf(strToken) >= 0);
-  }
-
   render() {
     return (
         <div>
           <CheckboxNonStdAll includeToken={ this.props.includeToken }
-                             isIncluded={ this.isIncluded } />
+                             isIncluded={ this.props.isIncluded } />
           <CheckboxNonStdNone excludeToken={ this.props.excludeToken }
-                              isIncluded={ this.isIncluded } />
+                              isIncluded={ this.props.isIncluded } />
           <CheckboxStd token='noindex'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
-                       isIncluded={ this.isIncluded } />
+                       isIncluded={ this.props.isIncluded } />
           <CheckboxStd token='nofollow'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
-                       isIncluded={ this.isIncluded } />
+                       isIncluded={ this.props.isIncluded } />
           <CheckboxStd token='noarchive'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
-                       isIncluded={ this.isIncluded } />
+                       isIncluded={ this.props.isIncluded } />
           <CheckboxStd token='noimageindex'
                        excludeToken={ this.props.excludeToken }
                        includeToken={ this.props.includeToken }
-                       isIncluded={ this.isIncluded } />
+                       isIncluded={ this.props.isIncluded } />
         </div>
       );
   }
@@ -377,8 +371,13 @@ CheckboxRow.propTypes = {
 
     //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
-    includeToken:             React.PropTypes.func.isRequired
+    includeToken:             React.PropTypes.func.isRequired,
+    isIncluded:               React.PropTypes.func.isRequired
   };
+
+CheckboxRow = connect((state, ownProps) => ({
+    isIncluded: (strToken) => (ownProps.post_tokens.indexOf(strToken) >= 0)
+  }))(CheckboxRow);
 
 CheckboxRow = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CheckboxRow);
 
