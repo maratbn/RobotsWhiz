@@ -84,13 +84,12 @@ const reducer = (state = {}, action) => {
       }
     } else if (action.type == ACTION__INCLUDE_TOKEN) {
       if (arrTokensOld.indexOf(token) == -1) {
-        const stateNew = {
+        return {
             ...state,
             [post_id]: {
                 data: [...arrTokensOld, token].sort()
               }
           };
-        return stateNew;
       }
     }
 
