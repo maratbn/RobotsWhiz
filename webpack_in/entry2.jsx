@@ -79,7 +79,8 @@ const reducer = (state = {}, action) => {
               [post_id]: {
                   ...state[post_id],
                   data: arrTokensOld.slice(0, indexToken)
-                                    .concat(arrTokensOld.slice(indexToken + 1, arrTokensOld.length))
+                                    .concat(arrTokensOld.slice(indexToken + 1,
+                                                               arrTokensOld.length))
                 }
             };
         }
