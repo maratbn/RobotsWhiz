@@ -17,7 +17,12 @@
     $ npm install babel-preset-react
 
 
-3.  Install the 'react' and 'react-dom' npm modules:
+3.  Install the npm module 'babel-plugin-transform-object-rest-spread':
+
+    $ npm install babel-plugin-transform-object-rest-spread
+
+
+4.  Install the 'react' and 'react-dom' npm modules:
 
     $ npm install react
 
@@ -26,17 +31,17 @@
     $ npm install react-dom
 
 
-4.  Install the 'redux' npm module:
+5.  Install the 'redux' npm module:
 
     $ npm install redux
 
 
-5.  Install the 'react-redux' npm module:
+6.  Install the 'react-redux' npm module:
 
     $ npm install react-redux
 
 
-6.  Compile JavaScript with Webpack:
+7.  Compile JavaScript with Webpack:
 
     $ ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js
 
