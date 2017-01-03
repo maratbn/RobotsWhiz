@@ -384,7 +384,7 @@ CheckboxRow.propTypes = {
 
 CheckboxRow = connect((state, ownProps) => ({
     post_tokens: state[ownProps.post_id] || ARR_EMPTY
-  }), mapDispatchToPropsForPostID, null, {pure: false})(CheckboxRow);
+  }), mapDispatchToPropsForPostID)(CheckboxRow);
 
 
 class CustomRow extends React.Component {
