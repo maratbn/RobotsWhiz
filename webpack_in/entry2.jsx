@@ -238,6 +238,9 @@ class CheckboxNonStdAll extends React.Component {
 }
 
 CheckboxNonStdAll.propTypes = {
+    //  Data:
+    post_id:                  React.PropTypes.number.isRequired,
+
     //  Functions:
     includeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired
@@ -346,7 +349,8 @@ class CheckboxRow extends React.Component {
   render() {
     return (
         <div>
-          <CheckboxNonStdAll includeToken={ this.props.includeToken }
+          <CheckboxNonStdAll post_id={ this.props.post_id }
+                             includeToken={ this.props.includeToken }
                              isIncluded={ this.props.isIncluded } />
           <CheckboxNonStdNone excludeToken={ this.props.excludeToken }
                               isIncluded={ this.props.isIncluded } />
