@@ -278,6 +278,7 @@ class CheckboxNonStdNone extends React.Component {
 }
 
 CheckboxNonStdNone.propTypes = {
+    //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired
   };
