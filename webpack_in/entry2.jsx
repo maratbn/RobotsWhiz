@@ -69,21 +69,24 @@ const createActionToExcludeToken = (post_id, strToken) => {
 const reducer = (state = {}, action) => {
     const { post_id, token } = action;
 
-    const arrTokensOld = state[post_id] || ARR_EMPTY;
+    const arrTokensOld = state[post_id] && state[post_id].data || ARR_EMPTY;
 
     if (action.type == ACTION__EXCLUDE_TOKEN) {
       var indexToken = arrTokensOld.indexOf(token);
       if (indexToken != -1) {
         const stateNew = Object.assign({}, state);
-        stateNew[post_id] = arrTokensOld.slice(0, indexToken)
-                                        .concat(arrTokensOld.slice(indexToken + 1,
-                                                                   arrTokensOld.length));
+        stateNew[post_id] = {
+            data: arrTokensOld.slice(0, indexToken)
+                              .concat(arrTokensOld.slice(indexToken + 1, arrTokensOld.length))
+          };
         return stateNew;
       }
     } else if (action.type == ACTION__INCLUDE_TOKEN) {
       if (arrTokensOld.indexOf(token) == -1) {
         const stateNew = Object.assign({}, state);
-        stateNew[post_id] = [...arrTokensOld, token].sort();
+        stateNew[post_id] = {
+            data: [...arrTokensOld, token].sort()
+          };
         return stateNew;
       }
     }
@@ -110,7 +113,7 @@ const mapDispatchToProps_Post = (dispatch, ownProps) => ({
 
 const mapStateToProps_Post = (state, propsIn) => {
     let propsOut = {
-        post_tokens: state[propsIn.post_id] || ARR_EMPTY
+        post_tokens: state[propsIn.post_id] && state[propsIn.post_id].data || ARR_EMPTY
       };
 
     propsOut.isIncluded = (strToken) => (propsOut.post_tokens.indexOf(strToken) >= 0);
