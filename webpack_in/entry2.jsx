@@ -246,6 +246,8 @@ CheckboxNonStdAll.propTypes = {
     isIncluded:               React.PropTypes.func.isRequired
   };
 
+CheckboxNonStdAll = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CheckboxNonStdAll);
+
 
 class CheckboxNonStdNone extends React.Component {
   areAllExcluded() {
@@ -349,9 +351,7 @@ class CheckboxRow extends React.Component {
   render() {
     return (
         <div>
-          <CheckboxNonStdAll post_id={ this.props.post_id }
-                             includeToken={ this.props.includeToken }
-                             isIncluded={ this.props.isIncluded } />
+          <CheckboxNonStdAll post_id={ this.props.post_id } />
           <CheckboxNonStdNone excludeToken={ this.props.excludeToken }
                               isIncluded={ this.props.isIncluded } />
           <CheckboxStd token='noindex'
