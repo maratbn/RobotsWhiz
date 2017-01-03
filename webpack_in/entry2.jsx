@@ -309,10 +309,13 @@ class CheckboxStd extends React.Component {
 }
 
 CheckboxStd.propTypes = {
+    //  Data:
+    token:                    React.PropTypes.string.isRequired,
+
+    //  Functions:
     excludeToken:             React.PropTypes.func.isRequired,
     includeToken:             React.PropTypes.func.isRequired,
-    isIncluded:               React.PropTypes.func.isRequired,
-    token:                    React.PropTypes.string.isRequired
+    isIncluded:               React.PropTypes.func.isRequired
   };
 
 
