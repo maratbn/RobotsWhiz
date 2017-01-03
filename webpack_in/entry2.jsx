@@ -113,6 +113,8 @@ const mapStateToProps_Post = (state, propsIn) => {
         post_tokens: state[propsIn.post_id] || ARR_EMPTY
       };
 
+    propsOut.isIncluded = (strToken) => (propsOut.post_tokens.indexOf(strToken) >= 0);
+
     return propsOut;
   };
 
@@ -378,10 +380,6 @@ CheckboxRow.propTypes = {
     includeToken:             React.PropTypes.func.isRequired,
     isIncluded:               React.PropTypes.func.isRequired
   };
-
-CheckboxRow = connect((state, ownProps) => ({
-    isIncluded: (strToken) => (ownProps.post_tokens.indexOf(strToken) >= 0)
-  }))(CheckboxRow);
 
 CheckboxRow = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CheckboxRow);
 
