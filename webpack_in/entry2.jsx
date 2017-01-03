@@ -297,15 +297,15 @@ CheckboxStd.propTypes = {
 
 class Link extends React.Component {
   render() {
-      return (
-          <label>
-            <a className='robots-whiz--td--link' style={{margin: '0.25em'}}
-                onClick={event => { event.preventDefault();
-                                    this.props.callback_click();
-                                  }}>{ this.props.label }</a>
-          </label>
-        );
-    }
+    return (
+        <label>
+          <a className='robots-whiz--td--link' style={{margin: '0.25em'}}
+              onClick={event => { event.preventDefault();
+                                  this.props.callback_click();
+                                }}>{ this.props.label }</a>
+        </label>
+      );
+  }
 }
 
 Link.propTypes = {
