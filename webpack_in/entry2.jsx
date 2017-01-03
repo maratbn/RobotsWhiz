@@ -383,8 +383,6 @@ CheckboxRow.propTypes = {
     post_id:                  React.PropTypes.number.isRequired
   };
 
-CheckboxRow = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CheckboxRow);
-
 
 class CustomRow extends React.Component {
 
