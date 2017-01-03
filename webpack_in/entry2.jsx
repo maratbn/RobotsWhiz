@@ -511,7 +511,7 @@ class TrControls extends React.Component {
 
     const arrTokensInitial = props.post.data &&
                              (typeof props.post.data == 'string') &&
-                             props.post.data.split(/\s+/) || [];
+                             props.post.data.split(/\s+/) || ARR_EMPTY;
 
     arrTokensInitial.map(strToken => {
         this.props.includeToken(strToken);
