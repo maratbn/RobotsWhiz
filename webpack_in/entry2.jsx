@@ -102,7 +102,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   });
 
 
-const mapDispatchToPropsForPostID = (dispatch, ownProps) => ({
+const mapDispatchToProps_Post = (dispatch, ownProps) => ({
     excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post_id, strToken)),
     includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post_id, strToken))
   });
@@ -381,7 +381,7 @@ CheckboxRow.propTypes = {
 
 CheckboxRow = connect((state, ownProps) => ({
     post_tokens: state[ownProps.post_id] || ARR_EMPTY
-  }), mapDispatchToPropsForPostID)(CheckboxRow);
+  }), mapDispatchToProps_Post)(CheckboxRow);
 
 
 class CustomRow extends React.Component {
@@ -468,7 +468,7 @@ CustomRow.propTypes = {
 
 CustomRow = connect((state, ownProps) => ({
     post_tokens: state[ownProps.post_id] || ARR_EMPTY
-  }), mapDispatchToPropsForPostID)(CustomRow);
+  }), mapDispatchToProps_Post)(CustomRow);
 
 
 class TrData extends React.Component {
