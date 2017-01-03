@@ -74,10 +74,12 @@ const reducer = (state = {}, action) => {
     if (action.type == ACTION__EXCLUDE_TOKEN) {
       var indexToken = arrTokensOld.indexOf(token);
       if (indexToken != -1) {
-        const stateNew = {...state};
-        stateNew[post_id] = {
-            data: arrTokensOld.slice(0, indexToken)
-                              .concat(arrTokensOld.slice(indexToken + 1, arrTokensOld.length))
+        const stateNew = {
+            ...state,
+            [post_id]: {
+                data: arrTokensOld.slice(0, indexToken)
+                                  .concat(arrTokensOld.slice(indexToken + 1, arrTokensOld.length))
+              }
           };
         return stateNew;
       }
