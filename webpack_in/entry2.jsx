@@ -506,18 +506,6 @@ TrData.propTypes = {
 
 
 class TrControls extends React.Component {
-  constructor(props) {
-    super(props);
-
-    const arrTokensInitial = props.post.data &&
-                             (typeof props.post.data == 'string') &&
-                             props.post.data.split(/\s+/) || ARR_EMPTY;
-
-    arrTokensInitial.map(strToken => {
-        this.props.includeToken(strToken);
-      });
-  }
-
   render() {
     return (
         <tr className={ 'robots-whiz--2nd-row' + ((this.props.indexRow % 2 == 0)
@@ -564,6 +552,16 @@ TableOfPosts.propTypes = {
 
 
 window._plugin_RobotsWhiz__renderTable = function(elContainer, arrPosts) {
+    arrPosts && arrPosts.map(objPost => {
+        const arrTokensInitial = objPost.data &&
+                                 (typeof objPost.data == 'string') &&
+                                 objPost.data.split(/\s+/) || ARR_EMPTY;
+
+        arrTokensInitial.map(strToken => {
+            store.dispatch(createActionToIncludeToken(objPost.id, strToken));
+          });
+      });
+
     ReactDOM.render(<Provider store={ store }><TableOfPosts posts={ arrPosts } /></Provider>,
                     elContainer);
   };
