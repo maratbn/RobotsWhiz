@@ -108,6 +108,11 @@ const mapDispatchToProps_Post = (dispatch, ownProps) => ({
   });
 
 
+const mapStateToProps_Post = (state, ownProps) => ({
+    post_tokens: state[ownProps.post_id] || ARR_EMPTY
+  });
+
+
 let mapStrings = null;
 
 
@@ -146,9 +151,7 @@ Readout.propTypes = {
     post_tokens:              React.PropTypes.arrayOf(React.PropTypes.string).isRequired
   };
 
-Readout = connect((state, ownProps) => ({
-    post_tokens: state[ownProps.post_id] || ARR_EMPTY
-  }))(Readout);
+Readout = connect(mapStateToProps_Post)(Readout);
 
 
 class Checkbox extends React.Component {
@@ -329,9 +332,7 @@ HiddenDataField.propTypes = {
     post_tokens:              React.PropTypes.arrayOf(React.PropTypes.string).isRequired
   };
 
-HiddenDataField = connect((state, ownProps) => ({
-    post_tokens: state[ownProps.post_id] || ARR_EMPTY
-  }))(HiddenDataField);
+HiddenDataField = connect(mapStateToProps_Post)(HiddenDataField);
 
 
 class CheckboxRow extends React.Component {
@@ -379,9 +380,7 @@ CheckboxRow.propTypes = {
     includeToken:             React.PropTypes.func.isRequired
   };
 
-CheckboxRow = connect((state, ownProps) => ({
-    post_tokens: state[ownProps.post_id] || ARR_EMPTY
-  }), mapDispatchToProps_Post)(CheckboxRow);
+CheckboxRow = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CheckboxRow);
 
 
 class CustomRow extends React.Component {
@@ -466,9 +465,7 @@ CustomRow.propTypes = {
     includeToken:             React.PropTypes.func.isRequired
   };
 
-CustomRow = connect((state, ownProps) => ({
-    post_tokens: state[ownProps.post_id] || ARR_EMPTY
-  }), mapDispatchToProps_Post)(CustomRow);
+CustomRow = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CustomRow);
 
 
 class TrData extends React.Component {
