@@ -380,12 +380,7 @@ class CheckboxRow extends React.Component {
 
 CheckboxRow.propTypes = {
     //  Data:
-    post_id:                  React.PropTypes.number.isRequired,
-
-    //  Functions:
-    excludeToken:             React.PropTypes.func.isRequired,
-    includeToken:             React.PropTypes.func.isRequired,
-    isIncluded:               React.PropTypes.func.isRequired
+    post_id:                  React.PropTypes.number.isRequired
   };
 
 CheckboxRow = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CheckboxRow);
