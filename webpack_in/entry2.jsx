@@ -319,6 +319,8 @@ CheckboxStd.propTypes = {
     isIncluded:               React.PropTypes.func.isRequired
   };
 
+CheckboxStd = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CheckboxStd);
+
 
 class Link extends React.Component {
   render() {
@@ -364,25 +366,13 @@ class CheckboxRow extends React.Component {
           <CheckboxNonStdAll post_id={ this.props.post_id } />
           <CheckboxNonStdNone post_id={ this.props.post_id } />
           <CheckboxStd post_id={ this.props.post_id }
-                       token='noindex'
-                       excludeToken={ this.props.excludeToken }
-                       includeToken={ this.props.includeToken }
-                       isIncluded={ this.props.isIncluded } />
+                       token='noindex' />
           <CheckboxStd post_id={ this.props.post_id }
-                       token='nofollow'
-                       excludeToken={ this.props.excludeToken }
-                       includeToken={ this.props.includeToken }
-                       isIncluded={ this.props.isIncluded } />
+                       token='nofollow' />
           <CheckboxStd post_id={ this.props.post_id }
-                       token='noarchive'
-                       excludeToken={ this.props.excludeToken }
-                       includeToken={ this.props.includeToken }
-                       isIncluded={ this.props.isIncluded } />
+                       token='noarchive' />
           <CheckboxStd post_id={ this.props.post_id }
-                       token='noimageindex'
-                       excludeToken={ this.props.excludeToken }
-                       includeToken={ this.props.includeToken }
-                       isIncluded={ this.props.isIncluded } />
+                       token='noimageindex' />
         </div>
       );
   }
