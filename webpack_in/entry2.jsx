@@ -316,12 +316,12 @@ Link.propTypes = {
 
 class HiddenDataField extends React.Component {
   render() {
-      return (
-          <input type='hidden'
-                 name={ 'post_' + this.props.post_id }
-                 value={ JSON.stringify({'robots': this.props.post_tokens.join(" ")}) } />
-        );
-    }
+    return (
+        <input type='hidden'
+               name={ 'post_' + this.props.post_id }
+               value={ JSON.stringify({'robots': this.props.post_tokens.join(" ")}) } />
+      );
+  }
 }
 
 HiddenDataField.propTypes = {
