@@ -148,7 +148,7 @@ const mapDispatchToProps_Post = (dispatch, ownProps) => ({
 
 
 const mapStateToProps_Post = (state, propsIn) => {
-          let propsOut = {
+          const propsOut = {
               post_tokens: state.map[propsIn.post_id] &&
                            state.map[propsIn.post_id].data || ARR_EMPTY
             };
