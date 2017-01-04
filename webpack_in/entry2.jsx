@@ -127,14 +127,6 @@ const store = createStore(reducer,
                           window.devToolsExtension && window.devToolsExtension());
 
 
-const mapDispatchToProps = (dispatch, ownProps) => ({
-          excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post.id,
-                                                                          strToken)),
-          includeToken: (strToken) => dispatch(createActionToIncludeToken(ownProps.post.id,
-                                                                          strToken))
-        });
-
-
 const mapDispatchToProps_Post = (dispatch, ownProps) => ({
           excludeToken: (strToken) => dispatch(createActionToExcludeToken(ownProps.post_id,
                                                                           strToken)),
