@@ -89,6 +89,10 @@ const processActionAddPost = (state = {}, action) => {
                                    status:     post.status,
                                    data:       arrTokensInitial};
 
+    if (!stateNew.map_tokens) stateNew.map_tokens = {};
+
+    stateNew.map_tokens[post.id] = arrTokensInitial;
+
     return stateNew;
   };
 
