@@ -90,6 +90,11 @@ const processActionAddPost = (state = {}, action) => {
                                    (typeof post.data == 'string') &&
                                    post.data.split(/\s+/) || ARR_EMPTY;
 
+    if (!stateNew.arr_sorted) stateNew.arr_sorted = [];
+
+    stateNew.arr_sorted.push(post.id);
+    stateNew.arr_sorted.sort();
+
     return stateNew;
   };
 
