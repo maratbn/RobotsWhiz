@@ -101,32 +101,30 @@ const reducer = (state = {}, action) => {
 
               const { post_id, token } = action;
 
-              const arrTokensOld = state[post_id] && state[post_id].data || ARR_EMPTY;
+              const arrTokensOld = state[post_id] && state[post_id].data || ARR_EMPTY,
+                    stateNew = {...state};
 
               if (action.type == ACTION__EXCLUDE_TOKEN) {
                 var indexToken = arrTokensOld.indexOf(token);
                 if (indexToken != -1) {
-                  return {
-                      ...state,
-                      [post_id]: {
-                          ...state[post_id],
-                          data: arrTokensOld.slice(0, indexToken)
-                                            .concat(arrTokensOld.slice(indexToken + 1,
-                                                                       arrTokensOld.length))
-                        }
-                    };
+                  stateNew[post_id] = {
+                                        ...state[post_id],
+                                        data: arrTokensOld.slice(0, indexToken)
+                                                          .concat(arrTokensOld
+                                                                      .slice(indexToken + 1,
+                                                                             arrTokensOld.length))
+                                      };
                 }
               } else if (action.type == ACTION__INCLUDE_TOKEN) {
                 if (arrTokensOld.indexOf(token) == -1) {
-                  return {
-                      ...state,
-                      [post_id]: {
-                          ...state[post_id],
-                          data: [...arrTokensOld, token].sort()
-                        }
-                    };
+                  stateNew[post_id] = {
+                                        ...state[post_id],
+                                        data: [...arrTokensOld, token].sort()
+                                      };
                 }
               }
+
+              return stateNew;
           }
 
           return state;
