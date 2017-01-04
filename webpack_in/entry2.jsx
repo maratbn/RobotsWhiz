@@ -93,7 +93,7 @@ const processActionAddPost = (state = {}, action) => {
     if (!stateNew.arr_sorted) stateNew.arr_sorted = [];
 
     stateNew.arr_sorted.push(post.id);
-    stateNew.arr_sorted.sort();
+    stateNew.arr_sorted.sort((a, b) => (a - b));
 
     return stateNew;
   };
