@@ -72,9 +72,8 @@ const createActionToAddPost = (post) => {
 
 
 const processActionAddPost = (state = {}, action) => {
-    const { post } = action;
-
-    const stateNew = {...state};
+    const { post } = action,
+          stateNew = {...state};
 
     if (!stateNew.map_posts) stateNew.map_posts = {};
 
