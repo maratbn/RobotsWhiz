@@ -48,13 +48,18 @@ import { Provider, connect } from 'react-redux';
 console.log("JSX entry logic.");
 
 
-const ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
+const ACTION__ADD_POST      = 'ADD_POST',
+      ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
       ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN',
       ARR_EMPTY             = [],
       ARR_TOKENS_STANDARD   = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
 
-const createActionToExcludeToken = (post_id, strToken) => {
+const createActionToAddPost = (post) => {
+          return {type:     ACTION__ADD_POST,
+                  post};
+        },
+      createActionToExcludeToken = (post_id, strToken) => {
           return {type:     ACTION__EXCLUDE_TOKEN,
                   post_id:  post_id,
                   token:    strToken};
@@ -68,6 +73,19 @@ const createActionToExcludeToken = (post_id, strToken) => {
 
 const reducer = (state = {}, action) => {
           switch(action.type) {
+            case ACTION__ADD_POST:
+              const { post } = action;
+
+              const arrTokensInitial = post.data &&
+                                       (typeof post.data == 'string') &&
+                                       post.data.split(/\s+/) || ARR_EMPTY;
+              return {
+                  ...state,
+                  [post.id]: {
+                      ...post,
+                      data: arrTokensInitial
+                    }
+                };
             case ACTION__EXCLUDE_TOKEN:
             case ACTION__INCLUDE_TOKEN:
 
@@ -563,13 +581,7 @@ TableOfPosts.propTypes = {
 
 window._plugin_RobotsWhiz__renderTable = function(elContainer, arrPosts) {
     arrPosts && arrPosts.map(objPost => {
-        const arrTokensInitial = objPost.data &&
-                                 (typeof objPost.data == 'string') &&
-                                 objPost.data.split(/\s+/) || ARR_EMPTY;
-
-        arrTokensInitial.map(strToken => {
-            store.dispatch(createActionToIncludeToken(objPost.id, strToken));
-          });
+        store.dispatch(createActionToAddPost(objPost));
       });
 
     ReactDOM.render(<Provider store={ store }><TableOfPosts posts={ arrPosts } /></Provider>,
