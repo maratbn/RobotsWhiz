@@ -74,10 +74,7 @@ const createActionToAddPost = (post) => {
 const processActionAddPost = (state = {}, action) => {
     const { post } = action;
 
-    const arrTokensInitial = post.data &&
-                             (typeof post.data == 'string') &&
-                             post.data.split(/\s+/) || ARR_EMPTY,
-          stateNew = {...state};
+    const stateNew = {...state};
 
     if (!stateNew.map_posts) stateNew.map_posts = {};
 
@@ -90,7 +87,9 @@ const processActionAddPost = (state = {}, action) => {
 
     if (!stateNew.map_tokens) stateNew.map_tokens = {};
 
-    stateNew.map_tokens[post.id] = arrTokensInitial;
+    stateNew.map_tokens[post.id] = post.data &&
+                                   (typeof post.data == 'string') &&
+                                   post.data.split(/\s+/) || ARR_EMPTY;
 
     return stateNew;
   };
