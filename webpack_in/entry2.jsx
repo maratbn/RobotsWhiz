@@ -79,13 +79,15 @@ const processActionAddPost = (state = {}, action) => {
                              post.data.split(/\s+/) || ARR_EMPTY,
           stateNew = {...state};
 
-    stateNew[post.id] = {id:         post.id,
-                         link_edit:  post.link_edit,
-                         name:       post.name,
-                         type:       post.type,
-                         template:   post.template,
-                         status:     post.status,
-                         data:       arrTokensInitial};
+    if (!stateNew.map) stateNew.map = {};
+
+    stateNew.map[post.id] = {id:         post.id,
+                             link_edit:  post.link_edit,
+                             name:       post.name,
+                             type:       post.type,
+                             template:   post.template,
+                             status:     post.status,
+                             data:       arrTokensInitial};
 
     return stateNew;
   };
@@ -101,27 +103,28 @@ const reducer = (state = {}, action) => {
 
               const { post_id, token } = action;
 
-              const arrTokensOld = state[post_id] &&
-                                   state[post_id].data || ARR_EMPTY,
+              const arrTokensOld = state.map[post_id] &&
+                                   state.map[post_id].data || ARR_EMPTY,
                     stateNew = {...state};
 
               if (action.type == ACTION__EXCLUDE_TOKEN) {
                 var indexToken = arrTokensOld.indexOf(token);
                 if (indexToken != -1) {
-                  stateNew[post_id] = {
-                                        ...state[post_id],
-                                        data: arrTokensOld.slice(0, indexToken)
+                  stateNew.map[post_id] = {
+                                            ...state[post_id],
+                                            data: arrTokensOld
+                                                          .slice(0, indexToken)
                                                           .concat(arrTokensOld
                                                                       .slice(indexToken + 1,
                                                                              arrTokensOld.length))
-                                      };
+                                          };
                 }
               } else if (action.type == ACTION__INCLUDE_TOKEN) {
                 if (arrTokensOld.indexOf(token) == -1) {
-                  stateNew[post_id] = {
-                                        ...state[post_id],
-                                        data: [...arrTokensOld, token].sort()
-                                      };
+                  stateNew.map[post_id] = {
+                                            ...state[post_id],
+                                            data: [...arrTokensOld, token].sort()
+                                          };
                 }
               }
 
@@ -146,8 +149,8 @@ const mapDispatchToProps_Post = (dispatch, ownProps) => ({
 
 const mapStateToProps_Post = (state, propsIn) => {
           let propsOut = {
-              post_tokens: state[propsIn.post_id] &&
-                           state[propsIn.post_id].data || ARR_EMPTY
+              post_tokens: state.map[propsIn.post_id] &&
+                           state.map[propsIn.post_id].data || ARR_EMPTY
             };
 
           propsOut.isIncluded = (strToken) => (propsOut.post_tokens.indexOf(strToken) >= 0);
