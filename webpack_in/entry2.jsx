@@ -101,7 +101,8 @@ const reducer = (state = {}, action) => {
 
               const { post_id, token } = action;
 
-              const arrTokensOld = state[post_id] && state[post_id].data || ARR_EMPTY,
+              const arrTokensOld = state[post_id] &&
+                                   state[post_id].data || ARR_EMPTY,
                     stateNew = {...state};
 
               if (action.type == ACTION__EXCLUDE_TOKEN) {
