@@ -137,7 +137,8 @@ const mapDispatchToProps_Post = (dispatch, ownProps) => ({
 
 const mapStateToProps_Post = (state, propsIn) => {
           let propsOut = {
-              post_tokens: state[propsIn.post_id] && state[propsIn.post_id].data || ARR_EMPTY
+              post_tokens: state[propsIn.post_id] &&
+                           state[propsIn.post_id].data || ARR_EMPTY
             };
 
           propsOut.isIncluded = (strToken) => (propsOut.post_tokens.indexOf(strToken) >= 0);
