@@ -81,8 +81,13 @@ const reducer = (state = {}, action) => {
                                        post.data.split(/\s+/) || ARR_EMPTY,
                     stateNew = {...state};
 
-              stateNew[post.id] = {...post,
-                                   data: arrTokensInitial};
+              stateNew[post.id] = {id:         post.id,
+                                   link_edit:  post.link_edit,
+                                   name:       post.name,
+                                   type:       post.type,
+                                   template:   post.template,
+                                   status:     post.status,
+                                   data:       arrTokensInitial};
 
               return stateNew;
             case ACTION__EXCLUDE_TOKEN:
