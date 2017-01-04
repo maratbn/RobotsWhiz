@@ -71,25 +71,31 @@ const createActionToAddPost = (post) => {
         };
 
 
+const processActionAddPost = (state = {}, action) => {
+    const { post } = action;
+
+    const arrTokensInitial = post.data &&
+                             (typeof post.data == 'string') &&
+                             post.data.split(/\s+/) || ARR_EMPTY,
+          stateNew = {...state};
+
+    stateNew[post.id] = {id:         post.id,
+                         link_edit:  post.link_edit,
+                         name:       post.name,
+                         type:       post.type,
+                         template:   post.template,
+                         status:     post.status,
+                         data:       arrTokensInitial};
+
+    return stateNew;
+  };
+
+
 const reducer = (state = {}, action) => {
           switch(action.type) {
             case ACTION__ADD_POST:
-              const { post } = action;
+              return processActionAddPost(state, action);
 
-              const arrTokensInitial = post.data &&
-                                       (typeof post.data == 'string') &&
-                                       post.data.split(/\s+/) || ARR_EMPTY,
-                    stateNew = {...state};
-
-              stateNew[post.id] = {id:         post.id,
-                                   link_edit:  post.link_edit,
-                                   name:       post.name,
-                                   type:       post.type,
-                                   template:   post.template,
-                                   status:     post.status,
-                                   data:       arrTokensInitial};
-
-              return stateNew;
             case ACTION__EXCLUDE_TOKEN:
             case ACTION__INCLUDE_TOKEN:
 
