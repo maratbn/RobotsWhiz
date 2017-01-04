@@ -78,14 +78,13 @@ const reducer = (state = {}, action) => {
 
               const arrTokensInitial = post.data &&
                                        (typeof post.data == 'string') &&
-                                       post.data.split(/\s+/) || ARR_EMPTY;
-              return {
-                  ...state,
-                  [post.id]: {
-                      ...post,
-                      data: arrTokensInitial
-                    }
-                };
+                                       post.data.split(/\s+/) || ARR_EMPTY,
+                    stateNew = {...state};
+
+              stateNew[post.id] = {...post,
+                                   data: arrTokensInitial};
+
+              return stateNew;
             case ACTION__EXCLUDE_TOKEN:
             case ACTION__INCLUDE_TOKEN:
 
