@@ -14,7 +14,7 @@
 
   https://github.com/maratbn/RobotsWhiz
 
-  Copyright (C) 2015-2016  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
+  Copyright (C) 2015-2017  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
   Version:        1.1.0-development_unreleased
 
