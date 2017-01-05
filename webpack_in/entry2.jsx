@@ -564,7 +564,8 @@ class TableOfPosts extends React.Component {
     return (
         <table className='robots-whiz--table'>
           <thead><TrHeader /></thead>
-          { this.props.posts.map((objPost, i) => {
+          { this.props.arr_sorted.map((idPost, i) => {
+                const objPost = this.props.map_posts[idPost];
                 return (
                     <tbody key={ objPost.id }>
                       <TrData indexRow={ i } post={ objPost } />
@@ -578,8 +579,14 @@ class TableOfPosts extends React.Component {
 }
 
 TableOfPosts.propTypes = {
-    posts:                    React.PropTypes.arrayOf(TrData.propTypes.post).isRequired
+    arr_sorted:               React.PropTypes.arrayOf(React.PropTypes.number).isRequired,
+    map_posts:                React.PropTypes.objectOf(TrData.propTypes.post).isRequired
   };
+
+TableOfPosts = connect((state, ownProps) => ({
+    arr_sorted:  state.arr_sorted,
+    map_posts:   state.map_posts
+  }))(TableOfPosts);
 
 
 window._plugin_RobotsWhiz__renderTable = function(elContainer, arrPosts) {
@@ -587,7 +594,7 @@ window._plugin_RobotsWhiz__renderTable = function(elContainer, arrPosts) {
         store.dispatch(createActionToAddPost(objPost));
       });
 
-    ReactDOM.render(<Provider store={ store }><TableOfPosts posts={ arrPosts } /></Provider>,
+    ReactDOM.render(<Provider store={ store }><TableOfPosts /></Provider>,
                     elContainer);
   };
 
