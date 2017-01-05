@@ -44,21 +44,21 @@
 const path = require('path');
 
 module.exports = {
-        entry: ['./webpack_in/entry.js',
-                './webpack_in/entry2.jsx'],
-        module: {
-                loaders: [{
-                        test:     /\.jsx$/,
-                        loader:   'babel-loader',
-                        exclude:  [/node_modules/],
-                        query: {
-                                presets: ['es2015', 'react'],
-                                plugins: ['transform-object-rest-spread']
-                            }
-                    }]
-            },
-        output: {
-                path:      path.join(__dirname, 'robotswhiz', 'webpack_out'),
-                filename:  'entry.js'
-            }
-    };
+    entry: ['./webpack_in/entry.js',
+            './webpack_in/entry2.jsx'],
+    module: {
+        loaders: [{
+            test:     /\.jsx$/,
+            loader:   'babel-loader',
+            exclude:  [/node_modules/],
+            query: {
+                presets: ['es2015', 'react'],
+                plugins: ['transform-object-rest-spread']
+              }
+          }]
+      },
+    output: {
+        path:      path.join(__dirname, 'robotswhiz', 'webpack_out'),
+        filename:  'entry.js'
+      }
+  };
