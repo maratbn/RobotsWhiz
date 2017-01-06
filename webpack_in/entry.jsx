@@ -94,6 +94,8 @@ const processActionAddPost = (state = {}, action) => {
 
     stateNew.arr_sorted.push(post.id);
     stateNew.arr_sorted.sort((a, b) => (a - b));
+    stateNew.sorting = {column:  'id',
+                        order:   'asc'};
 
     return stateNew;
   };
