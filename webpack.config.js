@@ -59,6 +59,6 @@ module.exports = {
       },
     output: {
         path:      path.join(__dirname, 'robotswhiz', 'webpack_out'),
-        filename:  'entry.js'
+        filename:  'robotswhiz.js'
       }
   };
