@@ -162,15 +162,26 @@ const mapStateToProps_Post = (state, propsIn) => {
 let mapStrings = null;
 
 
+class ThColumn extends React.Component {
+  render() {
+    return (<th className='robots-whiz--column-header'>{ this.props.name }</th>);
+  }
+}
+
+ThColumn.propTypes = {
+    name:                     React.PropTypes.string.isRequired
+  };
+
+
 class TrHeader extends React.Component {
   render() {
     return (
         <tr>
-          <th className='robots-whiz--column-header'>{ mapStrings.strColumnID }</th>
-          <th className='robots-whiz--column-header'>{ mapStrings.strColumnName }</th>
-          <th className='robots-whiz--column-header'>{ mapStrings.strColumnType }</th>
-          <th className='robots-whiz--column-header'>{ mapStrings.strColumnTemplate }</th>
-          <th className='robots-whiz--column-header'>{ mapStrings.strColumnStatus }</th>
+          <ThColumn name={ mapStrings.strColumnID } />
+          <ThColumn name={ mapStrings.strColumnName } />
+          <ThColumn name={ mapStrings.strColumnType } />
+          <ThColumn name={ mapStrings.strColumnTemplate } />
+          <ThColumn name={ mapStrings.strColumnStatus } />
         </tr>);
   }
 }
