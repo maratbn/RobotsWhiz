@@ -164,7 +164,9 @@ let mapStrings = null;
 
 class ThColumn extends React.Component {
   render() {
-    return (<th className='robots-whiz--column-header'>{ this.props.name }</th>);
+    return (<th className='robots-whiz--column-header'>
+              { this.props.name }
+            </th>);
   }
 }
 
