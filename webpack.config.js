@@ -45,7 +45,7 @@ const path = require('path');
 
 module.exports = {
     entry: ['./webpack_in/entry.js',
-            './webpack_in/entry2.jsx'],
+            './webpack_in/entry.jsx'],
     module: {
         loaders: [{
             test:     /\.jsx$/,
