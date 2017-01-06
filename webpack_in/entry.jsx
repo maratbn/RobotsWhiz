@@ -166,6 +166,10 @@ class ThColumn extends React.Component {
   render() {
     return (<th className='robots-whiz--column-header'>
               { this.props.name }
+              { this.props.current_sort_column == this.props.sort_id
+                  ? (this.props.current_sort_order == 'asc' ? <span>&#x25B2;</span>
+                                                            : <span>&#x25BC;</span>)
+                  : ""}
             </th>);
   }
 }
