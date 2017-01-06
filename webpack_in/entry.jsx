@@ -51,6 +51,7 @@ console.log("JSX entry logic.");
 const ACTION__ADD_POST      = 'ADD_POST',
       ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
       ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN',
+      ACTION__SORT_POSTS    = 'SORT_POSTS',
       ARR_EMPTY             = [],
       ARR_TOKENS_STANDARD   = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
@@ -68,6 +69,11 @@ const createActionToAddPost = (post) => {
           return {type:     ACTION__INCLUDE_TOKEN,
                   post_id:  post_id,
                   token:    strToken};
+        },
+      createActionToSortPosts = (column, order) => {
+          return {type:     ACTION__SORT_POSTS,
+                  column,
+                  order};
         };
 
 
@@ -100,11 +106,33 @@ const processActionAddPost = (state = {}, action) => {
     return stateNew;
   };
 
+const processActionSortPosts = (state = {}, action) => {
+    const { column, order } = action;
+
+    return {
+        ...state,
+        sorting: {column, order},
+        arr_sorted: [...state.arr_sorted].sort((a, b) => {
+            const postA = state.map_posts[a],
+                  postB = state.map_posts[b];
+
+            const dataA = postA[column],
+                  dataB = postB[column];
+
+            if (dataA < dataB) return (order == 'asc') ? -1 : 1;
+            if (dataA > dataB) return (order == 'asc') ? 1 : -1;
+            return 0;
+          })
+      };
+  };
 
 const reducer = (state = {}, action) => {
           switch(action.type) {
             case ACTION__ADD_POST:
               return processActionAddPost(state, action);
+
+            case ACTION__SORT_POSTS:
+              return processActionSortPosts(state, action);
 
             case ACTION__EXCLUDE_TOKEN:
             case ACTION__INCLUDE_TOKEN:
@@ -163,13 +191,24 @@ let mapStrings = null;
 
 
 class ThColumn extends React.Component {
+  onClick(event) {
+    event.preventDefault();
+
+    if (this.props.current_sort_column == this.props.sort_id) {
+      this.props.sortMe((this.props.current_sort_order == 'asc') ? 'desc' : 'asc');
+    } else {
+      this.props.sortMe(this.props.current_sort_order);
+    }
+  }
   render() {
     return (<th className='robots-whiz--column-header'>
-              { this.props.name }
-              { this.props.current_sort_column == this.props.sort_id
-                  ? (this.props.current_sort_order == 'asc' ? <span>&#x25B2;</span>
-                                                            : <span>&#x25BC;</span>)
-                  : ""}
+              <a href='#' onClick={ this.onClick.bind(this) }>
+                { this.props.name }
+                { this.props.current_sort_column == this.props.sort_id
+                    ? (this.props.current_sort_order == 'asc' ? <span>&#x25BC;</span>
+                                                              : <span>&#x25B2;</span>)
+                    : ""}
+              </a>
             </th>);
   }
 }
@@ -178,12 +217,18 @@ ThColumn.propTypes = {
     current_sort_column:      React.PropTypes.string.isRequired,
     current_sort_order:       React.PropTypes.string.isRequired,
     name:                     React.PropTypes.string.isRequired,
-    sort_id:                  React.PropTypes.string.isRequired
+    sort_id:                  React.PropTypes.string.isRequired,
+
+    sortMe:                   React.PropTypes.func.isRequired
   };
 
 ThColumn = connect((state) => ({
     current_sort_column:  state.sorting && state.sorting.column || null,
     current_sort_order:   state.sorting && state.sorting.order || null
+  }), (dispatch, ownProps) => ({
+    sortMe: (order) => {
+        dispatch(createActionToSortPosts(ownProps.sort_id, order));
+      }
   }))(ThColumn);
 
 
