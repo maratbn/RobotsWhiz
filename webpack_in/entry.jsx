@@ -169,7 +169,8 @@ class ThColumn extends React.Component {
 }
 
 ThColumn.propTypes = {
-    name:                     React.PropTypes.string.isRequired
+    name:                     React.PropTypes.string.isRequired,
+    sort_id:                  React.PropTypes.string.isRequired
   };
 
 
@@ -177,11 +178,11 @@ class TrHeader extends React.Component {
   render() {
     return (
         <tr>
-          <ThColumn name={ mapStrings.strColumnID } />
-          <ThColumn name={ mapStrings.strColumnName } />
-          <ThColumn name={ mapStrings.strColumnType } />
-          <ThColumn name={ mapStrings.strColumnTemplate } />
-          <ThColumn name={ mapStrings.strColumnStatus } />
+          <ThColumn name={ mapStrings.strColumnID } sort_id='id' />
+          <ThColumn name={ mapStrings.strColumnName } sort_id='name' />
+          <ThColumn name={ mapStrings.strColumnType } sort_id='type' />
+          <ThColumn name={ mapStrings.strColumnTemplate } sort_id='template' />
+          <ThColumn name={ mapStrings.strColumnStatus } sort_id='status' />
         </tr>);
   }
 }
