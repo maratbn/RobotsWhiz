@@ -20,7 +20,7 @@
 
   Module:         webpack_in/entry2.jsx
 
-  Description:    Original JSX source code.
+  Description:    Original JSX source code before Webpack processing.
 
   This file is part of Robots Meta Whiz.
 
