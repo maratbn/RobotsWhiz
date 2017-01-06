@@ -21,6 +21,7 @@
   Module:         webpack_in/entry.js
 
   Description:    Original JavaScript source code before Webpack processing.
+                  JSX source code is in 'entry.jsx'.
 
   This file is part of Robots Meta Whiz.
 
