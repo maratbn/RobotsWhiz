@@ -169,9 +169,16 @@ class ThColumn extends React.Component {
 }
 
 ThColumn.propTypes = {
+    current_sort_column:      React.PropTypes.string.isRequired,
+    current_sort_order:       React.PropTypes.string.isRequired,
     name:                     React.PropTypes.string.isRequired,
     sort_id:                  React.PropTypes.string.isRequired
   };
+
+ThColumn = connect((state) => ({
+    current_sort_column:  state.sorting && state.sorting.column || null,
+    current_sort_order:   state.sorting && state.sorting.order || null
+  }))(ThColumn);
 
 
 class TrHeader extends React.Component {
