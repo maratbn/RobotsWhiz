@@ -77,26 +77,6 @@ const createActionToAddPost = (post) => {
         };
 
 
-const processActionSortPosts = (state = {}, action) => {
-    const { column, order } = action;
-
-    return {
-        ...state,
-        sorting: {column, order},
-        arr_sorted: [...state.arr_sorted].sort((a, b) => {
-            const postA = state.map_posts[a],
-                  postB = state.map_posts[b];
-
-            const dataA = postA[column],
-                  dataB = postB[column];
-
-            if (dataA < dataB) return (order == 'asc') ? -1 : 1;
-            if (dataA > dataB) return (order == 'asc') ? 1 : -1;
-            return 0;
-          })
-      };
-  };
-
 const reducer = (state = {}, action) => {
           switch(action.type) {
             case ACTION__ADD_POST: {
@@ -129,7 +109,23 @@ const reducer = (state = {}, action) => {
               }
 
             case ACTION__SORT_POSTS: {
-                return processActionSortPosts(state, action);
+                const { column, order } = action;
+
+                return {
+                    ...state,
+                    sorting: {column, order},
+                    arr_sorted: [...state.arr_sorted].sort((a, b) => {
+                        const postA = state.map_posts[a],
+                              postB = state.map_posts[b];
+
+                        const dataA = postA[column],
+                              dataB = postB[column];
+
+                        if (dataA < dataB) return (order == 'asc') ? -1 : 1;
+                        if (dataA > dataB) return (order == 'asc') ? 1 : -1;
+                        return 0;
+                      })
+                  };
               }
 
             case ACTION__EXCLUDE_TOKEN:
