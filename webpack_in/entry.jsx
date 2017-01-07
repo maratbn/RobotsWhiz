@@ -77,6 +77,21 @@ const createActionToAddPost = (post) => {
         };
 
 
+const createArrSorted = (state, column, order) => {
+          return [...state.arr_sorted].sort((a, b) => {
+                      const postA = state.map_posts[a],
+                            postB = state.map_posts[b];
+
+                      const dataA = postA[column],
+                            dataB = postB[column];
+
+                      if (dataA < dataB) return (order == 'asc') ? -1 : 1;
+                      if (dataA > dataB) return (order == 'asc') ? 1 : -1;
+                      return 0;
+                    });
+        };
+
+
 const reducer = (state = {}, action) => {
           switch(action.type) {
             case ACTION__ADD_POST: {
@@ -114,17 +129,7 @@ const reducer = (state = {}, action) => {
                 return {
                     ...state,
                     sorting: {column, order},
-                    arr_sorted: [...state.arr_sorted].sort((a, b) => {
-                        const postA = state.map_posts[a],
-                              postB = state.map_posts[b];
-
-                        const dataA = postA[column],
-                              dataB = postB[column];
-
-                        if (dataA < dataB) return (order == 'asc') ? -1 : 1;
-                        if (dataA > dataB) return (order == 'asc') ? 1 : -1;
-                        return 0;
-                      })
+                    arr_sorted: createArrSorted(state, column, order)
                   };
               }
 
