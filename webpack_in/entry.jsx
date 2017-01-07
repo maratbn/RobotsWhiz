@@ -42,6 +42,7 @@
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import react_cookie from 'react-cookie';
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 
@@ -131,6 +132,9 @@ const reducer = (state = {}, action) => {
 
             case ACTION__SORT_POSTS: {
                 const { column, order } = action;
+
+                react_cookie.save('robotswhiz_sort_column', column);
+                react_cookie.save('robotswhiz_sort_order', order);
 
                 return {
                     ...state,
