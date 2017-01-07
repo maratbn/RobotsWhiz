@@ -128,36 +128,39 @@ const processActionSortPosts = (state = {}, action) => {
 
 const reducer = (state = {}, action) => {
           switch(action.type) {
-            case ACTION__ADD_POST:
-              return processActionAddPost(state, action);
-
-            case ACTION__SORT_POSTS:
-              return processActionSortPosts(state, action);
-
-            case ACTION__EXCLUDE_TOKEN:
-            case ACTION__INCLUDE_TOKEN:
-
-              const { post_id, token } = action;
-
-              const arrTokensOld = state.map_tokens[post_id] || ARR_EMPTY,
-                    stateNew = {...state};
-
-              if (action.type == ACTION__EXCLUDE_TOKEN) {
-                var indexToken = arrTokensOld.indexOf(token);
-                if (indexToken != -1) {
-                  stateNew.map_tokens[post_id] = arrTokensOld
-                                                        .slice(0, indexToken)
-                                                        .concat(arrTokensOld
-                                                                     .slice(indexToken + 1,
-                                                                            arrTokensOld.length));
-                }
-              } else if (action.type == ACTION__INCLUDE_TOKEN) {
-                if (arrTokensOld.indexOf(token) == -1) {
-                  stateNew.map_tokens[post_id] = [...arrTokensOld, token].sort();
-                }
+            case ACTION__ADD_POST: {
+                return processActionAddPost(state, action);
               }
 
-              return stateNew;
+            case ACTION__SORT_POSTS: {
+                return processActionSortPosts(state, action);
+              }
+
+            case ACTION__EXCLUDE_TOKEN:
+            case ACTION__INCLUDE_TOKEN: {
+
+                const { post_id, token } = action;
+
+                const arrTokensOld = state.map_tokens[post_id] || ARR_EMPTY,
+                      stateNew = {...state};
+
+                if (action.type == ACTION__EXCLUDE_TOKEN) {
+                  var indexToken = arrTokensOld.indexOf(token);
+                  if (indexToken != -1) {
+                    stateNew.map_tokens[post_id] = arrTokensOld
+                                                          .slice(0, indexToken)
+                                                          .concat(arrTokensOld
+                                                                       .slice(indexToken + 1,
+                                                                              arrTokensOld.length));
+                  }
+                } else if (action.type == ACTION__INCLUDE_TOKEN) {
+                  if (arrTokensOld.indexOf(token) == -1) {
+                    stateNew.map_tokens[post_id] = [...arrTokensOld, token].sort();
+                  }
+                }
+
+                return stateNew;
+              }
           }
 
           return state;
