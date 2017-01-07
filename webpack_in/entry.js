@@ -41,4 +41,3 @@
   along with Robots Meta Whiz.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-console.log("Entry logic.");

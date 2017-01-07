@@ -46,8 +46,6 @@ import react_cookie from 'react-cookie';
 import { createStore } from 'redux';
 import { Provider, connect } from 'react-redux';
 
-console.log("JSX entry logic.");
-
 
 const ACTION__ADD_POST        = 'ADD_POST',
       ACTION__EXCLUDE_TOKEN   = 'EXCLUDE_TOKEN',
