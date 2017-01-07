@@ -4,7 +4,7 @@
     $ npm install webpack
 
 
-2.  Install the 'babel-loader', 'babel-preset-es2015', and 'babel-preset-react' npm modules:
+2.  Install the npm modules 'babel-loader', 'babel-preset-es2015', and 'babel-preset-react':
 
     $ npm install babel-loader
 
@@ -22,7 +22,7 @@
     $ npm install babel-plugin-transform-object-rest-spread
 
 
-4.  Install the 'react' and 'react-dom' npm modules:
+4.  Install the npm modules 'react' and 'react-dom':
 
     $ npm install react
 
@@ -31,12 +31,12 @@
     $ npm install react-dom
 
 
-5.  Install the 'redux' npm module:
+5.  Install the npm module 'redux':
 
     $ npm install redux
 
 
-6.  Install the 'react-redux' npm module:
+6.  Install the npm module 'react-redux':
 
     $ npm install react-redux
 
