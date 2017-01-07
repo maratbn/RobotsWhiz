@@ -207,7 +207,8 @@ class ThColumn extends React.Component {
               </a>
               { this.props.current_sort_column == this.props.sort_id
                   ? <a href='#' onClick={ this.onClick.bind(this) }
-                       style={{textDecoration: 'none'}}>
+                       style={{position:        'absolute',
+                               textDecoration:  'none'}}>
                       { (this.props.current_sort_order == 'asc' ? <span>&#x25BC;</span>
                                                                 : <span>&#x25B2;</span>) }
                     </a>
