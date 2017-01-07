@@ -117,8 +117,11 @@ const reducer = (state = {}, action) => {
 
                 stateNew.arr_sorted.push(post.id);
 
-                stateNew.sorting = {column:  'id',
-                                    order:   'asc'};
+                if (!stateNew.sorting) {
+                  stateNew.sorting = {column:  'id',
+                                      order:   'asc'};
+                }
+
                 stateNew.arr_sorted = createArrSorted(stateNew,
                                                       stateNew.sorting.column,
                                                       stateNew.sorting.order);
