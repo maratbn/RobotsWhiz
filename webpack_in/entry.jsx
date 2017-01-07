@@ -207,7 +207,7 @@ class ThColumn extends React.Component {
                 { this.props.current_sort_column == this.props.sort_id
                     ? (this.props.current_sort_order == 'asc' ? <span>&#x25BC;</span>
                                                               : <span>&#x25B2;</span>)
-                    : ""}
+                    : "" }
               </a>
             </th>);
   }
