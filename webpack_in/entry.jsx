@@ -77,35 +77,6 @@ const createActionToAddPost = (post) => {
         };
 
 
-const processActionAddPost = (state = {}, action) => {
-    const { post } = action,
-          stateNew = {...state};
-
-    if (!stateNew.map_posts) stateNew.map_posts = {};
-
-    stateNew.map_posts[post.id] = {id:         post.id,
-                                   link_edit:  post.link_edit,
-                                   name:       post.name,
-                                   type:       post.type,
-                                   template:   post.template,
-                                   status:     post.status};
-
-    if (!stateNew.map_tokens) stateNew.map_tokens = {};
-
-    stateNew.map_tokens[post.id] = post.data &&
-                                   (typeof post.data == 'string') &&
-                                   post.data.split(/\s+/) || ARR_EMPTY;
-
-    if (!stateNew.arr_sorted) stateNew.arr_sorted = [];
-
-    stateNew.arr_sorted.push(post.id);
-    stateNew.arr_sorted.sort((a, b) => (a - b));
-    stateNew.sorting = {column:  'id',
-                        order:   'asc'};
-
-    return stateNew;
-  };
-
 const processActionSortPosts = (state = {}, action) => {
     const { column, order } = action;
 
@@ -129,7 +100,32 @@ const processActionSortPosts = (state = {}, action) => {
 const reducer = (state = {}, action) => {
           switch(action.type) {
             case ACTION__ADD_POST: {
-                return processActionAddPost(state, action);
+                const { post } = action,
+                      stateNew = {...state};
+
+                if (!stateNew.map_posts) stateNew.map_posts = {};
+
+                stateNew.map_posts[post.id] = {id:         post.id,
+                                               link_edit:  post.link_edit,
+                                               name:       post.name,
+                                               type:       post.type,
+                                               template:   post.template,
+                                               status:     post.status};
+
+                if (!stateNew.map_tokens) stateNew.map_tokens = {};
+
+                stateNew.map_tokens[post.id] = post.data &&
+                                               (typeof post.data == 'string') &&
+                                               post.data.split(/\s+/) || ARR_EMPTY;
+
+                if (!stateNew.arr_sorted) stateNew.arr_sorted = [];
+
+                stateNew.arr_sorted.push(post.id);
+                stateNew.arr_sorted.sort((a, b) => (a - b));
+                stateNew.sorting = {column:  'id',
+                                    order:   'asc'};
+
+                return stateNew;
               }
 
             case ACTION__SORT_POSTS: {
