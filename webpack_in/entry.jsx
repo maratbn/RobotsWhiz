@@ -54,7 +54,9 @@ const ACTION__ADD_POST        = 'ADD_POST',
       ACTION__INCLUDE_TOKEN   = 'INCLUDE_TOKEN',
       ACTION__SORT_POSTS      = 'SORT_POSTS',
       ARR_EMPTY               = [],
-      ARR_TOKENS_STANDARD     = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
+      ARR_TOKENS_STANDARD     = ['noindex', 'nofollow', 'noarchive', 'noimageindex'],
+      COOKIE_SORT_COLUMN      = 'robotswhiz_sort_column',
+      COOKIE_SORT_ORDER       = 'robotswhiz_sort_order';
 
 
 const createActionToAddPost = (post) => {
@@ -133,8 +135,8 @@ const reducer = (state = {}, action) => {
             case ACTION__SORT_POSTS: {
                 const { column, order } = action;
 
-                react_cookie.save('robotswhiz_sort_column', column);
-                react_cookie.save('robotswhiz_sort_order', order);
+                react_cookie.save(COOKIE_SORT_COLUMN, column);
+                react_cookie.save(COOKIE_SORT_ORDER, order);
 
                 return {
                     ...state,
