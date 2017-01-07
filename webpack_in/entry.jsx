@@ -116,9 +116,12 @@ const reducer = (state = {}, action) => {
                 if (!stateNew.arr_sorted) stateNew.arr_sorted = [];
 
                 stateNew.arr_sorted.push(post.id);
-                stateNew.arr_sorted.sort((a, b) => (a - b));
+
                 stateNew.sorting = {column:  'id',
                                     order:   'asc'};
+                stateNew.arr_sorted = createArrSorted(stateNew,
+                                                      stateNew.sorting.column,
+                                                      stateNew.sorting.order);
 
                 return stateNew;
               }
