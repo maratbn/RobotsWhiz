@@ -121,8 +121,8 @@ const reducer = (state = {}, action) => {
                 stateNew.arr_sorted.push(post.id);
 
                 if (!stateNew.sorting) {
-                  stateNew.sorting = {column:  'id',
-                                      order:   'asc'};
+                  stateNew.sorting = {column:  react_cookie.load(COOKIE_SORT_COLUMN) || 'id',
+                                      order:   react_cookie.load(COOKIE_SORT_ORDER) || 'asc'};
                 }
 
                 stateNew.arr_sorted = createArrSorted(stateNew,
