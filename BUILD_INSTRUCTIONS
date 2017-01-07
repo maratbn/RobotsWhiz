@@ -41,7 +41,12 @@
     $ npm install react-redux
 
 
-7.  Compile JavaScript with Webpack:
+7.  Install the npm module 'react-cookie':
+
+... $ npm install react-cookie
+
+
+8.  Compile JavaScript with Webpack:
 
     $ ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js
 
