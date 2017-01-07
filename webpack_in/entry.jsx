@@ -204,11 +204,13 @@ class ThColumn extends React.Component {
     return (<th className='robots-whiz--column-header'>
               <a href='#' onClick={ this.onClick.bind(this) }>
                 { this.props.name }
-                { this.props.current_sort_column == this.props.sort_id
-                    ? (this.props.current_sort_order == 'asc' ? <span>&#x25BC;</span>
-                                                              : <span>&#x25B2;</span>)
-                    : "" }
               </a>
+              { this.props.current_sort_column == this.props.sort_id
+                  ? <a href='#' onClick={ this.onClick.bind(this) }>
+                      { (this.props.current_sort_order == 'asc' ? <span>&#x25BC;</span>
+                                                                : <span>&#x25B2;</span>) }
+                    </a>
+                  : "" }
             </th>);
   }
 }
