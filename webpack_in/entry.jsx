@@ -49,12 +49,12 @@ import { Provider, connect } from 'react-redux';
 console.log("JSX entry logic.");
 
 
-const ACTION__ADD_POST      = 'ADD_POST',
-      ACTION__EXCLUDE_TOKEN = 'EXCLUDE_TOKEN',
-      ACTION__INCLUDE_TOKEN = 'INCLUDE_TOKEN',
-      ACTION__SORT_POSTS    = 'SORT_POSTS',
-      ARR_EMPTY             = [],
-      ARR_TOKENS_STANDARD   = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
+const ACTION__ADD_POST        = 'ADD_POST',
+      ACTION__EXCLUDE_TOKEN   = 'EXCLUDE_TOKEN',
+      ACTION__INCLUDE_TOKEN   = 'INCLUDE_TOKEN',
+      ACTION__SORT_POSTS      = 'SORT_POSTS',
+      ARR_EMPTY               = [],
+      ARR_TOKENS_STANDARD     = ['noindex', 'nofollow', 'noarchive', 'noimageindex'];
 
 
 const createActionToAddPost = (post) => {
