@@ -57,6 +57,12 @@ module.exports = {
               }
           }]
       },
+    resolve: {
+        alias: {
+            'react':      'preact-compat',
+            'react-dom':  'preact-compat'
+          }
+      },
     output: {
         path:      path.join(__dirname, 'robotswhiz', 'webpack_out'),
         filename:  'robotswhiz.js'

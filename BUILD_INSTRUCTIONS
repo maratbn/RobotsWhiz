@@ -22,13 +22,13 @@
     $ npm install babel-plugin-transform-object-rest-spread
 
 
-4.  Install the npm modules 'react' and 'react-dom':
+4.  Install the npm modules 'preact' and 'preact-compat':
 
-    $ npm install react
+    $ npm install preact
 
     ...
 
-    $ npm install react-dom
+    $ npm install preact-compat
 
 
 5.  Install the npm module 'redux':
