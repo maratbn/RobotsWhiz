@@ -41,7 +41,8 @@
   along with Robots Meta Whiz.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-const path = require('path');
+const path = require('path'),
+      webpack = require('webpack');
 
 module.exports = {
     entry: ['./webpack_in/entry.js',
@@ -66,5 +67,13 @@ module.exports = {
     output: {
         path:      path.join(__dirname, 'robotswhiz', 'webpack_out'),
         filename:  'robotswhiz.js'
-      }
+      },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin,
+        new webpack.optimize.DedupePlugin,
+        new webpack.DefinePlugin({'process.env': {
+                                      'NODE_ENV': JSON.stringify('production')
+                                    }
+                                  })
+      ]
   };
