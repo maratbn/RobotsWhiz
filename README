@@ -11,7 +11,7 @@ Licensed under GPL3.  See LICENSE.
 
 Overview:
 
-  At the time of this writing, the latest version of WordPress, version 4.6.1,
+  At the time of this writing, the latest version of WordPress, version 4.7,
   has functionality to discourage search engines from indexing the whole site,
   but not functionality to discourage search engines from indexing only certain
   specific pages and posts of the site.
