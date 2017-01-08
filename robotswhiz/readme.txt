@@ -72,6 +72,8 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 == Changelog ==
 
 = 1.1.0 =
+* Implemented user sorting of the posts table rows according to column values and in ascending or
+  descending order.
 * Having the robots meta tokens be sorted alphabetically.
 
 = 1.0.0 =
