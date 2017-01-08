@@ -1,52 +1,10 @@
 
-1.  Install Webpack Node.js module:
+1.  Install NPM dependencies:
 
-    $ npm install webpack
-
-
-2.  Install the npm modules 'babel-loader', 'babel-preset-es2015', and 'babel-preset-react':
-
-    $ npm install babel-loader
-
-    ...
-
-    $ npm install babel-preset-es2015
-
-    ...
-
-    $ npm install babel-preset-react
+    $ npm install
 
 
-3.  Install the npm module 'babel-plugin-transform-object-rest-spread':
-
-    $ npm install babel-plugin-transform-object-rest-spread
-
-
-4.  Install the npm modules 'preact' and 'preact-compat':
-
-    $ npm install preact
-
-    ...
-
-    $ npm install preact-compat
-
-
-5.  Install the npm module 'redux':
-
-    $ npm install redux
-
-
-6.  Install the npm module 'react-redux':
-
-    $ npm install react-redux
-
-
-7.  Install the npm module 'react-cookie':
-
-... $ npm install react-cookie
-
-
-8.  Compile JavaScript with Webpack:
+2.  Compile JavaScript with Webpack:
 
     $ ./node_modules/webpack/bin/webpack.js --config ./webpack.config.js
 
