@@ -184,7 +184,7 @@
             border-collapse:                            collapse;
             width:                                      100%;
         }
-        .robots-whiz--odd-row {
+        .robots-whiz--table tbody:nth-child(even) {
             background-color:                           #dde;
         }
         .robots-whiz--column-header {
