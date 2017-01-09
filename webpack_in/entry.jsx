@@ -599,9 +599,7 @@ CustomRow = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CustomRow);
 class TrData extends React.Component {
   render() {
     return (
-        <tr className={ 'robots-whiz--1st-row' + ((this.props.indexRow % 2 == 0)
-                                                                ? ' robots-whiz--odd-row'
-                                                                : "") }>
+        <tr className='robots-whiz--1st-row'>
           <td><a href={ this.props.post.link_edit }>{ this.props.post.id }</a></td>
           <td><a href={ this.props.post.link_edit }>{ this.props.post.name }</a></td>
           <td>{ this.props.post.type }</td>
@@ -615,7 +613,6 @@ class TrData extends React.Component {
 TrData.propTypes = {
 
     //  Data:
-    indexRow:                 React.PropTypes.number.isRequired,
     post:                     React.PropTypes.shape({
       id:                         React.PropTypes.number.isRequired,
       link_edit:                  React.PropTypes.string.isRequired,
@@ -631,9 +628,7 @@ TrData.propTypes = {
 class TrControls extends React.Component {
   render() {
     return (
-        <tr className={ 'robots-whiz--2nd-row' + ((this.props.indexRow % 2 == 0)
-                                                                ? ' robots-whiz--odd-row'
-                                                                : "") }>
+        <tr className='robots-whiz--2nd-row'>
           <td colSpan='5' className='robots-whiz--td--checkboxes'>
             <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id } />
@@ -657,8 +652,8 @@ class TableOfPosts extends React.Component {
                 const objPost = this.props.map_posts[idPost];
                 return (
                     <tbody key={ objPost.id }>
-                      <TrData indexRow={ i } post={ objPost } />
-                      <TrControls indexRow={ i } post={ objPost } />
+                      <TrData post={ objPost } />
+                      <TrControls post={ objPost } />
                     </tbody>
                   );
               }) }
