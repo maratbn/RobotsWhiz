@@ -83,8 +83,11 @@ const createArrSorted = (state, column, order) => {
                       const postA = state.map_posts[a],
                             postB = state.map_posts[b];
 
-                      const dataA = postA[column],
-                            dataB = postB[column];
+                      let dataA = postA[column],
+                          dataB = postB[column];
+
+                      if (dataA === false) dataA = "";
+                      if (dataB === false) dataB = "";
 
                       if (dataA < dataB) return (order == 'asc') ? -1 : 1;
                       if (dataA > dataB) return (order == 'asc') ? 1 : -1;
