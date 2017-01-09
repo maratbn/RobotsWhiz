@@ -187,6 +187,9 @@
         .robots-whiz--table tbody:nth-child(even) {
             background-color:                           #dde;
         }
+        .robots-whiz--1st-row {
+            border-bottom:                              1px dashed #bbb;
+        }
         .robots-whiz--column-header {
             padding-right:                              15px;
             text-align:                                 left;
