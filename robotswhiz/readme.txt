@@ -72,6 +72,8 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 == Changelog ==
 
 = 1.2.0 =
+* Inserted thin dashed line between each post attribute row and the tokens row for better
+  readability.
 * Fixed incorrect sorting of the page template column occuring under WordPress version < 4.7
 
 = 1.1.0 =
