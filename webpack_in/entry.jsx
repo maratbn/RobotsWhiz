@@ -78,8 +78,9 @@ const createActionToAddPost = (post) => {
         };
 
 
-const convertArrTokensToStr = (arrTokens) => (arrTokens.join(", ").replace(/\\/g, "\\\\")
-                                                                  .replace(/"/g, "\\\""));
+const convertArrTokensToStr = (arrTokens) => (arrTokens &&
+                                              arrTokens.join(", ").replace(/\\/g, "\\\\")
+                                                                  .replace(/"/g, "\\\"") || "");
 
 const createArrSorted = (state, column, order) => {
           return [...state.arr_sorted].sort((a, b) => {
