@@ -72,6 +72,7 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 == Changelog ==
 
 = 1.2.0 =
+* Updated screenshot.
 * Added the ability to also sort the posts table by the robot restriction tokens.
 * Inserted thin dashed line between each post attribute row and the tokens row for better
   readability.
