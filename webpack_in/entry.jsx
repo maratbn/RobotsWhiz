@@ -167,6 +167,10 @@ const reducer = (state = {}, action) => {
                 const arrTokensOld = state.map_tokens[post_id] || ARR_EMPTY,
                       stateNew = {...state};
 
+                if (state.sorting.column == 'tokens') {
+                  stateNew.sorting.column = null;
+                }
+
                 if (action.type == ACTION__EXCLUDE_TOKEN) {
                   var indexToken = arrTokensOld.indexOf(token);
                   if (indexToken != -1) {
@@ -244,7 +248,7 @@ class ThColumn extends React.Component {
 }
 
 ThColumn.propTypes = {
-    current_sort_column:      React.PropTypes.string.isRequired,
+    current_sort_column:      React.PropTypes.string,
     current_sort_order:       React.PropTypes.string.isRequired,
     name:                     React.PropTypes.string.isRequired,
     sort_id:                  React.PropTypes.string.isRequired,
