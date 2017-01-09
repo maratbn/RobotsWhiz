@@ -599,7 +599,7 @@ CustomRow = connect(mapStateToProps_Post, mapDispatchToProps_Post)(CustomRow);
 class TrData extends React.Component {
   render() {
     return (
-        <tr className={ 'robots-whiz--2nd-row' + ((this.props.indexRow % 2 == 0)
+        <tr className={ 'robots-whiz--1st-row' + ((this.props.indexRow % 2 == 0)
                                                                 ? ' robots-whiz--odd-row'
                                                                 : "") }>
           <td><a href={ this.props.post.link_edit }>{ this.props.post.id }</a></td>
