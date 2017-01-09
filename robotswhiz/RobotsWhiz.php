@@ -7,7 +7,7 @@
   Author: Marat Nepomnyashy
   Author URI: http://www.maratbn.com
   License: GPL3
-  Version: 1.2.0-development_unreleased
+  Version: 1.2.0-development_unreleased_candidate
   Text Domain: domain-plugin-RobotsWhiz
 */
 
@@ -29,7 +29,7 @@
 
   Copyright (C) 2015-2017  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
-  Version:        1.2.0-development_unreleased
+  Version:        1.2.0-development_unreleased_candidate
 
   Module:         robotswhiz/RobotsWhiz.php
 
@@ -56,7 +56,7 @@
     namespace plugin_RobotsWhiz;
 
 
-    const PLUGIN_VERSION = '1.2.0-development_unreleased';
+    const PLUGIN_VERSION = '1.2.0-development_unreleased_candidate';
 
 
     const IS_MODE_RELEASE = false;
