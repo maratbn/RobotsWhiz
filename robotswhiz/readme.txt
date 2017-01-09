@@ -71,6 +71,9 @@ Post pull requests at: https://github.com/maratbn/RobotsWhiz/pulls
 
 == Changelog ==
 
+= 1.2.0 =
+* Fixed incorrect sorting of the page template column occuring under WordPress version < 4.7
+
 = 1.1.0 =
 * Implemented user sorting of the posts table rows according to column values and in ascending or
   descending order.
