@@ -84,6 +84,15 @@ const convertArrTokensToStr = (arrTokens) => (arrTokens &&
 
 const createArrSorted = (state, column, order) => {
           return [...state.arr_sorted].sort((a, b) => {
+                      if (column == 'tokens') {
+                        const strTokensA = convertArrTokensToStr(state.map_tokens[a]),
+                              strTokensB = convertArrTokensToStr(state.map_tokens[b]);
+
+                        if (strTokensA < strTokensB) return (order == 'asc') ? -1 : 1;
+                        if (strTokensA > strTokensB) return (order == 'asc') ? 1 : -1;
+                        return 0;
+                      }
+
                       const postA = state.map_posts[a],
                             postB = state.map_posts[b];
 
