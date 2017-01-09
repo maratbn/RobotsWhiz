@@ -78,6 +78,9 @@ const createActionToAddPost = (post) => {
         };
 
 
+const convertArrTokensToStr = (arrTokens) => (arrTokens.join(", ").replace(/\\/g, "\\\\")
+                                                                  .replace(/"/g, "\\\""));
+
 const createArrSorted = (state, column, order) => {
           return [...state.arr_sorted].sort((a, b) => {
                       const postA = state.map_posts[a],
@@ -270,11 +273,8 @@ class Readout extends React.Component {
           <div className='robots-whiz--readout'>
             { this.props.post_tokens.length == 0
                 ? '\u00A0'
-                : "<meta name=\"robots\" content=\"" + this.props
-                                                              .post_tokens
-                                                                .join(", ")
-                                                                .replace(/\\/g, "\\\\")
-                                                                .replace(/"/g, "\\\"")
+                : "<meta name=\"robots\" content=\"" + convertArrTokensToStr(this.props
+                                                                                     .post_tokens)
                                                      + "\">" }
           </div>);
     }
