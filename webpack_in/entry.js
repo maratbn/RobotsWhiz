@@ -16,7 +16,7 @@
 
   Copyright (C) 2015-2017  Marat Nepomnyashy  http://maratbn.com  maratbn@gmail
 
-  Version:        1.2.0-development_unreleased_candidate
+  Version:        1.2.0
 
   Module:         webpack_in/entry.js
 
