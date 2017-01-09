@@ -255,6 +255,7 @@ class TrHeader extends React.Component {
         <tr>
           <ThColumn name={ mapStrings.strColumnID } sort_id='id' />
           <ThColumn name={ mapStrings.strColumnName } sort_id='name' />
+          <ThColumn name={ mapStrings.strColumnTokens } sort_id='tokens' />
           <ThColumn name={ mapStrings.strColumnType } sort_id='type' />
           <ThColumn name={ mapStrings.strColumnTemplate } sort_id='template' />
           <ThColumn name={ mapStrings.strColumnStatus } sort_id='status' />
@@ -601,7 +602,7 @@ class TrData extends React.Component {
     return (
         <tr className='robots-whiz--1st-row'>
           <td><a href={ this.props.post.link_edit }>{ this.props.post.id }</a></td>
-          <td><a href={ this.props.post.link_edit }>{ this.props.post.name }</a></td>
+          <td colspan='2'><a href={ this.props.post.link_edit }>{ this.props.post.name }</a></td>
           <td>{ this.props.post.type }</td>
           <td>{ this.props.post.template }</td>
           <td>{ this.props.post.status }</td>
@@ -629,7 +630,7 @@ class TrControls extends React.Component {
   render() {
     return (
         <tr className='robots-whiz--2nd-row'>
-          <td colSpan='5' className='robots-whiz--td--checkboxes'>
+          <td colSpan='6' className='robots-whiz--td--checkboxes'>
             <Readout post_id            ={ this.props.post.id } />
             <CheckboxRow post_id        ={ this.props.post.id } />
             <CustomRow post_id          ={ this.props.post.id } />

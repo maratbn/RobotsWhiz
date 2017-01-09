@@ -275,6 +275,9 @@
                       strColumnName
                             = "<?=\__('Post Name', 'domain-plugin-RobotsWhiz')?>",
 
+                      strColumnTokens
+                            = "<?=\__('Tokens', 'domain-plugin-RobotsWhiz')?>",
+
                       strColumnType
                             = "<?=\__('Post Type', 'domain-plugin-RobotsWhiz')?>",
 
@@ -303,6 +306,7 @@
                   window._plugin_RobotsWhiz__setStrings({
                           strColumnID:              strColumnID,
                           strColumnName:            strColumnName,
+                          strColumnTokens:          strColumnTokens,
                           strColumnType:            strColumnType,
                           strColumnTemplate:        strColumnTemplate,
                           strColumnStatus:          strColumnStatus,
